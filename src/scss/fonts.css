@@ -1,0 +1,134 @@
+/*lato*/
+@import '@fontsource/lato/100.css';
+@import '@fontsource/lato/300.css';
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/700.css';
+@import '@fontsource/lato/900.css';
+/*anton*/
+@import '@fontsource/anton';
+
+/*poppins*/
+@import '@fontsource/poppins/100.css';
+@import '@fontsource/poppins/200.css';
+@import '@fontsource/poppins/300.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/poppins/800.css';
+
+/*josefin*/
+@import '@fontsource-variable/josefin-sans';
+/*kalam*/
+@import '@fontsource/kalam';
+/*open-sans*/
+/*// Supports weights 300-800*/
+@import '@fontsource-variable/open-sans/wdth-italic.css';
+/*roboto-mono*/
+/*// Supports weights 100-700*/
+@import '@fontsource-variable/roboto-mono';
+/*// Supports weights 200-700*/
+@import '@fontsource-variable/oswald';
+
+/*// Supports weights 100-900*/
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/raleway';
+@import '@fontsource/bona-nova';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/nunito-sans';
+@import '@fontsource/ubuntu';
+@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource/fira-sans';
+@import '@fontsource-variable/rubik';
+@import '@fontsource/dm-mono';
+
+
+
+
+
+.anton {
+    font-family: 'Anton', sans-serif;
+}
+
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.josefin {
+    font-family: 'Josefin Sans Variable', sans-serif;
+}
+
+.kalam {
+    font-family: 'Kalam', cursive;
+}
+
+.open-sans {
+    font-family: 'Open Sans Variable', sans-serif;
+}
+
+
+.roboto-mono {
+    font-family: 'Roboto Mono Variable', monospace;
+}
+
+.oswald {
+    font-family: 'Oswald Variable', sans-serif;
+}
+
+.montserrat {
+    font-family: 'Montserrat Variable', sans-serif;
+}
+
+.raleway {
+    font-family: 'Raleway Variable', sans-serif;
+}
+
+
+.nova {
+    font-family: 'Bona Nova', serif;
+}
+
+.inter {
+    font-family: 'Inter Variable', sans-serif;
+
+}
+
+.dm-sans {
+    font-family: 'DM Sans Variable', sans-serif;
+}
+
+
+.nunito {
+    font-family: 'Nunito Sans Variable', sans-serif;
+
+}
+
+.ubuntu {
+      font-family: 'Ubuntu', sans-serif;
+
+}
+
+.jetbrains {
+      font-family: 'JetBrains Mono Variable', monospace;
+
+}
+
+.fira {
+      font-family: 'Fira Sans', sans-serif;
+
+}
+
+.rubik {
+      font-family: 'Rubik Variable', sans-serif;
+
+}
+
+.dm-mono {
+      font-family: 'DM Mono', monospace;
+
+}

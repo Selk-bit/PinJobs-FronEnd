@@ -1,0 +1,1009 @@
+{
+  "update": "Update",
+  "error": "Error occurred, try Again later",
+  "page": {
+    "defaultTitle": "PinJobs",
+    "home": "Home",
+    "candidates": "PinJobs - Manage list of Candidates",
+    "consultation": "PinJobs - Manage list of templates ",
+    "editor": "PinJobs - Edit and Format Candidates resumes ",
+    "settings": "PinJobs - Account settings ",
+    "invoice": "PinJobs - manage your invoices ",
+    "create": "PinJobs - Create your own Template ",
+    "candidateDetails": "PinJobs - Candidate resume details ",
+    "purchaseCredits": "PinJobs - Buy Credits "
+  },
+  "Sample Page": "Sample Page",
+  "Menu Level": "Menu level",
+  "Level 1": "Level 1",
+  "Level 2": "Level 2",
+  "Level 3": "Level 3",
+  "Disabled": "Disabled",
+  "Sub Caption": "Sub Caption",
+  "Outlined": "Outlined",
+  "External Link": "External Link",
+  "Chip": "Chip",
+  "filter": "Filter",
+  "en": "English",
+  "fr": "French",
+  "dashboard": "Dashboard",
+  "models": "Models",
+  "creation": "Creation",
+  "personalization": "Personnalisation",
+  "consultation": "Consultation",
+  "chargement": "Loading Data",
+  "editor": "Editor",
+  "candidates": "Candidates",
+  "billing": "Billing",
+  "support": "Support",
+  "pricing": {
+    "discount": {
+      "title": "Discount by {discount}",
+      "text": "Enjoy a limited-time discount on all",
+      "rest": "our premium plans."
+    },
+    "pricing": "Pricing",
+    "title": "Personalize Your Credits And",
+    "rest": "Pay Only for What You Need!",
+    "selectCredits": "Select the number of credits you want to purchase",
+    "tip": "Tap on the credit amount to adjust it manually or enter your desired amount.",
+    "credits": "Credits",
+    "creditCVPersonalization": "Credit for CV Personalization",
+    "creditCVTranslation": "Credit for CV Translation",
+    "creditContentGeneration": "Credit for Content Generation",
+    "creditCVTech": "Credit for CV Tech",
+    "creditEnterpriseDesignImport": "Credit for Enterprise Design Importation",
+    "claimNow": "Claim now",
+    "totalPayment": "Total Payment Is",
+    "successModal": {
+      "title": "Payment Successful",
+      "text": "Your payment was successfully processed!"
+    },
+    "freeText": "It's free, Try it out !"
+  },
+  "invoice": "Invoice",
+  "buyCredits": "Purchase credits",
+  "settings": "Settings",
+  "testing": "Testing",
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "Auth": {
+    "welcome": "Welcome!",
+    "email": "Email",
+    "emailPlaceholder": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "forgotPassword": "Forgot Password?",
+    "login": "Login"
+  },
+  "Error": {
+    "oops": "Oops!!!",
+    "notFound": "The page you are looking for could not be found.",
+    "goBackHome": "Go Back to Home"
+  },
+  "Settings": {
+    "alerts": {
+      "change-client-name": "If you want to change the client's name, please contact support (app{'@'}PinJobs.io)"
+    },
+    "right": "Right",
+    "left": "Left",
+    "editor": {
+      "editor": "Editor",
+      "card": "Card mode",
+      "dialog": "Dialog mode"
+    },
+    "updateSuccess": "Your settings have been successfully updated!",
+    "title": "Settings",
+    "account": {
+      "account": "Account details",
+      "user": "User details",
+      "accountName": "Name",
+      "updateUser": "Update user",
+      "updateClient": "Update client",
+      "notificationPosition": "Notification position",
+      "onlyPng": "Only  files with PNG format are allowed",
+      "firstAndLastNameRequired": "Last name and first name cannot be empty",
+      "title": "Account settings",
+      "myProfile": "My profile",
+      "description": "Here, you can update your account information such as your profile picture, name, and username.",
+      "pictureUrl": "Picture URL",
+      "name": "First Name",
+      "lastName": "Last name",
+      "phone": "Phone number",
+      "age": "Age",
+      "city": "City",
+      "country": "Country",
+      "numJobsToScrape": "Number of jobs to scrape per run",
+      "scrapeInterval": "Scraping interval",
+      "scrapeUnit": "Interval unit",
+      "hours": "Hours",
+      "days": "Days",
+      "weeks": "Weeks",
+      "username": "Username",
+      "email": "Email",
+      "verified": "Verified",
+      "notVerified": "Not Verified",
+      "submitChanges": "Submit Changes"
+    },
+    "add": {
+      "addUsers": "Add Users",
+      "text": "Assign users to your client",
+      "list": "List of users",
+      "create": "Create User",
+      "modal-confirmation": {
+        "title": "User Created Successfully",
+        "text": "The user has been created, and a confirmation email has been sent. Please inform the concerned person to verify their account to activate it.",
+        "confirm":"Alright"
+      },
+      "messages": {
+        "firstNameRequired": "Please enter your first name.",
+        "lastNameRequired": "Please enter your last name.",
+        "emailRequired": "Please enter your email address.",
+        "passwordRequired": "Please enter your password.",
+        "createSuccess": "User account has been created successfully, check email for verification",
+        "errorOccurred": "An error has occurred."
+      }
+    },
+    "security": {
+        "tabLabel": "Security Settings",
+      "changePassword": {
+        "title": "Reset Your Password",
+        "description": "Please enter your current password and set a new one.",
+        "oldPassword": "Old Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm New Password",
+        "submit": "Reset Password",
+        "loading": {
+          "text": "Updating Password"
+        },
+        "errors": {
+          "required": "This field is required",
+          "match": "Passwords do not match",
+          "invalid": "Invalid credentials. Please try again."
+        }
+      },
+      "title": "Security",
+      "description": "In this section, you can change your password and enable/disable two-factor authentication.",
+      "password": "Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "twoFA": "Two-Factor Authentication",
+      "twoFADescriptionDisabled": "Two-Factor Authentication is currently disabled. You can enable it by adding an Authenticator app to your account.",
+      "enable2FA": "Enable 2FA",
+      "twoFADescriptionEnabled": "Two-Factor Authentication is currently enabled. You can disable it by clicking the button below.",
+      "disable2FA": "Disable 2FA"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Here, you can update your profile to customize and personalize your experience.",
+      "theme": "Theme",
+      "language": "Language"
+    },
+    "save": "Save"
+  },
+  "Candidates": {
+    "filter": {
+      "skill-tip": "you can filter candidates based on weather you want to match them with having at least that skill or match strictly the candidates that have the selected, choice is yours !",
+      "only-selected": "Match Only Selected Skills",
+      "at-least-one": "Match At Least One Skill",
+      "apply-filters": "Apply Filters",
+      "reference": "Reference",
+      "name": "Candidate Name",
+      "email": "Email",
+      "models": "Models",
+      "skills": "Skills",
+      "exp": "Years of experience",
+      "headline": "Headline | Job title",
+      "languages": "Languages",
+      "certification": "Certification"
+    },
+    "messages": {
+      "deleteAllMessage": "The items have been deleted successfully"
+    },
+    "invalidFiles": "No valid files were uploaded. Please verify if the uploaded files are not scanned!",
+    "title": "Candidates",
+    "search": "Search by keyword",
+    "noDataFound": "No data found",
+    "download": "Download",
+    "downloaded": "Downloading...",
+    "headers": {
+      "ID": "#ID",
+      "name": "Name",
+      "email": "Email",
+      "createdAt": "Created at",
+      "updatedAt": "Updated at",
+      "oldResume": "Old resume",
+      "newResume": "New resume",
+      "actions": "Actions"
+    },
+    "sendLink": {
+      "title": "Update Candidates Profile Easily !",
+      "text": "To update your Candidates information, send it to their email for easy access.",
+      "send": "Send Email",
+      "sent": "Email sent !",
+      "sendSuccess": "Email sent successfully !"
+    },
+    "deleteModal": {
+      "confirmDeleteMessage": "This will delete the selected item, proceed?",
+      "yes": "Yes, Delete",
+      "cancel": "Cancel"
+    }
+  },
+  "Models": {
+    "consultation": {
+      "upload-nb": {
+        "acceptFormats": "(We accept .pdf or .doc or .docx)",
+        "customSetup": "Setting up your custom model takes up to 48 hours. If you're in a hurry, feel free to use one of our pre-built models."
+      },
+      "toasts": {
+        "correctFormat": "File must be a PDF or Word document (.doc, .docx)",
+        "nameRequired": "Name is Required",
+        "emailsRequired": "Emails is Required",
+        "templateUploadSuccess": "Templated was uploaded successfully!",
+        "templateAlreadyExist": "A model is already sent from this Client pending approval, Contact support for more information",
+        "duplicateEmail": "It seems this email has already been used. Please use a different email",
+        "invalidEmail": "Invalid email, Enter a valid Email address",
+        "emailPlaceholder": "Enter email",
+        "modelUpdated": "Model updated !",
+        "modelDeleted": "Model deleted !"
+      },
+      "emailInputTip": {
+        "showTips": "Afficher les conseils",
+        "emailGuidelinesTitle": "Email Input Guidelines",
+        "emailComma": "You can enter multiple email addresses separated by commas (`,`).",
+        "duplicateEmail": "Duplicate email addresses are not allowed.",
+        "invalidEmail": "Invalid email addresses will not be accepted.",
+        "closeButton": "Fermer"
+      },
+      "title": "Consultation",
+      "breadcrumbs": {
+        "models": "Models",
+        "consultation": "Consultation"
+      },
+      "templateName": "Template name",
+      "searchPlaceholder": "Search by model",
+      "newModel": "New Model",
+      "importModel": "Import model",
+      "chooseFileImport": "Upload and attach model file",
+      "clickToUploadFile": "Click to upload the file",
+      "noDataFound": "No Data found",
+      "visualize": "Visualize",
+      "edit": "Edit",
+      "delete": "Delete",
+      "send": "Send link",
+      "headers": {
+        "ID": "#ID",
+        "name": "Name",
+        "uses": "Uses",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at",
+        "actions": "Actions"
+      }
+    },
+    "creation": {
+      "personnel": {
+        "title": "Personnel",
+        "showName": "Show name",
+        "showAge": "Show age",
+        "showCity": "Show city",
+        "showEmail": "Show email",
+        "showPhone": "Show phone",
+        "reference": "Reference",
+        "modelReference": "Model Reference",
+        "enterReference": "Enter reference",
+        "choose-info": "Please select the information to display instead of the name:",
+        "alias-tip": "The alias property is provided during the candidate data entry phase. The current one is used for reference only."
+      },
+      "logo": {
+        "logoTitle": "Logo",
+        "picture": "Picture",
+        "logoMessage": "Please copy and paste the link to the company's LinkedIn photo.",
+        "size": "Size",
+        "aspectRatio": "Aspect Ratio",
+        "borderRadius": "Border Radius",
+        "effects": "Effects",
+        "border": "Border",
+        "hidden": "Hidden",
+        "grayscale": "Grayscale"
+      },
+      "page": {
+        "pageTitle": "Page",
+        "format": "Format",
+        "options": "Options",
+        "showHeadline": "Show Headline",
+        "showSummary": "Show Summary"
+      },
+      "sections": {
+        "sectionsTitle": "Sections",
+        "main": "Main",
+        "sidebar": "Sidebar",
+        "certifications": "Certifications",
+        "education": "Education",
+        "experience": "Professional Experience",
+        "volunteering": "Volunteering",
+        "projects": "Projects",
+        "references": "References",
+        "interests": "Interests",
+        "languages": "Languages",
+        "skills": "Skills",
+        "social": "Social",
+        "visible": "Visible",
+        "hidden": "Hidden"
+      },
+      "template": {
+        "templateTitle": "Template",
+        "public": "Public",
+        "private": "Private",
+        "privateText": "This section contains your enterprise templates. Once they are approved, they will be displayed here."
+      },
+      "theme": {
+        "themeTitle": "Theme",
+        "background": "Background",
+        "text": "Text",
+        "primary": "Primary"
+      },
+      "typography": {
+        "typographyTitle": "Typography",
+        "fontSize": "Font Size",
+        "lineHeight": "Line Height",
+        "options": "Options",
+        "underlineLinks": "Underline Links",
+        "fontsMessage": "These are the best handpicked fonts, highly liked by our users and recommended by us. They have consistently contributed to the most success with our candidates. We encourage you to use these fonts for a professional and impactful resume."
+      },
+      "register": {
+        "modelName": "Model Name",
+        "modelCreated": "Model created successfully !",
+        "createModel": "Create Model",
+        "backToModels": "  Back to Models"
+      }
+    }
+  },
+  "Resumes": {
+    "translation-feature": {
+      "translation-success": "translation finished",
+      "translation-dialog-title": "Confirm translation",
+      "translation-dialog-confirm": "Yes, Translate",
+      "translation-dialog-text": "The candidate data you selected is in a different language than the template. Would you like to proceed with translation to match the required language?",
+      "translation-dialog-cancel": "No, Cancel",
+      "translation-dialog-wait-message": "translating Data.."
+    },
+    "alert": {
+      "correct-language": "   Please ensure that all information is entered in {lang}, as this template requires data to be provided in   the specified language. Adhering to this requirement is crucial for the proper processing and evaluation of your submission."
+    },
+    "chargement": {
+      "notFormated": "Is not formatted correctly. Please select non-scanned CVs. Thank you.",
+      "uploadingFiles": "Uploading file(s)",
+      "extractingData": "Extracting Data",
+      "title": "Loading",
+      "waitText": "Please wait while your data is being uploaded. You will be notified once it is ready.",
+      "close": "Close",
+      "breadcrumbs": {
+        "personnalisation": "Personalization",
+        "chargement": "Loading Data"
+      },
+      "headers": {
+        "ID": "#ID",
+        "name": "Name",
+        "email": "Email",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at",
+        "actions": "Actions"
+      },
+      "loadCandidateData": "Load Candidates",
+      "dataRefresh": "Data up to date!",
+      "importSuccess": "Candidates files  imported!",
+      "incorrectFileType": "Only pdf format is accepted",
+      "importError": "Candidates import failed !",
+      "noDataFound": "No Data found",
+      "searchText": "Search by candidate",
+      "chooseFileImport": "Upload and attach files",
+      "selectFile": "Select a file",
+      "importFile": "Import file",
+      "importMaxFiles": "You have exceeded the maximum allowed limit of {limit} files.",
+      "cancel": "Cancel",
+      "import": "Import",
+      "clickToUploadFiles": "Click to upload files",
+      "maxFiles": "Maximum number of files is {limit}"
+    },
+    "editor": {
+      "empty": {
+        "looksEmptyHere": "Looks empty here!",
+        "startBy": "Start by",
+        "selectingCandidates": "selecting candidates",
+        "and": "and",
+        "selectTemplate": "select a template",
+        "toGetStarted": "to get started",
+        "noTemplateSelected": "No template selected "
+      },
+      "progress": {
+        "templateSelected": "Template selected",
+        "candidateSelected": "Candidates selected"
+      },
+      "candidateDialog": {
+        "title": "Streamline Candidate Profile Updates",
+        "text": "Effortlessly manage and update your candidates' resume data by selecting multiple candidates and sending them personalized update requests. Ensure all profiles stay current with just a few clicks, saving time while keeping information accurate and up-to-date."
+      },
+      "templateDialog": {
+        "title": "Simplify Candidate Data Entry with Templates",
+        "text": "Quickly populate candidate profiles by selecting a template that matches your needs. Streamline the data entry process, ensuring consistency and efficiency while filling in candidate information with just a few easy steps."
+      },
+      "original": "Original",
+      "selectModel": "Select model",
+      "syncData": "Sync Data",
+      "selectCandidates": "Select Candidates",
+      "selectTemplate": "Select Template before reviewing",
+      "noDataMessage": "No models found",
+      "noData": "No data",
+      "clearAll": "Clear all",
+      "noCandidates": "No Candidates selected",
+      "fileNotFound": "File Not Found",
+      "summary": {
+        "title": "Generate a Professional Summary Based on Your Resume Data",
+        "text": "Generate a summary that perfectly showcases your experience and skills, leaving a positive impression on employers. Tailored to your resume data, it's the ideal way to highlight your strengths.",
+        "noSummary": "Try generating a Professional summary based on your personal data",
+        "opening": "Here’s Your Newly Generated Resume",
+        "generate": "generate",
+        "note": "Please note that selecting a new generated resume will replace the current one, and only the selected resume will be saved to your profile. Ensure your choice before proceeding.",
+        "summaryCard": {
+          "remove": "Remove Summary",
+          "pick": "Choose this Summary"
+        },
+        "toast": {
+          "updateSuccess": "Summary Successfully Updated",
+          "error": "An error occurred. Please try again."
+        }
+      },
+      "toasts": {
+        "aliasRequired": "Alias is required",
+        "candidatesCleared": "Candidats supprimés avec succès.",
+        "invalidEmail": "Please enter a valid email address",
+        "candidateRemoved": "Candidate removed",
+        "candidateLoaded": "Candidate data synchronized successfully.",
+        "NoCandidateValidated": "No Candidate was validated",
+        "loadingData": "Candidate Loaded",
+        "loadSucess": "Candidate Loaded",
+        "loadError": "An error has occurred"
+      }
+    },
+    "actions": {
+      "syncData": "Sync data",
+      "close": "Close",
+      "visualize": "Visualize",
+      "create": "Create",
+      "edit": "Edit",
+      "copy": "Copy",
+      "delete": "Delete",
+      "duplicate": "Duplicate",
+      "addItem": "Add item",
+      "newItem": "New item"
+    },
+    "basics": {
+      "basicsTitle": "Basics",
+      "picture": "Picture",
+      "name": "Name",
+      "phone": "Phone",
+      "city": "City",
+      "age": "Age",
+      "email": "Email",
+      "headline": "Headline",
+      "summary": "Summary"
+    },
+    "toasts": {
+      "itemDeleted": "Item deleted",
+      "itemCreated": "Item created",
+      "nameRequired": "Name is required",
+      "headlineRequired": "Headline is required"
+    },
+    "experiences": {
+      "headers": {
+        "work": "Profesional Experience",
+        "jobTitle": "Job title",
+        "companyName": "Company name",
+        "city": "City",
+        "date": {
+          "start": "Start date",
+          "end": "end date"
+        }
+      },
+      "placeholders": {
+        "jobTitle": "Job title",
+        "companyName": "Company name",
+        "city": "City",
+        "startDate": "March 2024 present",
+        "endDate": "End date",
+        "responsibilities": "Responsibilities"
+      },
+      "toasts": {
+        "jobTitleEmpty": "Job title should not be empty",
+        "companyNameEmpty": "Company name should not be empty"
+      }
+    },
+    "educations": {
+      "headers": {
+        "education": "Education",
+        "degreeName": "Degree name",
+        "institutionName": "Institution name",
+        "startYear": "Start year",
+        "endYear": "End year"
+      },
+      "placeholders": {
+        "degreeName": "ex: Bachelor of Science in Computer Science",
+        "institutionName": "institution name",
+        "startYear": "March 2024 present",
+        "endYear": "End date"
+      },
+      "toasts": {
+        "institutionEmpty": "Insitution should not be empty",
+        "degreeEmpty": "Degree name should not be empty"
+      }
+    },
+    "projects": {
+      "headers": {
+        "project": "Projects",
+        "projectName": "Project name",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "description": "Description"
+      },
+      "placeholders": {
+        "projectName": "ex: Ecomerce store",
+        "startDate": "March 2024 present",
+        "endDate": "End date",
+        "description": "Description"
+      },
+      "toasts": {
+        "nameEmpty": "Name should not be empty"
+      }
+    },
+    "certifications": {
+      "headers": {
+        "certifications": "Certifications",
+        "certificationName": "Certification name",
+        "institutionName": "Institution name",
+        "date": "Date",
+        "link": "Link"
+      },
+      "placeholders": {
+        "certificationName": "ex: IBM data science certificate",
+        "institutionName": "institution name",
+        "date": "March 2024 present",
+        "link": "link"
+      },
+      "toasts": {
+        "nameEmpty": "Name should not be empty",
+        "institutionEmpty": "Institution should not be empty"
+      }
+    },
+    "references": {
+      "headers": {
+        "reference": "References",
+        "name": "Name",
+        "position": "Position",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "placeholders": {
+        "name": "Name",
+        "position": "Position",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "toasts": {
+        "nameEmpty": "Name should not be empty",
+        "positionEmpty": "Position should not be empty"
+      }
+    },
+    "volunteering": {
+      "headers": {
+        "volunteering": "Volunteering",
+        "organizationName": "Organization name",
+        "position": "Position",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "description": "Description"
+      },
+      "placeholders": {
+        "organizationName": "Organization name",
+        "position": "Position",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "description": "Description"
+      },
+      "toasts": {
+        "positionEmpty": "Position should not be empty",
+        "organizationEmpty": "Organization name should not be empty"
+      }
+    },
+    "interests": {
+      "headers": {
+        "interests": "Interests",
+        "interestName": "Interest name"
+      },
+      "placeholders": {
+        "interestName": "ex: Basketball, Hiking, cooking, reading etc.."
+      },
+      "toasts": {
+        "interestEmpty": "Interest should not be empty"
+      }
+    },
+    "languages": {
+      "headers": {
+        "languages": "Languages",
+        "languageName": "Language",
+        "level": "Level"
+      },
+      "placeholders": {
+        "languageName": "ex: English"
+      },
+      "toasts": {
+        "languageEmpty": "Language should not be empty"
+      }
+    },
+    "skills": {
+      "headers": {
+        "skills": "Skills",
+        "skillName": "Skill",
+        "level": "Level"
+      },
+      "placeholders": {
+        "skillName": "ex: Python"
+      },
+      "toasts": {
+        "skillEmpty": "Skill should not be empty"
+      }
+    },
+    "socials": {
+      "headers": {
+        "socials": "Soft skills",
+        "socialName": "skill",
+        "link": "Link"
+      },
+      "placeholders": {
+        "socialName": "ex: LinkedIn",
+        "link": "Link"
+      },
+      "toasts": {
+        "socialEmpty": "Social should not be empty"
+      }
+    }
+  },
+  "plans": {
+    "title": "Choose the plan that fits for your team",
+    "price": "Price",
+    "choosePlan": "Contact us",
+    "standardName": "Standard",
+    "premiumName": "Premium",
+    "goldName": "Gold",
+    "frequency": "Month",
+    "standard": {
+      "advantage1": "2 CVs",
+      "advantage2": "All CV templates",
+      "advantage3": "Basic CV sections",
+      "advantage4": "CvBusiness logo",
+      "advantage5": "All sections",
+      "advantage6": "Access to all design tools",
+      "advantage7": "Button labeled: Try for 5 days"
+    },
+    "premium":{
+      "advantage1": "All CV templates",
+      "advantage2": "Real-time content suggestions",
+      "advantage3": "Applicant Tracking System",
+      "advantage4": "Professional CV sections",
+      "advantage5": "Company logo",
+      "advantage6": "Unlimited number of sections",
+      "advantage7": "Advanced design options",
+      "advantage8": "Button labeled: Contact us"
+    },
+    "gold": {
+      "advantage1": "All CV templates",
+      "advantage2": "Import your own templates",
+      "advantage3": "Real-time content suggestions",
+      "advantage4": "Applicant Tracking System",
+      "advantage5": "Professional CV sections",
+      "advantage6": "Company logo",
+      "advantage7": "Unlimited number of sections",
+      "advantage8": "Advanced design options",
+      "advantage9": "Multi-language CV translations"
+    }
+  },
+  "Faqs": {
+    "title": "FAQs",
+    "heading": "Frequently Asked Questions",
+    "description": "Here, you can find answers to the most frequently asked questions.",
+    "question1": {
+      "title": "Question 1",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+    },
+    "question2": {
+      "title": "Question 2",
+      "text": "Answer 2"
+    },
+    "question3": {
+      "title": "Question 3",
+      "text": "Answer 3"
+    },
+    "question4": {
+      "title": "Question 4",
+      "text": "Answer 4"
+    }
+  },
+  "Invoices": {
+    "invoice": "Invoice",
+    "billing": "Billing",
+    "searchBySubscription": "Search by subscription",
+    "noRecordsFound": "No records found",
+    "visualize": "Visualize",
+    "headers": {
+      "ID": "#ID",
+      "subscription": "Subscription",
+      "amount": "Amount",
+      "createdAt": "Created at",
+      "updatedAt": "Updated at",
+      "actions": "Actions"
+    },
+    "informations": {
+      "download": "Download",
+      "documentType": "Document Type",
+      "invoiceNumber": "Invoice Number",
+      "supplyCode": "Supply Code",
+      "billDate": "Bill Date",
+      "dueDate": "Due Date",
+      "paymentType": {
+        "title": "Payment Type",
+        "creditCard": "Credit Card",
+        "paypal": "Paypal",
+        "check": "Check",
+        "cash": "Cash"
+      },
+      "details": {
+        "name": "Name",
+        "address": "Address",
+        "city": "City",
+        "state": "State",
+        "contactName": "Contact Name",
+        "phone": "Phone",
+        "email": "Email",
+        "customerName": "Customer Name"
+      },
+      "myDetails": "My Details",
+      "customerDetails": "Customer Details",
+      "itemDetails": {
+        "title": "Item Details",
+        "item": "Item",
+        "itemDescription": "Item Description",
+        "characters": "Characters",
+        "price": "Price",
+        "discount": "Discount",
+        "tax": "Tax",
+        "taxableAmt": "Taxable Amount",
+        "taxAmt": "Tax Amount",
+        "totalAmt": "Total Amount",
+        "subTotal": "SubTotal",
+        "totalDiscount": "Total Discount",
+        "totalTax": "Total Tax",
+        "totalAmount": "Total Amount"
+      },
+      "summary": {
+        "title": "Summary",
+        "subTotal": "SubTotal",
+        "totalDiscount": "Total Discount",
+        "totalTax": "Total Tax",
+        "totalAmount": "Total Amount"
+      }
+    }
+  },
+  "Dashboard": {
+    "Analytical": "Analytical",
+    "latestStatistics": "Latest Statistics"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications found.",
+    "new": "new",
+    "clear": "Clear Notifications",
+    "toasts": {
+      "clearSuccess": "Notifications Cleared !",
+      "uploadCandidateSuccess": "The CVs of {candidate} has been successfully uploaded."
+    }
+  },
+  "auth": {
+    "errors": {
+      "user-not-found": "Couldn't find your PinJobs Account",
+      "wrong-password": "Incorrect email or password. Please try again or reset your password if you've forgotten it."
+    },
+    "blankLayout": {
+      "niceToMeetYou": "Nice to meet you again",
+      "welcomeBack": "Welcome back",
+      "text": "Our cutting-edge platform allows your business to create polished, professional CVs tailored to your clients' needs. Enhance your service offerings and help your clients stand out in today's competitive job market with ease and efficiency"
+    },
+    "welcome": "You're logged in successfully, welcome back !",
+    "leave": "You’ve logged out successfully. See you soon!",
+    "authText": "Sign in to your account",
+    "signIn": "Sign in",
+    "noAccount": "You don't have an account ? ",
+    "forgotPassword": "Forgot password?",
+    "password": "Password",
+    "email": "Email",
+    "showPassword": "Hold Ctrl to display your password temporarily.",
+    "logOut": "Log out",
+    "register": {
+      "verification-message": {
+        "title": "Account verification ",
+        "text": "Your account has been successfully created. Please check your email to verify your account. Once verified, you'll have full access to all features.",
+        "agree": "Ok"
+      },
+      "agree": "Agree",
+      "disagree": "Disagree",
+      "checkboxText": "By creating your account, you agree to our Terms of Use.",
+      "requiredCreds": "Email and password are required",
+      "createAccount": "Let's create your account",
+      "successMessage": "Your gateway to success!",
+      "userDetails": "User Details",
+      "clientDetails": "User Details",
+      "first": "First name",
+      "last": "Last name",
+      "email": "Email",
+      "phone": "Phone number",
+      "password": "Password",
+      "confirm": "Password confirmation",
+      "name": "Client name",
+      "signup": "Sign up",
+      "accountExist": "Already have an account ? ",
+      "login": "Sign in",
+      "city": "City",
+      "country": "Country",
+      "age": "Age",
+      "validation": {
+        "acceptTerms": "You must accept the Terms of Use to continue. Please review and agree to proceed.",
+        "missingFields": "Please ensure all required fields are completed before submitting the form.",
+        "passwordMismatch": "The passwords you entered do not match. Please double-check and try again.",
+        "invalidPng": "Please upload a valid PNG image file.",
+        "credentialsTaken": "These credentials are already in use. Please choose different ones.",
+        "clientExists": "A client with the provided name already exists. Please use a different name.",
+        "userExists": "A User with the provided email already exists. Please use a different email.",
+        "professionalEmail": "Please use a professional email address.",
+        "passMinChar": "The password must be at least {limit} characters long."
+      }
+    },
+    "account-confirmation": {
+      "verify": "Verify",
+      "title-initial": "Account confirmation",
+      "text-initial": "Please verify your account by clicking the button below.",
+      "verified": "Verified !",
+      "title-verification-success": "Account confirmed!",
+      "text-verification-success": "you can now login to your account, you will be redirected to login soon.",
+      "verification-success": "Verification successful"
+    }
+  },
+  "resetPassword": {
+    "resetPasswordTitle": "Reset Password",
+    "resetPasswordText": "Forgot your password? Enter yout email address below and well send you instructions to set up a new one.",
+    "submit": "Submit",
+    "resetPasswordSuccess": {
+      "emailSentTitle": "Email sent Successfully!",
+      "emailSentText": "If an account with this email address exists, a password reset link will be sent. The link will expire in 2 hours for security reasons.",
+      "goToLogin": "Login Page"
+    },
+    "error": {
+      "invalidEmail": "Invalid email"
+    }
+  },
+  "credit": {
+    "label": "Credits",
+    "buyNow": "Buy now at",
+    "purchaseCredits": "Purchase credits",
+    "selectCredits": "select the number of credits you want to purchase",
+    "selected": "Selected"
+  },
+  "cvs": {
+    "tech": {
+      "work": {
+        "duration": "Duration ",
+        "companyName": "Company Name ",
+        "jobTitle": "Occupation or position held",
+        "responsibilities": "Main activities and responsibilities",
+        "city": "City"
+      },
+      "education": {
+        "duration": "Dates (from to)",
+        "institution": "Name of organization",
+        "degree": "Degree"
+      },
+      "language": {
+        "language": "Language",
+        "level": "Level"
+      },
+      "project": {
+        "name": "Name",
+        "description": "Description",
+        "duration": "Duration"
+      },
+      "certification": {
+        "institution": "Institution",
+        "certification": "Certification",
+        "link": "Link",
+        "date": "Date"
+      },
+      "reference": {
+        "name": "Name",
+        "company": "Company",
+        "position": "Position",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "volunteering": {
+        "organisation": "Organisation",
+        "description": "Description",
+        "position": "Position",
+        "duration": "Duration"
+      },
+      "social": {
+        "social": "Social skills",
+        "level": "Level"
+      },
+      "skill": {
+        "skill": "skill",
+        "level": "Level"
+      },
+      "interests": "Interests"
+    }
+  },
+  "modals": {
+    "deleteModal": {
+      "confirmTitle": "Deleting Item(s)",
+      "confirmText": "This action is permanent and cannot be undone. All data associated with the selected item(s) will be permanently lost.",
+      "cancel": "Cancel",
+      "confirm": "Yes, delete"
+    }
+  },
+  "profile": {
+    "title": "User Profile"
+  },
+  "common": {
+    "timeAgo": {
+      "just-now": "just now",
+      "ago": "{0} ago",
+      "in": "in {0}",
+      "last-month": "last month",
+      "next-month": "next month",
+      "month": "month | months",
+      "last-year": "last year",
+      "next-year": "next year",
+      "year": "year | years",
+      "yesterday": "yesterday",
+      "tomorrow": "tomorrow",
+      "day": "day | days",
+      "last-week": "last week",
+      "next-week": "next week",
+      "week": "week | weeks",
+      "hour": "hour | hours",
+      "minute": "minute | minutes",
+      "second": "second | seconds"
+    }
+  },
+  "contact": {
+    "page-title": "Contact Support",
+    "page-text": "We're here to help! Please fill out the form below, and we'll get back to you as soon as possible.",
+    "email-label": "Your Email",
+    "subject-label": "Subject",
+    "message-label": "message",
+    "send-message": "Send Message",
+    "required-fields": "All fields are required",
+    "email-send-success": "Email sent successfully",
+    "required": "This field is required.",
+    "invalid-email": "Invalid email."
+  },
+  "alerts": {
+    "send-link": {
+      "title": "Notice :",
+      "text": "You have sent an important email. If the recipient doesn't see it, please ask them to check their spam/junk folder and mark your emails as 'Not Spam' to ensure future delivery."
+    }
+  },
+  "tips": {
+    "notEnoughCredits": "Not enough credits."
+  }
+}

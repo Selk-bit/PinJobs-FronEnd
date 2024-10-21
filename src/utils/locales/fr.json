@@ -1,0 +1,1007 @@
+{
+  "update": "Mettre à jour",
+  "error": "Une erreur s'est produite, veuillez réessayer plus tard",
+  "page": {
+    "defaultTitle": "PinJobs",
+    "candidates": "PinJobs - Gérer la liste des candidats",
+    "home": "Accueil",
+    "consultation": "PinJobs - Gérer la liste des modèles",
+    "editor": "PinJobs - Modifier et formater les CV des candidats",
+    "settings": "PinJobs - Paramètres du compte",
+    "invoice": "PinJobs - Gérer vos factures",
+    "create": "PinJobs - Créez votre propre modèle",
+    "candidateDetails": "PinJobs - Détails du CV du candidat",
+    "purchaseCredits": "PinJobs - Acheter des crédits"
+  },
+  "Sample Page": "Page d'exemple",
+  "Menu Level": "Niveau de menu",
+  "Level 1": "Niveau 1",
+  "Level 2": "Niveau 2",
+  "Level 3": "Niveau 3",
+  "Disabled": "Désactivé",
+  "Sub Caption": "Sous-titre",
+  "Outlined": "Délimité",
+  "External Link": "Lien externe",
+  "Chip": "Puce",
+  "filter": "Filtrer",
+  "en": "Anglais",
+  "fr": "Français",
+  "dashboard": "Tableau de bord",
+  "models": "Modèles",
+  "creation": "Création",
+  "personalization": "Personnalisation",
+  "consultation": "Consultation",
+  "chargement": "Chargement des données",
+  "editor": "Éditeur",
+  "candidates": "Candidats",
+  "billing": "Facturation",
+  "support": "Support",
+  "pricing": {
+    "discount": {
+      "title": "Réduction de {discount}",
+      "text": "Profitez d'une réduction à durée limitée sur tous",
+      "rest": "nos plans premium."
+    },
+    "pricing": "Tarification",
+    "title": "Personnalisez vos crédits et",
+    "rest": "payez uniquement pour ce dont vous avez besoin !",
+    "selectCredits": "Sélectionnez le nombre de crédits que vous souhaitez acheter",
+    "tip": "Appuyez sur le montant des crédits pour le modifier manuellement ou saisissez le montant souhaité.",
+    "credits": "Crédits",
+    "creditCVPersonalization": "Crédit pour la personnalisation de CV",
+    "creditCVTranslation": "Crédit pour la traduction de CV",
+    "creditContentGeneration": "Crédit pour la génération de contenu",
+    "creditCVTech": "Crédit pour la technologie de CV",
+    "creditEnterpriseDesignImport": "Crédit pour l'importation de design d'entreprise",
+    "claimNow": "Réclamez maintenant",
+    "totalPayment": "Le paiement total est",
+    "successModal": {
+      "title": "Paiement Réussi",
+      "text": "Votre paiement a été traité avec succès !"
+    },
+    "freeText": "C'est gratuit, essayez-le !"
+  },
+  "invoice": "Facture",
+  "buyCredits": "Acheter des crédits",
+  "settings": "Paramètres",
+  "testing": "Test",
+  "theme": {
+    "dark": "Sombre",
+    "light": "Clair"
+  },
+  "Auth": {
+    "welcome": "Bienvenue!",
+    "email": "Email",
+    "emailPlaceholder": "Email",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié?",
+    "login": "Connexion"
+  },
+  "Error": {
+    "oops": "Oups!!!",
+    "notFound": "La page que vous recherchez n'a pas pu être trouvée.",
+    "goBackHome": "Retour à l'accueil"
+  },
+  "Settings": {
+    "alerts": {
+      "change-client-name": "si vous voulez modifier le nom du client, merci de contacter le support (app{'@'}PinJobs.io)"
+    },
+    "right": "Droite",
+    "left": "Gauche",
+    "editor": {
+      "editor": "Éditeur",
+      "card": "Mode carte",
+      "dialog": "Mode dialogue"
+    },
+    "updateSuccess": "Vos paramètres ont été mis à jour avec succès !",
+    "title": "Paramètres",
+    "account": {
+      "account": "Détails du compte",
+      "user": "Détails de l'utilisateur",
+      "accountName": "Nom",
+      "updateUser": "Mettre à jour l'utilisateur",
+      "updateClient": "Mettre à jour le client",
+      "notificationPosition": "Position de la notification",
+      "onlyPng": "Seuls les fichiers au format PNG sont autorisés.",
+      "firstAndLastNameRequired": "Le nom et le prénom ne peuvent pas être vides",
+      "title": "Paramètres du compte",
+      "myProfile": "Mon profil",
+      "description": "Ici, vous pouvez mettre à jour les informations de votre compte telles que votre photo de profil, votre nom et votre nom d'utilisateur.",
+      "pictureUrl": "URL de l'image",
+      "name": "Prénom",
+      "lastName": "Nom de famille",
+      "phone": "Nº téléphone",
+      "age": "Age",
+      "city": "Ville",
+      "country": "Country",
+      "numJobsToScrape": "Nombre d'emplois à obtenir par exécution",
+      "scrapeInterval": "Intervalle d'exécution",
+      "scrapeUnit": "Unité d'intervalle",
+      "hours": "Hours",
+      "days": "Days",
+      "weeks": "Weeks",
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "verified": "Vérifié",
+      "notVerified": "Non vérifié",
+      "submitChanges": "Soumettre les modifications"
+    },
+    "add": {
+      "addUsers": "Ajouter des utilisateurs",
+      "text": "Attribuer des utilisateurs à votre client",
+      "list": "Liste des utilisateurs",
+      "create": "Créer un utilisateur",
+      "modal-confirmation": {
+        "title": "Utilisateur créé avec succès",
+        "text": "L'utilisateur a été créé et un email de confirmation a été envoyé. Veuillez informer la personne concernée de vérifier son compte pour l'activer.",
+        "confirm": "D'accord"
+      },
+      "messages": {
+        "firstNameRequired": "Veuillez renseigner votre prénom.",
+        "lastNameRequired": "Veuillez renseigner votre nom de famille.",
+        "emailRequired": "Veuillez renseigner votre adresse email.",
+        "passwordRequired": "Veuillez renseigner votre mot de passe.",
+        "createSucess": "User account has been created successfully, Vérifiez votre e-mail pour la vérification.",
+        "errorOccured": "Une erreur s'est produite"
+      }
+    },
+    "security": {
+      "tabLabel": "Paramètres de sécurité",
+      "changePassword": {
+        "title": "Réinitialisez votre mot de passe",
+        "description": "Veuillez entrer votre mot de passe actuel et en définir un nouveau.",
+        "oldPassword": "Ancien mot de passe",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmez le nouveau mot de passe",
+        "submit": "Réinitialiser le mot de passe",
+        "loading": {
+          "text": "Mise à jour du mot de passe"
+        },
+        "errors": {
+          "required": "Ce champ est requis",
+          "match": "Les mots de passe ne correspondent pas",
+          "invalid": "Les informations fournies sont invalides. Merci de vérifier et de réessayer."
+        }
+      },
+      "title": "Sécurité",
+      "description": "Dans cette section, vous pouvez changer votre mot de passe et activer/désactiver l'authentification à deux facteurs.",
+      "password": "Mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe",
+      "twoFA": "Authentification à deux facteurs",
+      "twoFADescriptionDisabled": "L'authentification à deux facteurs est actuellement désactivée. Vous pouvez l'activer en ajoutant une application d'authentification à votre compte.",
+      "enable2FA": "Activer 2FA",
+      "twoFADescriptionEnabled": "L'authentification à deux facteurs est actuellement activée. Vous pouvez la désactiver en cliquant sur le bouton ci-dessous.",
+      "disable2FA": "Désactiver 2FA"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Ici, vous pouvez mettre à jour votre profil pour personnaliser et personnaliser votre expérience.",
+      "theme": "Thème",
+      "language": "Langue"
+    },
+    "save": "Sauvegarder"
+  },
+  "Candidates": {
+    "filter": {
+      "skill-tip": "Vous pouvez filtrer les candidats en fonction de votre préférence : soit en choisissant ceux qui possèdent au moins la compétence sélectionnée, soit en sélectionnant strictement les candidats qui possèdent exactement la compétence choisie. À vous de décider !",
+      "only-selected": "Correspondre uniquement aux compétences sélectionnées",
+      "at-least-one": "Correspondre à au moins une compétence",
+      "apply-filters": "Appliquer les filtres",
+      "reference": "Référence",
+      "name": "Nom du candidat",
+      "email": "Email",
+      "models": "Modèles",
+      "skills": "Compétences",
+      "exp": "Années d'expérience",
+      "headline": "Titre ou Poste",
+      "languages": "Langues",
+      "certification": "Certification"
+    },
+    "messages": {
+      "deleteAllMessage": "Les éléments ont été supprimés avec succès"
+    },
+    "invalidFiles": "Aucun fichier valide n'a été téléchargé. Veuillez vérifier si les fichiers téléchargés ne sont pas scannés !",
+    "title": "Candidats",
+    "search": "Recherche par mot-clé",
+    "noDataFound": "Aucune donnée trouvée",
+    "download": "Télécharger",
+    "downloaded": "Téléchargement...",
+    "headers": {
+      "ID": "#ID",
+      "name": "Nom",
+      "email": "Email",
+      "createdAt": "Créé le",
+      "updatedAt": "Mise à jour le",
+      "oldResume": "Ancien CV",
+      "newResume": "Nouveau CV",
+      "actions": "Actions"
+    },
+    "sendLink": {
+      "title": "Mettez à jour le profil des candidats en toute simplicité !",
+      "text": "Pour actualiser les informations des candidats, envoyez-les directement à leur adresse email pour un accès facilité.",
+      "send": "Envoyer l'email",
+      "sent": "Email envoyé avec succès !",
+      "sendSuccess": "Email envoyé avec succès !"
+    },
+    "deleteModal": {
+      "confirmDeleteMessage": "Cette action supprimera l'élément sélectionné. Voulez-vous vraiment continuer ?",
+      "yes": "Oui, supprimer",
+      "cancel": "Annuler"
+    }
+  },
+  "Models": {
+    "consultation": {
+      "upload-nb": {
+        "acceptFormats": "(on accepte .pdf ou .doc ou .docx)",
+        "customSetup": "La configuration de votre modèle personnalisé prend au maximum 48 heures. Si vous êtes pressé, vous pouvez opter pour l'un de nos modèles prêts à l'emploi."
+      },
+      "toasts": {
+        "correctFormat": "Le fichier doit être un document PDF ou Word (.doc, .docx)",
+        "nameRequired": "Le nom est requis",
+        "emailsRequired": "Les e-mails sont requis",
+        "templateUploadSuccess": "Le modèle a été téléchargé avec succès !",
+        "templateAlreadyExist": "Un modèle a déjà été envoyé par ce client et est en attente d'approbation. Contactez le support pour plus d'informations.",
+        "duplicateEmail": "Il semble que cet email ait déjà été utilisé. Veuillez utiliser un autre email.",
+        "invalidEmail": "Email invalide, veuillez entrer une adresse email valide.",
+        "emailPlaceholder": "Entrez l'email",
+        "modelUpdated": "Modèle mis à jour !",
+        "modelDeleted": "Modèle supprimé !"
+      },
+      "emailInputTip": {
+        "showTips": "Afficher les astuces",
+        "emailGuidelinesTitle": "Astuces pour la saisie des emails",
+        "emailComma": "Vous pouvez entrer plusieurs adresses e-mail séparées par des virgules (`,`).",
+        "duplicateEmail": "Les adresses e-mail en double ne sont pas autorisées.",
+        "invalidEmail": "Les adresses e-mail invalides ne seront pas acceptées.",
+        "closeButton": "Fermer"
+      },
+      "title": "Consultation",
+      "breadcrumbs": {
+        "models": "Modèles",
+        "consultation": "Consultation"
+      },
+      "templateName": "Nom du modèle",
+      "searchPlaceholder": "Rechercher par modèle",
+      "newModel": "Nouveau modèle",
+      "importModel": "Importer modèle",
+      "chooseFileImport": "Télécharger et joindre le fichier modèle",
+      "clickToUploadFile": "Cliquez pour télécharger le fichier",
+      "noDataFound": "Aucune donnée trouvée",
+      "visualize": "Visualiser",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "send": "Envoyer le lien",
+      "headers": {
+        "ID": "#ID",
+        "name": "Nom",
+        "uses": "Utilisations",
+        "createdAt": "Créé le",
+        "updatedAt": "Mis à jour le",
+        "actions": "Actions"
+      }
+    },
+    "creation": {
+      "personnel": {
+        "title": "Personnel",
+        "showName": "Afficher le nom",
+        "showAge": "Afficher l'âge",
+        "showCity": "Afficher la ville",
+        "showEmail": "Afficher l'email",
+        "showPhone": "Afficher le téléphone",
+        "reference": "Référence",
+        "modelReference": "Référence du modèle",
+        "enterReference": "Entrez la référence",
+        "choose-info": "Veuillez sélectionner l'information à afficher à la place du nom :",
+        "alias-tip": "La propriété alias est renseignée lors de la phase de saisie des données des candidats. Celle en cours est utilisée uniquement à titre de référence."
+      },
+      "logo": {
+        "logoTitle": "Logo",
+        "logoMessage": "Merci de copier coller le lien de la photo d'entreprise de linkedin",
+        "picture": "Image",
+        "size": "Taille",
+        "aspectRatio": "Ratio d'aspect",
+        "borderRadius": "Rayon de la bordure",
+        "effects": "Effets",
+        "border": "Bordure",
+        "hidden": "Caché",
+        "grayscale": "Niveaux de gris"
+      },
+      "page": {
+        "pageTitle": "Page",
+        "format": "Format",
+        "options": "Options",
+        "showHeadline": "Afficher le titre",
+        "showSummary": "Afficher le résumé"
+      },
+      "sections": {
+        "sectionsTitle": "Sections",
+        "main": "Principal",
+        "sidebar": "Barre latérale",
+        "certifications": "Certifications",
+        "education": "Éducation",
+        "experience": "Expériences professionnelles",
+        "volunteering": "Bénévolat",
+        "projects": "Projets",
+        "references": "Références",
+        "interests": "Intérêts",
+        "languages": "Langues",
+        "skills": "Compétences Techniques",
+        "social": "Compétences personnelles",
+        "visible": "Visible",
+        "hidden": "Caché"
+      },
+      "template": {
+        "templateTitle": "Modèle",
+        "public": "Public",
+        "private": "Privé",
+        "privateText": "Cette section contient vos modèles d'entreprise. Une fois validés, ils seront affichés ici."
+      },
+      "theme": {
+        "themeTitle": "Thème",
+        "background": "Arrière-plan",
+        "text": "Texte",
+        "primary": "Principal"
+      },
+      "typography": {
+        "typographyTitle": "Typographie",
+        "fontSize": "Taille de la police",
+        "lineHeight": "Hauteur de ligne",
+        "options": "Options",
+        "underlineLinks": "Souligner les liens",
+        "fontsMessage": "Ces polices ont été soigneusement sélectionnées et sont particulièrement appréciées par nos utilisateurs. Elles sont recommandées par nos soins et ont contribué de manière significative au succès de nombreux candidats. Nous vous encourageons à utiliser ces polices pour un CV professionnel et percutant."
+      },
+      "register": {
+        "modelName": "Nom du modèle",
+        "modelCreated": "Modèle créé avec succès !",
+        "createModel": "Créer un modèle",
+        "backToModels": "Retour aux modèles"
+      }
+    }
+  },
+  "Resumes": {
+    "translation-feature": {
+      "translation-success": "Traduction terminée",
+      "translation-dialog-title": "Confirmer la traduction",
+      "translation-dialog-confirm": "Oui, Traduire",
+      "translation-dialog-text": "Les données du candidat que vous avez sélectionnées sont dans une langue différente de celle du modèle. Souhaitez-vous procéder à la traduction pour correspondre à la langue requise ?",
+      "translation-dialog-cancel": "Non, Annuler",
+      "translation-dialog-wait-message": "Traduction des données en cours..."
+    },
+    "alert": {
+      "correct-language": "Veuillez vous assurer que toutes les informations sont saisies en {lang}, car ce modèle nécessite que les données soient fournies dans la langue spécifiée. Il est essentiel de respecter cette exigence pour le bon traitement et l'évaluation de votre soumission."
+    },
+    "chargement": {
+      "notFormated": "N'est pas formaté correctement. Veuillez sélectionner des CVs non scannés. Merci.",
+      "uploadingFiles": "Téléversement du(des) fichier(s)",
+      "extractingData": "Extraction des données",
+      "title": "Chargement",
+      "waitText": "Veuillez patienter pendant que vos données sont en cours de téléchargement. Vous serez averti(e) une fois que ce sera prêt.",
+      "close": "Fermer",
+      "breadcrumbs": {
+        "personnalisation": "Personnalisation",
+        "chargement": "Chargement des données"
+      },
+      "headers": {
+        "ID": "#ID",
+        "name": "Nom",
+        "email": "Email",
+        "createdAt": "Créé le",
+        "updatedAt": "Mis à jour le",
+        "actions": "Actions"
+      },
+      "loadCandidateData": "Charger candidats",
+      "dataRefresh": "Données à jour!",
+      "importSuccess": "fichiers Candidats importés!",
+      "incorrectFileType": "Seul le format PDF est accepté.",
+      "importError": "L'importation des candidats a échoué!",
+      "noDataFound": "Aucune donnée trouvée",
+      "searchText": "Rechercher par candidat",
+      "chooseFileImport": "Choisissez les fichiers à partir duquel vous souhaitez importer des données",
+      "selectFile": "Sélectionner un fichier",
+      "importFile": "Importer le fichier",
+      "importMaxFiles": "Vous avez dépassé la limite maximale autorisée de {limit} fichiers.",
+      "cancel": "Annuler",
+      "import": "Importer",
+      "clickToUploadFiles": "Cliquez pour uploader les fichiers",
+      "maxFiles": "Le nombre maximal de fichiers est de {limit}"
+    },
+    "editor": {
+      "empty": {
+        "looksEmptyHere": "Ça a l'air vide ici !",
+        "startBy": "Commencez par",
+        "selectingCandidates": "sélectionner des candidats",
+        "and": "et",
+        "selectTemplate": "sélectionner un modèle",
+        "toGetStarted": "pour commencer",
+        "noTemplateSelected": "Aucun modèle sélectionné"
+      },
+      "progress": {
+        "templateSelected": "Modèle sélectionné",
+        "candidateSelected": "Candidats sélectionnés"
+      },
+      "candidateDialog": {
+        "title": "Optimisez la mise à jour des profils candidats",
+        "text": "Gérez et mettez à jour les données des CV de vos candidats en sélectionnant plusieurs candidats et en leur envoyant des demandes de mise à jour personnalisées. Assurez-vous que tous les profils restent à jour avec juste quelques clics, économisant du temps tout en maintenant des informations précises."
+      },
+      "templateDialog": {
+        "title": "Simplifiez la saisie des données des candidats avec des modèles",
+        "text": "Remplissez rapidement les profils des candidats en sélectionnant un modèle adapté à vos besoins. Rationalisez le processus de saisie des données, garantissant cohérence et efficacité tout en complétant les informations des candidats en quelques étapes simples."
+      },
+      "original": "Original",
+      "selectModel": "Sélectionner un modèle",
+      "syncData": "Synchroniser les données",
+      "selectCandidates": "Sélectionner des candidats",
+      "selectTemplate": "Sélectionner un modèle avant de revoir",
+      "noDataMessage": "Aucun modèle trouvé",
+      "noData": "Pas de données",
+      "clearAll": "Tout effacer",
+      "noCandidates": "Aucun candidat sélectionné",
+      "fileNotFound": "Fichier introuvable",
+      "summary": {
+        "title": "Générez un Résumé Professionnel Basé sur les Données de Votre CV",
+        "text": "Générez un résumé qui met parfaitement en valeur votre expérience et vos compétences, laissant une impression positive aux employeurs. Adapté aux données de votre CV, c'est la façon idéale de mettre en avant vos atouts.",
+        "noSummary": "Essayez de générer un résumé professionnel basé sur vos données personnelles",
+        "opening": "Voici votre nouveau CV généré",
+        "generate": "générer",
+        "note": "Veuillez noter que la sélection d'un nouveau CV généré remplacera l'actuel, et seul le CV sélectionné sera enregistré dans votre profil. Assurez-vous de votre choix avant de continuer.",
+        "summaryCard": {
+          "remove": "Supprimer le Résumé",
+          "pick": "Choisir ce Résumé"
+        },
+        "toast": {
+          "updateSuccess": "Résumé mis à jour avec succès",
+          "error": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      },
+      "toasts": {
+        "aliasRequired": "L'alias est requis",
+        "candidatesCleared": "Items cleared successfully",
+        "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+        "candidateRemoved": "Candidat retiré",
+        "candidateLoaded": "Candidat chargé",
+        "NoCandidateValidated": "Aucun candidat n'a été validé",
+        "loadingData": "Chargement des données",
+        "loadSucess": "Données chargées",
+        "loadError": "Une erreur est survenue"
+      }
+    },
+    "actions": {
+      "syncData": "Synchroniser les données",
+      "close": "Fermer",
+      "visualize": "Visualiser",
+      "create": "Créer",
+      "edit": "Modifier",
+      "copy": "Copier",
+      "delete": "Supprimer",
+      "duplicate": "Dupliquer",
+      "addItem": "Ajouter un élément",
+      "newItem": "Nouvel élément"
+    },
+    "basics": {
+      "basicsTitle": "Informations de base",
+      "picture": "Image",
+      "name": "Nom",
+      "phone": "Téléphone",
+      "city": "Ville",
+      "age": "Âge",
+      "email": "Email",
+      "headline": "Titre",
+      "summary": "Résumé"
+    },
+    "toasts": {
+      "itemDeleted": "Élément supprimé",
+      "itemCreated": "Élément créé",
+      "nameRequired": "Le nom est requis",
+      "headlineRequired": "Le titre est requis"
+    },
+    "experiences": {
+      "headers": {
+        "work": "Expériences professionnelles",
+        "jobTitle": "Intitulé du poste",
+        "companyName": "Nom de l'entreprise",
+        "city": "Ville",
+        "date": {
+          "start": "Date de début",
+          "end": "Date de fin"
+        }
+      },
+      "placeholders": {
+        "jobTitle": "Intitulé du poste",
+        "companyName": "Nom de l'entreprise",
+        "city": "Ville",
+        "startDate": "Mars 2024 présent",
+        "endDate": "Date de fin",
+        "responsibilities": "Responsabilités"
+      },
+      "toasts": {
+        "jobTitleEmpty": "L'intitulé du poste ne doit pas être vide",
+        "companyNameEmpty": "Le nom de l'entreprise ne doit pas être vide"
+      }
+    },
+    "educations": {
+      "headers": {
+        "education": "Formations",
+        "degreeName": "Nom du diplôme",
+        "institutionName": "Nom de l'institution",
+        "startYear": "Année de début",
+        "endYear": "Année de fin"
+      },
+      "placeholders": {
+        "degreeName": "ex : Licence en informatique",
+        "institutionName": "Nom de l'institution",
+        "startYear": "Mars 2024 présent",
+        "endYear": "Date de fin"
+      },
+      "toasts": {
+        "institutionEmpty": "L'institution ne doit pas être vide",
+        "degreeEmpty": "Le nom du diplôme ne doit pas être vide"
+      }
+    },
+    "projects": {
+      "headers": {
+        "project": "Projets",
+        "projectName": "Nom du projet",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "description": "Description"
+      },
+      "placeholders": {
+        "projectName": "ex : Boutique en ligne",
+        "startDate": "Mars 2024 présent",
+        "endDate": "Date de fin",
+        "description": "Description"
+      },
+      "toasts": {
+        "nameEmpty": "Le nom ne doit pas être vide"
+      }
+    },
+    "certifications": {
+      "headers": {
+        "certifications": "Certifications",
+        "certificationName": "Nom de la certification",
+        "institutionName": "Nom de l'institution",
+        "date": "Date",
+        "link": "Lien"
+      },
+      "placeholders": {
+        "certificationName": "ex : Certificat en science des données d'IBM",
+        "institutionName": "Nom de l'institution",
+        "date": "Mars 2024 présent",
+        "link": "Lien"
+      },
+      "toasts": {
+        "nameEmpty": "Le nom ne doit pas être vide",
+        "institutionEmpty": "L'institution ne doit pas être vide"
+      }
+    },
+    "references": {
+      "headers": {
+        "reference": "Références",
+        "name": "Nom",
+        "position": "Poste",
+        "company": "Entreprise",
+        "email": "Email",
+        "phone": "Téléphone"
+      },
+      "placeholders": {
+        "name": "Nom",
+        "position": "Poste",
+        "company": "Entreprise",
+        "email": "Email",
+        "phone": "Téléphone"
+      },
+      "toasts": {
+        "nameEmpty": "Le nom ne doit pas être vide",
+        "positionEmpty": "Le poste ne doit pas être vide"
+      }
+    },
+    "volunteering": {
+      "headers": {
+        "volunteering": "Bénévolat",
+        "organizationName": "Nom de l'organisation",
+        "position": "Poste",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "description": "Description"
+      },
+      "placeholders": {
+        "organizationName": "Nom de l'organisation",
+        "position": "Poste",
+        "startDate": "Date de début",
+        "endDate": "Date de fin",
+        "description": "Description"
+      },
+      "toasts": {
+        "positionEmpty": "Le poste ne doit pas être vide",
+        "organizationEmpty": "Le nom de l'organisation ne doit pas être vide"
+      }
+    },
+    "interests": {
+      "headers": {
+        "interests": "Intérêts",
+        "interestName": "Nom de l'intérêt"
+      },
+      "placeholders": {
+        "interestName": "ex : Basketball, randonnée, cuisine, lecture, etc.."
+      },
+      "toasts": {
+        "interestEmpty": "L'intérêt ne doit pas être vide"
+      }
+    },
+    "languages": {
+      "headers": {
+        "languages": "Langues",
+        "languageName": "Langue",
+        "level": "Niveau"
+      },
+      "placeholders": {
+        "languageName": "ex : Anglais"
+      },
+      "toasts": {
+        "languageEmpty": "La langue ne doit pas être vide"
+      }
+    },
+    "skills": {
+      "headers": {
+        "skills": "Compétences",
+        "skillName": "Compétence",
+        "level": "Niveau"
+      },
+      "placeholders": {
+        "skillName": "ex : Python"
+      },
+      "toasts": {
+        "skillEmpty": "La compétence ne doit pas être vide"
+      }
+    },
+    "socials": {
+      "headers": {
+        "socials": "Compétences personnelles",
+        "socialName": "Réseau social",
+        "link": "Lien"
+      },
+      "placeholders": {
+        "socialName": "ex : LinkedIn",
+        "link": "Lien"
+      },
+      "toasts": {
+        "socialEmpty": "Le réseau social ne doit pas être vide"
+      }
+    }
+  },
+  "plans": {
+    "title": "Choisissez le plan qui convient à votre équipe",
+    "price": "Prix",
+    "choosePlan": "Contactez-nous",
+    "standardName": "Standard",
+    "premiumName": "Premium",
+    "goldName": "Gold",
+    "frequency": "Mois",
+    "standard": {
+      "advantage1": " 2 Cvs",
+      "advantage2": "Tous les modèles de CV",
+      "advantage3": "Sections de base du CV",
+      "advantage4": "Logo CvBusiness",
+      "advantage5": "Tous les sections.",
+      "advantage6": "Accès à tous les outils de design",
+      "advantage7": "Boutton contient le libellé : essayer pendant 5 jours"
+    },
+    "premium": {
+      "advantage1": "Tous les modèles de CV",
+      "advantage2": "Suggestions de contenu en temps réel",
+      "advantage3": "Suivi des candidats (Applicant Tracking System)",
+      "advantage4": "Sections de CV pro",
+      "advantage5": "Logo Entreprise",
+      "advantage6": "Nombre de sections illimité",
+      "advantage7": "Options de design avancés",
+      "advantage8": "Boutton contient le libellé : Contactez-nous"
+    },
+    "gold": {
+      "advantage1": "Tous les modèles de CV",
+      "advantage2": "Importer vos propre modèles",
+      "advantage3": "Suggestions de contenu en temps réel",
+      "advantage4": "Suivi des candidats (Applicant Tracking System)",
+      "advantage5": "Sections de CV pro",
+      "advantage6": "Logo Entreprise",
+      "advantage7": "Nombre de sections illimité",
+      "advantage8": "Options de design avancés",
+      "advantage9": "Traduction multi-langues de CVs"
+    }
+  },
+  "Faqs": {
+    "title": "FAQs",
+    "heading": "Questions fréquemment posées",
+    "description": "Ici, vous pouvez trouver des réponses aux questions les plus fréquemment posées.",
+    "question1": {
+      "title": "Question 1",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+    },
+    "question2": {
+      "title": "Question 2",
+      "text": "Réponse 2"
+    },
+    "question3": {
+      "title": "Question 3",
+      "text": "Réponse 3"
+    },
+    "question4": {
+      "title": "Question 4",
+      "text": "Réponse 4"
+    }
+  },
+  "Invoices": {
+    "invoice": "Facture",
+    "billing": "Facturation",
+    "searchBySubscription": "Rechercher par abonnement",
+    "noRecordsFound": "Aucun enregistrement trouvé",
+    "visualize": "Visualiser",
+    "headers": {
+      "ID": "#ID",
+      "subscription": "Abonnement",
+      "amount": "Montant",
+      "createdAt": "Créé le",
+      "updatedAt": "Mis à jour le",
+      "actions": "Actions"
+    },
+    "informations": {
+      "download": "Télécharger",
+      "documentType": "Type de document",
+      "invoiceNumber": "Numéro de facture",
+      "supplyCode": "Code d'approvisionnement",
+      "billDate": "Date de facturation",
+      "dueDate": "Date d'échéance",
+      "paymentType": {
+        "title": "Type de paiement",
+        "creditCard": "Carte de crédit",
+        "paypal": "Paypal",
+        "check": "Chèque",
+        "cash": "Espèces"
+      },
+      "details": {
+        "name": "Nom",
+        "address": "Adresse",
+        "city": "Ville",
+        "state": "État",
+        "contactName": "Nom du contact",
+        "phone": "Téléphone",
+        "email": "Email",
+        "customerName": "Nom du client"
+      },
+      "myDetails": "Mes informations",
+      "customerDetails": "Informations du client",
+      "itemDetails": {
+        "title": "Détails de l'article",
+        "item": "Article",
+        "itemDescription": "Description de l'article",
+        "characters": "Caractères",
+        "price": "Prix",
+        "discount": "Réduction",
+        "tax": "Taxe",
+        "taxableAmt": "Montant imposable",
+        "taxAmt": "Montant de la taxe",
+        "totalAmt": "Montant total",
+        "subTotal": "Sous-total",
+        "totalDiscount": "Réduction totale",
+        "totalTax": "Taxe totale",
+        "totalAmount": "Montant total"
+      },
+      "summary": {
+        "title": "Résumé",
+        "subTotal": "Sous-total",
+        "totalDiscount": "Réduction totale",
+        "totalTax": "Taxe totale",
+        "totalAmount": "Montant total"
+      }
+    }
+  },
+  "Dashboard": {
+    "Analytical": "Analytique",
+    "latestStatistics": "Dernières statistiques"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "Aucune notification trouvée.",
+    "new": "nouveau",
+    "clear": "Effacer les notifications",
+    "toasts": {
+      "clearSuccess": "Notifications effacées !",
+      "uploadCandidateSuccess": "Le CVs de {candidate} a bien été téléchargé(e)."
+    }
+  },
+  "auth": {
+    "errors": {
+      "user-not-found": "Votre compte PinJobs n'a pas été trouvé",
+      "wrong-password": "Adresse e-mail ou mot de passe incorrect. Veuillez réessayer ou réinitialiser votre mot de passe si vous l'avez oublié."
+    },
+    "blankLayout": {
+      "niceToMeetYou": "Enchanté de vous revoir",
+      "welcomeBack": "Bienvenue à nouveau",
+      "text": "Notre plateforme de pointe permet à votre entreprise de créer des CV soignés et professionnels, adaptés aux besoins de vos clients. Améliorez vos services et aidez vos clients à se démarquer sur le marché du travail concurrentiel d'aujourd'hui avec facilité et efficacité."
+    },
+    "welcome": "Vous êtes connecté avec succès, bon retour !",
+    "leave": "Vous vous êtes déconnecté avec succès. À bientôt !",
+    "authText": "Connectez-vous à votre compte",
+    "signIn": "Se connecter",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "forgotPassword": "Mot de passe oublié ?",
+    "password": "Mot de passe",
+    "email": "E-mail",
+    "showPassword": "Maintenez Ctrl pour afficher votre mot de passe temporairement.",
+    "logOut": "Se déconnecter",
+    "register": {
+      "verification-message": {
+        "title": "Vérification de compte",
+        "text": "Votre compte a été créé avec succès. Veuillez vérifier votre boîte mail pour valider votre compte. Une fois vérifié, vous aurez accès à toutes les fonctionnalités.",
+        "agree": "Ok"
+      },
+      "agree": "Accepter",
+      "disagree": "Refuser",
+      "checkboxText": "En créant votre compte, vous acceptez nos Conditions Générales d'Utilisation.",
+      "requiredCreds": "L'adresse électronique et le mot de passe sont requis",
+      "createAccount": "Créons votre compte",
+      "successMessage": "Votre porte d'entrée vers le succès !",
+      "userDetails": "Informations utilisateur",
+      "clientDetails": "Informations Client",
+      "first": "Prénom",
+      "last": "Nom",
+      "username": "Username",
+      "email": "Email",
+      "phone": "Numéro de téléphone",
+      "password": "Mot de passe",
+      "confirm": "Confirmation du mot de passe",
+      "name": "Nom du client",
+      "signup": "S'inscrire",
+      "accountExist": "Vous avez déjà un compte ? ",
+      "login": "Se connecter",
+      "validation": {
+        "acceptTerms": "Vous devez accepter les Conditions d'Utilisation pour continuer. Veuillez les lire et accepter pour continuer.",
+        "missingFields": "Veuillez vous assurer que tous les champs requis sont remplis avant de soumettre le formulaire.",
+        "passwordMismatch": "Les mots de passe que vous avez saisis ne correspondent pas. Veuillez vérifier et réessayer.",
+        "invalidPng": "Veuillez télécharger un fichier image PNG valide.",
+        "credentialsTaken": "Ces identifiants sont déjà utilisés. Veuillez en choisir d'autres.",
+        "clientExists": "Un client avec le nom fourni existe déjà. Veuillez utiliser un autre nom.",
+        "userExists": "Un utilisateur avec l'email' fourni existe déjà. Veuillez utiliser un autre email.",
+        "professionalEmail": "Veuillez utiliser une adresse email professionnelle.",
+        "passMinChar": "Le mot de passe doit contenir au moins {limit} caractères."
+      }
+    },
+    "account-confirmation": {
+      "verify": "Vérifier",
+      "title-initial": "Confirmation de compte",
+      "text-initial": "Veuillez vérifier votre compte en cliquant sur le bouton ci-dessous.",
+      "verified": "Vérifié !",
+      "title-verification-success": "Compte confirmé !",
+      "text-verification-success": "Vous pouvez maintenant vous connecter à votre compte, vous serez redirigé vers la page de connexion sous peu.",
+      "verification-success": "Vérification réussie"
+    }
+  },
+  "resetPassword": {
+    "resetPasswordTitle": "Réinitialiser le mot de passe",
+    "resetPasswordText": "Vous avez oublié votre mot de passe ? Entrez votre adresse e-mail ci-dessous et nous vous enverrons des instructions pour en créer un nouveau.",
+    "submit": "Soumettre",
+    "resetPasswordSuccess": {
+      "emailSentTitle": "E-mail envoyé avec succès!",
+      "emailSentText": "Si un compte avec cette adresse e-mail existe, un lien de réinitialisation du mot de passe sera envoyé. Le lien expirera dans 2 heures pour des raisons de sécurité.",
+      "goToLogin": "Page d'authentification"
+    },
+    "error": {
+      "invalidEmail": "E-mail invalide"
+    }
+  },
+  "credit": {
+    "label": "Crédits",
+    "buyNow": "Acheter maintenant à",
+    "purchaseCredits": "Acheter des crédits",
+    "selectCredits": "Sélectionnez le nombre de crédits que vous souhaitez acheter",
+    "selected": "Sélectionné"
+  },
+  "cvs": {
+    "tech": {
+      "work": {
+        "duration": "Durée",
+        "companyName": "Nom de l'entreprise",
+        "jobTitle": "Occupation ou poste occupé",
+        "responsibilities": "Activités principales et responsabilités",
+        "city": "Ville"
+      },
+      "education": {
+        "duration": "Dates (de à)",
+        "institution": "Nom de l'organisation",
+        "degree": "Diplôme"
+      },
+      "language": {
+        "language": "Langue",
+        "level": "Niveau"
+      },
+      "project": {
+        "name": "Nom",
+        "description": "Description",
+        "duration": "Durée"
+      },
+      "certification": {
+        "institution": "Institution",
+        "certification": "Certification",
+        "link": "Lien",
+        "date": "Date"
+      },
+      "reference": {
+        "name": "Nom",
+        "company": "Entreprise",
+        "position": "Poste",
+        "email": "Email",
+        "phone": "Téléphone"
+      },
+      "volunteering": {
+        "organisation": "Organisation",
+        "description": "Description",
+        "position": "Poste",
+        "duration": "Durée"
+      },
+      "social": {
+        "social": "Compétences sociales",
+        "level": "Niveau"
+      },
+      "skill": {
+        "skill": "Compétence",
+        "level": "Niveau"
+      },
+      "interests": "Centres d'intérêt"
+    }
+  },
+  "modals": {
+    "deleteModal": {
+      "confirmTitle": "Suppression de l'élément(s)",
+      "confirmText": "Cette action est permanente et ne peut pas être annulée. Toutes les données associées à l'élément ou aux éléments sélectionnés seront définitivement perdues.",
+      "cancel": "Annuler",
+      "confirm": "Oui, supprimer"
+    }
+  },
+  "profile": {
+    "title": "Profil Utilisateur"
+  },
+  "common": {
+    "timeAgo": {
+      "just-now": "à l'instant",
+      "ago": "il y a {0}",
+      "in": "dans {0}",
+      "last-month": "le mois dernier",
+      "next-month": "le mois prochain",
+      "month": "mois",
+      "last-year": "l'année dernière",
+      "next-year": "l'année prochaine",
+      "year": "an | ans",
+      "yesterday": "hier",
+      "tomorrow": "demain",
+      "day": "jour | jours",
+      "last-week": "la semaine dernière",
+      "next-week": "la semaine prochaine",
+      "week": "semaine | semaines",
+      "hour": "heure | heures",
+      "minute": "minute | minutes",
+      "second": "seconde | secondes"
+    }
+  },
+  "contact": {
+    "page-title": "Contactez le Support",
+    "page-text": "Nous sommes là pour vous aider ! Veuillez remplir le formulaire ci-dessous et nous vous répondrons dès que possible.",
+    "email-label": "Votre Email",
+    "subject-label": "Sujet",
+    "message-label": "Message",
+    "send-message": "Envoyer le Message",
+    "required-fields": "Tous les champs sont obligatoires",
+    "email-send-success": "Email envoyé avec succès",
+    "required": "Ce champ est requis.",
+    "invalid-email": "Email invalide."
+  },
+  "alerts": {
+    "send-link": {
+      "title": "Avis :",
+      "text": "Vous avez envoyé un e-mail important. Si le destinataire ne le trouve pas, veuillez lui demander de vérifier son dossier spam/courrier indésirable et de marquer vos e-mails comme 'Non Spam' pour garantir la bonne réception des futurs messages."
+    }
+  },
+  "tips": {
+    "notEnoughCredits": "Crédits insuffisants."
+  }
+}

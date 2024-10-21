@@ -1,0 +1,534 @@
+{
+    "Sample Page": "Página de Ejemplo",
+    "Menu Level": "Nivel de Menú",
+    "Level 1": "Nivel 1",
+    "Level 2": "Nivel 2",
+    "Level 3": "Nivel 3",
+    "Disabled": "Desactivado",
+    "Sub Caption": "Subtítulo",
+    "Outlined": "Con Contorno",
+    "External Link": "Enlace Externo",
+    "Chip": "Chip",
+    "dashboard": "zbi esp",
+    "models": "Modelos",
+  "creation": "Creación",
+      "personalization": "Personalización",
+     "consultation": "Consulta",
+    "chargement": "Carga",
+      "editor": "Editor",
+     "candidates": "Candidatos",
+     "billing": "Facturación",
+      "pricing": "Precios",
+    "Auth": {
+        "welcome": "¡Bienvenido!",
+        "email": "Correo Electrónico",
+        "emailPlaceholder": "Correo Electrónico",
+        "password": "Contraseña",
+        "passwordPlaceholder": "Contraseña",
+        "forgotPassword": "¿Olvidaste tu Contraseña?",
+        "login": "Iniciar Sesión"
+    },
+
+    "Error": {
+        "oops": "¡Oops!",
+        "notFound": "La página que buscas no se pudo encontrar.",
+        "goBackHome": "Volver a la Página Principal"
+    },
+
+    "Sidebar": {
+        "dashboard": "Tablero",
+        "models": {
+            "title": "Modelos",
+            "consultation": "Consulta",
+            "creation": "Creación"
+        },
+        "personalizacion": {
+            "title": "Personalización",
+            "chargement": "Cargando Datos",
+            "editor": "Editor"
+        },
+        "candidates": "Candidatos",
+        "billing": {
+            "title": "Facturación",
+            "plans": "Planes",
+            "invoices": "Facturas"
+        },
+        "faqs": "Preguntas Frecuentes"
+    },
+
+    "Settings": {
+        "title": "Configuraciones",
+        "account": {
+            "title": "Cuenta",
+            "description": "Aquí puedes actualizar la información de tu cuenta como tu imagen de perfil, nombre y nombre de usuario.",
+            "pictureUrl": "URL de la Imagen",
+            "name": "Nombre",
+            "username": "Nombre de Usuario",
+            "email": "Correo Electrónico",
+            "verified": "Verificado",
+            "notVerified": "No Verificado",
+            "submitChanges": "Enviar Cambios"
+        },
+        "security": {
+            "title": "Seguridad",
+            "description": "En esta sección, puedes cambiar tu contraseña y habilitar/deshabilitar la autenticación de dos factores.",
+            "password": "Contraseña",
+            "newPassword": "Nueva Contraseña",
+            "confirmPassword": "Confirmar Nueva Contraseña",
+            "changePassword": "Cambiar Contraseña",
+            "twoFA": "Autenticación de Dos Factores",
+            "twoFADescriptionDisabled": "La Autenticación de Dos Factores está deshabilitada actualmente. Puedes habilitarla agregando una aplicación de autenticación a tu cuenta.",
+            "enable2FA": "Habilitar 2FA",
+            "twoFADescriptionEnabled": "La Autenticación de Dos Factores está habilitada actualmente. Puedes deshabilitarla haciendo clic en el botón a continuación.",
+            "disable2FA": "Deshabilitar 2FA"
+        },
+        "profile": {
+            "title": "Perfil",
+            "description": "Aquí puedes actualizar tu perfil para personalizar tu experiencia.",
+            "theme": "Tema",
+            "language": "Idioma"
+        }
+    },
+
+    "Candidates": {
+        "title": "Candidatos",
+        "searchByCandidate": "Buscar por Candidato",
+        "noDataFound": "No se han encontrado datos",
+        "download": "Descargar",
+        "headers": {
+            "ID": "#ID",
+            "name": "Nombre",
+            "resumeTitle": "Título del Currículum",
+            "createdAt": "Creado en",
+            "updatedAt": "Actualizado en",
+            "oldResume": "Currículum Antiguo",
+            "newResume": "Currículum Nuevo",
+            "actions": "Acciones"
+        }
+    },
+
+    "Models": {
+        "consultation": {
+            "title": "Consulta",
+            "breadcrumbs": {
+                "models": "Modelos",
+                "consultation": "Consulta"
+            },
+            "searchPlaceholder": "Buscar por modelo",
+            "newModel": "Nuevo Modelo",
+            "noDataFound": "No se han encontrado datos",
+            "visualize": "Visualizar",
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "headers": {
+                "ID": "#ID",
+                "name": "Nombre",
+                "uses": "Usos",
+                "createdAt": "Creado en",
+                "updatedAt": "Actualizado en",
+                "actions": "Acciones"
+            }
+        },
+
+        "creation": {
+            "logo": {
+                "logoTitle": "Logo",
+                "picture": "Imagen",
+                "size": "Tamaño",
+                "aspectRatio": "Relación de Aspecto",
+                "borderRadius": "Radio de Borde",
+                "effects": "Efectos",
+                "border": "Borde",
+                "hidden": "Oculto",
+                "grayscale": "Escala de Grises"
+            },
+            "page": {
+                "pageTitle": "Página",
+                "format": "Formato",
+                "options": "Opciones",
+                "showHeadline": "Mostrar Título",
+                "showSummary": "Mostrar Resumen"
+            },
+            "sections": {
+                "sectionsTitle": "Secciones",
+                "main": "Principal",
+                "sidebar": "Barra Lateral",
+                "certifications": "Certificaciones",
+                "education": "Educación",
+                "experience": "Experiencia",
+                "volunteering": "Voluntariado",
+                "projects": "Proyectos",
+                "references": "Referencias",
+                "interests": "Intereses",
+                "languages": "Idiomas",
+                "skills": "Habilidades",
+                "social": "Social",
+                "visible": "Visible",
+                "hidden": "Oculto"
+            },
+            "template": {
+                "templateTitle": "Plantilla"
+            },
+            "theme": {
+                "themeTitle": "Tema",
+                "background": "Fondo",
+                "text": "Texto",
+                "primary": "Primario"
+            },
+            "typography": {
+                "typographyTitle": "Tipografía",
+                "fontSize": "Tamaño de Fuente",
+                "lineHeight": "Altura de Línea",
+                "options": "Opciones",
+                "underlineLinks": "Subrayar Enlaces"
+            },
+            "register": {
+                "modelName": "Nombre del Modelo",
+                "createModel": "Crear Modelo"
+            }
+        }
+    },
+
+    "Resumes": {
+        "chargement": {
+            "title": "Cargando",
+            "breadcrumbs": {
+                "personalization": "Personalización",
+                "chargement": "Cargando Datos"
+            },
+            "headers": {
+                "ID": "#ID",
+                "name": "Nombre",
+                "email": "Email",
+                "createdAt": "Creado en",
+                "updatedAt": "Actualizado en",
+                "actions": "Acciones"
+            },
+            "loadCandidateData": "Cargar datos del candidato",
+            "noDataFound": "No se han encontrado datos",
+            "chooseFileImport": "Elige el archivo del cual deseas importar datos",
+            "selectFile": "Selecciona un archivo",
+            "importFile": "Importar archivo",
+            "cancel": "Cancelar",
+            "import": "Importar"
+        },
+        "editor": {
+            "selectModel": "Seleccionar modelo",
+            "selectCandidates": "Seleccionar Candidatos",
+            "noDataMessage": "Este proyecto no tiene objetivos operativos vinculados",
+            "noData": "Sin datos"
+        },
+
+        "actions": {
+            "syncData": "Sincronizar datos",
+            "close": "Cerrar",
+            "visualize": "Visualizar",
+            "create": "Crear",
+            "edit": "Editar",
+            "copy": "Copiar",
+            "delete": "Eliminar",
+            "duplicate": "Duplicar",
+            "addItem": "Agregar elemento",
+            "newItem": "Nuevo elemento"
+        },
+
+        "basics": {
+            "basicsTitle": "Básicos",
+            "picture": "Imagen",
+            "name": "Nombre",
+            "phone": "Teléfono",
+            "city": "Ciudad",
+            "age": "Edad",
+            "email": "Correo Electrónico",
+            "headline": "Titular",
+            "summary": "Resumen"
+        },
+
+        "toasts": {
+            "itemDeleted": "Elemento eliminado",
+            "itemCreated": "Elemento creado"
+        },
+
+        "experiences": {
+            "headers": {
+                "work": "Trabajo",
+                "jobTitle": "Título del Puesto",
+                "companyName": "Nombre de la Empresa",
+                "city": "Ciudad"
+            },
+            "placeholders": {
+                "jobTitle": "Título del Puesto",
+                "companyName": "Nombre de la Empresa",
+                "city": "Ciudad",
+                "startDate": "Marzo 2024 presente",
+                "endDate": "Fecha de Finalización",
+                "responsibilities": "Responsabilidades"
+            },
+            "toasts": {
+                "jobTitleEmpty": "El título del puesto no debe estar vacío",
+                "companyNameEmpty": "El nombre de la empresa no debe estar vacío"
+            }
+        },
+
+        "educations": {
+            "headers": {
+                "education": "Educación",
+                "degreeName": "Nombre del Título",
+                "institutionName": "Nombre de la Institución",
+                "startYear": "Año de Inicio",
+                "endYear": "Año de Finalización"
+            },
+            "placeholders": {
+                "degreeName": "ej: Licenciatura en Ciencias de la Computación",
+                "institutionName": "nombre de la institución",
+                "startYear": "Marzo 2024 presente",
+                "endYear": "Fecha de Finalización"
+            },
+            "toasts": {
+                "institutionEmpty": "La institución no debe estar vacía",
+                "degreeEmpty": "El nombre del título no debe estar vacío"
+            }
+        },
+
+        "projects": {
+            "headers": {
+                "project": "Proyectos",
+                "projectName": "Nombre del Proyecto",
+                "startDate": "Fecha de Inicio",
+                "endDate": "Fecha de Finalización",
+                "description": "Descripción"
+            },
+            "placeholders": {
+                "projectName": "ej: Tienda en línea",
+                "startDate": "Marzo 2024 presente",
+                "endDate": "Fecha de Finalización",
+                "description": "Descripción"
+            },
+            "toasts": {
+                "nameEmpty": "El nombre no debe estar vacío"
+            }
+        },
+
+        "certifications": {
+            "headers": {
+                "certifications": "Certificaciones",
+                "certificationName": "Nombre de la Certificación",
+                "institutionName": "Nombre de la Institución",
+                "date": "Fecha",
+                "link": "Enlace"
+            },
+            "placeholders": {
+                "certificationName": "ej: Certificado de Ciencia de Datos IBM",
+                "institutionName": "nombre de la institución",
+                "date": "Marzo 2024 presente",
+                "link": "enlace"
+            },
+            "toasts": {
+                "nameEmpty": "El nombre no debe estar vacío",
+                "institutionEmpty": "La institución no debe estar vacía"
+            }
+        },
+
+        "references": {
+            "headers": {
+                "reference": "Referencias",
+                "name": "Nombre",
+                "position": "Posición",
+                "company": "Empresa",
+                "email": "Correo Electrónico",
+                "phone": "Teléfono"
+            },
+            "placeholders": {
+                "name": "Nombre",
+                "position": "Posición",
+                "company": "Empresa",
+                "email": "Correo Electrónico",
+                "phone": "Teléfono"
+            },
+            "toasts": {
+                "nameEmpty": "El nombre no debe estar vacío",
+                "positionEmpty": "La posición no debe estar vacía"
+            }
+        },
+
+        "volunteering": {
+            "headers": {
+                "volunteering": "Voluntariado",
+                "organizationName": "Nombre de la Organización",
+                "position": "Posición",
+                "startDate": "Fecha de Inicio",
+                "endDate": "Fecha de Finalización",
+                "description": "Descripción"
+            },
+            "placeholders": {
+                "organizationName": "nombre de la organización",
+                "position": "Posición",
+                "startDate": "Fecha de Inicio",
+                "endDate": "Fecha de Finalización",
+                "description": "Descripción"
+            },
+            "toasts": {
+                "positionEmpty": "La posición no debe estar vacía",
+                "organizationEmpty": "El nombre de la organización no debe estar vacío"
+            }
+        },
+
+        "interests": {
+            "headers": {
+                "interests": "Intereses",
+                "interestName": "Nombre del Interés"
+            },
+            "placeholders": {
+                "interestName": "ej: Baloncesto, Senderismo, Cocina, Lectura, etc."
+            },
+            "toasts": {
+                "interestEmpty": "El interés no debe estar vacío"
+            }
+        },
+
+        "languages": {
+            "headers": {
+                "languages": "Idiomas",
+                "languageName": "Idioma",
+                "level": "Nivel"
+            },
+            "placeholders": {
+                "languageName": "ej: Inglés"
+            },
+            "toasts": {
+                "languageEmpty": "El idioma no debe estar vacío"
+            }
+        },
+
+        "skills": {
+            "headers": {
+                "skills": "Habilidades",
+                "skillName": "Habilidad",
+                "level": "Nivel"
+            },
+            "placeholders": {
+                "skillName": "ej: Python"
+            },
+            "toasts": {
+                "skillEmpty": "La habilidad no debe estar vacía"
+            }
+        },
+        "socials": {
+            "headers": {
+                "socials": "Redes Sociales",
+                "socialName": "Red Social",
+                "link": "Enlace"
+            },
+            "placeholders": {
+                "socialName": "ej: LinkedIn",
+                "link": "Enlace"
+            },
+            "toasts": {
+                "socialEmpty": "La red social no debe estar vacía"
+            }
+        }
+    },
+
+    "Planes": {
+        "title": "Planes",
+        "price": "Precio",
+        "choosePlan": "Elegir Plan",
+        "standardName": "Estándar",
+        "premiumName": "Premium",
+        "frequency": "Mes",
+        "advantage1": "Ventaja 1",
+        "advantage2": "Ventaja 2",
+        "advantage3": "Ventaja 3",
+        "advantage4": "Ventaja 4",
+        "advantage5": "Ventaja 5",
+        "advantage6": "Ventaja 6"
+    },
+
+    "Preguntas frecuentes": {
+        "title": "Preguntas frecuentes",
+        "heading": "Preguntas frecuentes",
+        "description": "Aquí puedes encontrar respuestas a las preguntas más frecuentes.",
+        "question1": {
+            "title": "Pregunta 1",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+        },
+        "question2": {
+            "title": "Pregunta 2",
+            "text": "Respuesta 2"
+        },
+        "question3": {
+            "title": "Pregunta 3",
+            "text": "Respuesta 3"
+        },
+        "question4": {
+            "title": "Pregunta 4",
+            "text": "Respuesta 4"
+        }
+    },
+
+    "Invoices": {
+        "invoice": "Factura",
+        "billing": "Facturación",
+        "searchBySubscription": "Buscar por suscripción",
+        "noRecordsFound": "No se encontraron registros",
+        "visualize": "Visualizar",
+        "headers": {
+            "ID": "ID",
+            "subscription": "Suscripción",
+            "amount": "Cantidad",
+            "createdAt": "Creado en",
+            "updatedAt": "Actualizado en",
+            "actions": "Acciones"
+        },
+        "informations": {
+            "download": "Descargar",
+            "documentType": "Tipo de Documento",
+            "invoiceNumber": "Número de Factura",
+            "supplyCode": "Código de Suministro",
+            "billDate": "Fecha de Factura",
+            "dueDate": "Fecha de Vencimiento",
+            "paymentType": {
+                "title": "Tipo de Pago",
+                "creditCard": "Tarjeta de Crédito",
+                "paypal": "Paypal",
+                "check": "Cheque",
+                "cash": "Efectivo"
+            },
+            "details": {
+                "name": "Nombre",
+                "address": "Dirección",
+                "city": "Ciudad",
+                "state": "Estado",
+                "contactName": "Nombre de Contacto",
+                "phone": "Teléfono",
+                "email": "Correo Electrónico",
+                "customerName": "Nombre del Cliente"
+            },
+            "myDetails": "Mis Detalles",
+            "customerDetails": "Detalles del Cliente",
+            "itemDetails": {
+                "title": "Detalles del Ítem",
+                "item": "Ítem",
+                "itemDescription": "Descripción del Ítem",
+                "characters": "Caracteres",
+                "price": "Precio",
+                "discount": "Descuento",
+                "tax": "Impuesto",
+                "taxableAmt": "Monto Imponible",
+                "taxAmt": "Monto de Impuesto",
+                "totalAmt": "Monto Total",
+                "subTotal": "Subtotal",
+                "totalDiscount": "Descuento Total",
+                "totalTax": "Impuesto Total",
+                "totalAmount": "Monto Total"
+            },
+            "summary": {
+                "title": "Resumen",
+                "subTotal": "Subtotal",
+                "totalDiscount": "Descuento Total",
+                "totalTax": "Impuesto Total",
+                "totalAmount": "Monto Total"
+            }
+        }
+    }
+}

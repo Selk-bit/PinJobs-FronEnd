@@ -1,0 +1,495 @@
+{
+  "Sample Page": "示例页面",
+  "Menu Level": "菜单层",
+  "Level 1": "等级 1",
+  "Level 2": "等级 2",
+  "Level 3": "等级 3",
+  "Disabled": "残疾人",
+  "Sub Caption": "副标题",
+  "Outlined": "概述",
+  "External Link": "外部链接",
+  "Chip": "芯片",
+  "dashboard": "仪表板",
+  "models": "模型",
+  "creation": "创建",
+  "personalization": "个性化",
+  "consultation": "咨询",
+  "chargement": "加载",
+  "editor": "编辑器",
+  "candidates": "候选人",
+  "billing": "结算",
+  "pricing": "定价",
+  "invoice": "发票",
+  "settings": "设置",
+  "testing": "测试",
+  "Auth": {
+    "welcome": "欢迎！",
+    "email": "邮箱",
+    "emailPlaceholder": "邮箱",
+    "password": "密码",
+    "passwordPlaceholder": "密码",
+    "forgotPassword": "忘记密码？",
+    "login": "登录"
+  },
+  "Error": {
+    "oops": "哎呀！！！",
+    "notFound": "找不到您要查找的页面。",
+    "goBackHome": "返回首页"
+  },
+  "Settings": {
+    "title": "设置",
+    "account": {
+      "title": "账户",
+      "description": "在这里，您可以更新您的账户信息，如个人资料图片、姓名和用户名。",
+      "pictureUrl": "图片链接",
+      "name": "姓名",
+      "username": "用户名",
+      "email": "邮箱",
+      "verified": "已验证",
+      "notVerified": "未验证",
+      "submitChanges": "提交更改"
+    },
+    "security": {
+      "title": "安全",
+      "description": "在这个部分，您可以更改您的密码，并启用/禁用双因素身份验证。",
+      "password": "密码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "changePassword": "更改密码",
+      "twoFA": "双因素身份验证",
+      "twoFADescriptionDisabled": "当前双因素身份验证已禁用。您可以通过向您的账户添加认证器应用来启用它。",
+      "enable2FA": "启用2FA",
+      "twoFADescriptionEnabled": "当前双因素身份验证已启用。您可以通过点击下面的按钮来禁用它。",
+      "disable2FA": "禁用2FA"
+    },
+    "profile": {
+      "title": "个人资料",
+      "description": "在这里，您可以更新您的个人资料以定制和个性化您的体验。",
+      "theme": "主题",
+      "language": "语言"
+    }
+  },
+  "Candidates": {
+    "title": "候选人",
+    "searchByCandidate": "按候选人搜索",
+    "noDataFound": "未找到数据",
+    "download": "下载",
+    "headers": {
+      "ID": "编号",
+      "name": "姓名",
+      "resumeTitle": "简历标题",
+      "createdAt": "创建于",
+      "updatedAt": "更新于",
+      "oldResume": "旧简历",
+      "newResume": "新简历",
+      "actions": "操作"
+    }
+  },
+  "Models": {
+    "consultation": {
+      "title": "咨询",
+      "breadcrumbs": {
+        "models": "模型",
+        "consultation": "咨询"
+      },
+      "searchPlaceholder": "按模型搜索",
+      "newModel": "新模型",
+      "noDataFound": "未找到域",
+      "visualize": "可视化",
+      "edit": "编辑",
+      "delete": "删除",
+      "headers": {
+        "ID": "编号",
+        "name": "姓名",
+        "uses": "用途",
+        "createdAt": "创建于",
+        "updatedAt": "更新于",
+        "actions": "操作"
+      }
+    },
+    "creation": {
+      "logo": {
+        "logoTitle": "徽标",
+        "picture": "图片",
+        "size": "大小",
+        "aspectRatio": "宽高比",
+        "borderRadius": "边框半径",
+        "effects": "效果",
+        "border": "边框",
+        "hidden": "隐藏",
+        "grayscale": "灰度"
+      },
+      "page": {
+        "pageTitle": "页面",
+        "format": "格式",
+        "options": "选项",
+        "showHeadline": "显示标题",
+        "showSummary": "显示摘要"
+      },
+      "sections": {
+        "sectionsTitle": "部分",
+        "main": "主要",
+        "sidebar": "侧边栏",
+        "certifications": "认证",
+        "education": "教育",
+        "experience": "经验",
+        "volunteering": "志愿者",
+        "projects": "项目",
+        "references": "参考",
+        "interests": "兴趣",
+        "languages": "语言",
+        "skills": "技能",
+        "social": "社交",
+        "visible": "可见",
+        "hidden": "隐藏"
+      },
+      "template": {
+        "templateTitle": "模板"
+      },
+      "theme": {
+        "themeTitle": "主题",
+        "background": "背景",
+        "text": "文本",
+        "primary": "主要"
+      },
+      "typography": {
+        "typographyTitle": "排版",
+        "fontSize": "字体大小",
+        "lineHeight": "行高",
+        "options": "选项",
+        "underlineLinks": "下划线链接"
+      },
+      "register": {
+        "modelName": "模型名称",
+        "createModel": "创建模型"
+      }
+    }
+  },
+  "Resumes": {
+    "loading": {
+      "title": "加载中",
+      "breadcrumbs": {
+        "personalization": "个性化",
+        "loading": "加载数据"
+      },
+      "headers": {
+        "ID": "编号",
+        "name": "姓名",
+        "email": "电子邮件",
+        "createdAt": "创建于",
+        "updatedAt": "更新于",
+        "actions": "操作"
+      },
+      "loadCandidateData": "加载候选人数据",
+      "noDataFound": "未找到域",
+      "chooseFileImport": "选择要导入数据的文件",
+      "selectFile": "选择文件",
+      "importFile": "导入文件",
+      "cancel": "取消",
+      "import": "导入"
+    },
+    "editor": {
+      "selectModel": "选择模型",
+      "selectCandidates": "选择候选人",
+      "noDataMessage": "该项目没有关联的运营目标",
+      "noData": "无数据"
+    },
+    "actions": {
+      "syncData": "同步数据",
+      "close": "关闭",
+      "visualize": "可视化",
+      "create": "创建",
+      "edit": "编辑",
+      "copy": "复制",
+      "delete": "删除",
+      "duplicate": "复制",
+      "addItem": "添加项目",
+      "newItem": "新项目"
+    },
+    "basics": {
+      "basicsTitle": "基本信息",
+      "picture": "图片",
+      "name": "姓名",
+      "phone": "电话",
+      "city": "城市",
+      "age": "年龄",
+      "email": "邮箱",
+      "headline" : "标题",
+      "summary": "摘要"
+    },
+    "toasts": {
+      "itemDeleted": "项目已删除",
+      "itemCreated": "项目已创建"
+    },
+    "experiences": {
+      "headers": {
+        "work": "工作",
+        "jobTitle": "职位",
+        "companyName": "公司名称",
+        "city": "城市"
+      },
+      "placeholders": {
+        "jobTitle": "职位",
+        "companyName": "公司名称",
+        "city": "城市",
+        "startDate": "2024年3月 至今",
+        "endDate": "结束日期",
+        "responsibilities": "职责"
+      },
+      "toasts": {
+        "jobTitleEmpty": "职位不能为空",
+        "companyNameEmpty": "公司名称不能为空"
+      }
+    },
+    "educations": {
+      "headers": {
+        "education": "教育",
+        "degreeName": "学位名称",
+        "institutionName": "机构名称",
+        "startYear": "开始年份",
+        "endYear": "结束年份"
+      },
+      "placeholders": {
+        "degreeName": "例如：计算机科学学士",
+        "institutionName": "机构名称",
+        "startYear": "2024年3月 至今",
+        "endYear": "结束日期"
+      },
+      "toasts": {
+        "institutionEmpty": "机构不能为空",
+        "degreeEmpty": "学位名称不能为空"
+      }
+    },
+    "projects": {
+      "headers": {
+        "project": "项目",
+        "projectName": "项目名称",
+        "startDate": "开始日期",
+        "endDate": "结束日期",
+        "description": "描述"
+      },
+      "placeholders": {
+        "projectName": "例如：电子商务店",
+        "startDate": "2024年3月 至今",
+        "endDate": "结束日期",
+        "description": "描述"
+      },
+      "toasts": {
+        "nameEmpty": "名称不能为空"
+      }
+    },
+    "certifications": {
+      "headers": {
+        "certifications": "认证",
+        "certificationName": "认证名称",
+        "institutionName": "机构名称",
+        "date": "日期",
+        "link": "链接"
+      },
+      "placeholders": {
+        "certificationName": "例如：IBM数据科学证书",
+        "institutionName": "机构名称",
+        "date": "2024年3月 至今",
+        "link": "链接"
+      },
+      "toasts": {
+        "nameEmpty": "名称不能为空",
+        "institutionEmpty": "机构不能为空"
+      }
+    },
+    "references": {
+      "headers": {
+        "reference": "参考",
+        "name": "姓名",
+        "position": "职位",
+        "company": "公司",
+        "email": "邮箱",
+        "phone": "电话"
+      },
+      "placeholders": {
+        "name": "姓名",
+        "position": "职位",
+        "company": "公司",
+        "email": "邮箱",
+        "phone": "电话"
+      },
+      "toasts": {
+        "nameEmpty": "姓名不能为空",
+        "positionEmpty": "职位不能为空"
+      }
+    },
+    "volunteering": {
+      "headers": {
+        "volunteering": "志愿者",
+        "organizationName": "组织名称",
+        "position": "职位",
+        "startDate": "开始日期",
+        "endDate": "结束日期",
+        "description": "描述"
+      },
+      "placeholders": {
+        "organizationName": "组织名称",
+        "position": "职位",
+        "startDate": "2024年3月 至今",
+        "endDate": "结束日期",
+        "description": "描述"
+      },
+      "toasts": {
+        "positionEmpty": "职位不能为空",
+        "organizationEmpty": "组织名称不能为空"
+      }
+    },
+    "interests": {
+      "headers": {
+        "interests": "兴趣",
+        "interestName": "兴趣名称"
+      },
+      "placeholders": {
+        "interestName": "例如：篮球、徒步、烹饪、阅读等等.."
+      },
+      "toasts": {
+        "interestEmpty": "兴趣不能为空"
+      }
+    },
+    "languages": {
+      "headers": {
+        "languages": "语言",
+        "languageName": "语言",
+        "level": "水平"
+      },
+      "placeholders": {
+        "languageName": "例如：英语"
+      },
+      "toasts": {
+        "languageEmpty": "语言不能为空"
+      }
+    },
+    "skills": {
+      "headers": {
+        "skills": "技能",
+        "skillName": "技能",
+        "level": "水平"
+      },
+      "placeholders": {
+        "skillName": "例如：Python"
+      },
+      "toasts": {
+        "skillEmpty": "技能不能为空"
+      }
+    },
+    "socials": {
+      "headers": {
+        "socials": "社交",
+        "socialName": "社交",
+        "link": "链接"
+      },
+      "placeholders": {
+        "socialName": "例如：LinkedIn",
+        "link": "链接"
+      },
+      "toasts": {
+        "socialEmpty": "社交不能为空"
+      }
+    }
+  },
+  "Plans": {
+    "title": "计划",
+    "price": "价格",
+    "choosePlan": "选择计划",
+    "standardName": "标准",
+    "premiumName": "高级",
+    "frequency": "月",
+    "advantage1": "优势 1",
+    "advantage2": "优势 2",
+    "advantage3": "优势 3",
+    "advantage4": "优势 4",
+    "advantage5": "优势 5",
+    "advantage6": "优势 6"
+  },
+  "Faqs": {
+    "title": "常见问题",
+    "heading": "常见问题",
+    "description": "在这里，您可以找到对最常见问题的答案。",
+    "question1": {
+      "title": "问题 1",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+    },
+    "question2": {
+      "title": "问题 2",
+      "text": "答案 2"
+    },
+    "question3": {
+      "title": "问题 3",
+      "text": "答案 3"
+    },
+    "question4": {
+      "title": "问题 4",
+      "text": "答案 4"
+    }
+  },
+  "Invoices": {
+    "invoice": "发票",
+    "billing": "账单",
+    "searchBySubscription": "按订阅搜索",
+    "noRecordsFound": "未找到记录",
+    "visualize": "可视化",
+    "headers": {
+      "ID": "编号",
+      "subscription": "订阅",
+      "amount": "金额",
+      "createdAt": "创建时间",
+      "updatedAt": "更新时间",
+      "actions": "操作"
+    },
+    "informations": {
+      "download": "下载",
+      "documentType": "文件类型",
+      "invoiceNumber": "发票号码",
+      "supplyCode": "供应代码",
+      "billDate": "账单日期",
+      "dueDate": "到期日期",
+      "paymentType": {
+        "title": "付款方式",
+        "creditCard": "信用卡",
+        "paypal": "Paypal",
+        "check": "支票",
+        "cash": "现金"
+      },
+      "details": {
+        "name": "姓名",
+        "address": "地址",
+        "city": "城市",
+        "state": "州",
+        "contactName": "联系人姓名",
+        "phone": "电话",
+        "email": "邮箱",
+        "customerName": "客户姓名"
+      },
+      "myDetails": "我的详情",
+      "customerDetails": "客户详情",
+      "itemDetails": {
+        "title": "项目详情",
+        "item": "项目",
+        "itemDescription": "项目描述",
+        "characters": "字符",
+        "price": "价格",
+        "discount": "折扣",
+        "tax": "税",
+        "taxableAmt": "应税金额",
+        "taxAmt": "税额",
+        "totalAmt": "总金额",
+        "subTotal": "小计",
+        "totalDiscount": "总折扣",
+        "totalTax": "总税",
+        "totalAmount": "总金额"
+      },
+      "summary": {
+        "title": "摘要",
+        "subTotal": "小计",
+        "totalDiscount": "总折扣",
+        "totalTax": "总税",
+        "totalAmount": "总金额"
+      }
+    }
+  }
+}

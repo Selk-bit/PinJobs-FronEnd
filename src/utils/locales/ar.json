@@ -1,0 +1,495 @@
+{
+  "Sample Page": "نموذج الصفحة",
+  "Menu Level": "مستوى القائمة",
+  "Level 1": "المستوى 1",
+  "Level 2": "المستوي 2",
+  "Level 3": "مستوى 3",
+  "Disabled": "عاجز",
+  "Sub Caption": "التسمية التوضيحية الفرعية",
+  "Outlined": "موجز",
+  "External Link": "رابط خارجي",
+  "Chip": "رقاقة",
+  "dashboard": "لوحة القيادة",
+  "models": "نماذج",
+  "creation": "إنشاء",
+  "personalization": "التخصيص",
+  "consultation": "استشارة",
+  "chargement": "تحميل",
+  "editor": "محرر",
+  "candidates": "مرشحون",
+  "billing": "الفوترة",
+  "pricing": "التسعير",
+  "invoice": "فاتورة",
+  "settings": "الإعدادات",
+  "testing": "اختبار",
+  "Auth": {
+    "welcome": "مرحبًا",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "login": "تسجيل الدخول"
+  },
+  "Error": {
+    "oops": "عذرًا!!!",
+    "notFound": "الصفحة التي تبحث عنها غير موجودة.",
+    "goBackHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "Settings": {
+    "title": "الإعدادات",
+    "account": {
+      "title": "الحساب",
+      "description": "هنا، يمكنك تحديث معلومات حسابك مثل صورة ملفك الشخصي والاسم واسم المستخدم.",
+      "pictureUrl": "رابط الصورة",
+      "name": "الاسم",
+      "username": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "verified": "مؤكد",
+      "notVerified": "غير مؤكد",
+      "submitChanges": "حفظ التغييرات"
+    },
+    "security": {
+      "title": "الأمان",
+      "description": "في هذا القسم، يمكنك تغيير كلمة المرور الخاصة بك وتمكين/تعطيل المصادقة ذات العاملين.",
+      "password": "كلمة المرور",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور الجديدة",
+      "changePassword": "تغيير كلمة المرور",
+      "twoFA": "المصادقة ذات العاملين",
+      "twoFADescriptionDisabled": "المصادقة ذات العاملين معطلة حاليًا. يمكنك تمكينها عن طريق إضافة تطبيق المصادقة إلى حسابك.",
+      "enable2FA": "تمكين المصادقة",
+      "twoFADescriptionEnabled": "المصادقة ذات العاملين مُمكّنة حاليًا. يمكنك تعطيلها عن طريق النقر على الزر أدناه.",
+      "disable2FA": "تعطيل المصادقة"
+    },
+    "profile": {
+      "title": "الملف الشخصي",
+      "description": "هنا، يمكنك تحديث ملفك الشخصي لتخصيص تجربتك الشخصية.",
+      "theme": "السمة",
+      "language": "اللغة"
+    }
+  },
+  "Candidates": {
+    "title": "المرشحون",
+    "searchByCandidate": "البحث حسب المرشح",
+    "noDataFound": "لم يتم العثور على بيانات",
+    "download": "تحميل",
+    "headers": {
+      "ID": "#الرقم",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "createdAt": "تم الإنشاء في",
+      "updatedAt": "تم التحديث في",
+      "oldResume": "السيرة الذاتية القديمة",
+      "newResume": "السيرة الذاتية الجديدة",
+      "actions": "الإجراءات"
+    }
+  },
+  "Models": {
+    "consultation": {
+      "title": "نماذجي",
+      "breadcrumbs": {
+        "models": "النماذج",
+        "consultation": "استشارة"
+      },
+      "searchPlaceholder": "البحث حسب النموذج",
+      "newModel": "نموذج جديد",
+      "noDataFound": "لم يتم العثور على نطاق",
+      "visualize": "عرض",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "headers": {
+        "ID": "#الرقم",
+        "name": "الاسم",
+        "uses": "الاستخدامات",
+        "createdAt": "تم الإنشاء في",
+        "updatedAt": "تم التحديث في",
+        "actions": "الإجراءات"
+      }
+    },
+    "creation": {
+      "logo": {
+        "logoTitle": "الشعار",
+        "picture": "الصورة",
+        "size": "الحجم",
+        "aspectRatio": "نسبة الأبعاد",
+        "borderRadius": "زوايا الحدود",
+        "effects": "التأثيرات",
+        "border": "الحدود",
+        "hidden": "مخفي",
+        "grayscale": "الأبيض والأسود"
+      },
+      "page": {
+        "pageTitle": "الصفحة",
+        "format": "التنسيق",
+        "options": "الخيارات",
+        "showHeadline": "إظهار العنوان",
+        "showSummary": "إظهار الملخص"
+      },
+      "sections": {
+        "sectionsTitle": "الأقسام",
+        "main": "الرئيسية",
+        "sidebar": "الشريط الجانبي",
+        "certifications": "الشهادات",
+        "education": "التعليم",
+        "experience": "الخبرات",
+        "volunteering": "التطوع",
+        "projects": "المشاريع",
+        "references": "المراجع",
+        "interests": "الاهتمامات",
+        "languages": "اللغات",
+        "skills": "المهارات",
+        "social": "وسائل التواصل",
+        "visible": "مرئي",
+        "hidden": "مخفي"
+      },
+      "template": {
+        "templateTitle": "القالب"
+      },
+      "theme": {
+        "themeTitle": "السمة",
+        "background": "الخلفية",
+        "text": "النص",
+        "primary": "الأساسي"
+      },
+      "typography": {
+        "typographyTitle": "الطباعة",
+        "fontSize": "حجم الخط",
+        "lineHeight": "ارتفاع السطر",
+        "options": "الخيارات",
+        "underlineLinks": "تسطير الروابط"
+      },
+      "register": {
+        "modelName": "اسم النموذج",
+        "createModel": "إنشاء النموذج"
+      }
+    }
+  },
+  "Resumes": {
+    "loading": {
+      "title": "التحميل",
+      "breadcrumbs": {
+        "personalization": "التخصيص الشخصي",
+        "loading": "تحميل البيانات"
+      },
+      "headers": {
+        "ID": "#الرقم",
+        "name": "الاسم",
+        "resumeTitle": "عنوان السيرة الذاتية",
+        "createdAt": "تم الإنشاء في",
+        "updatedAt": "تم التحديث في",
+        "actions": "الإجراءات"
+      },
+      "loadCandidateData": "تحميل بيانات المرشح",
+      "noDataFound": "لم يتم العثور على نطاق",
+      "chooseFileImport": "اختر الملف الذي تريد استيراد البيانات منه",
+      "selectFile": "اختر ملفًا",
+      "importFile": "استيراد الملف",
+      "cancel": "إلغاء",
+      "import": "استيراد"
+    },
+    "editor": {
+      "selectModel": "اختر النموذج",
+      "selectCandidates": "اختر المرشحون",
+      "noDataMessage": "هذا المشروع ليس لديه أهداف تشغيلية مرتبطة",
+      "noData": "لا توجد بيانات"
+    },
+    "actions": {
+      "syncData": "مزامنة البيانات",
+      "close": "إغلاق",
+      "visualize": "عرض",
+      "create": "إنشاء",
+      "edit": "تعديل",
+      "copy": "نسخ",
+      "delete": "حذف",
+      "duplicate": "استنساخ",
+      "addItem": "إضافة عنصر",
+      "newItem": "عنصر جديد"
+    },
+    "basics": {
+      "basicsTitle": "الأساسيات",
+      "picture": "الصورة",
+      "name": "الاسم",
+      "phone": "الهاتف",
+      "city": "المدينة",
+      "age": "العمر",
+      "email": "البريد الإلكتروني",
+      "headline": "عنوان رئيسي",
+      "summary": "الملخص"
+    },
+    "toasts": {
+      "itemDeleted": "تم حذف العنصر",
+      "itemCreated": "تم إنشاء العنصر"
+    },
+    "experiences": {
+      "headers": {
+        "work": "العمل",
+        "jobTitle": "عنوان الوظيفة",
+        "companyName": "اسم الشركة",
+        "city": "المدينة"
+      },
+      "placeholders": {
+        "jobTitle": "عنوان الوظيفة",
+        "companyName": "اسم الشركة",
+        "city": "المدينة",
+        "startDate": "مارس ٢٠٢٤ حتى الآن",
+        "endDate": "تاريخ الانتهاء",
+        "responsibilities": "المسؤوليات"
+      },
+      "toasts": {
+        "jobTitleEmpty": "يجب ألا يكون عنوان الوظيفة فارغًا",
+        "companyNameEmpty": "يجب ألا يكون اسم الشركة فارغًا"
+      }
+    },
+    "educations": {
+      "headers": {
+        "education": "التعليم",
+        "degreeName": "اسم الدرجة العلمية",
+        "institutionName": "اسم المؤسسة",
+        "startYear": "عام البدء",
+        "endYear": "عام الانتهاء"
+      },
+      "placeholders": {
+        "degreeName": "مثال: بكالوريوس في علوم الكمبيوتر",
+        "institutionName": "اسم المؤسسة",
+        "startYear": "مارس ٢٠٢٤ حتى الآن",
+        "endYear": "تاريخ الانتهاء"
+      },
+      "toasts": {
+        "institutionEmpty": "يجب ألا تكون المؤسسة فارغة",
+        "degreeEmpty": "يجب ألا يكون اسم الدرجة العلمية فارغًا"
+      }
+    },
+    "projects": {
+      "headers": {
+        "project": "المشاريع",
+        "projectName": "اسم المشروع",
+        "startDate": "تاريخ البدء",
+        "endDate": "تاريخ الانتهاء",
+        "description": "الوصف"
+      },
+      "placeholders": {
+        "projectName": "مثال: متجر إلكتروني",
+        "startDate": "مارس ٢٠٢٤ حتى الآن",
+        "endDate": "تاريخ الانتهاء",
+        "description": "الوصف"
+      },
+      "toasts": {
+        "nameEmpty": "يجب ألا يكون الاسم فارغًا"
+      }
+    },
+    "certifications": {
+      "headers": {
+        "certifications": "الشهادات",
+        "certificationName": "اسم الشهادة",
+        "institutionName": "اسم المؤسسة",
+        "date": "التاريخ",
+        "link": "الرابط"
+      },
+      "placeholders": {
+        "certificationName": "مثال: شهادة علوم البيانات من IBM",
+        "institutionName": "اسم المؤسسة",
+        "date": "مارس ٢٠٢٤ حتى الآن",
+        "link": "الرابط"
+      },
+      "toasts": {
+        "nameEmpty": "يجب ألا يكون الاسم فارغًا",
+        "institutionEmpty": "يجب ألا تكون المؤسسة فارغة"
+      }
+    },
+    "references": {
+      "headers": {
+        "reference": "المراجع",
+        "name": "الاسم",
+        "position": "المنصب",
+        "company": "الشركة",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف"
+      },
+      "placeholders": {
+        "name": "الاسم",
+        "position": "المنصب",
+        "company": "الشركة",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف"
+      },
+      "toasts": {
+        "nameEmpty": "يجب ألا يكون الاسم فارغًا",
+        "positionEmpty": "يجب ألا يكون المنصب فارغًا"
+      }
+    },
+    "volunteering": {
+      "headers": {
+        "volunteering": "التطوع",
+        "organizationName": "اسم المنظمة",
+        "position": "المنصب",
+        "startDate": "تاريخ البدء",
+        "endDate": "تاريخ الانتهاء",
+        "description": "الوصف"
+      },
+      "placeholders": {
+        "organizationName": "اسم المنظمة",
+        "position": "المنصب",
+        "startDate": "تاريخ البدء",
+        "endDate": "تاريخ الانتهاء",
+        "description": "الوصف"
+      },
+      "toasts": {
+        "positionEmpty": "يجب ألا يكون المنصب فارغًا",
+        "organizationEmpty": "يجب ألا يكون اسم المنظمة فارغًا"
+      }
+    },
+    "interests": {
+      "headers": {
+        "interests": "الاهتمامات",
+        "interestName": "اسم الاهتمام"
+      },
+      "placeholders": {
+        "interestName": "مثال: كرة السلة، رحلات الجبال، الطهي، القراءة وما إلى ذلك."
+      },
+      "toasts": {
+        "interestEmpty": "يجب ألا يكون الاهتمام فارغًا"
+      }
+    },
+    "languages": {
+      "headers": {
+        "languages": "اللغات",
+        "languageName": "اللغة",
+        "level": "المستوى"
+      },
+      "placeholders": {
+        "languageName": "مثال: الإنجليزية"
+      },
+      "toasts": {
+        "languageEmpty": "يجب ألا تكون اللغة فارغة"
+      }
+    },
+    "skills": {
+      "headers": {
+        "skills": "المهارات",
+        "skillName": "المهارة",
+        "level": "المستوى"
+      },
+      "placeholders": {
+        "skillName": "مثال: Python"
+      },
+      "toasts": {
+        "skillEmpty": "يجب ألا تكون المهارة فارغة"
+      }
+    },
+    "socials": {
+      "headers": {
+        "socials": "وسائل التواصل",
+        "socialName": "وسيلة التواصل",
+        "link": "الرابط"
+      },
+      "placeholders": {
+        "socialName": "مثال: LinkedIn",
+        "link": "الرابط"
+      },
+      "toasts": {
+        "socialEmpty": "يجب ألا تكون وسيلة التواصل فارغة"
+      }
+    }
+  },
+  "Plans": {
+    "title": "الخطط",
+    "price": "السعر",
+    "choosePlan": "اختر الخطة",
+    "standardName": "القياسي",
+    "premiumName": "المميز",
+    "frequency": "الشهر",
+    "advantage1": "الميزة 1",
+    "advantage2": "الميزة 2",
+    "advantage3": "الميزة 3",
+    "advantage4": "الميزة 4",
+    "advantage5": "الميزة 5",
+    "advantage6": "الميزة 6"
+  },
+  "Faqs": {
+    "title": "الأسئلة الشائعة",
+    "heading": "الأسئلة المتكررة",
+    "description": "هنا يمكنك العثور على إجابات عن الأسئلة الأكثر تكراراً.",
+    "question1": {
+      "title": "السؤال 1",
+      "text": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أدايبايسينغ إليت. كوممودي، راتيوني ديبيتيس كويس أست لابوري فولبتاتيبوس! إياكو كوبيديتاتي مينيما"
+    },
+    "question2": {
+      "title": "السؤال 2",
+      "text": "الإجابة 2"
+    },
+    "question3": {
+      "title": "السؤال 3",
+      "text": "الإجابة 3"
+    },
+    "question4": {
+      "title": "السؤال 4",
+      "text": "الإجابة 4"
+    }
+  },
+  "Invoices": {
+    "invoice": "فاتورة",
+    "billing": "الفوترة",
+    "searchBySubscription": "البحث حسب الاشتراك",
+    "noRecordsFound": "لم يتم العثور على سجلات",
+    "visualize": "عرض",
+    "headers": {
+      "ID": "رقم التعريف",
+      "subscription": "اشتراك",
+      "amount": "المبلغ",
+      "createdAt": "تم الإنشاء في",
+      "updatedAt": "تم التحديث في",
+      "actions": "الإجراءات"
+    },
+    "informations": {
+      "download": "تحميل",
+      "documentType": "نوع المستند",
+      "invoiceNumber": "رقم الفاتورة",
+      "supplyCode": "رمز التوريد",
+      "billDate": "تاريخ الفاتورة",
+      "dueDate": "تاريخ الاستحقاق",
+      "paymentType": {
+        "title": "طريقة الدفع",
+        "creditCard": "بطاقة ائتمان",
+        "paypal": "باي بال",
+        "check": "شيك",
+        "cash": "نقد"
+      },
+      "details": {
+        "name": "الاسم",
+        "address": "العنوان",
+        "city": "المدينة",
+        "state": "الولاية",
+        "contactName": "اسم الاتصال",
+        "phone": "الهاتف",
+        "email": "البريد الإلكتروني",
+        "customerName": "اسم العميل"
+      },
+      "myDetails": "تفاصيلي",
+      "customerDetails": "تفاصيل العميل",
+      "itemDetails": {
+        "title": "تفاصيل العنصر",
+        "item": "العنصر",
+        "itemDescription": "وصف العنصر",
+        "characters": "الأحرف",
+        "price": "السعر",
+        "discount": "الخصم",
+        "tax": "الضريبة",
+        "taxableAmt": "المبلغ الخاضع للضريبة",
+        "taxAmt": "مبلغ الضريبة",
+        "totalAmt": "المبلغ الإجمالي",
+        "subTotal": "المجموع الفرعي",
+        "totalDiscount": "إجمالي الخصم",
+        "totalTax": "إجمالي الضريبة",
+        "totalAmount": "المبلغ الإجمالي"
+      },
+      "summary": {
+        "title": "الملخص",
+        "subTotal": "المجموع الفرعي",
+        "totalDiscount": "إجمالي الخصم",
+        "totalTax": "إجمالي الضريبة",
+        "totalAmount": "المبلغ الإجمالي"
+      }
+    }
+  }
+}

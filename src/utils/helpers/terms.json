@@ -1,0 +1,619 @@
+{
+  "termsFr": {
+    "preamble": {
+      "title": " Application des conditions générales de prestation de services",
+      "content": "Les présentes Conditions Générales de Prestation de services (ci-après « CGPS ») sont applicables à toutes nos prestations sauf stipulations dérogatoires expresses et écrites par email. Toute stipulation contraire pouvant figurer aux conditions générales ou tout autre document contractuel émis par le Client nous est inopposable. Les présentes Conditions Générales de Prestations de Services s'appliqueront également aux relations contractuelles futures avec le Client, sans notification préalable. Le Client déclare avoir pris connaissance des CGPS et les avoir acceptées sans réserve avant de faire appel aux services de PinJobs.io. Le Client a souhaité collaborer avec PinJobs.io, en raison de son expertise dans l’automatisation de création de dossiers de compétences (tel que ce terme est défini ci-après) et de son infrastructure numérique. Le Client a souhaité confier à PinJobs.io le soin de faciliter, d’organiser et d'exécuter, en toute indépendance les Prestations (tel que ce terme est défini ci-après)."
+    },
+    "article1": {
+      "title": "Article 1 : Définitions",
+      "definitions": [
+        {
+              "Client": "Quick Win Solution LLC, éditeur de PinJobs.io"
+        },
+         {
+          "solution": "PinJobs est la solution. "
+        },
+        {
+          "Société" :"Quick Win Solution LLC, éditeur de PinJobs.io"
+        },
+          {
+          "Saas Solution" : "PinJobs.io"
+        },
+        {
+          "Parties": "désigne PinJobs.io et le Client"
+        },
+        {
+          "Compte": "désigne l’espace numérique dédié et individualisé d’un Utilisateur qui permet d’accéder au Service en Ligne."
+        },
+        {
+          "Conditions d’Utilisation": "désigne les conditions d’utilisation du Service en Ligne qui sont décrites à l’annexe 1."
+        },
+        {
+          "Contrat": "désigne les présentes CGPS ainsi que ses annexes."
+        },
+        {
+          "CV": "désigne un fichier informatique, propriété de l’Utilisateur, qui contient des informations professionnelles sur une personne dont l’Utilisateur est autorisé par celle-ci à utiliser ses informations."
+        },
+        {
+          "Dossier de compétences": "désigne un fichier informatique créé par PinJobs.io, à partir des informations identifiées automatiquement dans un CV."
+        },
+        {
+          "Prestations": "désigne la création d’un Dossier de compétences à partir d’un CV uploadé sur le Service en Ligne."
+        },
+        {
+          "Règles sur les Données Personnelles": "désigne la réglementation en vigueur sur le traitement de données à caractère personnel et en particulier le règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 et la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés dans sa version en vigueur."
+        },
+        {
+          "Service en Ligne": "désigne la solution en ligne de PinJobs.io, accessible à partir de l’adresse https://www.PinJobs.io"
+        },
+        {
+          "Utilisateur": "désigne le Client et toute personne qui utilise le Service en Ligne."
+        }
+      ],
+      "note": "Sauf exigence contraire résultant du contexte, les termes et définitions déclinés au singulier incluent le pluriel, et inversement."
+    },
+    "article2": {
+      "title": "Article 2 : Objet du Contrat",
+      "content": "Les CGPS ont pour objet d’encadrer les relations entre PinJobs.io et le Client ainsi que de définir les conditions selon lesquelles le Client confie à PinJobs.io l’exécution des Prestations. Les annexes et les éventuels avenants ultérieurs partie intégrante du Contrat et sont soumis à l’ensemble des stipulations qui le régissent. Si les Parties souhaitent inclure d’autres documents dans le champ contractuel (par exemple, les conditions générales d’achat du Client), les Parties devront établir un écrit constatant leur accord. En tout état de cause, en cas de contrariété, les stipulations des CGPS prévaudront sur celles desdits documents. Les Parties s'engagent à collaborer de bonne foi et à faire leurs meilleurs efforts pour exécuter leurs obligations respectives."
+    },
+    "article3": {
+      "title": "Article 3 : Obligations de PinJobs.io",
+      "content": "PinJobs.io s’engage, dans le cadre d’une obligation de moyens, à mettre en œuvre, pour l’exécution des Prestations, toutes les diligences requises et à faire tout ce qui sera en son pouvoir pour que les Prestations rendues au Client soient conformes aux règles de l’art. PinJobs.io est soumise à une obligation de conseil, d’information et de mise en garde sur les Prestations qui lui sont confiées. PinJobs.io s’engage à mobiliser à l’exécution des Prestations mises à sa charge l’ensemble des moyens appropriés, étant précisé qu’il sera seul maître de la définition et du choix desdits moyens ainsi que des méthodes de travail utilisées."
+    },
+    "article4": {
+      "title": "Article 4 : Obligations du Client",
+      "content": "En contrepartie de la réalisation des Prestations, le Client s’engage à verser à PinJobs.io les sommes prévues à l’article 6 (Conditions financières). Le Client s’engage à fournir, en temps utile, à PinJobs.io tous les documents, informations tenues à jour et toutes explications utiles pour exécuter, dans les meilleures conditions possibles, les Prestations. En cas de difficulté dans l’exécution des Prestations, le Client s’engage à prendre toutes les mesures nécessaires pour résoudre les difficultés qui lui auraient été notifiées par PinJobs.io."
+    },
+    "article5": {
+      "title": "Article 5 : Conditions financières",
+      "sections": {
+        "5_1": {
+          "title": "5.1 Abonnements",
+          "content": "Pour accéder aux services de PinJobs.io, le Client devra nécessairement renseigner les informations de carte bancaire sur le Service en Ligne. Le Service en Ligne utilise le système de sécurisation de Paypal pour le paiement, prestataire spécialisé dans la sécurisation de paiement en ligne. Ces systèmes garantissent au Client la totale confidentialité de ses informations bancaires. La transaction bancaire, réalisée entre le Client et le système sécurisé choisi est donc entièrement cryptée et protégée. Les coordonnées bancaires du Client ne sont pas stockées informatiquement par PinJobs.io.",
+          "texts": [
+            "En contrepartie de l’accès au service dans les conditions prévues par la présente, le Client s’engage à payer à PinJobs.io une rémunération d’utilisation du service.",
+            "Le client a le choix entre des abonnements mensuels et des abonnements annuels. Le contrat prend effet à compter de la date d’activation du service.",
+            "Dans le cas d’un abonnement mensuel, la durée initiale et ferme du contrat est de un (1) mois, Au terme de cette Durée initiale, le contrat se renouvelle par tacite reconduction pour une durée de un (1) mois et de ce fait de nouveaux droits d’abonnement seront dus mensuellement.",
+            "Dans le cas d’un abonnement annuel, la durée initiale et ferme du contrat est de un(1) an. Au terme de cette Durée initiale, le contrat se renouvelle par tacite reconduction pour une durée de un (1) an et de ce fait de nouveaux droits d’abonnement seront dus annuellement.",
+            "Chaque abonnement donne droit à un certain nombre de Dossiers de compétences pouvant être créés lors de chaque cycle mensuel. Pour chaque abonnement, ce nombre de Dossiers de compétences et le montant de la rémunération du service sont indiqués sur le Service en Ligne, en euros, hors taxes et toutes taxes comprises. Dans la mesure où elle sera applicable, la TVA sera ajoutée par PinJobs.io aux montants facturés. Les tarifs indiqués sur le Service en Ligne sont ceux en vigueur au jour de la signature du contrat.",
+            "Le montant de la rémunération du service est payable lors de la signature du contrat. Le règlement de la rémunération du service s’opérera par prélèvement automatique mensuel. Les sommes dues à PinJobs.io ne comprennent pas le coût de la connexion Internet qui reste à la charge du Client.",
+            "PinJobs.io pourra modifier le montant de la rémunération du service sous réserve d’informer le Client au moins un (1) mois avant l’entrée en vigueur des modifications. A défaut de résiliation dans le délai d’un (1) mois, les modifications entreront en vigueur et seront réputées acceptées par le Client."
+          ]
+        },
+        "5_2": {
+          "title": "5.2 Évolutions d’abonnement",
+          "sections": {
+            "5_2_1": {
+              "title": "5.2.1 Évolution d’un abonnement mensuel",
+              "content": "Le Client a la possibilité de changer d'abonnement au cours d’un cycle mensuel. Le nouvel abonnement doit également être un abonnement mensuel."
+            },
+            "5_2_1_1": {
+              "title": "5.2.1.1 Diminution de l’abonnement mensuel",
+              "content": "Si le Client choisit un abonnement avec un prix inférieur, il n’aura pas à payer de somme immédiatement. Il conservera son abonnement jusqu’à la fin de ce cycle et le nouvel abonnement commencera lors du début du prochain cycle mensuel, au prix et conditions liés au nouvel abonnement"
+            },
+            "5_2_1_2": {
+              "title": "5.2.1.2 Augmentation de l’abonnement mensuel",
+              "content": "Si le Client choisit un abonnement avec un prix supérieur, il devra directement payer le nouvel abonnement. Le jour du mois de renouvellement cycle de l’abonnement mensuel sera mise à jour et deviendra celui du jour où du changement d’abonnement. Le Client bénéficiera alors du nombre de Dossiers de compétences du nouvel abonnement. Le Client sera alors automatiquement facturé selon les conditions du nouvel abonnement à chaque début des futurs cycles mensuels."
+            },
+            "5_2_2": {
+              "title": "5.2.2 Augmentation d’un abonnement annuel",
+              "content": "Le Client a la possibilité de changer d'abonnement au cours d’un cycle annuel. Le nouvel abonnement doit être un abonnement annuel et être d’un prix supérieur."
+            }
+          }
+        }
+      }
+    },
+    "article6": {
+      "title": "Article 6 : Durée du Contrat",
+      "content": "Le Contrat est conclu, à compter de sa date d'acceptation, pour une durée de non déterminé jusqu’à épuisement des crédits avec reconduction tacite."
+    },
+    "article7": {
+      "title": "Article 7 : Résiliation du Contrat",
+      "content": "Chacune des Parties est libre de mettre un terme au Contrat, à tout moment, sans avoir à justifier d'un motif et sans indemnité, directement depuis le Service en Ligne. Dans ce cas, le Client ne pourra plus obtenir de Prestations à partir de la fin du cycle de son abonnement mensuel. Le Client pourra ensuite renouveler le Contrat à tout moment, directement depuis le Service en Ligne."
+    },
+    "article8": {
+      "title": "Article 8 : Confidentialité",
+      "content": "Chaque Partie s’engage à ne pas divulguer à des tiers les informations confidentielles échangées dans le cadre du Contrat ou nécessaires à l’exécution des Prestations pendant toute la durée du Contrat et pour une durée de 2 ans à compter de la fin du Contrat. Chaque Partie s’engage à considérer et traiter comme confidentielles toutes les informations qui lui sont communiquées dans le cadre du Contrat ou nécessaires à l’exécution des Prestations.",
+      "texts": [
+        "Le Contrat et son contenu, ainsi que les informations recueillies par PinJobs.io au cours de l’exécution des Prestations, resteront confidentiels entre les Parties sauf à y être contraintes (i) pour faire valoir leurs droits en justice, notamment - mais pas exclusivement - dans l'hypothèse d'une inexécution du Contrat par l'une des Parties,(ii) par une décision de justice ou (iii) pour répondre à une demande d'une administration fiscale ou douanière, des organismes de recouvrement de cotisations sociales ou d'un commissaire aux comptes ou d’un expert-comptable.",
+        "Dans l’éventualité où l’une des Parties serait contrainte de révéler à un tiers l'existence du Contrat, son contenu ou les informations recueillies par PinJobs.io, au cours de l’exécution des Prestations, elle devra impérativement et préalablement en informer l'autre Partie dans les meilleurs délais par tout moyen (sauf s'il s'agit d'une demande d'une administration fiscale, d'un commissaire aux comptes ou d’un expert- comptable)."
+      ]
+    },
+    "article9": {
+      "title": "Article 9 : Publicité",
+      "content": "Chaque Partie pourra utiliser, à titre de référence commerciale, le nom, la marque (y compris figurative) et/ou le logo de l’autre Partie ainsi que les éventuels commentaires émis par ses employés et collectés par tous moyens y compris électroniques."
+    },
+    "article10": {
+      "title": "Article 10 : Données personnelles",
+      "content": "Les Parties s’engagent mutuellement à respecter les Règles sur les Données Personnelles. Les engagements spécifiques des Parties au regard des Règles sur les Données Personnelles figurent à l’Annexe 2."
+    },
+    "article11": {
+      "title": "Article 11: Force majeure",
+      "content": "Les Parties sont libérées de l’exécution du contrat dans les délais convenus, si elles sont empêchées par un évènement relevant de la force majeure selon l’article 1218 du Code civil.",
+      "texts": [
+        "En cas d’évènement de force majeure la Partie empêchée doit informer l’autre Partie, dans un délai de sept jours, sur le début et la fin prévisible du trouble, sur la cause, sur les conséquences attendues et sur la durée du retard.",
+        "Les rendez-vous ou les délais, qui ne peuvent être tenus pour cause de force majeure, seront prolongés pendant la durée des effets de celle-ci.",
+        "Si une situation de force majeure perdure plus de (4) quatre semaines, le Client et la Société envisageront de bonne foi des solutions à envisager quant à la poursuite de l’exécution du Contrat."
+      ]
+    },
+    "article13": {
+      "title": "Article 13 : Divers",
+      "texts": [
+        "Le Contrat remplace les négociations, déclarations, accords et contrats ayant pu exister antérieurement entre les Parties.",
+        "Le fait pour l’une des Parties de ne pas se prévaloir de l’une quelconque des clauses du Contrat ne vaut pas renonciation pour l’avenir à l’application de ladite clause.",
+        "Au cas où une stipulation du Contrat s'avérait en tout ou partie nulle ou invalide, la validité des autres clauses du Contrat ne serait pas affectée.",
+        "Le Client pourra transférer ou céder le bénéfice du Contrat à toute personne morale que le Client contrôle, qui contrôle le Client ou dont le Client partage le contrôle. Pour l’application de ce mécanisme, le terme « contrôle » désigne la propriété directe ou indirecte ou le contrôle de 50% ou plus de la personne morale."
+      ]
+    },
+    "article14": {
+      "title": "Article 14 : Loi applicable – juridiction compétente",
+      "content": "Le Contrat est régi et interprété par le droit français. Les Parties s'engagent à soumettre tout litige ou contestation relatif à la validité, à l'interprétation à l'exécution et/ou à la rupture du présent Contrat à la compétence exclusive du Tribunal de commerce de Paris."
+    },
+    "annexes": {
+      "annex1": {
+        "title": "ANNEXE 1 : CONDITIONS D’UTILISATION DU SERVICE EN LIGNE",
+        "sections": {
+          "1": {
+            "title": "1. Objet",
+            "content": [
+              "La présente annexe a pour objet la définition des modalités d’accès, de fonctionnement et d’utilisation du Service en Ligne ainsi que les droits et obligations respectifs du Client et de PinJobs.io dans ce cadre.",
+              "Le Client s’engage à ce que tous les Utilisateurs aient pris connaissance et fassent leurs meilleurs efforts pour respecter les Conditions d’Utilisation."
+            ]
+          },
+          "2": {
+            "title": "2. Évolution du Service en Ligne et modification des Conditions d’Utilisation",
+            "content": [
+              "Pour améliorer son fonctionnement et sa qualité, PinJobs.io fait continuellement évoluer les caractéristiques et les fonctionnalités du Service en Ligne.",
+              "À cet égard, PinJobs.io peut modifier unilatéralement les Conditions d’Utilisation concernant les aspects techniques du Service en Ligne dès lors qu’il n’en résulte ni augmentation du prix, ni altération de la qualité et que les caractéristiques auxquelles le Client a subordonné son engagement ont pu figurer dans les Conditions d’Utilisation.",
+              "Pour les autres modifications des Conditions d’Utilisation, PinJobs.io informe le Client, par tout moyen, au moins 30 jours avant leur entrée en vigueur. En l’absence d’objection par le Client dans ce délai, les modifications seront considérées comme étant lues et acceptées. En cas d’objection ou de refus des modifications, le Client devra cesser d’utiliser le Service en Ligne."
+            ]
+          },
+          "3": {
+            "title": "3. Création et fonctionnement du Compte"
+          },
+          "3_1": {
+            "title": "3.1 Création du Compte",
+            "content": [
+              "Pour créer son Compte, l’Utilisateur clique sur « Créer son compte » dans la section dédiée au Client et renseigne les informations nécessaires.",
+              "L’Utilisateur s’engage à fournir l’ensemble des informations obligatoires et garantit que toutes les informations renseignées dans le formulaire d’inscription sont exactes et ne sont entachées d’aucun caractère équivoque. Toute inscription incomplète ne peut être validée et tout élément faux ou inexact sera de la responsabilité du Client.",
+              "L’Utilisateur s’engage à mettre immédiatement à jour les informations figurant sur le Compte en cas de modification de celles-ci.",
+              "Le Client garantit et assure à PinJobs.io que tout Utilisateur dispose du pouvoir et de la capacité pour créer le Compte et utiliser le Service en Ligne. Plus spécifiquement, le Client garantit que tout Utilisateur dispose d’un mandat pour agir au"
+            ]
+          },
+          "3_2": {
+            "title": "3.2 Finalisation du Compte",
+            "content": [
+              "Afin de bénéficier des Prestations, hors essai gratuit, l’Utilisateur doit obligatoirement renseigner les informations relatives à la facturation. Grâce à son Compte, l’Utilisateur peut bénéficier des Prestations en accord avec l’abonnement qu’il aura choisi."
+            ]
+          },
+          "4": {
+            "title": "4. Accès, usage et sécurité du Compte",
+            "content": [
+              "Le Client comprend et accepte qu’il est responsable de l’accès et de l’utilisation du Compte par les Utilisateurs. À cet égard, le Client s’engage à tout mettre en œuvre pour informer les Utilisateurs de leurs responsabilités à l’égard du Compte.",
+              "Sauf défaillance technique imputable à PinJobs.io ou cas de force majeure, l’Utilisateur est seul responsable de la confidentialité de ses données de connexion et le Client s’engage à ce que chaque Utilisateur mette en œuvre toutes les mesures de nature à assurer la sécurité et la confidentialité des données de connexion.",
+              "Si l’Utilisateur a des raisons de croire que ses données de connexion ont été perdues, volées, détournées ou compromises d’une quelconque manière, ou en cas d’utilisation non autorisée de son Compte, l’Utilisateur doit immédiatement le notifier à PinJobs.io.",
+              "Dans une telle situation, le Client autorise PinJobs.io à prendre toutes les mesures appropriées pour empêcher tout nouvel accès au Compte."
+            ]
+          },
+          "5": {
+            "title": "5. Engagements de PinJobs.io",
+            "content": [
+              "PinJobs.io s'engage à mettre le Service en Ligne à la disposition du Client et des Utilisateurs ainsi qu'à faire ses meilleurs efforts pour en assurer l'accessibilité et le bon fonctionnement.",
+              "À ce titre, PinJobs.io s'engage à ce que le Service en Ligne soit accessible 24/24h et 7/7j sauf cas de force majeure ou comportement imprévisible et insurmontable d’un tiers, et sous réserve des éventuelles pannes et interventions de maintenance et de mise à jour nécessaires au bon fonctionnement du Service en Ligne.",
+              "PinJobs.io s’engage à mettre en place un service de support pour répondre aux questions et fournir une assistance en cas de difficulté. Pour toute question ou demande d’information concernant le Service en Ligne, le Client et les Utilisateurs peuvent contacter PinJobs.io en lui adressant un courrier électronique à contact@PinJobs.io.",
+              "En cas d’un dysfonctionnement ou d’une anomalie perturbant le bon fonctionnement du Service en Ligne, PinJobs.io s’engage à faire ses meilleurs efforts pour rétablir la situation."
+            ]
+          },
+          "6": {
+            "title": "6. Responsabilité de PinJobs.io",
+            "content": [
+              "PinJobs.io n’est pas responsable des difficultés ou impossibilités momentanées d’accès au Service en Ligne ou au Compte si elles ont pour origine des circonstances qui lui sont extérieures, la force majeure, ou encore qui seraient dues à des perturbations des réseaux de télécommunication.",
+              "Dans les cas où la responsabilité de PinJobs.io pourrait être engagée concernant le Service en Ligne, celle-ci est limitée aux préjudices certains, directs et prévisibles. Pour les dommages résultant d’un manquement de PinJobs.io, la réparation due au Client, au cas où sa responsabilité serait directement engagée et prouvée, sera strictement limitée aux coûts directement et effectivement supportés par le Client."
+            ]
+          },
+          "7": {
+            "title": "7. Engagements du Client",
+            "list": {
+              "text": "Le Client s’engage expressément à ce que chaque Utilisateur :",
+              "items": [
+                "respecte les lois et règlements en vigueur et ne porte pas atteinte à l’ordre public, aux bonnes mœurs ou aux droits de tiers et n'enfreint aucune disposition législative ou réglementaire.",
+                "n’utilise pas le Service en Ligne de manière frauduleuse (ex : un faux compte ou une fausse identité) et/ou pour nuire aux intérêts de PinJobs.io ou de tiers.",
+                "ne cède ou transfère d’une quelconque manière son Compte à un tiers.",
+                "fournisse à PinJobs.io toutes les informations nécessaires au fonctionnement du Service en Ligne.",
+                "informe PinJobs.io en cas de complication de toute nature concernant le Service en Ligne."
+              ]
+            },
+            "content": [
+              "Le Client s’engage à informer chaque Utilisateur qu’est strictement interdit : (i) tout comportement de nature à interrompre, suspendre, ralentir ou empêcher la continuité du Service en Ligne, (ii) toute intrusion ou tentative d’intrusions dans les systèmes de PinJobs.io, (iii) tout détournement des ressources système du Service en Ligne et du Compte, (iv) toute action de nature à imposer une charge disproportionnée sur les infrastructures numériques de PinJobs.io, (v) toute atteinte aux mesures de sécurité et d’authentification, (vi) tout acte de nature à porter atteinte aux droits et intérêts financiers, commerciaux ou moraux de PinJobs.io et des autres utilisateurs du Service en Ligne, (vii) tout manquement aux Conditions d’Utilisation, (viii) toute copie et/ou détournement de l’infrastructure numérique de PinJobs.io et (ix) plus généralement toute pratique détournant le Service en Ligne à des fins autres que celles pour lesquelles ils ont été conçus.",
+              "En cas de manquement du Client à cette obligation ou d’un Utilisateur à un des engagements mentionnés ci-dessus, PinJobs.io peut, sans préjudice d’autre action éventuelle, sans préavis ou indemnité, suspendre le Compte et/ou l’accès au Service en Ligne."
+            ]
+          },
+          "8": {
+            "title": "8. Responsabilité du Client",
+            "content": [
+              "Le Client est seul responsable de l’utilisation du Service en Ligne et du Compte qui est faite par l’Utilisateur, de sorte qu’il répond de tout préjudice qu’il est susceptible de causer du fait de son comportement et d’informations inexactes, incomplètes, et/ou trompeuses qu’il fournirait lors de son inscription ou en l’absence de mise à jour de ces informations, ce dont il assume seul les conséquences.",
+              "Le Client se porte fort du respect et de la bonne exécution par chaque Utilisateur de l’ensemble des stipulations prévues dans les Conditions d’Utilisation."
+            ]
+          },
+          "9": {
+            "title": "9. Propriété intellectuelle",
+            "content": [
+              "Le Service en Ligne et chacun des éléments qui le compose, notamment, mais non limitativement, les logiciels, les structures, infrastructures, bases de données et contenus de toute nature (textes, images, visuels, logos, marques…) exploités par PinJobs.io sont protégés par tous droits de propriété intellectuelle en vigueur.",
+              "Le Client reconnait et convient que le Service en Ligne et l’intégralité des éléments qui le compose, y compris tous les droits de propriété intellectuelle associés, sont la propriété exclusive de PinJobs.io.",
+              "Toute reproduction ou représentation, intégrale ou partielle, du Service en Ligne ou de chacun des éléments qui le compose, sans l’autorisation de PinJobs.io, est interdite.",
+              "De même, le Client s’interdit, sauf autorisation écrite et préalable de PinJobs.io, d’utiliser, de reproduire, d’adapter, de modifier, de créer des œuvres dérivées, de distribuer, de concéder une licence, de vendre, de transférer, de présenter publiquement, de transmettre, de diffuser ou d’exploiter de toute autre manière le Service en Ligne et l’intégralité de ses éléments appartenant à PinJobs.io.",
+              "Le Client s’engage à informer chaque Utilisateur des stipulations de ce présent article et garantit PinJobs.io de toute conséquence d’un éventuel manquement par un Utilisateur."
+            ]
+          }
+        }
+      },
+      "annex2": {
+        "title": "ANNEXE 2 – DONNÉES PERSONNELLES",
+        "sections": {
+          "1": {
+            "title": "1. Objet",
+            "content": [
+              "Cette annexe a pour objet de définir les conditions dans lesquelles PinJobs.io (le « Sous-Traitant »)  s’engage  à  effectuer  pour  le  compte  du  Client (le « Responsable de Traitement ») les opérations de traitement de données à caractère personnel définies ci-après."
+            ]
+          },
+          "2": {
+            "title": "2. Description du traitement faisant l’objet de la sous-traitance",
+            "content": [
+              "Le traitement de données personnelles consiste essentiellement en l’accès, la consultation et l’utilisation de données personnelles nécessaires à la réalisation des Prestations."
+            ]
+          },
+          "3": {
+            "title": "3. Durée",
+            "content": [
+              "La présente annexe entre en vigueur à compter de la date d’entrée en vigueur du Contrat et pour la durée dudit Contrat."
+            ]
+          },
+          "4": {
+            "title": "4. Obligations du Sous-Traitant vis-à-vis du Responsable de Traitement",
+            "list": {
+              "text": "Le Sous-Traitant s'engage à :",
+              "items": [
+                "a) traiter les données uniquement pour la ou les seule(s) finalité(s) qui fait/font l’objet de la sous-traitance.",
+                "b) traiter les données conformément aux instructions documentées du Responsable de Traitement. Si le Sous-Traitant considère qu’une instruction constitue une violation des Règles sur les Données Personnelles, il en informe immédiatement le Responsable de Traitement. En outre, si le Sous-Traitant est tenu de procéder à un transfert de données vers un pays tiers ou à une organisation internationale, il doit informer le Responsable du Traitement de cette obligation juridique avant le traitement, sauf si le droit concerné interdit une telle information pour des motifs importants d'intérêt public.",
+                "c) garantir la confidentialité des données à caractère personnel traitées dans le cadre du Contrat.",
+                "d) veiller à ce que les personnes autorisées à traiter les données à caractère personnel en vertu du Contrat:",
+                "d_1) s’engagent à respecter la confidentialité ou soient soumises à une obligation légale appropriée de confidentialité ;",
+                "d_2) reçoivent la formation nécessaire en matière de protection des données à caractère personnel.",
+                "e) prendre en compte, s’agissant de ses outils, produits, applications ou services, les principes de protection des données dès la conception et de protection des données par défaut.",
+                "f) Exercice des droits des personnes : le Sous-Traitant doit aider le Responsable de Traitement à s’acquitter de son obligation de donner suite aux demandes d’exercice des droits des personnes concernées : droit d’accès, de rectification, d’effacement et d’opposition, droit à la limitation du traitement, droit à la portabilité des données, droit de ne pas faire l’objet d’une décision individuelle automatisée (y compris le profilage). Lorsque les personnes concernées exercent auprès du Sous-Traitant des demandes d’exercice de leurs droits, le Sous-Traitant doit adresser ces demandes dès réception par courrier électronique à contact@esnwebservices.com.",
+                "g) Notification des violations de données à caractère personnel : le Sous-Traitant notifie au Responsable de Traitement toute violation de données à caractère personnel dans les meilleurs délais après en avoir pris connaissance. Cette notification est accompagnée de toute documentation utile afin de permettre au Responsable de Traitement, si nécessaire, de notifier cette violation à l’autorité de contrôle compétente",
+                "h) Le Sous-Traitant aide le Responsable de Traitement pour la réalisation d’analyses d’impact relative à la protection des données.",
+                "i) Le Sous-Traitant aide le Responsable de Traitement pour la réalisation de la consultation préalable de l’autorité de contrôle.",
+                "j) Mesures de sécurité : le Sous-Traitant s'engage à prendre les mesures techniques et organisationnelles appropriées, notamment en ce qui concerne la confidentialité, l'intégrité et la disponibilité des systèmes et services et leur résilience au regard du type, de la portée, des circonstances et de la finalité du traitement.",
+                "k) Sort des données : au terme de la prestation de services relatifs au traitement de ces données, le Sous-Traitant s’engage à supprimer toutes les données à caractère personnel.",
+                "l) Documentation : le Sous-Traitant met à la disposition du Responsable de Traitement la documentation nécessaire pour démontrer le respect de toutes ses obligations et pour permettre la réalisation d'audits, y compris des inspections, par le responsable du traitement ou un autre auditeur qu'il a mandaté, et contribuer à ces audits."
+              ]
+            }
+          },
+          "5": {
+            "title": "5. Obligations du Responsable de Traitement vis-à-vis du Sous-Traitant",
+            "list": {
+              "text": "Le Responsable de Traitement s’engage à :",
+              "items": [
+                "1. fournir l’information aux personnes concernées par les opérations de traitement au moment de la collecte des données.",
+                "2. documenter par écrit toute instruction concernant le traitement des données par le Sous-Traitant.",
+                "3. veiller, au préalable et pendant toute la durée du traitement, au respect des obligations prévues par les Règles sur les Données Personnelles de la part du Sous-Traitant.",
+                "4. superviser le traitement, y compris réaliser les audits et les inspections auprès du Sous-Traitant."
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "termsEn": {
+    "preamble": {
+      "title": "Application of the General Terms of Service",
+      "content": "These General Terms of Service (hereinafter referred to as 'GTS') apply to all our services unless expressly and in writing stated otherwise by email. Any contrary provisions that may appear in the general terms or any other contractual document issued by the Client are unenforceable against us. These General Terms of Service shall also apply to future contractual relationships with the Client, without prior notification. The Client declares having read and unconditionally accepted the GTS before using the services of PinJobs.io. The Client wished to collaborate with PinJobs.io due to its expertise in automating the creation of competency files (as defined below) and its digital infrastructure. The Client entrusted PinJobs.io to facilitate, organize, and execute the Services (as defined below) independently."
+    },
+    "article1": {
+      "title": "Article 1: Definitions",
+      "definitions": [
+        {
+          "Client": "Quick Win Solution LLC, editor of PinJobs.io"
+
+        },
+        {
+          "solution": " PinJobs is the solution."
+        },
+        {
+          "Corporation": "Quick Win Solution LLC, editor of PinJobs.io"
+        },
+        {
+          "Saas Solution" : "PinJobs.io "
+        },
+        {
+          "Parties": "refers to PinJobs.io and the Client."
+        },
+        {
+          "Account": "refers to the dedicated and individualized digital space of a User that allows access to the Online Service."
+        },
+        {
+          "Terms of Use": "refers to the terms of use of the Online Service described in Annex 1."
+        },
+        {
+          "Contract": "refers to these GTS and their annexes."
+        },
+        {
+          "CV": "refers to a digital file, owned by the User, containing professional information about a person whose data the User is authorized to use."
+        },
+        {
+          "Competency File": "refers to a digital file created by PinJobs.io based on information automatically identified in a CV."
+        },
+        {
+          "Services": "refers to the creation of a Competency File from a CV uploaded to the Online Service."
+        },
+        {
+          "Data Protection Regulations": "refers to the applicable regulations on the processing of personal data, particularly Regulation (EU) 2016/679 of the European Parliament and Council of April 27, 2016, and Law No. 78-17 of January 6, 1978, on information technology, files, and freedoms, as amended."
+        },
+        {
+          "Online Service": "refers to the online solution provided by PinJobs.io, accessible from the address https://www.PinJobs.io."
+        },
+        {
+          "User": "refers to the Client and any person who uses the Online Service."
+        }
+      ],
+      "note": "Unless otherwise required by context, singular terms and definitions include the plural and vice versa."
+    },
+    "article2": {
+      "title": "Article 2: Purpose of the Contract",
+      "content": "The GTS aim to define the relationship between PinJobs.io and the Client and to specify the conditions under which the Client entrusts PinJobs.io with the execution of the Services. The annexes and any subsequent amendments are an integral part of the Contract and are subject to all the provisions governing it. If the Parties wish to include other documents in the contractual scope (e.g., the Client’s general terms of purchase), the Parties must establish a written agreement confirming their consent. In any case, if there is any conflict, the provisions of the GTS shall prevail over those of such documents. The Parties undertake to cooperate in good faith and to make their best efforts to fulfill their respective obligations."
+    },
+    "article3": {
+      "title": "Article 3: Obligations of PinJobs.io",
+      "content": "PinJobs.io undertakes, under an obligation of means, to apply all required diligence for the execution of the Services and to make every effort to ensure that the Services provided to the Client comply with industry standards. PinJobs.io is subject to a duty to provide advice, information, and warnings regarding the Services entrusted to it. PinJobs.io agrees to mobilize all appropriate resources for the execution of the Services under its responsibility, noting that it will have full control over the definition and selection of such resources and working methods used."
+    },
+    "article4": {
+      "title": "Article 4: Obligations of the Client",
+      "content": "In exchange for the provision of the Services, the Client agrees to pay PinJobs.io the amounts specified in Article 6 (Financial Terms). The Client undertakes to provide PinJobs.io, in due time, with all necessary and updated documents, information, and explanations to allow the Services to be performed in the best possible conditions. In the event of any difficulty in performing the Services, the Client agrees to take all necessary measures to resolve any issues that may have been notified by PinJobs.io."
+    },
+    "article5": {
+      "title": "Article 5: Financial Terms",
+      "sections": {
+        "5_1": {
+          "title": "5.1 Subscriptions",
+          "content": "To access the services of PinJobs.io, the Client must provide credit card information on the Online Service. The Online Service uses the Paypal security system for payment, a provider specializing in online payment security. These systems guarantee the Client complete confidentiality of their banking information. The transaction, carried out between the Client and the chosen secure system, is fully encrypted and protected. The Client’s banking details are not stored digitally by PinJobs.io.",
+          "texts": [
+            "In return for access to the service under the conditions provided herein, the Client agrees to pay PinJobs.io a service usage fee.",
+            "The Client may choose between monthly and annual subscriptions. The contract takes effect from the date the service is activated.",
+            "In the case of a monthly subscription, the initial and firm term of the contract is one (1) month. At the end of this Initial Term, the contract is automatically renewed for a term of one (1) month, and new subscription fees will be due monthly.",
+            "In the case of an annual subscription, the initial and firm term of the contract is one (1) year. At the end of this Initial Term, the contract is automatically renewed for a term of one (1) year, and new subscription fees will be due annually.",
+            "Each subscription entitles the user to create a certain number of Competency Files during each monthly cycle. For each subscription, the number of Competency Files and the service fee amount are indicated on the Online Service, in euros, excluding taxes and including taxes. VAT, where applicable, will be added by PinJobs.io to the invoiced amounts. The rates indicated on the Online Service are those in effect on the date the contract is signed.",
+            "The service fee is payable at the time the contract is signed. The service fee is paid by automatic monthly deduction. The amounts owed to PinJobs.io do not include the cost of the internet connection, which remains the responsibility of the Client.",
+            "PinJobs.io may modify the amount of the service fee, provided the Client is informed at least one (1) month before the changes take effect. If not terminated within the one (1) month period, the modifications will take effect and be deemed accepted by the Client."
+          ]
+        },
+        "5_2": {
+          "title": "5.2 Subscription Changes",
+          "sections": {
+            "5_2_1": {
+              "title": "5.2.1 Changes to a Monthly Subscription",
+              "content": "The Client can change their subscription during a monthly cycle. The new subscription must also be a monthly subscription."
+            },
+            "5_2_1_1": {
+              "title": "5.2.1.1 Downgrading a Monthly Subscription",
+              "content": "If the Client chooses a subscription with a lower price, no additional payment will be required. The current subscription will remain in effect until the end of that cycle, and the new subscription will begin at the start of the next monthly cycle, at the price and conditions associated with the new subscription."
+            },
+            "5_2_1_2": {
+              "title": "5.2.1.2 Upgrading a Monthly Subscription",
+              "content": "If the Client chooses a subscription with a higher price, they must immediately pay for the new subscription. The monthly subscription renewal date will be updated to the day the subscription change is made. The Client will then benefit from the number of Competency Files offered by the new subscription. The Client will be automatically billed according to the new subscription conditions at the start of future monthly cycles."
+            },
+            "5_2_2": {
+              "title": "5.2.2 Upgrading an Annual Subscription",
+              "content": "The Client can change their subscription during an annual cycle. The new subscription must be an annual subscription and have a higher price."
+            }
+          }
+        }
+      }
+    },
+    "article6": {
+      "title": "Article 6: Contract Duration",
+      "content": "The Contract is concluded from its date of acceptance for an indefinite duration until all credits are exhausted, with automatic renewal."
+    },
+    "article7": {
+      "title": "Article 7: Termination of the Contract",
+      "content": "Each Party is free to terminate the Contract at any time, without having to provide a reason and without compensation, directly from the Online Service. In this case, the Client will no longer be able to obtain Services after the end of the current subscription cycle. The Client may renew the Contract at any time, directly from the Online Service."
+    },
+    "article8": {
+      "title": "Article 8: Confidentiality",
+      "content": "Each Party agrees not to disclose to third parties the confidential information exchanged in the context of the Contract or necessary for the execution of the Services for the entire duration of the Contract and for a period of 2 years after the end of the Contract. Each Party agrees to consider and treat as confidential all information communicated within the framework of the Contract or necessary for the execution of the Services.",
+      "texts": [
+        "The Contract and its content, as well as the information collected by PinJobs.io during the execution of the Services, will remain confidential between the Parties except where required (i) to assert their rights in court, including - but not limited to - in the event of a breach of the Contract by one of the Parties, (ii) by a court order, or (iii) to respond to a request from tax authorities, social security contribution collection agencies, auditors, or accountants.",
+        "In the event that one of the Parties is required to disclose the existence, content, or information collected by PinJobs.io during the execution of the Services to a third party, it must first inform the other Party in advance by any means (except when responding to a request from tax authorities, auditors, or accountants)."
+      ]
+    },
+    "article9": {
+      "title": "Article 9: Advertising",
+      "content": "Each Party may use, for commercial reference purposes, the name, trademark (including figurative), and/or logo of the other Party, as well as any comments made by its employees and collected by any means, including electronically."
+    },
+    "article10": {
+      "title": "Article 10: Personal Data",
+      "content": "The Parties mutually agree to comply with the Data Protection Regulations. The specific obligations of the Parties concerning the Data Protection Regulations are set out in Annex 2."
+    },
+    "article11": {
+      "title": "Article 11: Force Majeure",
+      "content": "The Parties are released from performing the contract within the agreed time if they are prevented by a force majeure event under Article 1218 of the Civil Code.",
+      "texts": [
+        "In the event of a force majeure event, the affected Party must inform the other Party within seven days of the start and expected end of the disruption, the cause, expected consequences, and duration of the delay.",
+        "Appointments or deadlines that cannot be met due to force majeure will be extended for the duration of its effects.",
+        "If a force majeure situation persists for more than four (4) weeks, the Client and the Company will discuss in good faith potential solutions regarding the continuation of the Contract."
+      ]
+    },
+    "article13": {
+      "title": "Article 13: Miscellaneous",
+      "texts": [
+        "The Contract replaces all previous negotiations, statements, agreements, and contracts that may have existed between the Parties.",
+        "Failure by either Party to invoke any provision of the Contract does not constitute a waiver of the future application of that provision.",
+        "If any provision of the Contract is found to be wholly or partially void or invalid, the validity of the other clauses of the Contract will not be affected.",
+        "The Client may transfer or assign the benefits of the Contract to any legal entity that the Client controls, that controls the Client, or with which the Client shares control. For the purposes of this mechanism, 'control' means the direct or indirect ownership or control of 50% or more of the legal entity."
+      ]
+    },
+    "article14": {
+      "title": "Article 14: Applicable Law – Jurisdiction",
+      "content": "The Contract is governed by and interpreted in accordance with French law. The Parties agree to submit any dispute or claim relating to the validity, interpretation, performance, and/or termination of this Contract to the exclusive jurisdiction of the Commercial Court of Paris."
+    },
+    "annexes": {
+      "annex1": {
+        "title": "ANNEX 1: TERMS OF USE OF THE ONLINE SERVICE",
+        "sections": {
+          "1": {
+            "title": "1. Purpose",
+            "content": [
+              "This annex defines the terms of access, operation, and use of the Online Service, as well as the respective rights and obligations of the Client and PinJobs.io.",
+              "The Client agrees that all Users have read and made their best efforts to comply with the Terms of Use."
+            ]
+          },
+          "2": {
+            "title": "2. Changes to the Online Service and Terms of Use",
+            "content": [
+              "To improve its functionality and quality, PinJobs.io continuously enhances the features and capabilities of the Online Service.",
+              "In this regard, PinJobs.io may unilaterally modify the Terms of Use concerning the technical aspects of the Online Service, provided there is no price increase or degradation of quality and the features to which the Client has tied their engagement were mentioned in the Terms of Use.",
+              "For other changes to the Terms of Use, PinJobs.io will notify the Client by any means, at least 30 days before they come into effect. If the Client raises no objection within this period, the changes will be deemed read and accepted. In the event of objection or refusal of the changes, the Client must stop using the Online Service."
+            ]
+          },
+          "3": {
+            "title": "3. Account Creation and Operation"
+          },
+          "3_1": {
+            "title": "3.1 Account Creation",
+            "content": [
+              "To create an Account, the User clicks 'Create Account' in the section dedicated to the Client and enters the necessary information.",
+              "The User agrees to provide all mandatory information and guarantees that all information entered in the registration form is accurate and free of ambiguity. Any incomplete registration cannot be validated, and any false or inaccurate information will be the responsibility of the Client.",
+              "The User agrees to immediately update the information in the Account in case of changes.",
+              "The Client guarantees and ensures that each User has the authority and capacity to create the Account and use the Online Service. Specifically, the Client guarantees that each User is authorized to act on their behalf and/or has the appropriate authorizations to legally bind them."
+            ]
+          },
+          "3_2": {
+            "title": "3.2 Finalization of the Account",
+            "content": [
+              "To benefit from the Services, excluding the free trial, the User must enter billing information. Through the Account, the User can access the Services in accordance with the subscription they have chosen."
+            ]
+          },
+          "4": {
+            "title": "4. Access, Use, and Security of the Account",
+            "content": [
+              "The Client understands and agrees that they are responsible for the access and use of the Account by the Users. In this regard, the Client undertakes to make every effort to inform the Users of their responsibilities concerning the Account.",
+              "Unless technical failure is attributable to PinJobs.io or force majeure, the User is solely responsible for the confidentiality of their login data, and the Client agrees that each User will implement all measures to ensure the security and confidentiality of the login data.",
+              "If the User believes their login data has been lost, stolen, misused, or compromised in any way, or in the event of unauthorized use of their Account, the User must immediately notify PinJobs.io.",
+              "In such a situation, the Client authorizes PinJobs.io to take all appropriate measures to prevent further access to the Account."
+            ]
+          },
+          "5": {
+            "title": "5. Commitments of PinJobs.io",
+            "content": [
+              "PinJobs.io undertakes to provide the Online Service to the Client and Users and to make its best efforts to ensure its accessibility and proper functioning.",
+              "In this regard, PinJobs.io commits to making the Online Service accessible 24/7, except in cases of force majeure or unforeseen and insurmountable third-party behavior, subject to potential outages, maintenance, and updates necessary for the proper functioning of the Online Service.",
+              "PinJobs.io commits to setting up a support service to answer questions and provide assistance in case of difficulty. For any question or request for information about the Online Service, the Client and Users can contact PinJobs.io by emailing contact@PinJobs.io.",
+              "In the event of a malfunction or anomaly disrupting the proper functioning of the Online Service, PinJobs.io undertakes to make its best efforts to restore the situation."
+            ]
+          },
+          "6": {
+            "title": "6. Liability of PinJobs.io",
+            "content": [
+              "PinJobs.io is not responsible for temporary difficulties or impossibilities of accessing the Online Service or the Account if they arise from circumstances outside its control, force majeure, or disruptions in telecommunications networks.",
+              "In cases where PinJobs.io’s liability could be engaged regarding the Online Service, it is limited to certain, direct, and foreseeable damages. For damages resulting from a breach by PinJobs.io, compensation owed to the Client, where its liability is directly engaged and proven, will be strictly limited to the costs directly and actually incurred by the Client."
+            ]
+          },
+          "7": {
+            "title": "7. Commitments of the Client",
+            "list": {
+              "text": "The Client expressly agrees that each User will:",
+              "items": [
+                "comply with applicable laws and regulations and not violate public order, good morals, or third-party rights, nor violate any legislative or regulatory provisions.",
+                "not use the Online Service fraudulently (e.g., using a fake account or false identity) and/or harm the interests of PinJobs.io or third parties.",
+                "not transfer or assign their Account to a third party.",
+                "provide PinJobs.io with all necessary information for the operation of the Online Service.",
+                "inform PinJobs.io in the event of any complications concerning the Online Service."
+              ]
+            },
+            "content": [
+              "The Client agrees to inform each User that it is strictly forbidden to: (i) engage in any behavior that could interrupt, suspend, slow down, or prevent the continuity of the Online Service, (ii) intrude or attempt to intrude into PinJobs.io’s systems, (iii) divert system resources of the Online Service and Account, (iv) engage in actions that could impose a disproportionate load on PinJobs.io’s digital infrastructure, (v) breach security and authentication measures, (vi) engage in acts that harm the financial, commercial, or moral rights and interests of PinJobs.io and other users of the Online Service, (vii) violate the Terms of Use, (viii) copy and/or divert PinJobs.io’s digital infrastructure, and (ix) generally engage in any practice that misuses the Online Service for purposes other than those for which it was designed.",
+              "In the event of the Client's failure to comply with this obligation or if a User breaches one of the commitments mentioned above, PinJobs.io may, without prejudice to any other action, suspend the Account and/or access to the Online Service without notice or compensation."
+            ]
+          },
+          "8": {
+            "title": "8. Liability of the Client",
+            "content": [
+              "The Client is solely responsible for the use of the Online Service and the Account by the User and is therefore liable for any harm they may cause due to their behavior and inaccurate, incomplete, and/or misleading information provided during registration or failure to update such information, for which they assume full consequences.",
+              "The Client undertakes to ensure that each User complies with and properly implements all provisions outlined in the Terms of Use."
+            ]
+          },
+          "9": {
+            "title": "9. Intellectual Property",
+            "content": [
+              "The Online Service and each of its components, including, but not limited to, software, structures, infrastructures, databases, and all types of content (texts, images, visuals, logos, trademarks...) used by PinJobs.io, are protected by all applicable intellectual property rights.",
+              "The Client acknowledges and agrees that the Online Service and all its components, including all associated intellectual property rights, are the exclusive property of PinJobs.io.",
+              "Any reproduction or representation, in whole or in part, of the Online Service or any of its components, without the authorization of PinJobs.io, is prohibited.",
+              "Similarly, the Client is prohibited, without the prior written authorization of PinJobs.io, from using, reproducing, adapting, modifying, creating derivative works, distributing, licensing, selling, transferring, publicly displaying, transmitting, broadcasting, or otherwise exploiting the Online Service and all its elements belonging to PinJobs.io.",
+              "The Client agrees to inform each User of the provisions of this article and guarantees PinJobs.io against any consequences of a potential breach by a User."
+            ]
+          }
+        }
+      },
+      "annex2": {
+        "title": "ANNEX 2 – PERSONAL DATA",
+        "sections": {
+          "1": {
+            "title": "1. Purpose",
+            "content": [
+              "This annex defines the conditions under which PinJobs.io (the 'Processor') undertakes to carry out, on behalf of the Client (the 'Data Controller'), the personal data processing operations defined below."
+            ]
+          },
+          "2": {
+            "title": "2. Description of the processing subject to subcontracting",
+            "content": [
+              "The processing of personal data primarily involves accessing, consulting, and using personal data necessary for the performance of the Services."
+            ]
+          },
+          "3": {
+            "title": "3. Duration",
+            "content": [
+              "This annex comes into effect on the date the Contract enters into force and remains effective for the duration of the Contract."
+            ]
+          },
+          "4": {
+            "title": "4. Obligations of the Processor towards the Data Controller",
+            "list": {
+              "text": "The Processor agrees to:",
+              "items": [
+                "a) process the data solely for the purpose(s) subject to the subcontracting.",
+                "b) process the data in accordance with the documented instructions of the Data Controller. If the Processor considers that an instruction constitutes a violation of the Data Protection Regulations, it shall immediately inform the Data Controller. Furthermore, if the Processor is required to transfer data to a third country or international organization, it must inform the Data Controller of this legal obligation before processing, unless the relevant law prohibits such information for important public interest reasons.",
+                "c) guarantee the confidentiality of the personal data processed under the Contract.",
+                "d) ensure that persons authorized to process personal data under the Contract:",
+                "d_1) are committed to confidentiality or are subject to an appropriate legal obligation of confidentiality;",
+                "d_2) receive the necessary training in personal data protection.",
+                "e) take into account, regarding its tools, products, applications, or services, the principles of data protection by design and data protection by default.",
+                "f) Exercise of individuals’ rights: The Processor shall assist the Data Controller in fulfilling its obligation to respond to individuals' requests to exercise their rights: right of access, rectification, erasure, and objection, right to restriction of processing, right to data portability, and right not to be subject to an automated individual decision (including profiling). When individuals exercise their rights with the Processor, the Processor shall forward these requests as soon as they are received by email to contact@esnwebservices.com.",
+                "g) Notification of personal data breaches: The Processor shall notify the Data Controller of any personal data breach as soon as possible after becoming aware of it. This notification shall be accompanied by all relevant documentation to enable the Data Controller, if necessary, to notify the competent supervisory authority of this breach.",
+                "h) The Processor assists the Data Controller in carrying out data protection impact assessments.",
+                "i) The Processor assists the Data Controller in conducting prior consultations with the supervisory authority.",
+                "j) Security measures: The Processor undertakes to take appropriate technical and organizational measures, particularly regarding the confidentiality, integrity, and availability of systems and services and their resilience concerning the type, scope, circumstances, and purpose of the processing.",
+                "k) Data disposal: At the end of the services related to the processing of such data, the Processor undertakes to delete all personal data.",
+                "l) Documentation: The Processor makes available to the Data Controller the necessary documentation to demonstrate compliance with all its obligations and to enable audits, including inspections, by the Data Controller or another auditor appointed by it, and contribute to such audits."
+              ]
+            }
+          },
+          "5": {
+            "title": "5. Obligations of the Data Controller towards the Processor",
+            "list": {
+              "text": "The Data Controller agrees to:",
+              "items": [
+                "1. provide individuals with information regarding the processing operations at the time of data collection.",
+                "2. document in writing any instruction concerning the processing of data by the Processor.",
+                "3. ensure, prior to and during the entire processing period, that the Processor complies with the obligations set out in the Data Protection Regulations.",
+                "4. supervise the processing, including conducting audits and inspections of the Processor."
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
