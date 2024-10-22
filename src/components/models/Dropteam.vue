@@ -4,6 +4,7 @@ import {useResumeStore} from "@/stores/resume";
 import {computed, onMounted} from "vue";
 import {storeToRefs} from 'pinia';
 import noise from "@/assets/images/backgrounds/noise.jpg"
+import type {Skill} from "@/types/resume";
 
 const modelStore = useModelStore();
 const resumeStore = useResumeStore();
@@ -79,6 +80,16 @@ const setModelReference = computed(() => {
   return model.reference;
 })
 
+const groupedSkills = computed(() => {
+  return resume.value.skills.reduce((acc: { [key: string]: string[] }, item: Skill) => {
+    if (!acc[item?.category as string]) {
+      acc[item?.category as string] = [];
+    }
+    acc[item?.category as string].push(item.skill);
+    return acc;
+  }, {});
+})
+
 // onMounted(()=> {
 //   model.templateData.theme.primary = '#ccdbe7'
 //   model.templateData.theme.text = '#5B9BD5'
@@ -99,13 +110,13 @@ const setModelReference = computed(() => {
           <h2 v-if="isHeadline" class="headline">{{ resume.headline }}</h2>
           <h2 class="name" v-if="isShowName">{{ resume.name }}</h2>
           <div v-else class="">
-              <h2 class="mt-2 first-name text-h3" v-if="identity == 'reference'">
-                {{ setModelReference }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}
-              </h2>
-              <h2 class="mt-2 first-name " v-if="identity == 'alias'">
-                {{ resume?.alias }}
-              </h2>
-            </div>
+            <h2 class="mt-2 first-name text-h3" v-if="identity == 'reference'">
+              {{ setModelReference }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}
+            </h2>
+            <h2 class="mt-2 first-name " v-if="identity == 'alias'">
+              {{ resume?.alias }}
+            </h2>
+          </div>
           <div class="contact-info mb-4 ">
 
             <div class="smallText text d-flex flex-column  align-start">
@@ -152,238 +163,241 @@ const setModelReference = computed(() => {
           <!--          skills-->
           <div class="section" v-if="model.templateData.skills.visible && resume.skills.length > 0">
             <div class="section-items">
-              <div class="item">
-                <section class="section">
                   <div class="section-name">
                     <h2>{{ model.templateData.skills.name }}:</h2>
                   </div>
-                  <ul v-for="skill in resume.skills">
-                    <li> {{ skill.skill }}</li>
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-          <!--experience-->
-          <div class="section" v-if="model.templateData.experience.visible && resume.work.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2>{{ model.templateData.experience.name }}:</h2>
-                  </div>
-                  <div v-for="work in resume.work">
-                    <p>
-                      <span class="blue underline"><strong>{{ work.company_name }} - {{ work.city }}</strong></span>
-                      - {{ work.job_title }}
-                    </p>
-                    <span>
-                  {{ work.start_date }} - {{ work.end_date }}
-                </span>
-                    <div class="desc" v-html="work.responsibilities">
+                <div class="technical-skills">
+                  <div class="pro-skill" v-for="(skills, category) in groupedSkills" :key="category">
+                    <div class="category">{{ category }}:</div>
+                    <div class="skills">
+                      {{ skills.join(', ') }}
                     </div>
                   </div>
-                </section>
-
-              </div>
-
-
+                </div>
             </div>
-          </div>
-          <!--education-->
-          <div class="section" v-if="model.templateData.education.visible && resume.educations.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.education.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.educations">
-                    <li class="mb">
-                      {{ item.start_year + ' - ' + item.end_year }}: {{ item.degree }} – {{ item.institution }}
-                    </li>
-
-                  </ul>
-                </section>
-              </div>
             </div>
-          </div>
-          <!--Reference-->
-          <div class="section" v-if="model.templateData.references.visible && resume.references.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.references.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.references">
-                    <li class="mb">
-                      <div class="item" v-for="item in resume.references">
-                        <div class="font-weight-bold"> {{ item.name + '- ' + item.position }}</div>
-                        <h5>{{ item.company }}</h5>
-                        <div>{{ item.email }} <br></div>
-                        <div> {{ item.phone }}</div>
+            <!--experience-->
+            <div class="section" v-if="model.templateData.experience.visible && resume.work.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2>{{ model.templateData.experience.name }}:</h2>
+                    </div>
+                    <div v-for="work in resume.work">
+                      <p>
+                        <span class="blue underline"><strong>{{ work.company_name }} - {{ work.city }}</strong></span>
+                        - {{ work.job_title }}
+                      </p>
+                      <span>
+                  {{ work.start_date }} - {{ work.end_date }}
+                </span>
+                      <div class="desc" v-html="work.responsibilities">
                       </div>
-                    </li>
+                    </div>
+                  </section>
 
-                  </ul>
-                </section>
+                </div>
+
+
               </div>
             </div>
-          </div>
+            <!--education-->
+            <div class="section" v-if="model.templateData.education.visible && resume.educations.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.education.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.educations">
+                      <li class="mb">
+                        {{ item.start_year + ' - ' + item.end_year }}: {{ item.degree }} – {{ item.institution }}
+                      </li>
 
-          <!--          Certifications-->
-          <div class="section" v-if="model.templateData.certifications.visible && resume.certifications.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.certifications.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.certifications">
-                    <li class="mb">
-                      <div class="item">
-                        <div class="font-weight-bold"> {{ item.certification }}</div>
-                        <h5>{{ item.institution }}</h5>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <!--Reference-->
+            <div class="section" v-if="model.templateData.references.visible && resume.references.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.references.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.references">
+                      <li class="mb">
+                        <div class="item" v-for="item in resume.references">
+                          <div class="font-weight-bold"> {{ item.name + '- ' + item.position }}</div>
+                          <h5>{{ item.company }}</h5>
+                          <div>{{ item.email }} <br></div>
+                          <div> {{ item.phone }}</div>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+            <!--          Certifications-->
+            <div class="section" v-if="model.templateData.certifications.visible && resume.certifications.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.certifications.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.certifications">
+                      <li class="mb">
+                        <div class="item">
+                          <div class="font-weight-bold"> {{ item.certification }}</div>
+                          <h5>{{ item.institution }}</h5>
+                          <div>
+                            {{ item.date }}
+                          </div>
+                          <a :href="item.link" class="link" style="color: black;"> {{ item.link }}</a>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <!--projects-->
+            <div class="section" v-if="model.templateData.projects.visible && resume.projects.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.projects.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.projects">
+                      <li class="mb">
                         <div>
-                          {{ item.date }}
+                          <div class="font-weight-bold"> {{ item.project_name }}</div>
+                          <div>{{ item.start_date + ' ' + item.end_date }}</div>
+                          <div class="desc" v-html="item.description"></div>
                         </div>
-                        <a :href="item.link" class="link" style="color: black;"> {{ item.link }}</a>
-                      </div>
-                    </li>
+                      </li>
 
-                  </ul>
-                </section>
+                    </ul>
+                  </section>
+                </div>
               </div>
             </div>
-          </div>
-          <!--projects-->
-          <div class="section" v-if="model.templateData.projects.visible && resume.projects.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.projects.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.projects">
-                    <li class="mb">
-                      <div>
-                        <div class="font-weight-bold"> {{ item.project_name }}</div>
-                        <div>{{ item.start_date + ' ' + item.end_date }}</div>
-                        <div class="desc" v-html="item.description"></div>
-                      </div>
-                    </li>
 
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-
-          <!--          volunteering-->
-          <div class="section" v-if="model.templateData.volunteering.visible && resume.volunteering.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.volunteering.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.volunteering">
-                    <li class="mb">
-                      <div>
-                        <div class="font-weight-bold"> {{ item.position }}</div>
-                        <h4>{{ item.organization }}</h4>
-                        <div>{{ item.start_date + ' ' + item.end_date }}</div>
-                        <div class="desc" v-html="item.description"></div>
-                      </div>
-                    </li>
-
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-
-          <!--          languages-->
-          <div class="section" v-if="model.templateData.languages.visible && resume.languages.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.languages.name }}:</h2>
-                  </div>
-                  <div class="languages section-items">
-                    <ul v-for="item in resume.languages" class=" language d-flex align-start justify-start">
-                      <div class="left" style="min-width: 200px;padding: 3px">
-                        <div class="name">
-                          {{ item.language }}
+            <!--          volunteering-->
+            <div class="section" v-if="model.templateData.volunteering.visible && resume.volunteering.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.volunteering.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.volunteering">
+                      <li class="mb">
+                        <div>
+                          <div class="font-weight-bold"> {{ item.position }}</div>
+                          <h4>{{ item.organization }}</h4>
+                          <div>{{ item.start_date + ' ' + item.end_date }}</div>
+                          <div class="desc" v-html="item.description"></div>
                         </div>
-                      </div>
-                      <div class="right">
-                        <div class="language">
-                          <div class="language-bar align-center d-flex">
-                            <div
-                                v-for="(level, index) in 5"
-                                :key="index"
-                                :class="['language-level', { 'dash-filled': +index < +item.level }]"
-                            ></div>
+                      </li>
+
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+            <!--          languages-->
+            <div class="section" v-if="model.templateData.languages.visible && resume.languages.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.languages.name }}:</h2>
+                    </div>
+                    <div class="languages section-items">
+                      <ul v-for="item in resume.languages" class=" language d-flex align-start justify-start">
+                        <div class="left" style="min-width: 200px;padding: 3px">
+                          <div class="name">
+                            {{ item.language }}
                           </div>
                         </div>
-                      </div>
+                        <div class="right">
+                          <div class="language">
+                            <div class="language-bar align-center d-flex">
+                              <div
+                                  v-for="(level, index) in 5"
+                                  :key="index"
+                                  :class="['language-level', { 'dash-filled': +index < +item.level }]"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+            <!--          socials-->
+            <div class="section" v-if="model.templateData.social.visible && resume.social.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.social.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.social">
+                      <li class="mb">
+                        <div class="skill">
+                          {{ item.skill }}
+                        </div>
+                      </li>
+
                     </ul>
-                  </div>
-                </section>
+                  </section>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!--          socials-->
-          <div class="section" v-if="model.templateData.social.visible && resume.social.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.social.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.social">
-                    <li class="mb">
-                      <div class="skill">
-                        {{ item.skill }}
-                      </div>
-                    </li>
+            <!--interests-->
+            <div class="section" v-if="model.templateData.interests.visible && resume.interests.length > 0">
+              <div class="section-items">
+                <div class="item">
+                  <section class="section">
+                    <div class="section-name">
+                      <h2 class="blue underline mt"> {{ model.templateData.interests.name }}:</h2>
+                    </div>
+                    <ul v-for="item in resume.interests">
+                      <li class="mb">
+                        {{ item.interest }}
+                      </li>
 
-                  </ul>
-                </section>
+                    </ul>
+                  </section>
+                </div>
               </div>
             </div>
+
           </div>
-
-          <!--interests-->
-          <div class="section" v-if="model.templateData.interests.visible && resume.interests.length > 0">
-            <div class="section-items">
-              <div class="item">
-                <section class="section">
-                  <div class="section-name">
-                    <h2 class="blue underline mt"> {{ model.templateData.interests.name }}:</h2>
-                  </div>
-                  <ul v-for="item in resume.interests">
-                    <li class="mb">
-                      {{ item.interest }}
-                    </li>
-
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped lang="scss">
+
+
 * {
   :deep(ul), :deep(ol) {
     padding: 0 1rem;
@@ -408,16 +422,19 @@ const setModelReference = computed(() => {
 div.page {
   display: block;
   background-color: white;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   font-size: v-bind(fontSize);
   //box-shadow: 1px 1px 2px #DAD7D7;
 }
 
+/*@page { size: A4 portrait !important; margin: 0 !important;}
+
+
 div.page[data-size="A4"] {
   width: 21cm;
   height: auto;
-
+  padding: 30px;
   color: black;
   min-height: 29.7cm;
 }
@@ -426,7 +443,7 @@ div.page[data-size="A4"] {
 @page {
   size: 21cm 29.7cm;
   margin: 0mm;
-}
+}*/
 
 
 .container {
@@ -445,7 +462,6 @@ div.page[data-size="A4"] {
   text-align: center;
   font-size: smaller;
 }
-
 
 
 .name {
@@ -482,6 +498,26 @@ div.page[data-size="A4"] {
 }
 
 
+.section-items .technical-skills {
+  .pro-skill {
+    margin: 5px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .category {
+    min-width: 200px;
+    flex-wrap: nowrap;
+    padding: 3px;
+    margin-right: 50px;
+    font-weight: bold;
+  }
+
+  .skills {
+    margin-left: 20px;
+    font-weight: lighter;
+  }
+}
 //language
 .languages {
 
