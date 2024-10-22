@@ -80,7 +80,7 @@ const templates = ref([
     'blueprint',
     'onyx',
     'siliconValley',
-    'bronzor',
+    // 'bronzor',
     // 'chikorita',
     // 'pikachu',
 ]);

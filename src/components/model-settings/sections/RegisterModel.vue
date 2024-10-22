@@ -70,7 +70,7 @@ async function createModel() {
   <v-col cols="12" md="12" class="py-0 " v-if="useModelStore().showCreateBtn">
     <v-row>
       <v-col>
-        <v-btn variant="elevated" color="primary" @click="createModel" :loading="loading" block>
+        <v-btn variant="elevated" color="primary" @click="$router.push({name:'home'})" :loading="loading" block>
           {{ t('Models.creation.register.createModel') }}
         </v-btn>
       </v-col>

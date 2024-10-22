@@ -1,11 +1,18 @@
 <template>
     <div>
         <!--    list of options-->
-        <div class="d-flex justify-end">
-            <v-btn flat variant="outlined" class="mx-1" icon="mdi-delete" color="error"></v-btn>
-            <v-btn flat variant="outlined" class="mx-1" icon="mdi-cloud-download-outline" color="primary"></v-btn>
+        <div class="d-flex  justify-end">
+            <v-btn flat variant="outlined" class="mx-1" @click="isResumeFormatted = !isResumeFormatted"
+                   icon="mdi-toggle-switch-outline" color="accent"></v-btn>
+            {{ isResumeFormatted }}
+            <v-spacer />
+            <div v-if="isResumeFormatted">
+                <v-btn flat variant="outlined" class="mx-1" icon="mdi-delete" color="error"></v-btn>
+                <v-btn flat variant="outlined" class="mx-1" icon="mdi-cloud-download-outline" color="primary"></v-btn>
+                <v-btn flat variant="outlined" class="mx-1" icon="mdi-pencil" color="info"></v-btn>
+            </div>
         </div>
-        <v-container fluid class="pa-4">
+        <v-container fluid v-if="!isResumeFormatted" class="pa-4">
             <div class="mb-6">
 
                 <h1>Create your own resume</h1>
@@ -53,6 +60,10 @@
                 </v-col>
             </v-row>
         </v-container>
+        <div v-else>
+            <component :is="modelComponents[modelStore.selected]"></component>
+        </div>
+
     </div>
 
     <!--import cv dialog -->
@@ -266,14 +277,24 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { computed, reactive, ref } from 'vue';
+import { computed, onBeforeMount, reactive, ref } from 'vue';
 import HomeCard from '@/components/home/HomeCard.vue';
 import { useI18n } from 'vue-i18n';
 import { toast } from 'vue-sonner';
 import Alert from '@/components/shared/Alert.vue';
+import type { Template } from '@/types/model';
+import { useAuthStore } from '@/stores/auth';
+import { validateLink } from '@/utils/helpers/validate-link';
+import type { Resume } from '@/types/resume';
+import { useModelStore } from '@/stores/model';
+import { useResumeStore } from '@/stores/resume';
+import { modelComponents } from '@/models-imports';
 
 const { t } = useI18n();
 const router = useRouter();
+const modelStore = useModelStore();
+const resumeStore = useResumeStore();
+const isResumeFormatted = ref(false);
 // upload functions and props
 const import_cv_dialog = reactive({
     dialog: false,
@@ -432,6 +453,182 @@ const disableImport = computed(() => {
     }
 );
 
+
+// dummy data for test
+const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
+const logo = computed(() => {
+    if (!useAuthStore().user.clientProfile?.logo) {
+        return 'https://www.largeherds.co.za/wp-content/uploads/2024/01/logo-placeholder-image.png';
+    } else {
+        return validateLink(backBlazeUrl.value + useAuthStore().user.clientProfile?.logo);
+
+    }
+});
+const dummy_resume_data = ref({
+    'age': '29',
+    'city': 'Paris',
+    'alias': 'Demo alias',
+    'name': 'John Doe',
+    'work': [{
+        'city': 'Casablanca',
+        'end_date': '06/2021',
+        'job_title': 'Full Stack Developer',
+        'start_date': '03/2021',
+        'company_name': 'GoSoft',
+        'responsibilities': 'Conception, réalisation et déploiement d\'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l\'application.'
+    }, {
+        'job_title': 'Backend Developer',
+        'responsibilities': 'Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l\'amélioration des processus CI/CD.',
+        'company_name': 'SocioTech',
+        'city': 'Paris',
+        'start_date': '03/2023',
+        'end_date': '05/2023'
+    }],
+    'email': 'john.doe@gmail.com',
+    'phone': '+33 6 12 34 56 78',
+    'skills': [
+        { 'skill': 'JavaScript', 'level': '5' },
+        { 'skill': 'Vue.js 3', 'level': '5' },
+        { 'skill': 'Python', 'level': '4' },
+        { 'skill': 'NestJS', 'level': '5' }
+    ],
+    'social': [
+        { 'skill': 'Communication', 'level': '5' },
+        { 'skill': 'Teamwork', 'level': '5' },
+        { 'skill': 'Problem-solving', 'level': '4' }
+    ],
+    'projects': [{
+        'end_date': '12/2022',
+        'start_date': '09/2022',
+        'description': 'Application pour la réservation des tickets du Busway, permettant de trouver le plus court chemin et de résoudre le problème d\'encombrement, en utilisant Java et Neo4j.',
+        'project_name': 'Réservation des Tickets Busway'
+    }, {
+        'end_date': '08/2022',
+        'start_date': '06/2022',
+        'description': 'Réalisation de la cartographie du degré de centralité en se basant sur le trafic avec C et Leaflet.',
+        'project_name': 'Cartographie de degré de Centralité dans Paris'
+    }, {
+        'end_date': '04/2022',
+        'start_date': '01/2022',
+        'description': 'Gestion de la paie des employés d\'une entreprise, soit en interne soit avec des filiales, en utilisant HTML, CSS, JavaScript, et PHP.',
+        'project_name': 'Application Web pour la gestion de la paie'
+    }],
+    'interests': [{ 'interest': 'Cuisine' }, { 'interest': 'Télévision' }, { 'interest': 'Lecture' }],
+    'languages': [
+        { 'level': '5', 'language': 'Anglais' },
+        { 'level': '4', 'language': 'Français' },
+        { 'level': '5', 'language': 'Arabe' }
+    ],
+    'educations': [{
+        'degree': 'Ingénierie Logicielle et Intégration des Systèmes Informatiques',
+        'end_year': '2021',
+        'start_year': '2019',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'Licence en Informatique, Réseaux et Multimédia',
+        'end_year': '2019',
+        'start_year': '2016',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'DEUST en Mathématiques, Informatique et Physique',
+        'end_year': '2016',
+        'start_year': '2014',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'Baccalauréat Scientifique',
+        'end_year': '2014',
+        'start_year': '2012',
+        'institution': 'Lycée Chahid Idriss Lahrizi'
+    }],
+    'references': [{
+        'name': 'Alice Dupont',
+        'phone': '+33 6 98 76 54 32',
+        'company': 'TechCorp',
+        'position': 'Manager IT',
+        'email': 'alice.dupont@techcorp.com'
+    }],
+    'volunteering': [{
+        'organization': 'SocioTech',
+        'position': 'Community Support Volunteer',
+        'start_date': '03/2023',
+        'end_date': '06/2023',
+        'description': 'Aide et support pour la communauté à travers des sessions d\'apprentissage et d\'accompagnement sur les nouvelles technologies.'
+    }],
+    'certifications': [
+        {
+            'certification': 'Certified Java Developer',
+            'institution': 'Oracle',
+            'date': '06/2023',
+            'link': 'https://www.oracle.com/certification/java-certification.html'
+        }
+    ],
+    'headline': 'Full Stack Software Developer',
+    'summary': 'Développeur full-stack avec une forte expérience en conception et déploiement d\'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises.'
+});
+
+const default_create_model_data = ref<Template>({
+    'name': '',
+    'reference': null,
+    'language': 'en',
+    'templateData': {
+        'identity': 'reference',
+        'template': 'sydney',
+        'company_logo': {
+            'url': logo as unknown as string,
+            'border': false,
+            'hidden': false,
+            'grayscale': false,
+            'size': 70,
+            'aspectRatio': 1,
+            'borderRadius': 50
+        },
+        'page': {
+            'margin': 12,
+            'format': 'a4',
+            'headline': true,
+            'summary': true,
+            'breakLine': false,
+            'pageNumbers': false
+        },
+        'certifications': { 'name': t('Models.creation.sections.certifications'), 'visible': true },
+        'education': { 'name': t('Models.creation.sections.education'), 'visible': true },
+        'experience': { 'name': t('Models.creation.sections.experience'), 'visible': true },
+        'volunteering': { 'name': t('Models.creation.sections.volunteering'), 'visible': true },
+        'interests': { 'name': t('Models.creation.sections.interests'), 'visible': true },
+        'languages': { 'name': t('Models.creation.sections.languages'), 'visible': true },
+        'projects': { 'name': t('Models.creation.sections.projects'), 'visible': true },
+        'references': { 'name': t('Models.creation.sections.references'), 'visible': true },
+        'skills': { 'name': t('Models.creation.sections.skills'), 'visible': true },
+        'social': { 'name': t('Models.creation.sections.social'), 'visible': true },
+        'theme': {
+            'background': '#fff',
+            'text': '#972F2F',
+            'primary': '#E0D3D3'
+        },
+        'personnel': {
+            'name': true,
+            'phone': true,
+            'city': true,
+            'age': true,
+            'email': true
+        },
+
+        'typography': {
+            'family': 'open-sans',
+            'size': 16,
+            'lineHeight': 2,
+            'hideIcons': false,
+            'underlineLinks': false
+        }
+    }
+});
+
+
+onBeforeMount(() => {
+
+    modelStore.SetModel({ ...default_create_model_data.value, language: '' });
+    resumeStore.setResume({ ...dummy_resume_data.value } as unknown as Resume);
+});
 
 </script>
 

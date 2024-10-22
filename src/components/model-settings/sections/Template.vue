@@ -19,14 +19,13 @@ onMounted(async () => {
 <template>
 
 
-  <v-tabs
-      v-model="tab"
-      align-tabs="center"
-      color="deep-purple-accent-4"
-  >
-    <v-tab :value="1">{{ t('Models.creation.template.public') }}</v-tab>
-    <v-tab :value="2">{{ t('Models.creation.template.private') }}</v-tab>
-  </v-tabs>
+<!--  <v-tabs-->
+<!--      v-model="tab"-->
+<!--      align-tabs="center"-->
+<!--  >-->
+<!--&lt;!&ndash;    <v-tab :value="1">{{ t('Models.creation.template.public') }}</v-tab>&ndash;&gt;-->
+<!--&lt;!&ndash;    <v-tab :value="2">{{ t('Models.creation.template.private') }}</v-tab>&ndash;&gt;-->
+<!--  </v-tabs>-->
 
   <v-window v-model="tab">
     <v-window-item
@@ -46,13 +45,6 @@ onMounted(async () => {
         }" class=" template-image" rounded="rounded"
                     :class="[modelStore.selected == item ? 'template-image-selected' : '']"
             >
-              <!--              <v-img-->
-              <!--                  :aspect-ratio="1 / 1.4142"-->
-              <!--                  class="bg-white  elevation-0 cursor-pointer"-->
-              <!--                  :src="`/assets/images/templates/${item}.jpg`"-->
-              <!--                  width="300"-->
-              <!--                  cover-->
-              <!--              ></v-img>-->
               <v-img
                   :aspect-ratio="1 / 1.4142"
                   class="bg-white cursor-pointer"

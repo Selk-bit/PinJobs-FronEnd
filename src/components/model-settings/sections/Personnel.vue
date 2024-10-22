@@ -42,11 +42,11 @@ onMounted(() => {
     <v-col cols="12" md="12" class="py-0" v-if="personnel">
       <div class="text-h6 mb-2 font-weight-medium">{{ $t('Models.creation.page.options') }}</div>
       <div>
-        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.name"
-                  :label="t('Models.creation.personnel.showName')"></v-switch>
+<!--        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.name"-->
+<!--                  :label="t('Models.creation.personnel.showName')"></v-switch>-->
         <v-divider></v-divider>
-        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.age"
-                  :label="t('Models.creation.personnel.showAge')"></v-switch>
+<!--        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.age"-->
+<!--                  :label="t('Models.creation.personnel.showAge')"></v-switch>-->
         <v-divider></v-divider>
         <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.city"
                   :label="t('Models.creation.personnel.showCity')"></v-switch>
