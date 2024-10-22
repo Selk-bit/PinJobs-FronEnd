@@ -80,16 +80,29 @@ const setModelReference = computed(() => {
 </script>
 <template>
   <div class="page" data-size="A4" :class="model.templateData.typography.family">
-    <div class="container">
-      <div class="resume">
-        <div class="header">
-          <img :src="model.templateData.company_logo.url"
-               :style="{width:model.templateData.company_logo.size + 'px',
-                     }"
-               v-if="!model.templateData.company_logo.hidden"
-               class="company-logo"
-          />
-          <div>
+    <img v-if="!model.templateData.company_logo.hidden"
+         :src="model.templateData.company_logo.url"
+         :style="{width:model.templateData.company_logo.size + 'px',
+ }" alt="Profile Picture" class="company-logo ml-3"/>
+    <div class="contact  position-absolute">
+      <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowPhone">
+        phone: {{ isShowPhone ? resume.phone : '' }}
+        <v-icon class="icons">mdi-cellphone</v-icon>
+      </div>
+      <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowEmail">
+        Email: <span class="email">{{ isShowEmail ? resume.email : '' }}</span>
+        <v-icon class="icons">mdi-email-outline</v-icon>
+      </div>
+      <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowCity">
+        {{ isShowCity ? resume.city : '' }}
+        <v-icon class="icons">mdi-map-marker</v-icon>
+      </div>
+    </div>
+    <div class="container mt-0">
+      <div class="resume  mt-0">
+
+        <div class="header justify-center">
+          <div class="d-flex flex-column align-center justify-center">
             <h1 v-if="isShowName" class="text-uppercase">{{ resume.name }}</h1>
             <div v-else class="">
               <h1 class="mt-2 first-name text-h3" v-if="identity == 'reference'">
@@ -101,24 +114,7 @@ const setModelReference = computed(() => {
             </div>
             <h2 v-if="isHeadline">{{ resume.headline }}</h2>
           </div>
-          <div class="contact">
-            <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowPhone">
-              phone: {{ isShowPhone ? resume.phone : '' }}
-              <v-icon class="icons">mdi-cellphone</v-icon>
-            </div>
-            <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowEmail">
-              Email: <span class="email">{{ isShowEmail ? resume.email : '' }}</span>
-              <v-icon class="icons">mdi-email-outline</v-icon>
-            </div>
-            <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowCity">
-              {{ isShowCity ? resume.city : '' }}
-              <v-icon class="icons">mdi-map-marker</v-icon>
-            </div>
-            <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowAge">
-              {{ isShowAge ? resume.age : '' }}
-              <v-icon class="icons">mdi-cake-variant-outline</v-icon>
-            </div>
-          </div>
+
         </div>
         <div class="summary" v-if="model.templateData.page.summary">
           <div class="desc" v-html="resume.summary"></div>
@@ -299,14 +295,18 @@ const setModelReference = computed(() => {
 div.page {
   background: white;
   display: block;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   font-size: v-bind(fontSize);
 }
 
+//@page { size: A4 portrait !important; margin: 0 !important;}
+/*
+
 div.page[data-size="A4"] {
   width: 21cm;
   color: black;
+  padding: 30px;
   height: auto;
   min-height: 29.7cm;
 }
@@ -316,6 +316,7 @@ div.page[data-size="A4"] {
   size: 21cm 29.7cm;
   margin: 0mm;
 }
+*/
 
 .container {
   display: flex;
@@ -326,7 +327,7 @@ div.page[data-size="A4"] {
 
 .company-logo {
   position: relative;
-  top: -80px;
+  top: -10px;
   right: 2px;
   height: auto;
   padding: 3px;
@@ -407,7 +408,9 @@ div.page[data-size="A4"] {
 
 .contact {
   text-align: right;
-  margin-top: 10px;
+  right: 10px;
+  top: 0px;
+  margin: 20px;
 }
 
 .summary {

@@ -4,7 +4,6 @@
         <div class="d-flex  justify-end">
             <v-btn flat variant="outlined" class="mx-1" @click="isResumeFormatted = !isResumeFormatted"
                    icon="mdi-toggle-switch-outline" color="accent"></v-btn>
-            {{ isResumeFormatted }}
             <v-spacer />
             <div v-if="isResumeFormatted">
                 <v-btn flat variant="outlined" class="mx-1" icon="mdi-delete" color="error"></v-btn>
@@ -61,7 +60,9 @@
             </v-row>
         </v-container>
         <div v-else>
-            <component :is="modelComponents[modelStore.selected]"></component>
+            <div class="resume-page-container mx-auto">
+                <component :is="modelComponents[modelStore.selected]"></component>
+            </div>
         </div>
 
     </div>

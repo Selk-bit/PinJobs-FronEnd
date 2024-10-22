@@ -336,7 +336,6 @@ const setModelReference = computed(() => {
 
 <style scoped lang="scss">
 
-
 * {
   :deep(ul), :deep(ol) {
     padding: 0 1rem;
@@ -349,17 +348,20 @@ const setModelReference = computed(() => {
 div.page {
   background-color: v-bind(backgroundColor);
   display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
+  margin: 0;
   position: relative;
   font-size: v-bind(fontSize);
   //box-shadow: 1px 1px 2px #DAD7D7;
 }
 
+/*@page { size: A4 portrait !important; margin: 0 !important;}
+
+
 div.page[data-size="A4"] {
   width: 21cm;
   height: auto;
   color: black;
+
   min-height: 29.7cm;
 }
 
@@ -367,7 +369,7 @@ div.page[data-size="A4"] {
 @page {
   size: 21cm 29.7cm;
   margin: 0mm;
-}
+}*/
 
 
 .container {
@@ -379,7 +381,7 @@ div.page[data-size="A4"] {
 }
 
 .resume {
-  padding: 20px;
+  padding: 30px;
 }
 
 .header {

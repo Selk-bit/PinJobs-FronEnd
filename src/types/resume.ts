@@ -83,7 +83,7 @@ export interface Language {
 export interface Skill {
     skill: string;
     level: string;
-    checked?:boolean;
+    checked?: boolean;
+    category?:string;
+
 }
-
-

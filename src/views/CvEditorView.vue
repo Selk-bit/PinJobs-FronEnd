@@ -42,106 +42,109 @@ const logo = computed(() => {
     }
 });
 const dummy_resume_data = ref({
-    'age': '29',
-    'city': 'Paris',
-    'alias': 'Demo alias',
-    'name': 'John Doe',
-    'work': [{
-        'city': 'Casablanca',
-        'end_date': '06/2021',
-        'job_title': 'Full Stack Developer',
-        'start_date': '03/2021',
-        'company_name': 'GoSoft',
-        'responsibilities': 'Conception, réalisation et déploiement d\'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l\'application.'
-    }, {
-        'job_title': 'Backend Developer',
-        'responsibilities': 'Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l\'amélioration des processus CI/CD.',
-        'company_name': 'SocioTech',
-        'city': 'Paris',
-        'start_date': '03/2023',
-        'end_date': '05/2023'
-    }],
-    'email': 'john.doe@gmail.com',
-    'phone': '+33 6 12 34 56 78',
-    'skills': [
-        { 'skill': 'JavaScript', 'level': '5' },
-        { 'skill': 'Vue.js 3', 'level': '5' },
-        { 'skill': 'Python', 'level': '4' },
-        { 'skill': 'NestJS', 'level': '5' }
-    ],
-    'social': [
-        { 'skill': 'Communication', 'level': '5' },
-        { 'skill': 'Teamwork', 'level': '5' },
-        { 'skill': 'Problem-solving', 'level': '4' }
-    ],
-    'projects': [{
-        'end_date': '12/2022',
-        'start_date': '09/2022',
-        'description': 'Application pour la réservation des tickets du Busway, permettant de trouver le plus court chemin et de résoudre le problème d\'encombrement, en utilisant Java et Neo4j.',
-        'project_name': 'Réservation des Tickets Busway'
-    }, {
-        'end_date': '08/2022',
-        'start_date': '06/2022',
-        'description': 'Réalisation de la cartographie du degré de centralité en se basant sur le trafic avec C et Leaflet.',
-        'project_name': 'Cartographie de degré de Centralité dans Paris'
-    }, {
-        'end_date': '04/2022',
-        'start_date': '01/2022',
-        'description': 'Gestion de la paie des employés d\'une entreprise, soit en interne soit avec des filiales, en utilisant HTML, CSS, JavaScript, et PHP.',
-        'project_name': 'Application Web pour la gestion de la paie'
-    }],
-    'interests': [{ 'interest': 'Cuisine' }, { 'interest': 'Télévision' }, { 'interest': 'Lecture' }],
-    'languages': [
-        { 'level': '5', 'language': 'Anglais' },
-        { 'level': '4', 'language': 'Français' },
-        { 'level': '5', 'language': 'Arabe' }
-    ],
-    'educations': [{
-        'degree': 'Ingénierie Logicielle et Intégration des Systèmes Informatiques',
-        'end_year': '2021',
-        'start_year': '2019',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'Licence en Informatique, Réseaux et Multimédia',
-        'end_year': '2019',
-        'start_year': '2016',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'DEUST en Mathématiques, Informatique et Physique',
-        'end_year': '2016',
-        'start_year': '2014',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'Baccalauréat Scientifique',
-        'end_year': '2014',
-        'start_year': '2012',
-        'institution': 'Lycée Chahid Idriss Lahrizi'
-    }],
-    'references': [{
-        'name': 'Alice Dupont',
-        'phone': '+33 6 98 76 54 32',
-        'company': 'TechCorp',
-        'position': 'Manager IT',
-        'email': 'alice.dupont@techcorp.com'
-    }],
-    'volunteering': [{
-        'organization': 'SocioTech',
-        'position': 'Community Support Volunteer',
-        'start_date': '03/2023',
-        'end_date': '06/2023',
-        'description': 'Aide et support pour la communauté à travers des sessions d\'apprentissage et d\'accompagnement sur les nouvelles technologies.'
-    }],
-    'certifications': [
-        {
-            'certification': 'Certified Java Developer',
-            'institution': 'Oracle',
-            'date': '06/2023',
-            'link': 'https://www.oracle.com/certification/java-certification.html'
-        }
-    ],
-    'headline': 'Full Stack Software Developer',
-    'summary': 'Développeur full-stack avec une forte expérience en conception et déploiement d\'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises.'
-});
+  "age": "29",
+  "city": "Paris",
+  "alias": "Demo alias",
+  "yoe":"3",
+  "name": "John Doe",
+  "work": [{
+    "city": "Casablanca",
+    "end_date": "06/2021",
+    "job_title": "Full Stack Developer",
+    "start_date": "03/2021",
+    "company_name": "GoSoft",
+    "responsibilities": "Conception, réalisation et déploiement d'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l'application."
+  }, {
+    "job_title": "Backend Developer",
+    "responsibilities": "Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l'amélioration des processus CI/CD.",
+    "company_name": "SocioTech",
+    "city": "Paris",
+    "start_date": "03/2023",
+    "end_date": "05/2023"
+  }],
+  "email": "john.doe@gmail.com",
+  "phone": "+33 6 12 34 56 78",
+  "skills": [
+    {"skill": "JavaScript", "level": "5",  "category": "programing languages"},
+    {"skill": "Vue.js 3", "level": "5",  "category": "UI Frameworks"
+},
+    {"skill": "Python", "level": "4",  "category": "programing languages"
+},
+    {"skill": "NestJS", "level": "5","category": "backend framework"}
+  ],
+  "social": [
+    {"skill": "Communication", "level": "5"},
+    {"skill": "Teamwork", "level": "5"},
+    {"skill": "Problem-solving", "level": "4"}
+  ],
+  "projects": [{
+    "end_date": "12/2022",
+    "start_date": "09/2022",
+    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
+    "project_name": "Réservation des Tickets Busway"
+  }, {
+    "end_date": "08/2022",
+    "start_date": "06/2022",
+    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
+    "project_name": "Cartographie de degré de Centralité dans Paris"
+  }, {
+    "end_date": "04/2022",
+    "start_date": "01/2022",
+    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
+    "project_name": "Application Web pour la gestion de la paie"
+  }],
+  "interests": [{"interest": "Cuisine"}, {"interest": "Télévision"}, {"interest": "Lecture"}],
+  "languages": [
+    {"level": "5", "language": "Anglais"},
+    {"level": "4", "language": "Français"},
+    {"level": "5", "language": "Arabe"}
+  ],
+  "educations": [{
+    "degree": "Ingénierie Logicielle et Intégration des Systèmes Informatiques",
+    "end_year": "2021",
+    "start_year": "2019",
+    "institution": "Faculté des Sciences et Techniques"
+  }, {
+    "degree": "Licence en Informatique, Réseaux et Multimédia",
+    "end_year": "2019",
+    "start_year": "2016",
+    "institution": "Faculté des Sciences et Techniques"
+  }, {
+    "degree": "DEUST en Mathématiques, Informatique et Physique",
+    "end_year": "2016",
+    "start_year": "2014",
+    "institution": "Faculté des Sciences et Techniques"
+  }, {
+    "degree": "Baccalauréat Scientifique",
+    "end_year": "2014",
+    "start_year": "2012",
+    "institution": "Lycée Chahid Idriss Lahrizi"
+  }],
+  "references": [{
+    "name": "Alice Dupont",
+    "phone": "+33 6 98 76 54 32",
+    "company": "TechCorp",
+    "position": "Manager IT",
+    "email": "alice.dupont@techcorp.com"
+  }],
+  "volunteering": [{
+    "organization": "SocioTech",
+    "position": "Community Support Volunteer",
+    "start_date": "03/2023",
+    "end_date": "06/2023",
+    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
+  }],
+  "certifications": [
+    {
+      "certification": "Certified Java Developer",
+      "institution": "Oracle",
+      "date": "06/2023",
+      "link": "https://www.oracle.com/certification/java-certification.html"
+    }
+  ],
+  "headline": "Full Stack Software Developer",
+  "summary": "Développeur full-stack avec une forte expérience en conception et déploiement d'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises."
+})
 
 const default_create_model_data = ref<Template>({
     'name': '',
@@ -226,18 +229,20 @@ onMounted(async () => {
 
 <template>
     <div>
-        <div class="overflow-auto" v-if="!isDragModeActive">
-            <component :is="modelComponents[modelStore.selected]"></component>
-        </div>
-        <drag-zoom-container v-else class="resume-container elevation-0" v-model="transform">
-            <div class="d-flex justify-center align-center">
-
-                <component class="draggable" :zoom-range="{ max: 0.8, min: 0.5, step: 0.05}"
-                           :is="modelComponents[modelStore.selected]"></component>
-            </div>
-        </drag-zoom-container>
-
+    <div class="overflow-auto" v-if="!isDragModeActive">
+      <div class="resume-page-container mx-auto">
+        <component :is="modelComponents[modelStore.selected]"></component>
+      </div>
     </div>
+    <drag-zoom-container v-else class="resume-container elevation-0" v-model="transform">
+      <div class="d-flex justify-center align-center resume-page-container">
+
+        <component class="draggable" :zoom-range="{ max: 0.8, min: 0.5, step: 0.05}"
+                   :is="modelComponents[modelStore.selected]"></component>
+      </div>
+    </drag-zoom-container>
+
+  </div>
     <v-navigation-drawer app :location="settings.drawerPosition" elevation="2" v-model="settings.modelDrawer"
                          :width="xs? 360 : sm ? 400 : md ? 500 : 590">
         <div class="text-3 ma-3">

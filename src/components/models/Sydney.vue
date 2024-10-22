@@ -3,6 +3,7 @@ import {useModelStore} from "@/stores/model";
 import {useResumeStore} from "@/stores/resume";
 import {computed, ref} from "vue";
 import {storeToRefs} from 'pinia';
+import type {Skill} from "@/types/resume";
 
 
 const modelStore = useModelStore();
@@ -77,7 +78,15 @@ const isShowCity = computed(() => {
 const setModelReference = computed(() => {
   return model.reference;
 })
-
+const groupedSkills = computed(() => {
+  return resume.value.skills.reduce((acc: { [key: string]: string[] }, item: Skill) => {
+    if (!acc[item?.category as string]) {
+      acc[item?.category as string] = [];
+    }
+    acc[item?.category as string].push(item.skill);
+    return acc;
+  }, {});
+})
 
 </script>
 
@@ -115,9 +124,7 @@ const setModelReference = computed(() => {
             <!--            <span class="separator" v-if="isShowCity"></span>-->
             <span class="phone mr-1" v-if="isShowCity">City: </span>
             <span class="phone-val mr-2">{{ isShowCity ? resume.city : '' }}</span>
-            <!--            <span class="separator" v-if="isShowCity"></span>-->
-            <span class="phone mr-1" v-if="isShowAge">Age: </span> <span
-              class="phone-val">{{ isShowAge ? resume.age : '' }} </span>
+
           </div>
 
 
@@ -227,19 +234,15 @@ const setModelReference = computed(() => {
           </div>
           <div class="section Skills" v-if="model.templateData.skills.visible && resume.skills.length > 0">
             <div class="section__title">{{ model.templateData.skills.name }}</div>
-            <div class="skills" style="flex-wrap: wrap ; display: flex;gap: 10px">
-              <div class="skill" v-for="item in resume.skills">
-                <div class="skill-name">
-                  {{ item.skill }},
-                </div>
-                <div class="skill-bar">
-                  <div
-                      v-for="(level, index) in 5"
-                      :key="index"
-                      :class="['skill-level', { 'dash-filled': +index < +item.level }]"
-                  ></div>
+            <div class="section-items">
+            <div class="technical-skills">
+              <div class="pro-skill" v-for="(skills, category) in groupedSkills" :key="category">
+                <div class="category">{{ category }}:</div>
+                <div class="skills">
+                  {{ skills.join(', ') }}
                 </div>
               </div>
+            </div>
             </div>
           </div>
           <div class="section Social" v-if="model.templateData.social.visible && resume.social.length > 0">
@@ -252,6 +255,7 @@ const setModelReference = computed(() => {
               </div>
             </div>
           </div>
+
           <div class="section" v-if="model.templateData.languages.visible && resume.languages.length > 0">
             <div class="section__title">{{ model.templateData.languages.name }}</div>
             <div class="socials">
@@ -301,7 +305,7 @@ div.page {
   //background: white;
   background-color: white;
   display: block;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   color: black;
   font-size: v-bind(fontSize);
@@ -309,6 +313,9 @@ div.page {
 
 
 }
+
+/*@page { size: A4 portrait !important; margin: 0 !important;}
+
 
 div.page[data-size="A4"] {
   width: 21cm;
@@ -322,13 +329,13 @@ div.page[data-size="A4"] {
   size: 21cm 29.7cm;
   margin: 0mm;
 
-}
+}*/
 
 .container {
   display: flex;
   flex-direction: row;
   width: 100%;
-
+  padding: 30px;
   height: 100%;
   background-color: white;
 
@@ -362,6 +369,28 @@ html {
     margin: 10px;
   }
 
+}
+
+.section-items .technical-skills {
+  .pro-skill {
+    margin: 5px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .category {
+    min-width: 200px;
+    flex-wrap: nowrap;
+    padding: 3px;
+    margin-right: 50px;
+    font-weight: bold;
+  }
+
+  .skills {
+    float: left;
+    margin-left: 20px;
+    font-weight: lighter;
+  }
 }
 
 .header {
