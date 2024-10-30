@@ -114,10 +114,6 @@ const setModelReference = computed(() => {
               <v-icon class="icons">mdi-map-marker</v-icon>
               {{ isShowCity ? resume.city : '' }}
             </div>
-            <div class="mb-1 text-body-1 font-weight-semibold" v-if="isShowAge">
-              <v-icon class="icons">mdi-cake-variant-outline</v-icon>
-              {{ isShowAge ? resume.age : '' }}
-            </div>
           </div>
         </div>
         <div class="summary" v-if="model.templateData.page.summary">
@@ -285,6 +281,8 @@ const setModelReference = computed(() => {
 
 <style scoped lang="scss">
 
+
+
 * {
   :deep(ul), :deep(ol) {
     padding: 0 1rem;
@@ -296,13 +294,15 @@ const setModelReference = computed(() => {
 div.page {
   background-color: white;
   display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
+  margin: 0;
   position: relative;
   padding-top: 15px;
+    padding: 30px;
   font-size: v-bind(fontSize);
   //box-shadow: 1px 1px 2px #DAD7D7;
 }
+/*@page { size: A4 portrait !important; margin: 0 !important;}
+
 
 div.page[data-size="A4"] {
   width: 21cm;
@@ -315,7 +315,7 @@ div.page[data-size="A4"] {
 @page {
   size: 21cm 29.7cm;
   margin: 0mm;
-}
+}*/
 
 
 .container {

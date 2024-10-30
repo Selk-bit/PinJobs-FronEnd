@@ -31,11 +31,11 @@ const dev_mode = import.meta.env.VITE_DEV_MODE;
         <v-text-field variant="outlined" v-model="resume.name" :placeholder="t('Resumes.basics.name')"
                       color="primary"></v-text-field>
       </v-col>
-      <v-col cols="12" class="py-0">
-        <v-label class="mb-2 font-weight-medium">Alias</v-label>
-        <v-text-field variant="outlined" v-model="resume.alias" placeholder="Alias"
-                      color="primary"></v-text-field>
-      </v-col>
+<!--      <v-col cols="12" class="py-0">-->
+<!--        <v-label class="mb-2 font-weight-medium">Alias</v-label>-->
+<!--        <v-text-field variant="outlined" v-model="resume.alias" placeholder="Alias"-->
+<!--                      color="primary"></v-text-field>-->
+<!--      </v-col>-->
 
       <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.basics.phone') }}</v-label>
@@ -49,12 +49,12 @@ const dev_mode = import.meta.env.VITE_DEV_MODE;
                       color="primary"></v-text-field>
       </v-col>
 
-      <v-col cols="12" md="6" class="py-0">
-        <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.basics.age') }}</v-label>
-        <v-text-field variant="outlined" v-model="resume.age" :placeholder="t('Resumes.basics.age')"
-                      color="primary"></v-text-field>
+<!--      <v-col cols="12" md="6" class="py-0">-->
+<!--        <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.basics.age') }}</v-label>-->
+<!--        <v-text-field variant="outlined" v-model="resume.age" :placeholder="t('Resumes.basics.age')"-->
+<!--                      color="primary"></v-text-field>-->
 
-      </v-col>
+<!--      </v-col>-->
 
       <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.basics.email') }}</v-label>

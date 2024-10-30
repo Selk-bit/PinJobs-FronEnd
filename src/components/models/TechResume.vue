@@ -453,7 +453,6 @@ const setModelReference = computed(() => {
 </template>
 
 <style scoped lang="scss">
-
 * {
   :deep(ul), :deep(ol) {
     padding: 0 1rem;
@@ -478,16 +477,21 @@ div.page {
   //background: white;
   background-color: white;
   display: block;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   color: black;
   font-size: v-bind(fontSize);
   //box-shadow: 1px 1px 2px #DAD7D7;
 }
 
+/*
+@page { size: A4 portrait !important; margin: 0 !important;}
+
+
 div.page[data-size="A4"] {
   width: 21cm;
   height: auto;
+    padding: 30px;
   background-color: white;
   min-height: 29.7cm;
 }
@@ -497,6 +501,7 @@ div.page[data-size="A4"] {
   margin: 0mm;
   background-color: white;
 }
+*/
 
 
 .container {

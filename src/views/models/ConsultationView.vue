@@ -178,11 +178,7 @@ function removeFile(index: any) {
   file.value = null;
 }
 
-function handleDrop(event: any) {
-  const dropppedfiles = event.dataTransfer.files;
-  // files.value = [files.value,...dropppedfiles]
-  // handleFileChange();
-}
+
 
 const disableImport = computed(() => {
       if (user.value) {

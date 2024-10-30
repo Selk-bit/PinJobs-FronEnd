@@ -1,7 +1,7 @@
 const MainRoutes = {
     path: '/',
     meta: {
-        requiresAuth: true,
+        requiresAuth: true
     },
     redirect: '/home',
     // redirect: '/',
@@ -12,33 +12,33 @@ const MainRoutes = {
             name: 'home',
             path: '/home',
             meta: {
-                title: 'page.home',
+                title: 'page.home'
             },
-            component: () => import('@/views/HomeView.vue'),
+            component: () => import('@/views/HomeView.vue')
         },
 
         {
             name: 'jobs',
             path: '/jobs',
             meta: {
-                title: 'page.jobs',
+                title: 'page.jobs'
             },
-            component: () => import('@/views/JobsView.vue'),
+            component: () => import('@/views/JobsView.vue')
         },
 
         {
             name: 'candidates',
             path: '/candidates',
             meta: {
-                title: 'page.candidates',
+                title: 'page.candidates'
             },
-            component: () => import('@/views/CandidatesView.vue'),
+            component: () => import('@/views/CandidatesView.vue')
         },
         {
             name: 'candidate-details-view',
             path: 'candidates/:candidateId',
             meta: {
-                title: 'page.candidateDetails',
+                title: 'page.candidateDetails'
             },
             component: () => import('@/views/personalisation/CandidateDetailsView.vue')
         },
@@ -47,7 +47,7 @@ const MainRoutes = {
             name: 'create-model',
             path: '/models-creation',
             meta: {
-                title: 'page.create',
+                title: 'page.create'
             },
             component: () => import('@/views/models/CreationView.vue')
         },
@@ -55,7 +55,7 @@ const MainRoutes = {
             name: 'models-consultation',
             path: '/models-consultation',
             meta: {
-                title: 'page.consultation',
+                title: 'page.consultation'
             },
             component: () => import('@/views/models/ConsultationView.vue')
         },
@@ -63,7 +63,7 @@ const MainRoutes = {
             name: 'personalisation-editeur',
             path: '/personalisation-editeur',
             meta: {
-                title: 'page.editor',
+                title: 'page.editor'
             },
             component: async () => await import('@/views/personalisation/EditorView.vue')
         },
@@ -82,7 +82,7 @@ const MainRoutes = {
             name: 'facturation-invoice',
             path: 'facturation-invoice',
             meta: {
-                title: 'page.invoice',
+                title: 'page.invoice'
             },
             component: () => import('@/views/facturation/InvoiceView.vue')
         },
@@ -96,7 +96,7 @@ const MainRoutes = {
             name: 'user-settings',
             path: 'user-settings',
             meta: {
-                title: 'page.settings',
+                title: 'page.settings'
             },
             component: () => import('@/views/UserSettingsView.vue')
         },
@@ -105,10 +105,20 @@ const MainRoutes = {
             path: 'faqs',
             component: () => import('@/views/FAQsView.vue')
         },
-         {
+        {
             name: 'support',
             path: 'support',
             component: () => import('@/views/ContactSupport.vue')
+        },
+
+        //     pinjobs
+        {
+            name: 'cv-editor',
+            path: '/cv-editor',
+            meta: {
+                title: 'page.editor'
+            },
+            component: async () => await import('@/views/CvEditorView.vue')
         }
     ]
 };

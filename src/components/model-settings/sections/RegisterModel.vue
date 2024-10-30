@@ -62,16 +62,16 @@ async function createModel() {
 </script>
 
 <template>
-  <v-col cols="12" md="12" class="py-0">
-    <v-label class="mb-2 font-weight-medium">{{ t('Models.creation.register.modelName') }}</v-label>
-    <v-text-field variant="outlined" :placeholder="t('Models.creation.register.modelName')" v-model="model.name"
-                  color="primary"></v-text-field>
-  </v-col>
+<!--  <v-col cols="12" md="12" class="py-0">-->
+<!--    <v-label class="mb-2 font-weight-medium">{{ t('Models.creation.register.modelName') }}</v-label>-->
+<!--    <v-text-field variant="outlined" :placeholder="t('Models.creation.register.modelName')" v-model="model.name"-->
+<!--                  color="primary"></v-text-field>-->
+<!--  </v-col>-->
   <v-col cols="12" md="12" class="py-0 " v-if="useModelStore().showCreateBtn">
     <v-row>
       <v-col>
-        <v-btn variant="elevated" color="primary" @click="createModel" :loading="loading" block>
-          {{ t('Models.creation.register.createModel') }}
+        <v-btn variant="elevated" color="primary" @click="$router.push({name:'home'})" :loading="loading" block>
+          Save
         </v-btn>
       </v-col>
       <v-col>
