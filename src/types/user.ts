@@ -8,7 +8,6 @@ export interface User {
     email: string;
     clientProfileId?: string;
     clientProfile?: ClientProfile;
-
     hash?: string;
     roleId?: string;
     role?: Role;

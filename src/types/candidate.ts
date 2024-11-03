@@ -6,10 +6,12 @@ export interface Candidate {
     id?: string;
     reference?: string;
     resume?: string;
-    templateId?: string | null;
     resumeData: Resume;
     validated?: boolean;
+    resumeData: Resume;
+    templateId?: string | null;
     formattedResume?: string;
+    template?: Template;
     clientProfileId?: string;
     template?: Template;
     clientProfile?: ClientProfile;

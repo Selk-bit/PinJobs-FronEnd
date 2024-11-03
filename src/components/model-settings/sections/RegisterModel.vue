@@ -7,6 +7,9 @@ import {toast} from "vue-sonner"
 import {useAuthStore} from "@/stores/auth";
 import {useRouter} from "vue-router";
 import {storeToRefs} from "pinia";
+import {useResumeStore} from "@/stores/resume";
+import { useHomeStore } from '@/stores/home';
+
 
 const modelStore = useModelStore();
 const authStore = useAuthStore();
@@ -14,6 +17,10 @@ const {t} = useI18n()
 const {model} = storeToRefs(modelStore)
 const router = useRouter();
 const loading = ref(false);
+const resumeStore = useResumeStore();
+const homeStore = useHomeStore();
+
+
 
 const compReference = computed(() => {
   return model.value.reference;
@@ -58,6 +65,18 @@ async function createModel() {
 
 }
 
+async function editCV() {
+  const {resume} = storeToRefs(resumeStore);
+  homeStore.editCV(resume.value)
+    .then(() => {
+      toast.success("CV Modified successfully.");
+      router.push({ name: 'home' });
+    })
+    .catch((error) => {
+      toast.error("Failed to modify CV.");
+    });
+} 
+
 
 </script>
 
@@ -70,7 +89,7 @@ async function createModel() {
   <v-col cols="12" md="12" class="py-0 " v-if="useModelStore().showCreateBtn">
     <v-row>
       <v-col>
-        <v-btn variant="elevated" color="primary" @click="$router.push({name:'home'})" :loading="loading" block>
+        <v-btn variant="elevated" color="primary" @click="editCV()" :loading="loading" block>
           Save
         </v-btn>
       </v-col>

@@ -16,6 +16,7 @@ import { useSettingStore } from '@/stores/settings';
 import { validateLink } from '@/utils/helpers/validate-link';
 import type { Template } from '@/types/model';
 import ResumeSettings from '@/components/resume-settings/ResumeSettings.vue';
+import { useHomeStore } from '@/stores/home';
 
 
 // const drawer = ref(true)
@@ -23,6 +24,8 @@ const settings = useSettingStore();
 const transform = ref({ x: 260, y: 20, scale: 0.7 });
 const modelStore = useModelStore();
 const resumeStore = useResumeStore();
+const homeStore = useHomeStore();
+const cvData = ref(null);
 const { mobile, sm, md, xs } = useDisplay();
 const { t } = useI18n();
 const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
@@ -208,11 +211,50 @@ const isDragModeActive = computed(() => {
     return !mobile.value && settings.dragModel;
 });
 
-onBeforeMount(() => {
+function mapToResumeFormat(data: any): Resume {
+    return {
+        cv_id: data.cv_id || '',
+        name: data.name || '',
+        yoe: data.yoe || '',
+        headline: data.headline || '',
+        alias: data.alias || '',
+        imageUrl: data.imageUrl || '',
+        email: data.email || '',
+        phone: data.phone || '',
+        age: data.age || '',
+        city: data.city || '',
+        language: data.language || { language: '', level: '' },
+        summary: data.summary || '',
+        work: data.work || [],
+        educations: data.educations || [],
+        projects: data.projects || [],
+        certifications: data.certifications || [],
+        references: data.references || [],
+        volunteering: data.volunteering || [],
+        interests: data.interests || [],
+        languages: data.languages || [],
+        skills: data.skills || [],
+        social: data.social || [],
+    };
+}
+
+onBeforeMount(async () => {
     modelStore.showCreateBtn = true;
     modelStore.showTemplateSection = true;
     modelStore.SetModel({ ...default_create_model_data.value, language: '' });
-    resumeStore.setResume({ ...dummy_resume_data.value } as unknown as Resume);
+    try {
+      cvData.value = await homeStore.getCVData();
+      if (cvData.value) {
+        const mappedCVData = mapToResumeFormat(cvData.value);
+        resumeStore.setResume(mappedCVData);
+      } else {
+        resumeStore.setResume({ ...dummy_resume_data.value });
+      }
+    } catch (error) {
+      console.error('Error loading CV data:', error);
+      resumeStore.setResume({ ...dummy_resume_data.value });
+    }
+
 });
 onMounted(async () => {
     let user: User = await useAuthStore().GET_CURRENT_USER();

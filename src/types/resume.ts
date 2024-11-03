@@ -1,8 +1,9 @@
 import type { Language as Lang} from "@/types/language";
 
 export interface Resume {
+    cv_id: string;
     name: string;
-    yoe:string;
+    yoe: string;
     headline:string;
     alias:string;
     imageUrl: string;

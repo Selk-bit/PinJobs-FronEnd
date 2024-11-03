@@ -5,65 +5,84 @@
             <v-btn flat variant="outlined" class="mx-1" @click="isResumeFormatted = !isResumeFormatted"
                    icon="mdi-toggle-switch-outline" color="accent"></v-btn>
             <v-spacer />
-            <div v-if="isResumeFormatted">
-                <v-btn flat variant="outlined" class="mx-1" icon="mdi-delete" color="error"></v-btn>
+            <div v-if="isResumeFormatted && cvData">
+                <v-btn flat variant="outlined" class="mx-1" icon="mdi-delete" color="error" @click="confirmDeleteCV"></v-btn>
                 <v-btn flat variant="outlined" class="mx-1" icon="mdi-cloud-download-outline" color="primary"></v-btn>
-                <v-btn flat variant="outlined" class="mx-1" icon="mdi-pencil" color="info"></v-btn>
+                <v-btn flat variant="outlined" class="mx-1" icon="mdi-pencil" color="info" @click="editCV"></v-btn>
             </div>
         </div>
-        <v-container fluid v-if="!isResumeFormatted" class="pa-4">
-            <div class="mb-6">
-
-                <h1>Create your own resume</h1>
-                <h4>Choose how you want to create or generate your resume</h4>
-            </div>
+        <!-- Resume Creation Options -->
+        <v-container fluid v-if="!isResumeFormatted" class="home-card-container pa-4">
             <v-row>
-                <v-col
-                    cols="12"
-                    md="4"
-                    sm="6"
-                    lg="3"
-                >
-                    <home-card title="Import a CV" subtitle="Upload an existing resume file for quick customization."
-                               icon="mdi-tray-arrow-down" @open="import_cv_dialog.dialog = true" />
+                <v-col :cols="cvData ? 4 : 3" :md="cvData ? 4 : 3" sm="6">
+                    <home-card title="Import a CV" :subtitle="cardTexts.import" icon="mdi-tray-arrow-down" @open="import_cv_dialog.dialog = true" />
                 </v-col>
-                <v-col
-                    cols="12"
-                    md="4"
-                    sm="6"
-                    lg="3"
-                >
-                    <home-card title="Import your LinkedIn profile"
-                               @open="import_linkedin.dialog = true"
-                               subtitle="Seamlessly convert your LinkedIn data into a professional resume."
-                               icon="mdi-linkedin" />
+                <v-col :cols="cvData ? 4 : 3" :md="cvData ? 4 : 3" sm="6">
+                    <home-card title="Import your LinkedIn profile" :subtitle="cardTexts.linkedin" icon="mdi-linkedin" @open="import_linkedin.dialog = true" />
                 </v-col>
-                <v-col
-                    cols="12"
-                    md="4"
-                    sm="6"
-                    lg="3"
-                >
-                    <home-card title="Generate one from a job posting"
-                               @open="import_job_description.dialog = true"
-                               subtitle="Create a tailored resume based on a job listing."
-                               icon="mdi-briefcase-outline" />
+                <v-col :cols="cvData ? 4 : 3" :md="cvData ? 4 : 3" sm="6">
+                    <home-card title="Generate one from a job posting" :subtitle="cardTexts.job" icon="mdi-briefcase-outline" @open="import_job_description.dialog = true" />
                 </v-col>
-                <v-col
-                    cols="12"
-                    md="4"
-                    sm="6"
-                    lg="3"
-                >
-                    <home-card title="Blank CV" @open="generateFromScratch" />
+                <v-col v-if="!cvData" cols="3" md="3" sm="6">
+                    <home-card title="Blank CV" :subtitle="cardTexts.blank" @open="generateFromScratch" />
+                </v-col>
+            </v-row>
+
+            <!-- Job Search Form (below cards) -->
+            <v-row v-if="cvData" dense class="job-search-form mt-12">
+                <v-col cols="3">
+                    <v-text-field
+                        v-model="jobSearch.location"
+                        label="Location"
+                        prepend-inner-icon="mdi-map-marker"
+                        outlined
+                        dense
+                        clearable
+                    />
+                </v-col>
+                <v-col cols="3">
+                    <v-text-field
+                        v-model="jobSearch.keyword"
+                        label="Keyword"
+                        prepend-inner-icon="mdi-magnify"
+                        outlined
+                        dense
+                        clearable
+                    />
+                </v-col>
+                <v-col cols="3">
+                    <v-text-field
+                        v-model="jobSearch.jobCount"
+                        label="Number of Jobs"
+                        prepend-inner-icon="mdi-counter"
+                        type="number"
+                        outlined
+                        dense
+                        clearable
+                    />
+                </v-col>
+                <v-col cols="3">
+                    <v-btn color="primary" @click="executeJobSearch" block>Execute</v-btn>
                 </v-col>
             </v-row>
         </v-container>
+
         <div v-else>
             <div class="resume-page-container mx-auto">
                 <component :is="modelComponents[modelStore.selected]"></component>
             </div>
         </div>
+
+        <CustomConfirmationDialog
+            v-if="showDeleteCVDialog"
+            :dialog="showDeleteCVDialog"
+            title="Confirm CV Deletion"
+            text="Are you sure you want to delete your CV?"
+            confirm-text-button="Delete"
+            cancel-text-button="Cancel"
+            @accept="deleteCV"
+            @reject="closeDeleteCVDialog"
+        />
 
     </div>
 
@@ -278,7 +297,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { computed, onBeforeMount, reactive, ref } from 'vue';
+import { computed, onBeforeMount, reactive, ref, watch } from 'vue';
 import HomeCard from '@/components/home/HomeCard.vue';
 import { useI18n } from 'vue-i18n';
 import { toast } from 'vue-sonner';
@@ -290,12 +309,125 @@ import type { Resume } from '@/types/resume';
 import { useModelStore } from '@/stores/model';
 import { useResumeStore } from '@/stores/resume';
 import { modelComponents } from '@/models-imports';
+import { useHomeStore } from '@/stores/home';
+import {useFormattingStore} from '@/stores/formatting';
+import CustomConfirmationDialog from "@/components/shared/CustomConfirmationDialog.vue";
+
 
 const { t } = useI18n();
 const router = useRouter();
 const modelStore = useModelStore();
 const resumeStore = useResumeStore();
 const isResumeFormatted = ref(false);
+const showDeleteCVDialog = ref(false);
+const cvData = ref(null);
+
+// Dynamic card texts based on upload state
+const cardTexts = reactive({
+  import: 'Upload an existing resume file for quick customization.',
+  linkedin: 'Seamlessly convert your LinkedIn data into a professional resume.',
+  job: 'Create a tailored resume based on a job listing.',
+  blank: 'Start from scratch.',
+});
+
+// Function to update card texts based on the state
+function updateCardTexts(state: 'initial' | 'reupload') {
+  const texts = {
+    initial: {
+      import: 'Upload an existing resume file for quick customization.',
+      linkedin: 'Seamlessly convert your LinkedIn data into a professional resume.',
+      job: 'Create a tailored resume based on a job listing.',
+      blank: 'Start from scratch.',
+    },
+    reupload: {
+      import: 'Re-upload your CV to update the data.',
+      linkedin: 'Import a new LinkedIn profile to overwrite existing data.',
+      job: 'Generate a new resume based on a different job listing.',
+      blank: 'Create a new blank CV to replace the existing one.',
+    },
+  };
+  Object.assign(cardTexts, texts[state]);
+}
+
+const homeStore = useHomeStore();
+const jobSearch = reactive({
+  keyword: '',
+  location: '',
+  jobCount: 10,
+});
+
+
+function editCV() {
+  router.push({ name: 'cv-editor' });
+}
+
+function confirmDeleteCV() {
+  showDeleteCVDialog.value = true;
+}
+
+function closeDeleteCVDialog() {
+  showDeleteCVDialog.value = false;
+}
+
+function deleteCV() {
+  const cvId = cvData.value?.cv_id; // Assuming `resumeData` contains the CV id
+  if (!cvId) {
+    console.error("No CV ID found for deletion.");
+    return;
+  }
+
+  homeStore.deleteCV(cvId)
+    .then(() => {
+      toast.success("CV deleted successfully.");
+      closeDeleteCVDialog();
+      location.reload();   
+    })
+    .catch((error) => {
+      console.error("Error deleting CV:", error);
+      toast.error("Failed to delete CV.");
+    });
+}
+
+
+
+function mapToResumeFormat(data: any): Resume {
+    return {
+        cv_id: data.cv_id || '',
+        name: data.name || '',
+        yoe: data.yoe || '',
+        headline: data.headline || '',
+        alias: data.alias || '',
+        imageUrl: data.imageUrl || '',
+        email: data.email || '',
+        phone: data.phone || '',
+        age: data.age || '',
+        city: data.city || '',
+        language: data.language || { language: '', level: '' },
+        summary: data.summary || '',
+        work: data.work || [],
+        educations: data.educations || [],
+        projects: data.projects || [],
+        certifications: data.certifications || [],
+        references: data.references || [],
+        volunteering: data.volunteering || [],
+        interests: data.interests || [],
+        languages: data.languages || [],
+        skills: data.skills || [],
+        social: data.social || [],
+    };
+}
+
+watch(
+  () => homeStore.resumeData,
+  (newData) => {
+    if (newData) {
+      const mappedResumeData = mapToResumeFormat(newData);
+      resumeStore.setResume(mappedResumeData);
+      router.push({ name: 'cv-editor' });
+    }
+  }
+);
+
 // upload functions and props
 const import_cv_dialog = reactive({
     dialog: false,
@@ -324,25 +456,22 @@ const import_linkedin = reactive({
     }
 });
 
-function generateFromLinkedIn() {
-    if (import_linkedin.link == null || import_linkedin.link == '') {
+async function generateFromLinkedIn() {
+    if (!import_linkedin.link) {
         showUploadError(import_linkedin.errors.linkEmpty);
-    } else {
-        try {
-            import_linkedin.loading = true;
-            //     Api call
-            toast.success('Data uploaded successfully');
-        } catch (err: any) {
-            console.log(err);
-            toast.error(import_linkedin.errors.unknownError);
-        } finally {
-            import_linkedin.loading = false;
-        }
+        return;
+    }
+    try {
+        import_linkedin.loading = true;
+        await homeStore.importLinkedInProfile(import_linkedin.link);
+        toast.success('LinkedIn profile imported successfully');
+    } catch (error) {
+        toast.error(import_linkedin.errors.unknownError);
+    } finally {
+        import_linkedin.loading = false;
+        import_linkedin.dialog = false;
     }
 }
-
-
-// generate from job description
 
 
 const import_job_description = reactive({
@@ -360,22 +489,23 @@ const import_job_description = reactive({
     }
 });
 
-function generateFromJobPosting() {
-    if (import_job_description.description == null || import_job_description.description == '') {
+async function generateFromJobPosting() {
+    if (!import_job_description.description) {
         showUploadError(import_job_description.errors.descriptionEmpty);
-    } else {
-        try {
-            import_linkedin.loading = true;
-            //     Api call
-            toast.success('Data uploaded successfully');
-        } catch (err: any) {
-            console.log(err);
-            toast.error(import_job_description.errors.unknownError);
-        } finally {
-            import_job_description.loading = false;
-        }
+        return;
+    }
+    try {
+        import_job_description.loading = true;
+        await homeStore.createFromJobDescription(import_job_description.description);
+        toast.success('Resume generated from job description');
+    } catch (error) {
+        toast.error(import_job_description.errors.unknownError);
+    } finally {
+        import_job_description.loading = false;
+        import_job_description.dialog = false;
     }
 }
+
 
 
 function generateFromScratch() {
@@ -421,7 +551,6 @@ async function importFile() {
     const fileName = file?.value?.name;
     console.log(fileName);
 
-
     // Check if the file has a valid extension (.pdf, .doc, or .docx)
     if (!file?.value) {
         showUploadError('File required');
@@ -430,20 +559,23 @@ async function importFile() {
     } else {
         try {
             import_cv_dialog.loading = true;
-            // await modelStore.UPLOAD_TEMPLATE(importedFileDto.value as ImportedTemplateDTO);
-            import_cv_dialog.loading = false;
+            await homeStore.uploadCV(file.value); // Send the request with homeStore
             import_cv_dialog.dialog = false;
             toast.success(t('Models.consultation.toasts.templateUploadSuccess'));
         } catch (err: any) {
-            const errData = err.response.data;
-            if (errData.message == 'Client already has an unfinished imported template !') {
+            const errData = err.response?.data;
+            if (errData?.message === 'Client already has an unfinished imported template !') {
                 toast.info(t('Models.consultation.toasts.templateAlreadyExist'));
+            } else {
+                console.error('Error uploading CV:', err);
+                toast.error('An error occurred while uploading the document.');
             }
-            console.log(err);
+        } finally {
+            import_cv_dialog.loading = false;
         }
-        import_cv_dialog.loading = false;
     }
 }
+
 
 const disableImport = computed(() => {
         //   if (user.value) {
@@ -624,12 +756,44 @@ const default_create_model_data = ref<Template>({
     }
 });
 
-
-onBeforeMount(() => {
-
-    modelStore.SetModel({ ...default_create_model_data.value, language: '' });
-    resumeStore.setResume({ ...dummy_resume_data.value } as unknown as Resume);
+onBeforeMount(async () => {
+  modelStore.SetModel({ ...default_create_model_data.value, language: '' });
+  try {
+    cvData.value = await homeStore.getCVData();
+    if (cvData.value) {
+      isResumeFormatted.value = true;
+      const mappedCVData = mapToResumeFormat(cvData.value);
+      resumeStore.setResume(mappedCVData);
+      updateCardTexts('reupload');
+    } else {
+      resumeStore.setResume({ ...dummy_resume_data.value });
+      updateCardTexts('initial');
+    }
+  } catch (error) {
+    console.error('Error loading CV data:', error);
+    resumeStore.setResume({ ...dummy_resume_data.value });
+    updateCardTexts('initial');
+  }
 });
+
+
+async function executeJobSearch() {
+  try {
+    if (jobSearch.location == '' ||
+       jobSearch.keyword == '' ||
+       jobSearch.jobCount == '' ||
+       jobSearch.jobCount == 0) {
+       toast.error("Please Complete the form...");
+    } else {
+        toast.success("Job search started successfully");
+        const response = await homeStore.jobSearch(jobSearch);
+    }
+  } catch (error) {
+    console.error("Error executing job search:", error);
+    toast.error("Failed to execute job search");
+  }
+}
+
 
 </script>
 
@@ -672,5 +836,49 @@ onBeforeMount(() => {
     padding: 10px 10px;
 }
 
+/* Centered and larger text for header titles */
+.header-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.header-subtitle {
+  font-size: 1.6rem;
+  color: #555;
+}
+
+/* Container for cards with hover shadow effect */
+.home-card-container {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.v-card {
+  border-radius: 15px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 180px;
+  text-align: center;
+}
+
+.v-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Job Search Form styling with border for structure */
+.job-search-form {
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 </style>
