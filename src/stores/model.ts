@@ -107,6 +107,7 @@ export const useModelStore = defineStore({
         },
         SetTemplate(item: string) {
             this.selected = item;
+            this.model.templateData.template = item;
         },
         InitModel() {
             this.model = default_template as Template;

@@ -1,17 +1,17 @@
 import type { Language as Lang} from "@/types/language";
 
 export interface Resume {
-    cv_id: string;
+    cv_id?: string | null;
     name: string;
-    yoe: string;
-    headline:string;
-    alias:string;
-    imageUrl: string;
+    yoe?: string | null;
+    headline: string;
+    alias: string;
+    imageUrl?: string | null;
     email: string;
     phone: string;
     age: string;
     city: string;
-    language?:Lang;
+    language?: Lang;
     summary: string;
     work: Work[];
     educations: Education[];

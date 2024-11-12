@@ -10,8 +10,8 @@ const loading = ref(true)
 
 const {user} = storeToRefs(useAuthStore());
 const credit = computed(() => {
-  if (!!user.value?.credits) {
-    return user.value?.credits + ' ' + t('credit.label');
+  if (!!user.value.credits) {
+    return user.value.credits + ' ' + t('credit.label');
   } else {
     return 0
   }
@@ -29,7 +29,7 @@ const chipColor = computed(() => {
 <template>
   <v-chip prepend-icon="mdi-database" class="font-weight-semibold" v-if="user" :color="chipColor" ripple variant="tonal">
     <div v-if="user">
-      {{ (user?.credits ?? 0) + ' ' + t('credit.label') }}
+      {{ credit }}
     </div>
   </v-chip>
 </template>

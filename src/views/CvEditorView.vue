@@ -241,8 +241,9 @@ function mapToResumeFormat(data: any): Resume {
 onBeforeMount(async () => {
     modelStore.showCreateBtn = true;
     modelStore.showTemplateSection = true;
-    modelStore.SetModel({ ...default_create_model_data.value, language: '' });
+    
     try {
+      // Fetch CV data
       cvData.value = await homeStore.getCVData();
       if (cvData.value) {
         const mappedCVData = mapToResumeFormat(cvData.value);
@@ -250,15 +251,26 @@ onBeforeMount(async () => {
       } else {
         resumeStore.setResume({ ...dummy_resume_data.value });
       }
+      
+      // Fetch CV model data
+      const cvModelData = await homeStore.getCVModel();
+      if (cvModelData) {
+        modelStore.SetModel(cvModelData);
+        // modelStore.SetTemplate(cvModelData.templateData.template);
+        modelStore.selected = cvModelData.templateData.template;
+      } else {
+        modelStore.SetModel({ ...default_create_model_data.value });
+      }
+      
     } catch (error) {
-      console.error('Error loading CV data:', error);
+      console.error('Error loading CV data or model:', error);
       resumeStore.setResume({ ...dummy_resume_data.value });
+      modelStore.SetModel({ ...default_create_model_data.value });
     }
-
 });
+
 onMounted(async () => {
     let user: User = await useAuthStore().GET_CURRENT_USER();
-
     toast.info('Les fausses données sont utilisées pour mieux visualiser les modifications apportées au modèle.', {
         duration: 3000
     });

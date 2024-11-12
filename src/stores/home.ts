@@ -1,16 +1,16 @@
 // store/home.ts
 import { defineStore } from 'pinia';
-import { uploadCV, importLinkedInProfile, createFromJobDescription, getCVData, deleteCV, editCV, jobSearch } from '@/api/home';
+import { uploadCV, importLinkedInProfile, createFromJobDescription, getCVData, deleteCV, editCV, jobSearch, getCVModel } from '@/api/home';
 import type { User } from '@/types/user';
 
 export const useHomeStore = defineStore({
   id: 'home-store',
 
   state: () => ({
-    resumeData: null,
-    templateId: null,
-    formattedResume: null,
-    template: null,
+    resumeData: null as any,
+    templateId: null as any,
+    formattedResume: null as any,
+    template: null as any,
   }),
 
   actions: {
@@ -46,7 +46,15 @@ export const useHomeStore = defineStore({
         const data = await getCVData();
         return data;
       } catch (error) {
-        console.error('Error creating CV from job description:', error);
+        console.error('Error getting CV data:', error);
+      }
+    },
+    async getCVModel() {
+      try {
+        const data = await getCVModel();
+        return data;
+      } catch (error) {
+        console.error('Error getting CV model:', error);
       }
     },
     async deleteCV(cvId: string) {
@@ -57,16 +65,16 @@ export const useHomeStore = defineStore({
         console.error("Error deleting CV:", error);
       }
     },
-    async editCV(updatedData) {
+    async editCV(updatedData: any, updatedModel: any) {
       try {
-        const updatedCVData = await editCV(updatedData);
-        this.resumeData = updatedCVData; // Update the resume data with the new data
+        const updatedCVData = await editCV(updatedData, updatedModel);
+        this.resumeData = updatedCVData;
         console.log("CV updated successfully");
       } catch (error) {
         console.error("Error editing CV:", error);
       }
     },
-    async jobSearch(candidate_data) {
+    async jobSearch(candidate_data: any) {
       try {
         await jobSearch(candidate_data);
       } catch (error) {

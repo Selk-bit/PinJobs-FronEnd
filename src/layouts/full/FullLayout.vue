@@ -19,18 +19,18 @@ onMounted(async () => {
   // get current user
  await authStore.GET_CURRENT_USER();
   // set language
-  if (authStore.isLoggedIn) {
-    await notificationsInit(signal)
-  }
+  // if (authStore.isLoggedIn) {
+  //   await notificationsInit(signal)
+  // }
   ;
 
 });
 
-watch(() => authStore.isLoggedIn, async (newValue, oldValue) => {
-  if (newValue === true) {
-    await notificationsInit(signal);
-  }
-})
+// watch(() => authStore.isLoggedIn, async (newValue, oldValue) => {
+//   if (newValue === true) {
+//     await notificationsInit(signal);
+//   }
+// })
 
 watch(() => authStore.isLoggedIn, (newValue, oldValue) => {
   if (newValue === false) {

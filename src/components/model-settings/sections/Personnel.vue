@@ -39,7 +39,7 @@ onMounted(() => {
     </v-col>
 
 
-    <v-col cols="12" md="12" class="py-0" v-if="personnel">
+    <v-col cols="12" md="12" class="py-0" v-if="modelStore.model.templateData.personnel">
       <div class="text-h6 mb-2 font-weight-medium">{{ $t('Models.creation.page.options') }}</div>
       <div>
 <!--        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.name"-->
@@ -48,20 +48,20 @@ onMounted(() => {
 <!--        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.age"-->
 <!--                  :label="t('Models.creation.personnel.showAge')"></v-switch>-->
         <v-divider></v-divider>
-        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.city"
+        <v-switch class="my-0 py-0" inset color="primary" v-model="modelStore.model.templateData.personnel.city"
                   :label="t('Models.creation.personnel.showCity')"></v-switch>
         <v-divider></v-divider>
-        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.email"
+        <v-switch class="my-0 py-0" inset color="primary" v-model="modelStore.model.templateData.personnel.email"
                   :label="t('Models.creation.personnel.showEmail')"></v-switch>
         <v-divider></v-divider>
-        <v-switch class="my-0 py-0" inset color="primary" v-model="personnel.phone"
+        <v-switch class="my-0 py-0" inset color="primary" v-model="modelStore.model.templateData.personnel.phone"
                   :label="t('Models.creation.personnel.showPhone')"></v-switch>
       </div>
     </v-col>
     <v-divider></v-divider>
     <v-col cols="12">
       <v-expand-transition>
-        <div v-if="!personnel?.name">
+        <div v-if="!modelStore.model.templateData.personnel?.name">
           <v-col cols="12" class="d-flex justify-start align-center">
             <div class="text-h5 mb-2 font-weight-medium">Alias / Reference</div>
 

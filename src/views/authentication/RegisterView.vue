@@ -126,14 +126,7 @@ async function register() {
         <VTextField v-model="form.country" required :placeholder="t('auth.register.country')" hide-details="auto"
                     class="custom-input"></VTextField>
       </v-col>
-      <v-col cols="12" lg="6">
-        <VTextField v-model="form.city" required :placeholder="t('auth.register.city')" hide-details="auto"
-                    class="custom-input"></VTextField>
-      </v-col>
-      <v-col cols="12" lg="6">
-        <VTextField v-model="form.age" required type="number" :placeholder="t('auth.register.age')" hide-details="auto"
-                    class="custom-input"></VTextField> <!-- New Age Field -->
-      </v-col>
+
       <v-col cols="12" lg="6">
         <VTextField v-model="form.password" required :placeholder="t('auth.register.password')" :type="show_password ? 'text' : 'password'"
                     @click:append-inner="show_password = !show_password" hide-details="auto"

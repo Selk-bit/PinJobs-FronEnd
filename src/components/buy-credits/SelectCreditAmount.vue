@@ -217,14 +217,14 @@ onMounted(() => {
               class="mt-6"
           ></v-slider>
 
-          <v-row class=" pb-7 mt-9 pa-7 ">
+          <!-- <v-row class=" pb-7 mt-9 pa-7 ">
             <v-col md="4" lg="4" v-for="item in currentFeatures" :key="item" class="d-flex align-start">
               <v-icon class="text-primary  text-h2">
                 mdi-check-circle
               </v-icon>
               <span class="ml-2  font-weight-bold">{{ item }}</span>
             </v-col>
-          </v-row>
+          </v-row> -->
         </v-card>
         <v-card class="my-2 bg-lightsecondary mx-auto pa-5 rounded-lg pa-5 overflow-hidden position-relative">
             <div class="text-h1 mb-3   font-weight-bold " style="z-index: 10;">

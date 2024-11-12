@@ -20,7 +20,6 @@
       <v-window-item
           :value="2"
       >
-        <AddUsers/>
       </v-window-item>
       <v-window-item
           :value="3"
@@ -36,7 +35,6 @@
 import {useI18n} from 'vue-i18n';
 import BaseBreadcrumb from '@/components/shared/BaseBreadcrumb.vue';
 import AccountSettings from "@/components/settings/AccountSettings.vue";
-import AddUsers from "@/components/settings/AddUsers.vue";
 import {computed, onMounted, ref} from "vue";
 import {useAuthStore} from "@/stores/auth";
 import {captureOrderWithPaypal} from "@/api/payment";

@@ -13,8 +13,8 @@ import { useHomeStore } from '@/stores/home';
 
 const modelStore = useModelStore();
 const authStore = useAuthStore();
+const {model} = storeToRefs(modelStore);
 const {t} = useI18n()
-const {model} = storeToRefs(modelStore)
 const router = useRouter();
 const loading = ref(false);
 const resumeStore = useResumeStore();
@@ -62,12 +62,11 @@ async function createModel() {
       toast.error(e.response.data.message.toString())
     }
   }
-
 }
 
 async function editCV() {
   const {resume} = storeToRefs(resumeStore);
-  homeStore.editCV(resume.value)
+  homeStore.editCV(resume.value, model.value)
     .then(() => {
       toast.success("CV Modified successfully.");
       router.push({ name: 'home' });

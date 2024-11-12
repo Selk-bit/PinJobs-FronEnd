@@ -77,10 +77,10 @@ onMounted(async () => {
       </v-col>
 
       <!-- City and Country -->
-      <v-col cols="12" md="6" class="py-0">
+      <!-- <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ t('Settings.account.city') }}</v-label>
         <v-text-field v-model="user.city" variant="outlined" placeholder="City" color="primary"></v-text-field>
-      </v-col>
+      </v-col> -->
       <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ t('Settings.account.country') }}</v-label>
         <v-text-field v-model="user.country" variant="outlined" placeholder="Country" color="primary"></v-text-field>
@@ -93,12 +93,12 @@ onMounted(async () => {
       </v-col>
 
       <!-- Scraping Settings -->
-      <v-col cols="12" md="6" class="py-0">
+      <!-- <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ t('Settings.account.numJobsToScrape') }}</v-label>
         <v-text-field v-model="user.num_jobs_to_scrape" type="number" variant="outlined" placeholder="Jobs to Scrape" color="primary"></v-text-field>
-      </v-col>
+      </v-col> -->
 
-      <v-col cols="12" md="6" class="py-0">
+      <!-- <v-col cols="12" md="6" class="py-0">
         <v-label class="mb-2 font-weight-medium">{{ t('Settings.account.scrapeInterval') }}</v-label>
         <v-text-field v-model="user.scrape_interval" type="number" variant="outlined" placeholder="Scrape Interval" color="primary"></v-text-field>
       </v-col>
@@ -113,7 +113,7 @@ onMounted(async () => {
           label="Scrape Unit"
           color="primary"
         />
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-col cols="12" class="mt-4 py-0">

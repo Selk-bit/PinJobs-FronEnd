@@ -12,8 +12,7 @@ export interface Template {
     language: Language;
     reference?: string | null;
     templateData: Model;
-    clientProfileId?: string;
-    clientProfile?: ClientProfile;
+    clientProfileId?: any;
     createdAt?: Date;
     updatedAt?: Date
 }

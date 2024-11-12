@@ -320,7 +320,7 @@ const modelStore = useModelStore();
 const resumeStore = useResumeStore();
 const isResumeFormatted = ref(false);
 const showDeleteCVDialog = ref(false);
-const cvData = ref(null);
+const cvData = ref({} as Resume);
 
 // Dynamic card texts based on upload state
 const cardTexts = reactive({
@@ -358,7 +358,8 @@ const jobSearch = reactive({
 
 
 function editCV() {
-  router.push({ name: 'cv-editor' });
+//   router.push({ name: 'cv-editor' });
+  window.location.href = router.resolve({ name: 'cv-editor' }).href;
 }
 
 function confirmDeleteCV() {
@@ -370,7 +371,7 @@ function closeDeleteCVDialog() {
 }
 
 function deleteCV() {
-  const cvId = cvData.value?.cv_id; // Assuming `resumeData` contains the CV id
+  const cvId = cvData?.value?.cv_id;
   if (!cvId) {
     console.error("No CV ID found for deletion.");
     return;
@@ -757,8 +758,17 @@ const default_create_model_data = ref<Template>({
 });
 
 onBeforeMount(async () => {
-  modelStore.SetModel({ ...default_create_model_data.value, language: '' });
   try {
+    // Fetch the CV model
+    const modelData = await homeStore.getCVModel();
+    if (modelData) {
+      modelStore.SetModel(modelData);
+      modelStore.selected = modelData.templateData.template;
+    } else {
+      modelStore.SetModel({ ...default_create_model_data.value, language: '' });
+    }
+
+    // Fetch the CV data
     cvData.value = await homeStore.getCVData();
     if (cvData.value) {
       isResumeFormatted.value = true;
@@ -770,18 +780,20 @@ onBeforeMount(async () => {
       updateCardTexts('initial');
     }
   } catch (error) {
-    console.error('Error loading CV data:', error);
+    console.error('Error loading data:', error);
+    // Set default values if an error occurs
+    modelStore.SetModel({ ...default_create_model_data.value, language: '' });
     resumeStore.setResume({ ...dummy_resume_data.value });
     updateCardTexts('initial');
   }
 });
 
 
+
 async function executeJobSearch() {
   try {
     if (jobSearch.location == '' ||
        jobSearch.keyword == '' ||
-       jobSearch.jobCount == '' ||
        jobSearch.jobCount == 0) {
        toast.error("Please Complete the form...");
     } else {

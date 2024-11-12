@@ -34,7 +34,7 @@ export const useUserStore = defineStore({
         },
         async UPDATE_USER(user: User, id: string) {
             try {
-                const data = await updateUser(user, id);
+                const data = await updateUser(user);
                 return data;
             } catch (error: any) {
                 return Promise.reject(error);

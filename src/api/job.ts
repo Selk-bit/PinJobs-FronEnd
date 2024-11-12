@@ -2,7 +2,6 @@ import api from "@/api/api";
 import endpoints from "@/api/endpoints";
 import axios from "axios";
 import type {Language} from "@/types/language";
-import qs from 'qs';
 import {useAuthStore} from '@/stores/auth';
 
 
@@ -11,7 +10,7 @@ const base = import.meta.env.VITE_API_URL
 let axs = axios.create({baseURL: base, timeout: 50000,})
 
   // src/api/job.ts
-const getJobs = async (filters = {}, page) => {
+const getJobs = async (filters = {}, page: any) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {
@@ -32,7 +31,7 @@ const getJobs = async (filters = {}, page) => {
   };
   
 
-  const delete_job = async (job_id) => {
+  const delete_job = async (job_id: any) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {
@@ -46,7 +45,7 @@ const getJobs = async (filters = {}, page) => {
     }
   };
   
-  const update_job_status = async (job_id, status) => {
+  const update_job_status = async (job_id: any, status: any) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {

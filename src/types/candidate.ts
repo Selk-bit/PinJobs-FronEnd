@@ -8,12 +8,10 @@ export interface Candidate {
     resume?: string;
     resumeData: Resume;
     validated?: boolean;
-    resumeData: Resume;
     templateId?: string | null;
     formattedResume?: string;
     template?: Template;
     clientProfileId?: string;
-    template?: Template;
     clientProfile?: ClientProfile;
     createdAt?: Date;
     updatedAt?: Date;

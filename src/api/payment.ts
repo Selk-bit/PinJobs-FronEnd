@@ -1,4 +1,6 @@
 import api from "@/api/api";
+import {useAuthStore} from '@/stores/auth';
+
 
 
 import endpoints from "@/api/endpoints";
@@ -14,9 +16,15 @@ import endpoints from "@/api/endpoints";
 
 
 const createOrderWithPaypal = async (credits: number) => {
+    const authStore = useAuthStore();
+    const token = authStore.token;
     try {
-        const response = await api().post(endpoints.CLIENTS + '/top-up', {
+        const response = await api().post(endpoints.API + '/top-up', {
             credits
+        },{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
         });
         return response.data;
     } catch (error: any) {
@@ -25,9 +33,15 @@ const createOrderWithPaypal = async (credits: number) => {
 };
 
 const captureOrderWithPaypal = async (orderId: string) => {
+    const authStore = useAuthStore();
+    const token = authStore.token;
     try {
-        const response = await api().post(endpoints.CLIENTS + '/top-up-confirm', {
+        const response = await api().post(endpoints.API + '/top-up-confirm', {
             orderId
+        },{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
         });
         return response.data;
     } catch (error: any) {
