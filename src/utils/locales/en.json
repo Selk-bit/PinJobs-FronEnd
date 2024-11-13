@@ -1,4 +1,10 @@
 {
+  "terms": {
+    "preamble": {
+      "title": "Terms and Conditions",
+      "content": "Welcome to our application. By accessing or using our services, you agree to be bound by these Terms and Conditions. Please read them carefully. These terms govern your access to and use of our services, including any applications, content, and functionality offered. By accepting these terms, you acknowledge that you have read, understood, and agree to comply with them in full."
+    }
+  },
   "update": "Update",
   "error": "Error occurred, try Again later",
   "page": {

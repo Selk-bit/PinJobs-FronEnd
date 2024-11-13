@@ -42,9 +42,7 @@ async function register() {
       form.value.phone == '' ||
       form.value.lastName == '' ||
       form.value.firstName == '' ||
-      form.value.username == '' || // Check if username is filled
-      form.value.age == null || // Check if age is filled
-      form.value.city == '' ||
+      form.value.username == '' ||
       form.value.country == '') {
     toast.error(t('auth.register.validation.missingFields'));
     loading.value = false;

@@ -1,4 +1,10 @@
 {
+  "terms": {
+    "preamble": {
+      "title": "Conditions Générales",
+      "content": "Bienvenue dans notre application. En accédant ou en utilisant nos services, vous acceptez d'être lié par les présentes Conditions Générales. Veuillez les lire attentivement. Ces conditions régissent votre accès et votre utilisation de nos services, y compris toute application, contenu et fonctionnalité proposés. En acceptant ces conditions, vous reconnaissez avoir lu, compris et accepté de vous conformer à ces termes dans leur intégralité."
+    }
+  },
   "update": "Mettre à jour",
   "error": "Une erreur s'est produite, veuillez réessayer plus tard",
   "page": {
