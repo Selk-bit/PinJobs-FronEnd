@@ -462,6 +462,10 @@ async function generateFromLinkedIn() {
         showUploadError(import_linkedin.errors.linkEmpty);
         return;
     }
+    else if(useAuthStore().user.credits == 0){
+        showUploadError("Youd don't have enough credits");
+        return;
+    }
     try {
         import_linkedin.loading = true;
         await homeStore.importLinkedInProfile(import_linkedin.link);
@@ -493,6 +497,10 @@ const import_job_description = reactive({
 async function generateFromJobPosting() {
     if (!import_job_description.description) {
         showUploadError(import_job_description.errors.descriptionEmpty);
+        return;
+    }
+    else if(useAuthStore().user.credits == 0){
+        showUploadError("Youd don't have enough credits");
         return;
     }
     try {
@@ -550,10 +558,12 @@ function showUploadError(text: string) {
 
 async function importFile() {
     const fileName = file?.value?.name;
-    console.log(fileName);
-
     // Check if the file has a valid extension (.pdf, .doc, or .docx)
-    if (!file?.value) {
+    if(useAuthStore().user.credits == 0){
+        showUploadError("Youd don't have enough credits");
+        return;
+    }
+    else if (!file?.value) {
         showUploadError('File required');
     } else if (!(fileName?.endsWith('.pdf') || fileName?.endsWith('.docx'))) {
         showUploadError(t('Models.consultation.toasts.correctFormat'));
