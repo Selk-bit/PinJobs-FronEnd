@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n';
 import { modelComponents } from '@/models-imports';
 import { useResumeStore } from '@/stores/resume';
 import ModelSettings from '@/components/model-settings/ModelSettings.vue';
-import { DragZoomItem } from 'vue3-drag-zoom';
+import { DragZoomContainer, DragZoomItem } from 'vue3-drag-zoom';
 import type { Resume } from '@/types/resume';
 import { toast } from 'vue-sonner';
 import { getPrimary } from '@/utils/UpdateColors';
@@ -16,8 +16,8 @@ import { useSettingStore } from '@/stores/settings';
 import { validateLink } from '@/utils/helpers/validate-link';
 import type { Template } from '@/types/model';
 import ResumeSettings from '@/components/resume-settings/ResumeSettings.vue';
-import { useHomeStore } from '@/stores/home';
-
+import { useHomeStore } from '@/stores/candidate-space';
+import BaseBreadcrumb from '@/components/shared/BaseBreadcrumb.vue';
 
 // const drawer = ref(true)
 const settings = useSettingStore();
@@ -29,6 +29,7 @@ const cvData = ref(null);
 const { mobile, sm, md, xs } = useDisplay();
 const { t } = useI18n();
 const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
+const tab = ref(false);
 
 function reset() {
     transform.value = { x: 207, y: 12, scale: 0.7 };
@@ -45,109 +46,111 @@ const logo = computed(() => {
     }
 });
 const dummy_resume_data = ref({
-  "age": "29",
-  "city": "Paris",
-  "alias": "Demo alias",
-  "yoe":"3",
-  "name": "John Doe",
-  "work": [{
-    "city": "Casablanca",
-    "end_date": "06/2021",
-    "job_title": "Full Stack Developer",
-    "start_date": "03/2021",
-    "company_name": "GoSoft",
-    "responsibilities": "Conception, réalisation et déploiement d'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l'application."
-  }, {
-    "job_title": "Backend Developer",
-    "responsibilities": "Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l'amélioration des processus CI/CD.",
-    "company_name": "SocioTech",
-    "city": "Paris",
-    "start_date": "03/2023",
-    "end_date": "05/2023"
-  }],
-  "email": "john.doe@gmail.com",
-  "phone": "+33 6 12 34 56 78",
-  "skills": [
-    {"skill": "JavaScript", "level": "5",  "category": "programing languages"},
-    {"skill": "Vue.js 3", "level": "5",  "category": "UI Frameworks"
-},
-    {"skill": "Python", "level": "4",  "category": "programing languages"
-},
-    {"skill": "NestJS", "level": "5","category": "backend framework"}
-  ],
-  "social": [
-    {"skill": "Communication", "level": "5"},
-    {"skill": "Teamwork", "level": "5"},
-    {"skill": "Problem-solving", "level": "4"}
-  ],
-  "projects": [{
-    "end_date": "12/2022",
-    "start_date": "09/2022",
-    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
-    "project_name": "Réservation des Tickets Busway"
-  }, {
-    "end_date": "08/2022",
-    "start_date": "06/2022",
-    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
-    "project_name": "Cartographie de degré de Centralité dans Paris"
-  }, {
-    "end_date": "04/2022",
-    "start_date": "01/2022",
-    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
-    "project_name": "Application Web pour la gestion de la paie"
-  }],
-  "interests": [{"interest": "Cuisine"}, {"interest": "Télévision"}, {"interest": "Lecture"}],
-  "languages": [
-    {"level": "5", "language": "Anglais"},
-    {"level": "4", "language": "Français"},
-    {"level": "5", "language": "Arabe"}
-  ],
-  "educations": [{
-    "degree": "Ingénierie Logicielle et Intégration des Systèmes Informatiques",
-    "end_year": "2021",
-    "start_year": "2019",
-    "institution": "Faculté des Sciences et Techniques"
-  }, {
-    "degree": "Licence en Informatique, Réseaux et Multimédia",
-    "end_year": "2019",
-    "start_year": "2016",
-    "institution": "Faculté des Sciences et Techniques"
-  }, {
-    "degree": "DEUST en Mathématiques, Informatique et Physique",
-    "end_year": "2016",
-    "start_year": "2014",
-    "institution": "Faculté des Sciences et Techniques"
-  }, {
-    "degree": "Baccalauréat Scientifique",
-    "end_year": "2014",
-    "start_year": "2012",
-    "institution": "Lycée Chahid Idriss Lahrizi"
-  }],
-  "references": [{
-    "name": "Alice Dupont",
-    "phone": "+33 6 98 76 54 32",
-    "company": "TechCorp",
-    "position": "Manager IT",
-    "email": "alice.dupont@techcorp.com"
-  }],
-  "volunteering": [{
-    "organization": "SocioTech",
-    "position": "Community Support Volunteer",
-    "start_date": "03/2023",
-    "end_date": "06/2023",
-    "description": "<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>",
-  }],
-  "certifications": [
-    {
-      "certification": "Certified Java Developer",
-      "institution": "Oracle",
-      "date": "06/2023",
-      "link": "https://www.oracle.com/certification/java-certification.html"
-    }
-  ],
-  "headline": "Full Stack Software Developer",
-  "summary": "Développeur full-stack avec une forte expérience en conception et déploiement d'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises."
-})
+    'age': '29',
+    'city': 'Paris',
+    'alias': 'Demo alias',
+    'yoe': '3',
+    'name': 'John Doe',
+    'work': [{
+        'city': 'Casablanca',
+        'end_date': '06/2021',
+        'job_title': 'Full Stack Developer',
+        'start_date': '03/2021',
+        'company_name': 'GoSoft',
+        'responsibilities': 'Conception, réalisation et déploiement d\'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l\'application.'
+    }, {
+        'job_title': 'Backend Developer',
+        'responsibilities': 'Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l\'amélioration des processus CI/CD.',
+        'company_name': 'SocioTech',
+        'city': 'Paris',
+        'start_date': '03/2023',
+        'end_date': '05/2023'
+    }],
+    'email': 'john.doe@gmail.com',
+    'phone': '+33 6 12 34 56 78',
+    'skills': [
+        { 'skill': 'JavaScript', 'level': '5', 'category': 'programing languages' },
+        {
+            'skill': 'Vue.js 3', 'level': '5', 'category': 'UI Frameworks'
+        },
+        {
+            'skill': 'Python', 'level': '4', 'category': 'programing languages'
+        },
+        { 'skill': 'NestJS', 'level': '5', 'category': 'backend framework' }
+    ],
+    'social': [
+        { 'skill': 'Communication', 'level': '5' },
+        { 'skill': 'Teamwork', 'level': '5' },
+        { 'skill': 'Problem-solving', 'level': '4' }
+    ],
+    'projects': [{
+        'end_date': '12/2022',
+        'start_date': '09/2022',
+        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
+        'project_name': 'Réservation des Tickets Busway'
+    }, {
+        'end_date': '08/2022',
+        'start_date': '06/2022',
+        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
+        'project_name': 'Cartographie de degré de Centralité dans Paris'
+    }, {
+        'end_date': '04/2022',
+        'start_date': '01/2022',
+        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
+        'project_name': 'Application Web pour la gestion de la paie'
+    }],
+    'interests': [{ 'interest': 'Cuisine' }, { 'interest': 'Télévision' }, { 'interest': 'Lecture' }],
+    'languages': [
+        { 'level': '5', 'language': 'Anglais' },
+        { 'level': '4', 'language': 'Français' },
+        { 'level': '5', 'language': 'Arabe' }
+    ],
+    'educations': [{
+        'degree': 'Ingénierie Logicielle et Intégration des Systèmes Informatiques',
+        'end_year': '2021',
+        'start_year': '2019',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'Licence en Informatique, Réseaux et Multimédia',
+        'end_year': '2019',
+        'start_year': '2016',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'DEUST en Mathématiques, Informatique et Physique',
+        'end_year': '2016',
+        'start_year': '2014',
+        'institution': 'Faculté des Sciences et Techniques'
+    }, {
+        'degree': 'Baccalauréat Scientifique',
+        'end_year': '2014',
+        'start_year': '2012',
+        'institution': 'Lycée Chahid Idriss Lahrizi'
+    }],
+    'references': [{
+        'name': 'Alice Dupont',
+        'phone': '+33 6 98 76 54 32',
+        'company': 'TechCorp',
+        'position': 'Manager IT',
+        'email': 'alice.dupont@techcorp.com'
+    }],
+    'volunteering': [{
+        'organization': 'SocioTech',
+        'position': 'Community Support Volunteer',
+        'start_date': '03/2023',
+        'end_date': '06/2023',
+        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>'
+    }],
+    'certifications': [
+        {
+            'certification': 'Certified Java Developer',
+            'institution': 'Oracle',
+            'date': '06/2023',
+            'link': 'https://www.oracle.com/certification/java-certification.html'
+        }
+    ],
+    'headline': 'Full Stack Software Developer',
+    'summary': 'Développeur full-stack avec une forte expérience en conception et déploiement d\'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises.'
+});
 
 const default_create_model_data = ref<Template>({
     'name': '',
@@ -234,38 +237,38 @@ function mapToResumeFormat(data: any): Resume {
         interests: data.interests || [],
         languages: data.languages || [],
         skills: data.skills || [],
-        social: data.social || [],
+        social: data.social || []
     };
 }
 
 onBeforeMount(async () => {
     modelStore.showCreateBtn = true;
     modelStore.showTemplateSection = true;
-    
+
     try {
-      // Fetch CV data
-      cvData.value = await homeStore.getCVData();
-      if (cvData.value) {
-        const mappedCVData = mapToResumeFormat(cvData.value);
-        resumeStore.setResume(mappedCVData);
-      } else {
-        resumeStore.setResume({ ...dummy_resume_data.value });
-      }
-      
-      // Fetch CV model data
-      const cvModelData = await homeStore.getCVModel();
-      if (cvModelData) {
-        modelStore.SetModel(cvModelData);
-        // modelStore.SetTemplate(cvModelData.templateData.template);
-        modelStore.selected = cvModelData.templateData.template;
-      } else {
-        modelStore.SetModel({ ...default_create_model_data.value });
-      }
-      
+        // Fetch CV data
+        cvData.value = await homeStore.getCVData();
+        if (cvData.value) {
+            const mappedCVData = mapToResumeFormat(cvData.value);
+            resumeStore.setResume(mappedCVData);
+        } else {
+            resumeStore.setResume({ ...dummy_resume_data.value });
+        }
+
+        // Fetch CV model data
+        const cvModelData = await homeStore.getCVModel();
+        if (cvModelData) {
+            modelStore.SetModel(cvModelData);
+            // modelStore.SetTemplate(cvModelData.templateData.template);
+            modelStore.selected = cvModelData.templateData.template;
+        } else {
+            modelStore.SetModel({ ...default_create_model_data.value });
+        }
+
     } catch (error) {
-      console.error('Error loading CV data or model:', error);
-      resumeStore.setResume({ ...dummy_resume_data.value });
-      modelStore.SetModel({ ...default_create_model_data.value });
+        console.error('Error loading CV data or model:', error);
+        resumeStore.setResume({ ...dummy_resume_data.value });
+        modelStore.SetModel({ ...default_create_model_data.value });
     }
 });
 
@@ -283,30 +286,76 @@ onMounted(async () => {
 
 <template>
     <div>
-    <div class="overflow-auto" v-if="!isDragModeActive">
-      <div class="resume-page-container mx-auto">
-        <component :is="modelComponents[modelStore.selected]"></component>
-      </div>
+        <div class="overflow-auto" v-if="!isDragModeActive">
+            <div class="resume-page-container mx-auto">
+                <component :is="modelComponents[modelStore.selected]"></component>
+            </div>
+        </div>
+        <drag-zoom-container v-else class="resume-container elevation-0" v-model="transform">
+            <div class="d-flex justify-center align-center resume-page-container">
+
+                <component class="draggable" :zoom-range="{ max: 0.8, min: 0.5, step: 0.05}"
+                           :is="modelComponents[modelStore.selected]"></component>
+            </div>
+        </drag-zoom-container>
+
     </div>
-    <drag-zoom-container v-else class="resume-container elevation-0" v-model="transform">
-      <div class="d-flex justify-center align-center resume-page-container">
+    <v-navigation-drawer
+        app
+        :location="settings.drawerPosition"
+        elevation="2"
+        v-model="settings.modelDrawer"
+        :width="xs ? 360 : sm ? 400 : md ? 500 : 590"
+    >
+        <!-- Sticky Toolbar -->
+        <v-card
+            elevation="0"
+            density="compact"
+            class="sticky-card  "
+        >
+            <BaseBreadcrumb title="Cv editor" />
 
-        <component class="draggable" :zoom-range="{ max: 0.8, min: 0.5, step: 0.05}"
-                   :is="modelComponents[modelStore.selected]"></component>
-      </div>
-    </drag-zoom-container>
+            <v-tabs
 
-  </div>
-    <v-navigation-drawer app :location="settings.drawerPosition" elevation="2" v-model="settings.modelDrawer"
-                         :width="xs? 360 : sm ? 400 : md ? 500 : 590">
-        <div class="text-3 ma-3">
-            Edit your resume data using the relevant sections you need :
-        </div>
-        <ResumeSettings />
-        <div class="text-3 ma-3">
-            Customize your template of choice however you wish :
-        </div>
-        <ModelSettings />
+                v-model="tab"
+                grow
+                color="primary"
+            >
+                <v-tab :value="1">
+                    <v-icon class="mr-1 ">mdi-text-account</v-icon>
+                    CV Data
+                </v-tab>
+                <v-tab :value="2">
+                    <v-icon class="mr-1 ">mdi-file-document-outline</v-icon>
+                    Template
+                </v-tab>
+            </v-tabs>
+        </v-card>
+
+        <v-window v-model="tab">
+            <v-window-item :value="1">
+                <v-container fluid>
+                    <!-- Public Templates -->
+                    <v-row dense>
+                        <div class="text-3 ma-3">
+                            Edit your resume data using the relevant sections you need:
+                        </div>
+                    </v-row>
+                </v-container>
+                        <ResumeSettings />
+            </v-window-item>
+            <v-window-item :value="2">
+              <v-container>
+                  <v-row dense>
+
+                <div class="text-3 ma-3">
+                    Customize your template of choice however you wish:
+                </div>
+              </v-row>
+              </v-container>
+                <ModelSettings />
+            </v-window-item>
+        </v-window>
     </v-navigation-drawer>
     <div class="panel text-primary px-4" v-if="!!isDragModeActive">
         <v-btn icon="mdi-magnify-plus-outline" variant="plain" size="20" class="px-4"
@@ -380,5 +429,9 @@ onMounted(async () => {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
+.sticky-card {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure it remains above the content */
+}
 </style>

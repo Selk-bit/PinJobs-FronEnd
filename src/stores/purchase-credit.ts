@@ -201,7 +201,7 @@ export const packFr = [
 ];
 
 export const useCreditsStore = defineStore({
-    id: 'credits-store',
+    id: 'pinjobs-credits-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/

@@ -2,7 +2,7 @@ import {defineStore} from 'pinia';
 
 
 export const useProgressBarStore = defineStore({
-    id: 'progress-bar-store',
+    id: 'pinjobs-progress-bar-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/

@@ -6,7 +6,7 @@ import type {Filters} from "@/types/filters";
 
 
 export const useSettingStore = defineStore({
-    id: 'settings-store',
+    id: 'pinjobs-settings-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/

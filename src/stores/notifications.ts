@@ -34,7 +34,7 @@ const notifs: Notification[] = [
 
 
 export const useNotificationsStore = defineStore({
-        id: 'notification-store',
+        id: 'pinjobs-notification-store',
 
         state: () =>
             ({

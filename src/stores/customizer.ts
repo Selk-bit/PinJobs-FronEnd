@@ -3,7 +3,7 @@ import config from '@/config'
 
 
 export const useCustomizerStore = defineStore({
-  id: "customizer",
+  id: "pinjobs-customizer",
   state: () => ({
     Sidebar_drawer: config.Sidebar_drawer,
     Customizer_drawer: config.Customizer_drawer,

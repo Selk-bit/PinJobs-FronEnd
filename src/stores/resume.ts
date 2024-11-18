@@ -142,7 +142,7 @@ interface SyncData {
     blob: Blob,
 }
 
-export const useResumeStore = defineStore('resume-store', () => {
+export const useResumeStore = defineStore('pinjobs-resume-store', () => {
     const resume = ref<Resume>(<Resume>default_resume);
     const sync = ref<SyncData[]>([]);
     const candidateSelected = ref({} as Candidate);

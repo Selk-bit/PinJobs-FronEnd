@@ -1,10 +1,10 @@
-// store/home.ts
+// store/candidate-space.ts
 import { defineStore } from 'pinia';
 import { uploadCV, importLinkedInProfile, createFromJobDescription, getCVData, deleteCV, editCV, jobSearch, getCVModel } from '@/api/home';
 import type { User } from '@/types/user';
 
 export const useHomeStore = defineStore({
-  id: 'home-store',
+  id: 'pinjobs-home-store',
 
   state: () => ({
     resumeData: null as any,

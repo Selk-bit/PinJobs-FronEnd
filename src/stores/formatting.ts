@@ -4,7 +4,7 @@ import type {Template} from '@/types/model';
 import type {Language} from "@/types/language";
 
 export const useFormattingStore = defineStore({
-    id: 'formatting-store',
+    id: 'pinjobs-formatting-store',
     state: () =>
         ({
             candidate: {} as Candidate,

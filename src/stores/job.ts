@@ -10,7 +10,7 @@ import type {Language} from "@/types/language";
 
 
 export const useJobStore = defineStore({
-    id: 'Job-store',
+    id: 'pinjobs-Job-store',
 
     state: () =>
         ({

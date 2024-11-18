@@ -4,7 +4,7 @@ import type {ContactForm} from "@/types/contact";
 
 
 export const useContactStore = defineStore({
-    id: 'contact-store',
+    id: 'pinjobs-contact-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/

@@ -87,7 +87,7 @@ const templates = ref([
 
 
 export const useModelStore = defineStore({
-    id: 'model-store',
+    id: 'pinjobs-model-store',
     state: () => ({
         model: default_template as Template,
         selected: 'sydney',

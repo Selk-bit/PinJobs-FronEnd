@@ -1,12 +1,11 @@
-import {defineStore} from 'pinia';
-import type {AddUserDTO, User} from "@/types/user";
-import {deleteUserById, getUsers, updateUser} from "@/api/user";
-import {getClientUsers} from "@/api/client";
+import { defineStore } from 'pinia';
+import type { User } from '@/types/user';
+import { deleteUserById, getUsers, updateUser } from '@/api/user';
+import { getClientUsers } from '@/api/client';
 
 
 export const useUserStore = defineStore({
-    id: 'user-store',
-
+    id: 'pinjobs-user-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/
@@ -17,8 +16,7 @@ export const useUserStore = defineStore({
     actions: {
         async GET_ALL_USERS() {
             try {
-                const data = await getUsers();
-                this.users = data;
+                this.users = await getUsers();
                 return this.users;
             } catch (error: any) {
                 return Promise.reject(error);

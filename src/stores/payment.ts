@@ -3,7 +3,7 @@ import {captureOrderWithPaypal, createOrderWithPaypal, } from "@/api/payment";
 
 
 export const usePaymentStore = defineStore({
-    id: 'payment-store',
+    id: 'pinjobs-payment-store',
     state: () => ({
         // templates,
     }),

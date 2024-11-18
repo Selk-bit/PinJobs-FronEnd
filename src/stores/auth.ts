@@ -20,7 +20,7 @@ import type {ChangePasswordDto} from "@/types/change-password-dto";
 
 
 export const useAuthStore = defineStore({
-    id: 'auth-store',
+    id: 'pinjobs-auth-store',
     state: () =>
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/
