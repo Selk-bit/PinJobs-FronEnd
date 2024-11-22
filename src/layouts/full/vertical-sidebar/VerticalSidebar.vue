@@ -16,16 +16,19 @@ const {mobile} = useDisplay()
 </script>
 
 <template>
-    <v-navigation-drawer left v-model="customizer.Sidebar_drawer" elevation="0" rail-width="78" mobile-breakpoint="960"
+    <v-navigation-drawer left v-model="customizer.Sidebar_drawer" elevation="0" rail-width="79" mobile-breakpoint="960"
         app class="leftSidebar" :rail="mobile ? false : customizer.mini_sidebar " expand-on-hover width="256">
-        <div class="pa-5 pl-4">
+        <div class="d-flex justify-space-between align-center ">
             <Logo />
+           <div>
+                <v-btn size="small" v-if="$vuetify.display.mobile" @click="customizer.Sidebar_drawer = !customizer.Sidebar_drawer" flat icon="mdi-close"></v-btn>
+           </div>
         </div>
         <!-- ---------------------------------------------- -->
         <!---Navigation -->
         <!-- ---------------------------------------------- -->
         <perfect-scrollbar class="scrollnavbar">
-            <v-list class="py-6 px-4">
+            <v-list class="py-6 px-4" >
                 <!---Menu Loop -->
                 <template v-for="(item, i) in sidebarMenu">
                     <!---Item Sub Header -->

@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import {useModelStore} from "@/stores/model";
 import {useResumeStore} from "@/stores/resume";
-import {computed, ref} from "vue";
+import {computed,} from "vue";
 import {storeToRefs} from 'pinia';
-import type {Skill} from "@/types/resume";
-
+import type {Resume, Skill} from "@/types/resume";
 
 const modelStore = useModelStore();
 const resumeStore = useResumeStore();
-
 
 const model = modelStore.model;
 const {resume, candidateSelected} = storeToRefs(resumeStore);
@@ -23,9 +21,7 @@ const lineHeight = computed(() => {
 const primaryColor = computed(() => {
   return model.templateData.theme.primary;
 })
-// const backgroundColor = computed(() => {
-//   return model.templateData.theme.background;
-// })
+
 
 const textColor = computed(() => {
   return model.templateData.theme.text;
@@ -42,16 +38,10 @@ const setFormat = computed(() => {
 const setUnderlineLinks = computed(() => {
   return model.templateData.typography.underlineLinks ? 'underline' : 'none';
 })
-const setBorderRadius = computed(() => {
-  return model.templateData.company_logo.borderRadius + 'px';
-})
+
 
 const isShowName = computed(() => {
   return model.templateData.personnel.name;
-})
-
-const isShowAge = computed(() => {
-  return model.templateData.personnel.age;
 })
 
 
@@ -68,26 +58,33 @@ const isShowEmail = computed(() => {
   return model.templateData.personnel.email;
 })
 
+const yearsOfExperienceText = computed(() => {
+  return model.language === 'en' ? "Years of Experience" : " Années d'expérience";
+});
+const technicalEnvironmentText = computed(() => {
+  return model.language === 'en' ? "Technical Environment" : "Environnement Technique";
+});
 const identity = computed(() => {
   return model.templateData.identity;
 })
 
-const isShowCity = computed(() => {
-  return model.templateData.personnel.city;
-})
 const setModelReference = computed(() => {
   return model.reference;
 })
 const groupedSkills = computed(() => {
   return resume.value.skills.reduce((acc: { [key: string]: string[] }, item: Skill) => {
-    if (!acc[item?.category as string]) {
-      acc[item?.category as string] = [];
+    const category = item?.category as string;
+
+    // Initialize the category if it doesn't exist
+    if (!acc[category]) {
+      acc[category] = [];
     }
-    acc[item?.category as string].push(item.skill);
+
+    // Clone the array to prevent reactivity from reordering items
+    acc[category] = [...acc[category], item.skill];
     return acc;
   }, {});
-})
-
+});
 </script>
 
 <template>
@@ -98,54 +95,52 @@ const groupedSkills = computed(() => {
         <img :src="model.templateData.company_logo.url"
              v-if="!model.templateData.company_logo.hidden"
              class="company-logo"
+             draggable="false"
              :style="{width:model.templateData.company_logo.size + 'px',
              }"
         />
-        <div class="header  px-3 ">
-          <div class="full-name  position-relative">
-            <span class="first-name " v-if="isShowName">{{ resume.name }}</span>
-            <div v-else class="">
-              <div class="mt-2 first-name text-h3" v-if="identity == 'reference'">
+        <div class="header px-3">
+          <div class="full-name">
+            <div v-if="isShowName">{{ resume.name }}</div>
+            <div v-else>
+              <div class="mt-2 first-name text-h3" v-if="identity === 'reference'">
                 {{ setModelReference }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}
               </div>
-              <div class="mt-2 first-name " v-if="identity == 'alias'">
-                {{ resume?.alias}}
+              <div class="mt-2 first-name" v-if="identity === 'alias'">
+                {{ resume?.alias }}
               </div>
             </div>
           </div>
+
           <div class="contact-info">
             <div class="position" v-if="isHeadline">{{ resume?.headline }}</div>
-            <br>
-            <span class="email mr-1" v-if="isShowEmail"> Email: </span>
-            <span class="email-val mr-2">{{ isShowEmail ? resume.email : '' }}</span>
-            <!--            <span class="separator"></span>-->
-            <span class="phone mr-1" v-if="isShowPhone">Phone: </span>
-            <span class="phone-val mr-2">{{ isShowPhone ? resume.phone : '' }}</span>
-            <!--            <span class="separator" v-if="isShowCity"></span>-->
-            <span class="phone mr-1" v-if="isShowCity">City: </span>
-            <span class="phone-val mr-2">{{ isShowCity ? resume.city : '' }}</span>
-
+            <div v-if="resume.yoe" class="years-experience">{{ resume.yoe ?? '' }} {{ yearsOfExperienceText }}</div>
+            <span class="contact-detail">
+      <div class="email-val">{{ isShowEmail ? resume.email : '' }}</div>
+    </span>
+            <div class="contact-detail">
+              <div class="phone-val">{{ isShowPhone ? resume.phone : '' }}</div>
+            </div>
           </div>
 
-
-          <br>
-          <div v-html="resume.summary" class="summary desc" v-if="model.templateData.page.summary">
-
-          </div>
+          <div v-html="resume.summary" class="summary desc" v-if="model.templateData.page.summary"></div>
         </div>
         <div class="details">
           <div class="section Experience" v-if="model.templateData.experience.visible && resume.work.length > 0">
             <div class="section__title ">{{ model.templateData.experience.name }}</div>
-            <div class="section__list" v-for="item in resume.work">
+            <div class="section__list" :key="index" v-for="(item,index) in resume.work">
               <div class="section__list-item">
                 <div class="left">
                   <div class="name">{{ item.company_name }}</div>
                   <div class="name">{{ item.job_title }}</div>
                   <div class="desc" v-html="item.responsibilities"></div>
+                  <div class="my-3" v-if="item.environnement">
+                    <p><strong>{{ technicalEnvironmentText }} :</strong> <span v-html="item.environnement"></span> </p>
+                  </div>
                 </div>
                 <div class="right">
-                  <div class="duration">{{ item.start_date + ' ' + item.end_date }}</div>
-                  <div class="addr">{{ item.city }}</div>
+                  <div class="duration">{{ (item.start_date || '') + ' ' + (item.end_date || '') }}</div>
+                  <div class="addr">{{ item.city || '' }}</div>
                 </div>
               </div>
             </div>
@@ -160,10 +155,11 @@ const groupedSkills = computed(() => {
                   <div class="addr">{{ item.degree }}</div>
                 </div>
                 <div class="right">
-                  <div class="duration"> {{ item.start_year ? item.start_year : '' }} -
-                    {{ item.end_year ? item.end_year : '' }}
+                  <div class="duration">
+                    {{ item.start_year || '' }} - {{ item.end_year || '' }}
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -176,8 +172,9 @@ const groupedSkills = computed(() => {
                   <div class="desc" v-html="item.description"></div>
                 </div>
                 <div class="right">
-                  <div class="duration">{{ item.start_date + ' ' + item.end_date }}</div>
-                  <!--                  <div class="name">{{ item.position }}</div>-->
+                  <div class="duration">
+                    {{ (item.start_date || '') + ' ' + (item.end_date || '') }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -189,7 +186,7 @@ const groupedSkills = computed(() => {
               <div class="section__list-item">
                 <div class="left">
                   <div class="addr">{{ item.institution }}</div>
-                  <div class="duration">{{ item.date }}</div>
+                  <div class="duration">{{ item.date || '' }}</div>
                   <div class="name">{{ item.certification }}</div>
                   <div class="link">{{ item.link }}</div>
                 </div>
@@ -227,7 +224,9 @@ const groupedSkills = computed(() => {
                 </div>
                 <div class="right">
                   <div class="name">{{ item.position }}</div>
-                  <div class="duration">{{ item.start_date + ' ' + item.end_date }}</div>
+                  <div class="duration">
+                    {{ (item.start_date || '') + ' ' + (item.end_date || '') }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -235,14 +234,14 @@ const groupedSkills = computed(() => {
           <div class="section Skills" v-if="model.templateData.skills.visible && resume.skills.length > 0">
             <div class="section__title">{{ model.templateData.skills.name }}</div>
             <div class="section-items">
-            <div class="technical-skills">
-              <div class="pro-skill" v-for="(skills, category) in groupedSkills" :key="category">
-                <div class="category">{{ category }}:</div>
-                <div class="skills">
-                  {{ skills.join(', ') }}
+              <div class="technical-skills">
+                <div class="pro-skill" v-for="(skills, category) in groupedSkills" :key="category">
+                  <div class="category">{{ category }}:</div>
+                  <div class="skills">
+                    {{ skills.join(', ') }}
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
           <div class="section Social" v-if="model.templateData.social.visible && resume.social.length > 0">
@@ -263,17 +262,7 @@ const groupedSkills = computed(() => {
                 <div class="left">
                   <div class="name">
                     {{ item.language }}
-                  </div>
-                </div>
-                <div class="right">
-                  <div class="skill">
-                    <div class="skill-bar">
-                      <div
-                          v-for="(level, index) in 5"
-                          :key="index"
-                          :class="['skill-level', { 'dash-filled': +index < +item.level }]"
-                      ></div>
-                    </div>
+                    <div class="font-weight-medium d-inline" v-if="item.level ">{{ ': ' +  item.level }}</div>
                   </div>
                 </div>
               </div>
@@ -314,22 +303,6 @@ div.page {
 
 }
 
-/*@page { size: A4 portrait !important; margin: 0 !important;}
-
-
-div.page[data-size="A4"] {
-  width: 21cm;
-  height: auto;
-
-  min-height: 29.7cm;
-}
-
-
-@page {
-  size: 21cm 29.7cm;
-  margin: 0mm;
-
-}*/
 
 .container {
   display: flex;
@@ -379,7 +352,7 @@ html {
   }
 
   .category {
-    min-width: 200px;
+    min-width: 220px;
     flex-wrap: nowrap;
     padding: 3px;
     margin-right: 50px;
@@ -388,55 +361,67 @@ html {
 
   .skills {
     float: left;
-    margin-left: 20px;
+    width: 100%;
     font-weight: lighter;
   }
 }
 
 .header {
-  margin-left: 10px;
-
-  margin-bottom: 0px;
+  margin: 20px 10px;
+  color: #333;
 
   .full-name {
-    font-size: 40px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-  }
-
-  .first-name {
+    font-size: 2.5rem;
     font-weight: 700;
-  }
-
-
-  .last-name {
-    font-weight: 300;
-  }
-
-  .contact-info {
+    text-transform: uppercase;
     margin-bottom: 0px;
   }
 
-  .email,
-  .phone {
-    font-weight: bold;
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
     color: v-bind(textColor);
-    //font-weight: 300;
   }
 
-  .separator {
-    height: 9px;
+  .contact-detail {
     display: inline-block;
-    border-left: 2px solid v-bind(primaryColor);
-    margin: 0px 10px;
+    margin-right: 15px;
+  }
+
+  .email, .phone {
+    font-weight: bold;
+    color: v-bind(primaryColor);
+  }
+
+  .email-val, .phone-val {
+    margin-left: 5px;
+    font-weight: 300;
   }
 
   .position {
     font-weight: bold;
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: underline;
-    text-decoration: v-bind(setUnderlineLinks);
+    font-size: 1.2rem;
+    //text-decoration: underline;
+    color: v-bind(primaryColor);
+    margin-bottom: 5px;
+  }
+
+
+  .separator {
+    height: 10px;
+    width: 2px;
+    background-color: v-bind(primaryColor);
+    margin: 0 15px;
+  }
+
+  .summary {
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: #666;
+    margin-top: 15px;
   }
 }
 

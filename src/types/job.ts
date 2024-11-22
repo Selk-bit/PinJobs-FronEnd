@@ -14,6 +14,7 @@ export interface Job {
     salary_range?: string | null;
     benefits?: string[] | null;
     skills_required?: string[] | null;
+    job_search:JobSearch;
     posted_date?: string | null;
     industry?: string | null;
     job_type: 'full-time' | 'part-time' | 'contract' | 'freelance' | 'CDD' | 'CDI' | 'other';
@@ -23,4 +24,8 @@ export interface Job {
     search_date: string;
     status: 'matched' | 'applied';
   }
-  
+  interface JobSearch {
+    similarity_score: number; // A similarity score represented as a number
+    search_date: string;      // ISO 8601 date string
+    status: string;          // Status as a string, e.g., 'matched'
+}

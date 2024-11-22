@@ -4,36 +4,23 @@ import VerticalSidebarVue from './vertical-sidebar/VerticalSidebar.vue';
 import VerticalHeaderVue from './vertical-header/VerticalHeader.vue';
 import {useCustomizerStore} from '@/stores/customizer';
 import {useProgressBarStore} from "@/stores/progress-bar";
-import {useI18n} from "vue-i18n";
 import {useAuthStore} from '@/stores/auth';
-import {onBeforeMount, onMounted, ref, watch} from 'vue';
-import {notificationsInit} from '@/api/notifications';
+import { onMounted, ref, watch} from 'vue';
 
 
-let {locale} = useI18n();
 const authStore = useAuthStore();
 const controller = new AbortController();
-const {signal} = controller;
 
 onMounted(async () => {
-  // get current user
  await authStore.GET_CURRENT_USER();
-  // set language
-  // if (authStore.isLoggedIn) {
-  //   await notificationsInit(signal)
-  // }
-  ;
+
 
 });
 
-// watch(() => authStore.isLoggedIn, async (newValue, oldValue) => {
-//   if (newValue === true) {
-//     await notificationsInit(signal);
-//   }
-// })
+
 
 watch(() => authStore.isLoggedIn, (newValue, oldValue) => {
-  if (newValue === false) {
+  if (!newValue) {
     controller.abort()
   }
 })
@@ -62,7 +49,7 @@ const customizer = useCustomizerStore();
 
       <!--            <Customizer />-->
       <VerticalSidebarVue v-if="!customizer.setHorizontalLayout"/>
-      <VerticalHeaderVue v-if="!customizer.setHorizontalLayout"/>
+      <VerticalHeaderVue  v-if="!customizer.setHorizontalLayout"/>
       <!--            <HorizontalHeader v-if="customizer.setHorizontalLayout" />-->
       <!--            <HorizontalSidebar v-if="customizer.setHorizontalLayout" />-->
 

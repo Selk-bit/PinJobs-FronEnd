@@ -1,4 +1,4 @@
-import type {ThemeTypes} from '@/types/themeTypes/ThemeType';
+import type { ThemeTypes } from '@/types/themeTypes/ThemeType';
 //
 // const DARK_BLUE_THEME: ThemeTypes = {
 //     name: 'DARK_BLUE_THEME',
@@ -106,8 +106,12 @@ const DARK_GREEN_THEME: ThemeTypes = {
         'border-color': '#2a2e35'
     },
     colors: {
-        primary: '#1ABC9C', // Keep the primary color to maintain brand consistency
-        secondary: '#FF914D',
+        // primary: '#1ABC9C', // Keep the primary color to maintain brand consistency
+        // secondary: '#FF914D',
+        primary: '#744aff',
+        // primary: '#1ABC9C',
+        secondary: '#605EA1',
+        // secondary: '#FF914D',
         info: '#6699ff', // Slightly lighter info color for better contrast in dark mode
         success: '#28a745', // Bright green for success to stand out
         accent: '#FF6F61', // Adjusted accent to a more vibrant coral for dark mode
@@ -131,7 +135,7 @@ const DARK_GREEN_THEME: ThemeTypes = {
         grey100: '#3d3d3d', // Dark gray for UI elements
         grey200: '#525252' // Slightly lighter gray for UI elements
     }
-}
+};
 
 //     {
 //     name: 'DARK_GREEN_THEME',
@@ -232,4 +236,4 @@ const DARK_GREEN_THEME: ThemeTypes = {
 //     }
 // };
 
-export {DARK_GREEN_THEME,};
+export { DARK_GREEN_THEME };

@@ -27,9 +27,7 @@ const getCurrentUser = async () => {
 
     try {
         const response = await api().get(endpoints.API + `/current`, {
-            headers: {
-                Authorization: `Bearer ${authStore.token}`,  // Use the access token
-            },
+
         });
         return response.data;
     } catch (error: any) {
@@ -54,10 +52,7 @@ const updateUser = async (user: User) => {
 
     try {
         const response = await api().patch(endpoints.API + `/candidate/update/`, user, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
+
         });
         return response.data;
     } catch (error: any) {

@@ -21,11 +21,7 @@ const createOrderWithPaypal = async (credits: number) => {
     try {
         const response = await api().post(endpoints.API + '/top-up', {
             credits
-        },{
-            headers: {
-                'Authorization': `Bearer ${token}`
-            },
-        });
+        },);
         return response.data;
     } catch (error: any) {
         return Promise.reject(error);

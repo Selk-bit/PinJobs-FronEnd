@@ -11,6 +11,7 @@ export const useHomeStore = defineStore({
     templateId: null as any,
     formattedResume: null as any,
     template: null as any,
+    // userCv: {} as
   }),
 
   actions: {

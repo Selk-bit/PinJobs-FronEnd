@@ -106,8 +106,10 @@ const GREEN_THEME: ThemeTypes = {
         'border-color': '#e5eaef'
     },
     colors: {
-        primary: '#1ABC9C',
-        secondary: '#FF914D',
+        primary: '#744aff',
+        // primary: '#1ABC9C',
+        secondary: '#605EA1',
+        // secondary: '#FF914D',
         info: '#5b8be5',
         success: '#05b187',
         accent: '#FFAB91',

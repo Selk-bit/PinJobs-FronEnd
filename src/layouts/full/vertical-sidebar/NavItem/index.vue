@@ -9,7 +9,7 @@ const props = defineProps({ item: Object, level: Number });
     <v-list-item
         :to="item.type === 'external' ? '' : item.to"
         :href="item.type === 'external' ? item.to : ''"
-        rounded
+         rounded="xl"
         class="mb-1"
         :disabled="item.disabled"
         :target="item.type === 'external' ? '_blank' : ''"
@@ -17,7 +17,7 @@ const props = defineProps({ item: Object, level: Number });
     >
         <!---If icon-->
         <template v-slot:prepend>
-            <Icon :item="item.icon" :level="level" />
+            <Icon :item="item.icon" :level="level" class="ml-1" />
         </template>
         <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
         <!---If Caption-->

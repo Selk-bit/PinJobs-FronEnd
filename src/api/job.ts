@@ -19,11 +19,7 @@ const getJobs = async (filters = {}, page: any) => {
         page: String(page), // ensure page is part of the query
       }).toString();
   
-      const response = await api().get(`${endpoints.API}/candidate-jobs/?${queryParams}`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-      });
+      const response = await api().get(`${endpoints.API}/candidate-jobs/?${queryParams}`,);
       return response.data;  // includes next, previous, and results for pagination
     } catch (error: any) {
       return Promise.reject(error);
@@ -35,11 +31,7 @@ const getJobs = async (filters = {}, page: any) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {
-      await api().delete(`${endpoints.API}/jobsearches/${job_id}/delete/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await api().delete(`${endpoints.API}/jobsearches/${job_id}/delete/`, );
     } catch (error) {
       return Promise.reject(error);
     }
@@ -52,11 +44,6 @@ const getJobs = async (filters = {}, page: any) => {
       await api().post(
         `${endpoints.API}/jobsearches/${job_id}/update-status/`,
         { status },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
       );
     } catch (error) {
       return Promise.reject(error);

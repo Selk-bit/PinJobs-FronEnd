@@ -1,8 +1,8 @@
-import api from "@/api/api";
-import endpoints from "@/api/endpoints";
-import type {RegistrationForm} from "@/types/auth";
-import type {ChangePasswordDto} from "@/types/change-password-dto";
-import {useAuthStore} from '@/stores/auth';
+import api from '@/api/api';
+import endpoints from '@/api/endpoints';
+import type { RegistrationForm } from '@/types/auth';
+import type { ChangePasswordDto } from '@/types/change-password-dto';
+import { useAuthStore } from '@/stores/auth';
 
 
 const resetPasswordRequest = async (email: string) => {
@@ -26,12 +26,7 @@ const changeUserPassword = async (dto: ChangePasswordDto) => {
                 new_password: dto.password,
                 confirm_password: dto.password_confirmation
             },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${authStore.token}`
-                }
-            }
+
         );
         return response.data;
     } catch (error: any) {
@@ -46,28 +41,12 @@ const login = async (username: string, password: string) => {
         return await api().post(endpoints.API + '/login/', {
             identifier: username,
             password: password,
-        }, {
-            headers: {
-                'Content-Type': 'application/json',  // Ensure content-type is JSON
-            },
-        });
+        }, );
     } catch (error: any) {
         return Promise.reject(error);
     }
 };
 
-// const createCandidate = async (files: any) => {
-//     try {
-//         const formData = new FormData();
-//         for (let file of files) {
-//             formData.append('resumes', file);
-//         }
-//         const response = await api().post(endpoints.CANDIDATES, formData, {responseType: 'blob'});
-//         return response.data;
-//     } catch (error: any) {
-//         return Promise.reject(error);
-//     }
-// };
 
 const register = async (form: RegistrationForm) => {
     // Prepare the JSON payload
@@ -86,12 +65,7 @@ const register = async (form: RegistrationForm) => {
 
     try {
         // Post the JSON payload to the Django backend API
-        const response = await api().post(endpoints.API + '/signup/', payload, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        return response;
+        return await api().post(endpoints.API + '/signup/', payload,);
     } catch (error: any) {
         return Promise.reject(error);
     }
