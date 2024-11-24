@@ -62,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
     }
     // If the user is already logged in and tries to access a public page like login or register
     else if (!authRequired && auth.isLoggedIn) {
-        return next('/'); // Redirect to the home page
+        return next('/'); // Redirect to the base-cv page
     } else {
         if (lang) {
             // Update the language in settings store if lang query exists

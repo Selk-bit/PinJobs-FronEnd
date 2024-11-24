@@ -90,7 +90,7 @@ const groupedSkills = computed(() => {
 <template>
   <div class="page" data-size="A4" :class="model.templateData.typography.family">
     <div class="container">
-      <div class="resume">
+      <div class="resume" v-if="resume">
 
         <img :src="model.templateData.company_logo.url"
              v-if="!model.templateData.company_logo.hidden"
@@ -268,7 +268,7 @@ const groupedSkills = computed(() => {
               </div>
             </div>
           </div>
-          <div class="section" v-if="model.templateData.interests.visible && resume.interests.length > 0">
+          <div class="section" v-if="model.templateData.interests.visible && resume.interests?.length > 0">
             <div class="section__title">
               {{ model.templateData.interests.name }}
             </div>

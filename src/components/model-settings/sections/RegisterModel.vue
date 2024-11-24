@@ -8,7 +8,7 @@ import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useResumeStore } from '@/stores/resume';
-import { useHomeStore } from '@/stores/candidate-space';
+import { useBaseCvStore } from '@/stores/base-cv';
 
 
 const modelStore = useModelStore();
@@ -18,7 +18,7 @@ const { t } = useI18n();
 const router = useRouter();
 const loading = ref(false);
 const resumeStore = useResumeStore();
-const homeStore = useHomeStore();
+const homeStore = useBaseCvStore();
 
 
 const compReference = computed(() => {
@@ -68,7 +68,7 @@ async function editCV() {
     homeStore.editCV(resume.value, model.value)
         .then(() => {
             toast.success('CV Modified successfully.');
-            router.push({ name: 'home' });
+            router.push({ name: 'base-cv' });
         })
         .catch((error) => {
             toast.error('Failed to modify CV.');
@@ -92,7 +92,7 @@ async function editCV() {
                 </v-btn>
             </v-col>
             <v-col>
-                <v-btn variant="outlined" color="primary" @click="$router.push({name:'home'})"
+                <v-btn variant="outlined" color="primary" @click="$router.push({name:'base-cv'})"
                        block>
                     <!--      {{ $t('Models.creation.register.createModel') }}-->
                     Return to home

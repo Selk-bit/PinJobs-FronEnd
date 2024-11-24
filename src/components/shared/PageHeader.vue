@@ -25,7 +25,7 @@ const props = defineProps({
 
             <!-- Title and Subtitle -->
             <v-col cols="12" lg="8" md="auto" class="d-flex flex-column ml-2">
-                <div class="text-h1 font-weight-medium">{{ title }}</div>
+                <div class="text-h2 font-weight-medium">{{ title }}</div>
                 <div class="text-h6 ml-1 mb-2 text-grey100">{{ subtitle }}</div>
             </v-col>
 

@@ -1,14 +1,10 @@
 import api from '@/api/api';
 import endpoints from '@/api/endpoints';
-import axios from 'axios';
-import { useAuthStore } from '@/stores/auth';
 
 const base = import.meta.env.VITE_API_URL;
 
 // Document upload function
 export async function uploadCV(file: File) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
     const formData = new FormData();
     formData.append('files', file);
     const response = await api().post(`${endpoints.API}/upload-cv/`, formData, {});
@@ -17,8 +13,6 @@ export async function uploadCV(file: File) {
 
 // LinkedIn profile import function
 export async function importLinkedInProfile(linkedinProfileUrl: string) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
     const response = await api().post(`${endpoints.API}/linkedin-cv/`, {
             linkedin_profile_url: linkedinProfileUrl
         }
@@ -28,23 +22,15 @@ export async function importLinkedInProfile(linkedinProfileUrl: string) {
 
 // Job description creation function
 export async function createFromJobDescription(jobDescription: string) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
     const response = await api().post(`${endpoints.API}/job-description-cv/`, {
             job_description: jobDescription
         },
-        {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
+        );
     return response.data;
 }
 
 export async function getCVData() {
-    const authStore = useAuthStore();
-    const token = authStore.token;
+
     try {
         const response = await api().get(`${endpoints.API}/cv-data/`, {});
         return response.data;
@@ -57,8 +43,7 @@ export async function getCVData() {
 }
 
 export async function getCVModel() {
-    const authStore = useAuthStore();
-    const token = authStore.token;
+
     try {
         const response = await api().get(`${endpoints.API}/cv/template/`);
         return response.data;
@@ -71,8 +56,7 @@ export async function getCVModel() {
 }
 
 export async function deleteCV(cvId: string) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
+
     try {
         const response = await api().delete(`${endpoints.API}/cv/${cvId}/delete/`);
         return response.data;
@@ -83,8 +67,6 @@ export async function deleteCV(cvId: string) {
 }
 
 export async function editCV(updatedData: any, updatedModel: any) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
 
     let cvResponse, templateResponse;
 
@@ -118,8 +100,6 @@ export async function editCV(updatedData: any, updatedModel: any) {
 
 
 export async function jobSearch(candidate_data: any) {
-    const authStore = useAuthStore();
-    const token = authStore.token;
     try {
         const response = await api().post(`${endpoints.API}/scrape-jobs/`, candidate_data);
         return response.data;

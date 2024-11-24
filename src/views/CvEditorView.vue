@@ -16,16 +16,16 @@ import { useSettingStore } from '@/stores/settings';
 import { validateLink } from '@/utils/helpers/validate-link';
 import type { Template } from '@/types/model';
 import ResumeSettings from '@/components/resume-settings/ResumeSettings.vue';
-import { useHomeStore } from '@/stores/candidate-space';
 import BaseBreadcrumb from '@/components/shared/BaseBreadcrumb.vue';
+import { useBaseCvStore } from '@/stores/base-cv';
 
 // const drawer = ref(true)
 const settings = useSettingStore();
 const transform = ref({ x: 260, y: 20, scale: 0.7 });
 const modelStore = useModelStore();
 const resumeStore = useResumeStore();
-const homeStore = useHomeStore();
-const cvData = ref(null);
+const baseStore = useBaseCvStore();
+const cvData = ref<Resume>();
 const { mobile, sm, md, xs } = useDisplay();
 const { t } = useI18n();
 const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
@@ -47,99 +47,148 @@ const logo = computed(() => {
 });
 const dummy_resume_data = ref({
     'age': '29',
+    'imageUrl': '',
     'city': 'Paris',
     'alias': 'Demo alias',
-    'yoe': '3',
+    'yoe': '4',
     'name': 'John Doe',
-    'work': [{
-        'city': 'Casablanca',
-        'end_date': '06/2021',
-        'job_title': 'Full Stack Developer',
-        'start_date': '03/2021',
-        'company_name': 'GoSoft',
-        'responsibilities': 'Conception, réalisation et déploiement d\'une application web de gestion de stock en utilisant Angular et Laravel pour le développement. Utilisation de PuTTY pour la connexion au VPS et le déploiement de l\'application.'
-    }, {
-        'job_title': 'Backend Developer',
-        'responsibilities': 'Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l\'amélioration des processus CI/CD.',
-        'company_name': 'SocioTech',
-        'city': 'Paris',
-        'start_date': '03/2023',
-        'end_date': '05/2023'
-    }],
+    'work': [
+        {
+            'city': 'Casablanca',
+            'end_date': '2019',
+            'start_date': 'Depuis Décembre  ',
+            'job_title': 'Ingénieur Devops',
+            'company_name': 'SOCIETE GENERALE',
+            'responsibilities': '<ul><li>Provisioning de l’infrastructure (Infra-as-code) : Terraform</li><li>Assurer l’intégration continue des différents projets et le déploiement continu depuis l’environnement de Dev au Production (Github Actions, Hooks, Jenkins, gradle, Nexus, Consul, PostgresSql, Ansible, AWS, Python, Bash, traefik, Vault, Gradle, Scrum, Kanban)</li><li>Intégration et Déploiement du Socle WSO2 pour la gestion d’authentification, OTP, Token</li><li>Monitoring des services (Elasticsearch, Kibana, Filebeat, Heartbeat, Grafana, Loki)</li><li>Assurer le Run des projets (Checkly)</li></ul>',
+            'environnement': 'Github Actions, Hooks, Jenkins, gradle, Nexus, Consul, PostgresSql, Ansible, AWS, Python, Bash, traefik, Vault, Gradle, Scrum, Kanban'
+        },
+        {
+            'job_title': 'Backend Developer',
+            'responsibilities': 'Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l\'amélioration des processus CI/CD.',
+            'company_name': 'SocioTech',
+            'city': 'Paris',
+            'start_date': '03/2023',
+            'end_date': '05/2023',
+            'environnement': 'Java8 Maven Hibernate Springboot Springdata Springsecurity Soap Angular13 Angularmaterial Bootstrap4 PL/SQL SSH MySQL Git SandBoxing DevOps Sonar Jenkins Jira ScaledSCRUM'
+
+        },
+        {
+            'city': 'Casablanca',
+            'end_date': 'à Décembre 2019',
+            'job_title': 'Ingénieur Devops',
+            'start_date': 'De Septembre 2018',
+            'company_name': 'Banque Centrale Populaire',
+            'responsibilities': '<ul><li>Test</li><li>Gestion de bugs</li><li>Déploiement du développement des spécifications fonctionnelles détaillées par domaine métier</li></ul>',
+            'environnement': 'Gitlab, Ansible, Npm, Jenkins, Maven, SonarQube, Jboss, Nexus, VMware, Junit, Selenium'
+        }
+    ],
     'email': 'john.doe@gmail.com',
     'phone': '+33 6 12 34 56 78',
     'skills': [
-        { 'skill': 'JavaScript', 'level': '5', 'category': 'programing languages' },
-        {
-            'skill': 'Vue.js 3', 'level': '5', 'category': 'UI Frameworks'
-        },
-        {
-            'skill': 'Python', 'level': '4', 'category': 'programing languages'
-        },
-        { 'skill': 'NestJS', 'level': '5', 'category': 'backend framework' }
+        { 'skill': 'JavaScript', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': 'C', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': 'Java', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': 'AngularJS', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': ' PL/SQL JEE/JAVA,', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': 'Visual Basic', 'level': 'Advanced', 'category': 'programming languages' },
+        { 'skill': 'Python', 'level': 'Proficient', 'category': 'programming languages' },
+        { 'skill': 'Git', 'level': 'Advanced', 'category': 'Gestion de version, bugs et de configuration' },
+        { 'skill': 'SVN', 'level': 'Intermediate', 'category': 'Gestion de version, bugs et de configuration' },
+        { 'skill': 'Mantis', 'level': 'Intermediate', 'category': 'Gestion de version, bugs et de configuration' },
+        { 'skill': 'Ansible', 'level': 'Advanced', 'category': 'Gestion de version, bugs et de configuration' },
+        { 'skill': 'Merise', 'level': 'Advanced', 'category': 'Conception et modélisation' },
+        { 'skill': 'UML', 'level': 'Advanced', 'category': 'Conception et modélisation' },
+        { 'skill': 'Scrum', 'level': 'Advanced', 'category': 'Méthodes agiles' },
+        { 'skill': 'Gantt', 'level': 'Intermediate', 'category': 'Gestion des projets SI' },
+        { 'skill': 'Pert', 'level': 'Intermediate', 'category': 'Gestion des projets SI' },
+        { 'skill': 'MySQL', 'level': 'Advanced', 'category': 'SGBD' },
+        { 'skill': 'Oracle', 'level': 'Advanced', 'category': 'SGBD' },
+        { 'skill': 'SQL Server', 'level': 'Advanced', 'category': 'SGBD' },
+        { 'skill': 'JPA', 'level': 'Advanced', 'category': 'Framework J2EE' },
+        { 'skill': 'EJB', 'level': 'Advanced', 'category': 'Framework J2EE' },
+        { 'skill': 'Hibernante', 'level': 'Advanced', 'category': 'Framework J2EE' },
+        { 'skill': 'JSF', 'level': 'Advanced', 'category': 'Framework J2EE' },
+        { 'skill': 'T24', 'level': 'Advanced', 'category': 'Core Banking' },
+        { 'skill': 'SonarQube', 'level': 'Advanced', 'category': 'Test et contrôle de qualité' },
+        { 'skill': 'Jmeter', 'level': 'Advanced', 'category': 'Test et contrôle de qualité' },
+        { 'skill': 'Selenium', 'level': 'Advanced', 'category': 'Test et contrôle de qualité' },
+        { 'skill': 'Junit', 'level': 'Advanced', 'category': 'Test et contrôle de qualité' },
+        { 'skill': 'Docker', 'level': 'Advanced', 'category': 'Build et automatisation' },
+        { 'skill': 'Nexus', 'level': 'Advanced', 'category': 'Build et automatisation' },
+        { 'skill': 'Maven', 'level': 'Advanced', 'category': 'Build et automatisation' },
+        { 'skill': 'Jenkins', 'level': 'Advanced', 'category': 'Build et automatisation' },
+        { 'skill': 'Vue.js 3', 'level': 'Advanced', 'category': 'UI Frameworks' },
+        { 'skill': 'NestJS', 'level': 'Advanced', 'category': 'backend framework' }
     ],
     'social': [
-        { 'skill': 'Communication', 'level': '5' },
-        { 'skill': 'Teamwork', 'level': '5' },
-        { 'skill': 'Problem-solving', 'level': '4' }
+        { 'skill': 'Communication', 'level': 'Exceptional' },
+        { 'skill': 'Teamwork', 'level': 'Exceptional' },
+        { 'skill': 'Problem-solving', 'level': 'Advanced' }
     ],
-    'projects': [{
-        'end_date': '12/2022',
-        'start_date': '09/2022',
-        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
-        'project_name': 'Réservation des Tickets Busway'
-    }, {
-        'end_date': '08/2022',
-        'start_date': '06/2022',
-        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
-        'project_name': 'Cartographie de degré de Centralité dans Paris'
-    }, {
-        'end_date': '04/2022',
-        'start_date': '01/2022',
-        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>',
-        'project_name': 'Application Web pour la gestion de la paie'
-    }],
+    'projects': [
+        {
+            'end_date': '12/2022',
+            'start_date': '09/2022',
+            'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul>',
+            'project_name': 'Réservation des Tickets Busway'
+        },
+        {
+            'end_date': '08/2022',
+            'start_date': '06/2022',
+            'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul>',
+            'project_name': 'Cartographie de degré de Centralité dans Paris'
+        },
+        {
+            'end_date': '04/2022',
+            'start_date': '01/2022',
+            'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul>',
+            'project_name': 'Application Web pour la gestion de la paie'
+        }
+    ],
     'interests': [{ 'interest': 'Cuisine' }, { 'interest': 'Télévision' }, { 'interest': 'Lecture' }],
     'languages': [
-        { 'level': '5', 'language': 'Anglais' },
-        { 'level': '4', 'language': 'Français' },
-        { 'level': '5', 'language': 'Arabe' }
+        { 'level': 'Exceptional', 'language': 'Anglais' },
+        { 'level': 'Advanced', 'language': 'Français' },
+        { 'level': 'Exceptional', 'language': 'Arabe' }
     ],
-    'educations': [{
-        'degree': 'Ingénierie Logicielle et Intégration des Systèmes Informatiques',
-        'end_year': '2021',
-        'start_year': '2019',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'Licence en Informatique, Réseaux et Multimédia',
-        'end_year': '2019',
-        'start_year': '2016',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'DEUST en Mathématiques, Informatique et Physique',
-        'end_year': '2016',
-        'start_year': '2014',
-        'institution': 'Faculté des Sciences et Techniques'
-    }, {
-        'degree': 'Baccalauréat Scientifique',
-        'end_year': '2014',
-        'start_year': '2012',
-        'institution': 'Lycée Chahid Idriss Lahrizi'
-    }],
-    'references': [{
-        'name': 'Alice Dupont',
-        'phone': '+33 6 98 76 54 32',
-        'company': 'TechCorp',
-        'position': 'Manager IT',
-        'email': 'alice.dupont@techcorp.com'
-    }],
-    'volunteering': [{
-        'organization': 'SocioTech',
-        'position': 'Community Support Volunteer',
-        'start_date': '03/2023',
-        'end_date': '06/2023',
-        'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>'
-    }],
+    'educations': [
+        {
+            'degree': 'Diplôme d\'ingénieur d\'état en informatique',
+            'end_year': '2018',
+            'start_year': '2015',
+            'institution': 'EMI, Rabat'
+        },
+        {
+            'degree': 'Classes Préparatoires aux Grandes Ecoles d’ingénieurs',
+            'end_year': '2015',
+            'start_year': '2013',
+            'institution': 'Reda Slaoui, Agadir'
+        },
+        {
+            'degree': 'Baccalauréat scientifique, option : Sciences Mathématiques B',
+            'end_year': '2013',
+            'start_year': '2011',
+            'institution': 'Tiznit'
+        }
+    ],
+    'references': [
+        {
+            'name': 'Alice Dupont',
+            'phone': '+33 6 98 76 54 32',
+            'company': 'TechCorp',
+            'position': 'Manager IT',
+            'email': 'alice.dupont@techcorp.com'
+        }
+    ],
+    'volunteering': [
+        {
+            'organization': 'SocioTech',
+            'position': 'Community Support Volunteer',
+            'start_date': '03/2023',
+            'end_date': '06/2023',
+            'description': '<p><strong>Contexte:</strong> Dans un premier temps au sein de l’équipe QA transversale puis après la réorganisation au sein de l’équipe SelfCare (1 Product Owner, 2 développeurs, 1 QA).</p><ul><li>Rédaction des cas de tests : Analyse des US et des critères d’acceptances.</li><li>Création et Réalisation des plans de tests : regroupement des cas de tests utiles pour la validation de la livraison.</li><li>Rédaction de ticket bug : remontées des erreurs aux équipes de développement via des tickets Jira.</li><li>Animation des réunions agiles : préparation de la rétro, animation du daily et de la retro.</li></ul><p><strong>Environnement Technique:</strong> Jira, Confluence, XRay, Postman, Cucumber, Gherkin</p>'
+        }
+    ],
     'certifications': [
         {
             'certification': 'Certified Java Developer',
@@ -148,23 +197,23 @@ const dummy_resume_data = ref({
             'link': 'https://www.oracle.com/certification/java-certification.html'
         }
     ],
-    'headline': 'Full Stack Software Developer',
+    'headline': 'Ingénieur Prod/Devops ',
     'summary': 'Développeur full-stack avec une forte expérience en conception et déploiement d\'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises.'
 });
 
 const default_create_model_data = ref<Template>({
     'name': '',
     'reference': null,
-    'language': 'en',
+    'language': 'fr',
     'templateData': {
-        'identity': 'reference',
+        'identity': 'alias',
         'template': 'sydney',
         'company_logo': {
-            'url': logo as unknown as string,
+            'url': logo.value as string,
             'border': false,
             'hidden': false,
             'grayscale': false,
-            'size': 70,
+            'size': 90,
             'aspectRatio': 1,
             'borderRadius': 50
         },
@@ -176,20 +225,47 @@ const default_create_model_data = ref<Template>({
             'breakLine': false,
             'pageNumbers': false
         },
-        'certifications': { 'name': t('Models.creation.sections.certifications'), 'visible': true },
-        'education': { 'name': t('Models.creation.sections.education'), 'visible': true },
-        'experience': { 'name': t('Models.creation.sections.experience'), 'visible': true },
-        'volunteering': { 'name': t('Models.creation.sections.volunteering'), 'visible': true },
-        'interests': { 'name': t('Models.creation.sections.interests'), 'visible': true },
-        'languages': { 'name': t('Models.creation.sections.languages'), 'visible': true },
-        'projects': { 'name': t('Models.creation.sections.projects'), 'visible': true },
+        'certifications': {
+            'name': t('Models.creation.sections.certifications', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'education': {
+            'name': t('Models.creation.sections.education', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'experience': {
+            'name': t('Models.creation.sections.experience', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'volunteering': {
+            'name': t('Models.creation.sections.volunteering', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'interests': {
+            'name': t('Models.creation.sections.interests', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'languages': {
+            'name': t('Models.creation.sections.languages', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'projects': {
+            'name': t('Models.creation.sections.projects', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
         'references': { 'name': t('Models.creation.sections.references'), 'visible': true },
-        'skills': { 'name': t('Models.creation.sections.skills'), 'visible': true },
-        'social': { 'name': t('Models.creation.sections.social'), 'visible': true },
+        'skills': {
+            'name': t('Models.creation.sections.skills', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
+        'social': {
+            'name': t('Models.creation.sections.social', '', { locale: modelStore.model.language }),
+            'visible': true
+        },
         'theme': {
             'background': '#fff',
-            'text': '#972F2F',
-            'primary': '#E0D3D3'
+            'text': '#2C3E50 ',
+            'primary': '#16A085 '
         },
         'personnel': {
             'name': true,
@@ -216,7 +292,6 @@ const isDragModeActive = computed(() => {
 
 function mapToResumeFormat(data: any): Resume {
     return {
-        cv_id: data.cv_id || '',
         name: data.name || '',
         yoe: data.yoe || '',
         headline: data.headline || '',
@@ -247,27 +322,30 @@ onBeforeMount(async () => {
 
     try {
         // Fetch CV data
-        cvData.value = await homeStore.getCVData();
-        if (cvData.value) {
-            const mappedCVData = mapToResumeFormat(cvData.value);
+        await baseStore.getCVData();
+        if (baseStore.resumeData) {
+            const mappedCVData = mapToResumeFormat(baseStore.resumeData);
             resumeStore.setResume(mappedCVData);
-        } else {
-            resumeStore.setResume({ ...dummy_resume_data.value });
         }
+        // else {
+        //     resumeStore.setResume({ ...dummy_resume_data.value });
+        // }
 
         // Fetch CV model data
-        const cvModelData = await homeStore.getCVModel();
-        if (cvModelData) {
-            modelStore.SetModel(cvModelData);
-            // modelStore.SetTemplate(cvModelData.templateData.template);
-            modelStore.selected = cvModelData.templateData.template;
+        await baseStore.getCVModel();
+        if (baseStore.modelData) {
+            modelStore.SetModel(baseStore.modelData);
+            // modelStore.SetTemplate(baseStore.modelData.templateData.template);
+            modelStore.selected = baseStore.modelData.templateData.template;
         } else {
             modelStore.SetModel({ ...default_create_model_data.value });
         }
 
     } catch (error) {
         console.error('Error loading CV data or model:', error);
-        resumeStore.setResume({ ...dummy_resume_data.value });
+        resumeStore.setResume({
+            ...dummy_resume_data.value
+        });
         modelStore.SetModel({ ...default_create_model_data.value });
     }
 });
@@ -342,17 +420,17 @@ onMounted(async () => {
                         </div>
                     </v-row>
                 </v-container>
-                        <ResumeSettings />
+                <ResumeSettings />
             </v-window-item>
             <v-window-item :value="2">
-              <v-container>
-                  <v-row dense>
+                <v-container>
+                    <v-row dense>
 
-                <div class="text-3 ma-3">
-                    Customize your template of choice however you wish:
-                </div>
-              </v-row>
-              </v-container>
+                        <div class="text-3 ma-3">
+                            Customize your template of choice however you wish:
+                        </div>
+                    </v-row>
+                </v-container>
                 <ModelSettings />
             </v-window-item>
         </v-window>

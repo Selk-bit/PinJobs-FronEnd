@@ -12,7 +12,7 @@ const {model} = storeToRefs(modelStore);
 const company_logo = ref<CompanyLogo>({} as CompanyLogo)
 
 onMounted(() => {
-  company_logo.value = model.value.templateData.company_logo;
+  company_logo.value = model.value.templateData?.company_logo;
 })
 
 onUnmounted(() => {

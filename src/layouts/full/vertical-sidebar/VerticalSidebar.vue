@@ -18,7 +18,7 @@ const {mobile} = useDisplay()
 <template>
     <v-navigation-drawer left v-model="customizer.Sidebar_drawer" elevation="0" rail-width="79" mobile-breakpoint="960"
         app class="leftSidebar" :rail="mobile ? false : customizer.mini_sidebar " expand-on-hover width="256">
-        <div class="d-flex justify-space-between align-center ">
+        <div class="d-flex justify-space-between align-center ma-2 ">
             <Logo />
            <div>
                 <v-btn size="small" v-if="$vuetify.display.mobile" @click="customizer.Sidebar_drawer = !customizer.Sidebar_drawer" flat icon="mdi-close"></v-btn>

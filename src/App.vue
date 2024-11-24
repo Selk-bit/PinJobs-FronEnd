@@ -10,6 +10,7 @@ import {useSettingStore} from "@/stores/settings";
 import {onBeforeMount, onMounted, watch} from 'vue';
 import {useRoute} from "vue-router";
 import {useI18n} from 'vue-i18n';
+import { useCustomizerStore } from '@/stores/customizer';
 
 const route = useRoute()
 const {locale, t,setLocaleMessage} = useI18n();
@@ -27,8 +28,8 @@ const updateTitle = () => {
 };
 onMounted(async () => {
   updateTitle()
-  // get current user
-  // set language
+  useCustomizerStore().mini_sidebar = false;
+  useCustomizerStore().Sidebar_drawer = true;
 
 });
 

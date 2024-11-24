@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { computed, onBeforeMount, reactive, ref, watch } from 'vue';
-import HomeCard from '@/components/home/HomeCard.vue';
+import HomeCard from '@/components/base-cv/ImportCard.vue';
 import { useI18n } from 'vue-i18n';
 import { toast } from 'vue-sonner';
 import Alert from '@/components/shared/Alert.vue';

@@ -3,18 +3,18 @@ const MainRoutes = {
     meta: {
         requiresAuth: true
     },
-    redirect: '/home',
+    redirect: '/base-cv',
     // redirect: '/',
     component: () => import('@/layouts/full/FullLayout.vue'),
     children: [
 
         {
-            name: 'home',
-            path: '/home',
+            name: 'base-cv',
+            path: '/base-cv',
             meta: {
-                title: 'page.home'
+                title: 'page.base-cv'
             },
-            component: () => import('@/views/HomeView.vue')
+            component: () => import('@/views/base-cv/BaseCvView.vue')
         },
 
         {
@@ -73,11 +73,7 @@ const MainRoutes = {
             path: 'facturation-upgrade-plan',
             component: () => import('@/views/facturation/UpgradePlanView.vue')
         },
-        {
-            name: 'testing',
-            path: 'testing',
-            component: () => import('@/components/PageTest.vue')
-        },
+
         {
             name: 'facturation-invoice',
             path: 'facturation-invoice',
@@ -119,7 +115,14 @@ const MainRoutes = {
                 title: 'page.editor'
             },
             component: async () => await import('@/views/CvEditorView.vue')
-        }
+        },
+        //     import data options
+           {
+            name: 'testing',
+            path: 'testing',
+            component: () => import('@/components/PageTest.vue')
+        },
+
     ]
 };
 

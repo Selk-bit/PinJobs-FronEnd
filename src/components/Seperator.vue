@@ -4,7 +4,7 @@
 
 <template>
  <div class="container text-primary py-4 pl-7">
-        <div class="">
+        <div >
           <hr />
       </div>
     </div>

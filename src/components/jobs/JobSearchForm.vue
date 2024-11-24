@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onUnmounted, reactive, ref, watch } from 'vue';
 import { toast } from 'vue-sonner';
-import { useHomeStore } from '@/stores/candidate-space';
+import { useBaseCvStore } from '@/stores/base-cv';
 
-const dialog = ref(false);
+const dialog = ref( false);
 const loading = ref(false);
-const homeStore = useHomeStore();
+const homeStore = useBaseCvStore();
 const errors = reactive({
     keyword: '',
     location: '',
@@ -103,18 +103,18 @@ async function executeJobSearch() {
                 <v-form @submit.prevent="executeJobSearch">
                     <v-container>
                         <v-card class="pa-4">
-                            <v-card-title class="d-flex align-center justify-space-between">
-                                <div>Job search Execution</div>
-                                <div>
-                                    <v-btn
-                                        class="float-right"
-                                        icon="mdi-close"
-                                        variant="plain"
-                                        @click="isActive.value = false"
-                                    >
-                                    </v-btn>
-                                </div>
-                            </v-card-title>
+                                <v-card-title class="d-flex align-center justify-space-between">
+                                    <div>Job search Execution</div>
+                                    <div>
+                                        <v-btn
+                                            class="float-right"
+                                            icon="mdi-close"
+                                            variant="plain"
+                                            @click="isActive.value = false"
+                                        >
+                                        </v-btn>
+                                    </div>
+                                </v-card-title>
                             <v-card-text>
                                 <v-row dense class="job-search-form mt-12">
                                     <v-col>

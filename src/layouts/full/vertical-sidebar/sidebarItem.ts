@@ -64,7 +64,7 @@ const sidebarItem: menu[] = [
     {
         title: 'Home',
         icon: HomeIcon,
-        to: '/home',
+        to: '/base-cv',
 
     },
     {
