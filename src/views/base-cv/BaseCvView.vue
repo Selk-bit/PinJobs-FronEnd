@@ -16,6 +16,7 @@ import CustomConfirmationDialog from '@/components/shared/CustomConfirmationDial
 import AppLoader from '@/components/shared/AppLoader.vue';
 import PageHeader from '@/components/shared/PageHeader.vue';
 import LoadingFlash from '@/components/shared/LoadingFlash.vue';
+import ResumeGallery from '@/components/base-cv/ResumeGallery.vue';
 
 
 const { t } = useI18n();
@@ -178,90 +179,36 @@ const app_loading = ref<boolean>(false);
 
 onMounted(async () => {
     try {
-        app_loading.value = true;
+        loading.value = true;
         await baseStore.getCVData();
-        app_loading.value = false;
+        loading.value = false;
     } catch (err: any) {
         console.log(err);
     } finally {
 
-        app_loading.value = false;
+        loading.value = false;
     }
 });
 
-onUnmounted(() => {
-    app_loading.value = false;
 
-});
-
-
-
-
-const resumeData = ref({
-  age: "29",
-  imageUrl: "",
-  city: "Paris",
-  alias: "Demo alias",
-  yoe: "4",
-  name: "John Doe",
-  work: [
-    {
-      city: "Casablanca",
-      end_date: "2019",
-      start_date: "Depuis Décembre",
-      job_title: "Ingénieur Devops",
-      company_name: "SOCIETE GENERALE",
-      responsibilities:
-        "<ul><li>Provisioning de l’infrastructure (Infra-as-code) : Terraform</li><li>Assurer l’intégration continue des différents projets et le déploiement continu depuis l’environnement de Dev au Production (Github Actions, Hooks, Jenkins, gradle, Nexus, Consul, PostgresSql, Ansible, AWS, Python, Bash, traefik, Vault, Gradle, Scrum, Kanban)</li><li>Intégration et Déploiement du Socle WSO2 pour la gestion d’authentification, OTP, Token</li><li>Monitoring des services (Elasticsearch, Kibana, Filebeat, Heartbeat, Grafana, Loki)</li><li>Assurer le Run des projets (Checkly)</li></ul>",
-    },
-    {
-      job_title: "Backend Developer",
-      responsibilities:
-        "Développement de services backend robustes, optimisation des performances, et gestion des bases de données. Contribué à l'amélioration des processus CI/CD.",
-      company_name: "SocioTech",
-      city: "Paris",
-      start_date: "03/2023",
-      end_date: "05/2023",
-    },
-  ],
-  email: "john.doe@gmail.com",
-  phone: "+33 6 12 34 56 78",
-  skills: [
-    { skill: "JavaScript", level: "Advanced", category: "programming languages" },
-    { skill: "Vue.js 3", level: "Advanced", category: "UI Frameworks" },
-  ],
-  languages: [
-    { level: "Exceptional", language: "Anglais" },
-    { level: "Advanced", language: "Français" },
-    { level: "Exceptional", language: "Arabe" },
-  ],
-  certifications: [
-    {
-      certification: "Certified Java Developer",
-      institution: "Oracle",
-      date: "06/2023",
-      link: "https://www.oracle.com/certification/java-certification.html",
-    },
-  ],
-  headline: "Ingénieur Prod/Devops ",
-  summary:
-    "Développeur full-stack avec une forte expérience en conception et déploiement d'applications web robustes.",
-});
 </script>
 
 
 <template>
-    <v-container>
+
+
+    <div class="mx-3 mx-auto">
+
         <!--        header-->
         <PageHeader title="Resume Data Hub"
                     subtitle="Seamlessly manage, update, and showcase your resume data with ease.">
 
-            <template v-slot:actions>
+            <template v-slot:actions v-if="!!baseStore.resumeData">
                 <v-btn
                     class="ml-auto mr-1"
                     color="primary"
                     large
-                    v-if="false"
+
                     :block="$vuetify.display.mobile"
                     outlined
                 >
@@ -270,56 +217,17 @@ const resumeData = ref({
             </template>
         </PageHeader>
 
-        <!--        main-->
 
-        <div class="" v-if="!app_loading">
-           <v-container>
-    <v-card class="mb-4 mx-auto" max-width="1000" elevation="3">
-      <v-card-title>
-        <v-avatar size="80">
-          <v-img :src="resumeData.imageUrl || 'https://via.placeholder.com/80'" />
-        </v-avatar>
-        <div class="ml-4">
-          <h2 class="mb-1">{{ resumeData.name }}</h2>
-          <span class="text-subtitle-1 text-grey-darken-1">{{ resumeData.headline }}</span>
+        <!--        loading-->
+        <div v-if="loading" style="min-height: 580px" class="d-flex align-center justify-center">
+            <LoadingFlash size="60" text="Loading Profile..." />
         </div>
-      </v-card-title>
-      <v-card-subtitle>
-        <v-chip-group>
-          <v-chip>{{ resumeData.city }}</v-chip>
-          <v-chip>{{ resumeData.age }} years old</v-chip>
-          <v-chip>{{ resumeData.yoe }} years of experience</v-chip>
-        </v-chip-group>
-      </v-card-subtitle>
-      <v-card-text>
-        <p>{{ resumeData.summary }}</p>
-        <v-divider class="my-3"></v-divider>
-        <div>
-          <strong>Recent Work:</strong>
-          <p>
-            {{ resumeData.work[0].job_title }} at {{ resumeData.work[0].company_name }}
-            ({{ resumeData.work[0].start_date }} - {{ resumeData.work[0].end_date }})
-          </p>
-        </div>
-        <div>
-          <strong>Top Skills:</strong>
-          <ul>
-            <li v-for="(skill, index) in resumeData.skills.slice(0, 3)" :key="index">
-              {{ skill.skill }} ({{ skill.level }})
-            </li>
-          </ul>
-        </div>
-        <div>
-          <strong>Languages:</strong>
-          <ul>
-            <li v-for="(lang, index) in resumeData.languages.slice(0, 2)" :key="index">
-              {{ lang.language }} ({{ lang.level }})
-            </li>
-          </ul>
-        </div>
-      </v-card-text>
-    </v-card>
-  </v-container>
+
+
+        <!--        main-->
+        <div class="" v-else-if="baseStore.resumeData">
+            <!--            resume gallery-->
+            <ResumeGallery />
         </div>
 
         <div v-else class="no-cv-found d-flex mt-14 pa-3 flex-column align-center">
@@ -359,7 +267,7 @@ const resumeData = ref({
                 inspired by Salim
             </div>
         </div>
-    </v-container>
+    </div>
 
     <!--import cv dialog -->
     <v-dialog v-model="import_cv_dialog.dialog" class="backdrop" width="700px" persistent>
