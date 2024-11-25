@@ -1,18 +1,18 @@
 <template>
-    <v-container class="py-4">
+    <v-container flui class="py-4">
         <!-- Overview Header -->
-        <v-row class="align-center justify-space-between mb-4">
+        <div style="width: auto" class=" align-center justify-space-between mb-4">
             <div class="d-flex align-center mt-2 mb-4">
                 <v-icon small>mdi-clipboard-file-outline</v-icon>
                 <h3 class="text-h6 font-weight-bold mr-2">Overview</h3>
             </div>
-        </v-row>
+        </div>
         <v-divider />
         <!-- Cards Section -->
         <v-row class="mb-4 mt-2">
             <!-- New Order -->
-            <v-col cols="12" sm="3">
-                <v-card elevation="1" max-width="260" variant="elevated"
+            <v-col cols="12" sm="12" md="4" lg="3">
+                <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
                     <v-card-title class="d-flex flex-column justify-start ">
@@ -27,8 +27,8 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="3">
-                <v-card elevation="1" max-width="260" variant="elevated"
+            <v-col cols="12" sm="12" md="4" lg="3">
+                <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
                     <v-card-title class="d-flex flex-column justify-start ">
@@ -46,8 +46,8 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="3">
-                <v-card elevation="1" max-width="260" variant="elevated"
+            <v-col cols="12" sm="12" md="4" lg="3">
+                <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
                     <v-card-title class="d-flex flex-column justify-start ">
@@ -63,8 +63,8 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="3">
-                <v-card elevation="1" max-width="260" variant="elevated"
+            <v-col cols="12" sm="12" md="4" lg="3">
+                <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
                     <v-card-title class="d-flex flex-column justify-start ">
@@ -107,10 +107,9 @@ defineProps<{
     justify-content: space-around; /* Spaces email and phone evenly */
 }
 
+
 .overview-card {
     padding: 16px;
-
-
 }
 
 .text-grey {

@@ -24,9 +24,9 @@ const props = withDefaults(defineProps<IProps>(), {
         {{ text }}
       </div>
       <v-spacer></v-spacer>
-      <v-card-actions class="justify-end">
-        <v-btn color="primary" text v-if="confirmTextButton" @click="$emit('accept')">{{ confirmTextButton || 'Confirm' }}</v-btn>
+      <v-card-actions class="justify-space-between">
         <v-btn color="secondary" v-if="cancelTextButton" text @click="$emit('reject')">{{ cancelTextButton || 'Cancel' }}</v-btn>
+        <v-btn color="error" variant="tonal" v-if="confirmTextButton" @click="$emit('accept')">{{ confirmTextButton || 'Confirm' }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

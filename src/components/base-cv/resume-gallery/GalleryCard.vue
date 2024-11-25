@@ -11,17 +11,18 @@ const props = defineProps<{
 
 <template>
     <v-card
+        density="compact"
         color="lightWhite"
         @click="$emit('select-model')"
         outlined
-        class="ma-3 resume-card cursor-pointer mx-2"
+        class=" ma-3 pa-3 resume-card cursor-pointer "
         elevation="0"
     >
         <!-- Image Section -->
-        <v-img :src="image" cover class="resume-image" />
+        <img :src="image"   class="resume-image" />
 
         <!-- Card Content -->
-        <div class="pa-3">
+        <div class="mt-3">
             <h3 class="text-subtitle-1 font-weight-bold mb-1">
                 {{ title }}
             </h3>
@@ -35,7 +36,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .resume-card {
     height: 400px;
-    width: 290px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,10 +50,10 @@ const props = defineProps<{
 
 .resume-image {
     height: 310px;
-    width: auto;
+   //object-fit: cover;
     border-bottom: 1px solid #e0e0e0;
     margin: 1px;
-    border-radius: 19px;
+    border-radius: 23px;
 }
 
 .create-resume-card:hover {

@@ -1,16 +1,17 @@
-import type { Language as Lang} from "@/types/language";
+import type { Language as Lang } from '@/types/language';
 
 export interface Resume {
+    cv_id?: number;
     name: string;
-    yoe:string;
-    headline:string;
-    alias:string;
+    yoe: string;
+    headline: string;
+    alias: string;
     imageUrl: string;
     email: string;
     phone: string;
     age: string;
     city: string;
-    language?:Lang;
+    language?: Lang;
     summary: string;
     work: Work[];
     educations: Education[];
@@ -51,7 +52,7 @@ export interface Work {
     company_name: string;
     responsibilities: string;
     start_date: string;
-    environnement:string,
+    environnement: string,
     end_date: string;
 }
 
@@ -62,6 +63,7 @@ export interface Reference {
     position: string;
     email: string;
 }
+
 export interface Volunteering {
     organization: string;
     position: string;
@@ -80,11 +82,10 @@ export interface Language {
 }
 
 
-
 export interface Skill {
     skill: string;
     level: string;
     checked?: boolean;
-    category?:string;
+    category?: string;
 
 }

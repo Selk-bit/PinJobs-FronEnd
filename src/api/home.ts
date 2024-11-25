@@ -55,7 +55,7 @@ export async function getCVModel() {
     }
 }
 
-export async function deleteCV(cvId: string) {
+export async function deleteCV(cvId: number) {
 
     try {
         const response = await api().delete(`${endpoints.API}/cv/${cvId}/delete/`);

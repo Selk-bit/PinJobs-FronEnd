@@ -7,14 +7,40 @@ import ResumeSkillsCard from '@/components/base-cv/my-base-resume/ResumeSkillsCa
 import ResumeLanguageCard from '@/components/base-cv/my-base-resume/ResumeLanguageCard.vue';
 import { useBaseCvStore } from '@/stores/base-cv';
 import { storeToRefs } from 'pinia';
+import CustomConfirmationDialog from '@/components/shared/CustomConfirmationDialog.vue';
+import AppLoader from '@/components/shared/AppLoader.vue';
+import { toast } from 'vue-sonner';
+import type { Resume } from '@/types/resume';
 
 const tab = ref(1);
 const baseStore = useBaseCvStore();
 const { resumeData } = storeToRefs(baseStore);
 const { name, email, phone, yoe, headline, city } = resumeData.value;
+const delete_dialog = ref(false);
+const loading = ref(false);
 const changeTab = (tabNumber: number) => {
     tab.value = tabNumber;
 };
+const closeDeleteCVDialog = () => {
+    delete_dialog.value = false;
+};
+
+
+async function deleteCvData() {
+    try {
+        loading.value = true;
+        await baseStore.deleteCV(baseStore.resumeData?.cv_id as number);
+        toast.success('Data deleted successfully');
+        delete_dialog.value = false;
+        await baseStore.getCVData()
+    } catch (err: any) {
+        console.log('Error occured ', err);
+    } finally {
+        loading.value = false;
+    }
+
+
+}
 
 onMounted(async () => {
     await baseStore.getCVData();
@@ -61,7 +87,8 @@ onMounted(async () => {
                            class="mx-1 linkedin-button">
                         Edit
                     </v-btn>
-                    <v-btn prepend-icon="mdi-delete" variant="tonal" color="error" class="mx-1 linkedin-button">
+                    <v-btn prepend-icon="mdi-delete" variant="tonal" @click="delete_dialog = true " color="error"
+                           class="mx-1 linkedin-button">
                         Delete
                     </v-btn>
                     <v-btn prepend-icon="mdi-eye" variant="tonal" color="success" class="mx-1 linkedin-button">
@@ -131,8 +158,18 @@ onMounted(async () => {
             </v-window-item>
         </v-window>
     </v-card>
+    <!--    Confirm Delete resume-->
+    <CustomConfirmationDialog
 
-
+        :dialog="delete_dialog"
+        title="Confirm Deletion"
+        text="This action will permanently delete your CV. Are you sure you want to proceed?"
+        confirm-text-button="Delete CV"
+        cancel-text-button="Keep CV"
+        @accept="deleteCvData"
+        @reject="closeDeleteCVDialog"
+    />
+    <app-loader :loading="loading" />
 </template>
 
 <style>

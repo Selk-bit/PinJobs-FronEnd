@@ -20,8 +20,8 @@ export const useBaseCvStore = defineStore({
         resumeData: {} as Resume,
         modelData: {} as Template,
         isCreate: false,
-        import_dialog_data:false,
-        page_operations_title:"",
+        import_dialog_data: false,
+        page_operations_title: ''
     }),
 
     actions: {
@@ -64,7 +64,7 @@ export const useBaseCvStore = defineStore({
                 console.error('Error getting CV model:', error);
             }
         },
-        async deleteCV(cvId: string) {
+        async deleteCV(cvId: number) {
             try {
                 await deleteCV(cvId);
             } catch (error) {

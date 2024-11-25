@@ -148,9 +148,12 @@ async function importFile() {
         import_cv_dialog.errors = t('Models.consultation.toasts.correctFormat');
     } else {
         try {
-            import_cv_dialog.loading = true;
-            await baseStore.uploadCV(file.value); // Send the request with homeStore
             import_cv_dialog.dialog = false;
+            app_loading.value = true;
+            loading.value = true;
+
+            // import_cv_dialog.loading = true;
+            await baseStore.uploadCV(file.value); // Send the request with homeStore
             toast.success(t('Models.consultation.toasts.templateUploadSuccess'));
         } catch (err: any) {
             const errData = err.response?.data;
@@ -158,6 +161,8 @@ async function importFile() {
             toast.error('An error occurred while uploading the document.');
         } finally {
             import_cv_dialog.loading = false;
+            app_loading.value = false;
+            loading.value = false;
         }
     }
 }
@@ -230,8 +235,8 @@ onMounted(async () => {
             <!--            resume gallery-->
             <ResumeGallery />
 
-<!--            My resume-->
-            <BaseResume  />
+            <!--            My resume-->
+            <BaseResume />
         </div>
 
         <div v-else class="no-cv-found d-flex mt-14 pa-3 flex-column align-center">
@@ -271,8 +276,8 @@ onMounted(async () => {
                 inspired by Salim
             </div>
         </div>
-
     </div>
+
 
     <!--import cv dialog -->
     <v-dialog v-model="import_cv_dialog.dialog" class="backdrop" width="700px" persistent>
@@ -306,12 +311,12 @@ onMounted(async () => {
                 <div v-if="file" class="file-list my-2 ">
                     <!--                <h3>Files ({{ files.length }})</h3>-->
                     <ul class="overflow-y-auto mb-3 " style="max-height: 300px">
-                        <li>
+                        <v-chip color="primary" large>
                             <span v-if="file">{{ file?.name }} ({{ (file?.size / 1024).toFixed(2) }} KB)</span>
                             <v-btn icon variant="text" @click="removeFile()">
                                 <v-icon color="red">mdi-close</v-icon>
                             </v-btn>
-                        </li>
+                        </v-chip>
                     </ul>
                 </div>
             </v-container>
@@ -338,6 +343,8 @@ onMounted(async () => {
             </div>
         </v-card>
     </v-dialog>
+
+
     <!--    linkedin dialog-->
     <v-dialog v-model="import_linkedin.dialog " class="backdrop" width="700px" persistent>
 

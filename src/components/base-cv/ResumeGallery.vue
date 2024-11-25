@@ -6,20 +6,20 @@
                 <h2 class="text-h5 font-weight-bold mt-2 ml-3">Sample Resume</h2>
                 <v-btn variant="text" size="small" class="text-body-1">
                     See All
-                    <v-icon   class="ml-2">mdi-arrow-right</v-icon>
+                    <v-icon class="ml-2">mdi-arrow-right</v-icon>
                 </v-btn>
             </v-col>
         </v-row>
 
         <!-- Horizontal Scrollable Carousel -->
-        <v-slide-group show-arrows  class="">
+        <v-slide-group show-arrows class="">
             <!-- Create Blank Resume -->
             <v-slide-group-item>
                 <v-card
                     color="lightWhite"
                     @click="generateFromScratch"
                     elevation="0"
-                    class="ma-3 d-flex flex-column align-center justify-center cursor-pointer create-resume-card "
+                    class="ma-3  d-flex flex-column align-center justify-center cursor-pointer create-resume-card "
                 >
                     <v-icon size="48" class="text-primary">mdi-plus</v-icon>
                     <div class="mt-2 text-center font-weight-medium text-body-1">
@@ -36,6 +36,7 @@
 
             >
                 <GalleryCard
+
                     :title="resume.title"
                     :image="resume.image"
                     :key="resume.title"
@@ -58,14 +59,17 @@ const loading = ref(false);
 import { useRouter } from 'vue-router';
 import { getPrimary } from '@/utils/UpdateColors';
 import GalleryCard from '@/components/base-cv/resume-gallery/GalleryCard.vue';
-
+import sydney from '/public/assets/images/templates/sydney.jpg';
+import os from '/public/assets/images/templates/os.jpg';
+import onyx from '/public/assets/images/templates/onyx.jpg';
+import pikachu from '/public/assets/images/templates/pikachu.jpg';
 
 const router = useRouter();
 
- function generateFromScratch() {
+function generateFromScratch() {
     // app_loading.value = true;
     loading.value = true;
-     router.push("/cv-editor");
+    router.push('/cv-editor');
 }
 
 function loadSelectedModel() {
@@ -75,25 +79,25 @@ function loadSelectedModel() {
 const sample_resumes = ref([
     {
         id: 1,
-        image: 'https://via.placeholder.com/200x300',
+        image: pikachu,
         title: 'Investment Banking Model',
         usage_count: '3,752'
     },
     {
         id: 2,
-        image: 'https://via.placeholder.com/200x300',
+        image: sydney,
         title: 'Graphic Design Portfolio',
         usage_count: '2,435'
     },
     {
         id: 3,
-        image: 'https://via.placeholder.com/200x300',
+        image: os,
         title: 'Engineering Resume',
         usage_count: '1,899'
     },
     {
         id: 4,
-        image: 'https://via.placeholder.com/200x300',
+        image: onyx,
         title: 'Marketing Template',
         usage_count: '3,120'
     }
@@ -109,7 +113,6 @@ const sample_resumes = ref([
     width: 290px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 
 
 </style>
