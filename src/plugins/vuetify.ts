@@ -1,11 +1,10 @@
-import {createVuetify} from 'vuetify';
+import { createVuetify } from 'vuetify';
 import '@mdi/font/css/materialdesignicons.css';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-// import { BLUE_THEME} from '@/theme/LightTheme';
-import {GREEN_THEME} from '@/theme/LightTheme';
+import { GREEN_THEME } from '@/theme/LightTheme';
 import {
-    DARK_GREEN_THEME,
+    DARK_GREEN_THEME
 } from '@/theme/DarkTheme';
 
 export default createVuetify({
@@ -13,14 +12,15 @@ export default createVuetify({
     directives,
 
     theme: {
+        defaultTheme: 'GREEN_THEME',
         themes: {
             GREEN_THEME,
-            DARK_GREEN_THEME,
+            DARK_GREEN_THEME
         }
     },
     defaults: {
         VToolbar: {
-          'rounded-top':'lg'
+            'rounded-top': 'lg'
         },
         VCard: {
             rounded: 'lg'

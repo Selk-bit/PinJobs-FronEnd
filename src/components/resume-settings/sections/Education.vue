@@ -1,3 +1,4 @@
+degree
 <script setup lang="ts">
 import {useResumeStore} from "@/stores/resume";
 import type {
@@ -242,21 +243,33 @@ const CloseEducationDialogHandle = () => {
             <v-col cols="12" md="6" class="py-0">
               <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.educations.headers.startYear') }}</v-label>
 
-              <PickDate
+              <!--              <PickDate-->
+              <!--                  type="year"-->
+              <!--                  v-model.string="education.start_year"-->
+              <!--                  :placeholder="t('Resumes.educations.placeholders.startYear')"-->
+              <!--                  mode="date"-->
+              <!--              ></PickDate>-->
+              <v-text-field
+                  variant="outlined"
+                  color="primary"
                   v-model.string="education.start_year"
                   :placeholder="t('Resumes.educations.placeholders.startYear')"
-                  mode="date"
-
-              ></PickDate>
+              ></v-text-field>
             </v-col>
             <v-col cols="12" md="6" class="py-0">
               <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.educations.headers.endYear') }}</v-label>
-              <PickDate
+              <!--              <PickDate-->
+              <!--                  type="year"-->
+              <!--                  v-model.string="education.end_year"-->
+              <!--                  :placeholder="t('Resumes.educations.placeholders.startYear')"-->
+              <!--                  mode="date"-->
+              <!--              ></PickDate>-->
+              <v-text-field
+                  variant="outlined"
+                  color="primary"
                   v-model.string="education.end_year"
                   :placeholder="t('Resumes.educations.placeholders.startYear')"
-                  mode="date"
-
-              ></PickDate>
+              ></v-text-field>
             </v-col>
           </v-row>
 

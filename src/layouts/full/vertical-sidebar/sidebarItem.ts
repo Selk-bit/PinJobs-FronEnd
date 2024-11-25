@@ -115,12 +115,12 @@ const sidebarItem: menu[] = [
 
         ]
     },
-    {header: 'settings'},
-    {
-        title: 'settings',
-        icon: SettingsIcon,
-        to: '/user-settings'
-    },
+    // {header: 'settings'},
+    // {
+    //     title: 'settings',
+    //     icon: SettingsIcon,
+    //     to: '/user-settings'
+    // },
     {
         title: 'support',
         icon: InfoSquareIcon,

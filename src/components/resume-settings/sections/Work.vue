@@ -204,10 +204,6 @@ const CloseWorkDialogHandle = () => {
         max-width="600"
         class="backdrop"
     >
-      <!--      <div style="height: 20px;margin-top: 10px;;border-radius: 20px" class="bg-surface  ">-->
-
-      <!--      </div>-->
-
       <v-card
       >
         <v-card-title class="my-2  d-flex justify-space-between">
@@ -248,31 +244,50 @@ const CloseWorkDialogHandle = () => {
 
             <v-col cols="12" md="6" class="py-2">
               <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.experiences.headers.date.start') }}</v-label>
-              <PickDate
+              <!--              <PickDate-->
+              <!--                  v-model.string="work.start_date"-->
+              <!--                  :placeholder="t('Resumes.experiences.placeholders.startDate')"-->
+              <!--                  mode="date"-->
+              <!--              ></PickDate>-->
+              <v-text-field
+                  variant="outlined"
+                  color="primary"
                   v-model.string="work.start_date"
                   :placeholder="t('Resumes.experiences.placeholders.startDate')"
-                  mode="date"
-
-              ></PickDate>
+              ></v-text-field>
             </v-col>
             <v-col cols="12" md="6" class="py-2">
               <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.experiences.headers.date.end') }}</v-label>
-              <PickDate
+              <!--              <PickDate-->
+              <!--                  v-model.string="work.end_date"-->
+              <!--                  :placeholder="t('Resumes.experiences.placeholders.endDate')"-->
+              <!--                  mode="date"-->
+              <!--              ></PickDate>-->
+              <v-text-field
+                  variant="outlined"
+                  color="primary"
                   v-model.string="work.end_date"
                   :placeholder="t('Resumes.experiences.placeholders.endDate')"
-                  mode="date"
-
-              ></PickDate>
+              ></v-text-field>
             </v-col>
             <v-col cols="12" md="12" class="py-0">
               <v-label class="mb-2 font-weight-medium">{{ $t('Resumes.experiences.placeholders.responsibilities') }}
-                <AiMenu v-if="dev_mode == 'true'"/>
               </v-label>
 
               <!--            <v-textarea variant="outlined" rows="4" auto-grow-->
               <!--                        shaped row-height="25" v-model="work.responsibilities" :placeholder="t('Resumes.experiences.placeholders.responsibilities')"-->
               <!--                        color="primary"></v-textarea>-->
               <tip-tap v-model="work.responsibilities"/>
+            </v-col>
+            <v-col cols="12" md="12" class="py-0">
+              <v-label class="my-2 font-weight-medium">{{ $t('Resumes.experiences.placeholders.environment') }}
+              </v-label>
+
+
+              <TipTap is-editable
+                  v-model="work.environnement"
+
+              ></TipTap>
             </v-col>
           </v-row>
 

@@ -17,6 +17,7 @@ import AppLoader from '@/components/shared/AppLoader.vue';
 import PageHeader from '@/components/shared/PageHeader.vue';
 import LoadingFlash from '@/components/shared/LoadingFlash.vue';
 import ResumeGallery from '@/components/base-cv/ResumeGallery.vue';
+import BaseResume from '@/components/base-cv/my-base-resume/BaseResume.vue';
 
 
 const { t } = useI18n();
@@ -220,7 +221,7 @@ onMounted(async () => {
 
         <!--        loading-->
         <div v-if="loading" style="min-height: 580px" class="d-flex align-center justify-center">
-            <LoadingFlash size="60" text="Loading Profile..." />
+            <LoadingFlash :size="60" text="Loading Profile..." />
         </div>
 
 
@@ -228,6 +229,9 @@ onMounted(async () => {
         <div class="" v-else-if="baseStore.resumeData">
             <!--            resume gallery-->
             <ResumeGallery />
+
+<!--            My resume-->
+            <BaseResume  />
         </div>
 
         <div v-else class="no-cv-found d-flex mt-14 pa-3 flex-column align-center">
@@ -267,6 +271,7 @@ onMounted(async () => {
                 inspired by Salim
             </div>
         </div>
+
     </div>
 
     <!--import cv dialog -->

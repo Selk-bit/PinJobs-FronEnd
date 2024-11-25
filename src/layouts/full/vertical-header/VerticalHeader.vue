@@ -17,18 +17,18 @@ const customizer = useCustomizerStore();
       height 64-->
     <v-app-bar elevation="0" height="38" color="background" id="top">
         <!--      Top app bar-->
-        <v-btn
-            class="hidden-md-and-down"
-            icon=""
-            color="primary"
-            variant="text"
-            v-if="!mobile"
-            @click.stop="customizer.SET_MINI_SIDEBAR(!customizer.mini_sidebar)"
-        >
-            <v-icon size="27">mdi-sort-variant</v-icon>
-        </v-btn>
-    <v-btn  v-else class="hidden-lg-and-up" icon variant="text" @click.stop="customizer.SET_SIDEBAR_DRAWER" size="small">
-      <v-icon size="27">mdi-sort-variant</v-icon>
+<!--        <v-btn-->
+<!--            class="hidden-md-and-down"-->
+<!--            icon=""-->
+<!--            color="primary"-->
+<!--            variant="text"-->
+<!--            v-if="!mobile"-->
+<!--            @click.stop="customizer.SET_MINI_SIDEBAR(!customizer.mini_sidebar)"-->
+<!--        >-->
+<!--            <v-icon size="27">mdi-sort-variant</v-icon>-->
+<!--        </v-btn>-->
+    <v-btn  color="primary"  v-if="$vuetify.display.mobile" icon variant="text" @click.stop="customizer.SET_SIDEBAR_DRAWER" size="small">
+      <v-icon size="27">mdi-menu</v-icon>
     </v-btn>
         <!--    <v-tooltip text="Model settings" v-if="$route.name == 'create-model'">-->
         <!--      <template v-slot:activator="{ props }">-->

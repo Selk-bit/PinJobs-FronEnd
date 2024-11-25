@@ -29,7 +29,7 @@ const DARK_GREEN_THEME: ThemeTypes = {
         inputBorder: '#444b54', // Muted gray for input borders
         containerBg: '#1e1e1e', // Darker container background
         // background: '#121212', // Very dark background color
-        background: '#1E201E', // Very dark background color
+        background: '#191919', // Very dark background color
         dark: '#000000', // Black for true dark elements
         hoverColor: '#333842', // Darker gray for hover effects
         surface: '#222629', // Dark surface color for components

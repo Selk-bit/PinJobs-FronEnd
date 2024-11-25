@@ -117,11 +117,14 @@ const MainRoutes = {
             component: async () => await import('@/views/CvEditorView.vue')
         },
         //     import data options
-           {
+        {
             name: 'testing',
             path: 'testing',
             component: () => import('@/components/PageTest.vue')
         },
+
+
+
 
     ]
 };
