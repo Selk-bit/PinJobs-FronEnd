@@ -55,7 +55,6 @@
 import { ref } from 'vue';
 import AppLoader from '@/components/shared/AppLoader.vue';
 
-const loading = ref(false);
 import { useRouter } from 'vue-router';
 import { getPrimary } from '@/utils/UpdateColors';
 import GalleryCard from '@/components/base-cv/resume-gallery/GalleryCard.vue';
@@ -65,6 +64,7 @@ import onyx from '/public/assets/images/templates/onyx.jpg';
 import pikachu from '/public/assets/images/templates/pikachu.jpg';
 
 const router = useRouter();
+const loading = ref(false);
 
 function generateFromScratch() {
     // app_loading.value = true;

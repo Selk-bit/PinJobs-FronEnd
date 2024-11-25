@@ -137,7 +137,7 @@ onMounted(async () => {
                                 :formations="resumeData.educations?.length || 0"
                                 :skills="resumeData.skills?.length || 0"
                                 :experiences="resumeData.work?.length || 0"
-                                :years-of-experience="resumeData.yoe || 0"
+                                :years-of-experience="resumeData.yoe || ''"
                 />
             </v-window-item>
             <v-window-item :value="2">

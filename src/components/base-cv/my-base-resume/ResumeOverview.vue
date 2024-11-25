@@ -93,7 +93,7 @@ defineProps<{
     formations: number;
     skills: number;
     languages: number;
-    yearsOfExperience: number;
+    yearsOfExperience: string;
 }>();
 
 </script>
