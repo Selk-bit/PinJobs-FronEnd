@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useModelStore } from '@/stores/model';
 import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { Model, Template } from '@/types/model';
@@ -9,6 +8,7 @@ import { useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useResumeStore } from '@/stores/resume';
 import { useBaseCvStore } from '@/stores/base-cv';
+import { useModelStore } from '@/stores/model';
 
 
 const modelStore = useModelStore();
@@ -33,35 +33,7 @@ const identity = computed(() => {
     return model.value.templateData.identity;
 });
 
-async function createModel() {
-    if (model.value.language == null || model.value.language == '') {
-        toast.error('Language empty');
-    } else if (model.value.name == null || model.value.name == '') {
-        toast.error('Name empty');
-    } else if (!isShowName.value && (!compReference.value) && identity.value == 'reference') {
-        toast.error('Reference  empty');
-    } else {
-        try {
-            console.log(model.value.language);
-            loading.value = true;
-            await modelStore.CREATE_TEMPLATE({
-                name: model.value.name,
-                language: model.value.language,
-                reference: model.value.reference,
-                clientProfileId: authStore.user.clientProfileId,
-                templateData: model.value.templateData
-            });
 
-            toast.success(t('Models.creation.register.modelCreated'));
-            await router.push({ name: 'models-consultation' });
-            loading.value = false;
-        } catch (e: any) {
-            console.log(e.response.data.message.toString());
-            loading.value = false;
-            toast.error(e.response.data.message.toString());
-        }
-    }
-}
 
 async function editCV() {
     const { resume } = storeToRefs(resumeStore);

@@ -1,22 +1,10 @@
-import {defineStore} from 'pinia';
-import type {User} from "@/types/user";
-import {router} from '@/router';
-import {
-    getCurrentUser, getUserById,
-} from "@/api/user";
-import endpoints from "@/api/endpoints";
-import Api from "@/api/api";
-import {
-    changeUserPassword,
-    login,
-    logout,
-    register,
-    resetPassword,
-    resetPasswordRequest,
-    verifyAccount
-} from '@/api/auth';
-import type {RegistrationForm} from "@/types/auth";
-import type {ChangePasswordDto} from "@/types/change-password-dto";
+import { defineStore } from 'pinia';
+import type { User } from '@/types/user';
+import { router } from '@/router';
+import { changeUserPassword, getCurrentUser } from '@/api/user';
+import { login, logout, register, resetPassword, resetPasswordRequest, verifyAccount } from '@/api/auth';
+import type { RegistrationForm } from '@/types/auth';
+import type { ChangePasswordDto } from '@/types/change-password-dto';
 
 
 export const useAuthStore = defineStore({
@@ -25,7 +13,6 @@ export const useAuthStore = defineStore({
         ({
             /*user: JSON.parse(localStorage.getItem('user')),*/
             user: {} as User,
-            current_user: {} as User,
             isLoggedIn: false,
             token: '',
 
@@ -35,7 +22,6 @@ export const useAuthStore = defineStore({
             try {
                 const data = await getCurrentUser();
                 this.user = data;
-                this.current_user = data;
                 return data;
             } catch (err) {
                 console.log(err);
@@ -43,8 +29,7 @@ export const useAuthStore = defineStore({
         },
         async CHANGE_PASSWORD(form:ChangePasswordDto) {
             try {
-                const data = await changeUserPassword(form);
-                return data;
+                return await changeUserPassword(form);
             } catch (err) {
                return Promise.reject(err);
             }
@@ -91,7 +76,7 @@ export const useAuthStore = defineStore({
         },
         async RESET_PASSWORD_REQUEST(email: string) {
             try {
-                const response = await resetPasswordRequest(email);
+                 await resetPasswordRequest(email);
                 await router.push({name: 'reset-password-request-success'});
             } catch (error: any) {
                 console.log(error);
@@ -102,7 +87,7 @@ export const useAuthStore = defineStore({
         },
         async RESET_PASSWORD(token: string, password: string, password_confirmation: string) {
             try {
-                const response = await resetPassword(token, password, password_confirmation);
+                 await resetPassword(token, password, password_confirmation);
                 await router.push({name: 'reset-password-success'});
 
             } catch (error: any) {

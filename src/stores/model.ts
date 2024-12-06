@@ -3,16 +3,7 @@ import {useI18n} from "vue-i18n";
 import {router} from '@/router';
 import type {Identity, Model, Page, Template, Theme, Typography} from "@/types/model";
 import {ref} from "vue";
-import {
-    createTemplate,
-    deleteTemplateById,
-    getTemplateById,
-    getTemplates,
-    getTemplatesByClientId,
-    updateTemplate
-} from "@/api/template";
-import type {ImportedTemplateDTO} from "@/types/imported-templates";
-import {getTemplateDraftByClientId, uploadDraft} from "@/api/imported-templates";
+
 
 const default_template: Template = {
     "name": '',
@@ -71,7 +62,7 @@ const default_template: Template = {
 }
 
 
-const dev_mode = import.meta.env.VITE_DEV_MODE;
+
 
 const templates = ref([
     'sydney',
@@ -80,9 +71,7 @@ const templates = ref([
     'blueprint',
     'onyx',
     'siliconValley',
-    // 'bronzor',
-    // 'chikorita',
-    // 'pikachu',
+
 ]);
 
 
@@ -91,7 +80,7 @@ export const useModelStore = defineStore({
     state: () => ({
         model: default_template as Template,
         selected: 'sydney',
-        templates: dev_mode == 'true' ? templates.value : templates.value.filter(item => item != 'bronzor'),
+        templates:  templates.value,
         models: [] as Template[],
         showCreateBtn: true,
         showTemplateSection: true,
@@ -119,71 +108,6 @@ export const useModelStore = defineStore({
         SetModel(item: Template) {
             this.model = {} as Template;
             this.model = item;
-        },
-        async GET_TEMPLATES() {
-            try {
-                const data = await getTemplates();
-                this.models = data;
-                return this.models;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async GET_TEMPLATE_BY_ID(id: string) {
-            try {
-                const data: Template = await getTemplateById(id);
-                return data;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async GET_ALL_BY_CLIENT_ID(id: string | undefined) {
-            try {
-                const data = await getTemplatesByClientId(id);
-                this.models = data;
-                return this.models;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async GET_TEMPLATE_DRAFT_BY_CLIENT_ID(id: string | undefined) {
-            try {
-                const data = await getTemplateDraftByClientId(id);
-                this.models = data;
-                return this.models;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async CREATE_TEMPLATE(template: Template) {
-            try {
-                const data = await createTemplate(template);
-                return data;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async UPDATE_TEMPLATE(template: Template, id: string | undefined) {
-            try {
-                const data = await updateTemplate(template, id);
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async UPLOAD_TEMPLATE(data: ImportedTemplateDTO) {
-            try {
-                const res = await uploadDraft(data);
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async DELETE_TEMPLATE(id: string) {
-            try {
-                const data = await deleteTemplateById(id);
-                return data;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
         },
     }
 });

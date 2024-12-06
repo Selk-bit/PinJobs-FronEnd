@@ -1,5 +1,5 @@
 <template>
-  <v-card class="resume-card" elevation="1">
+  <v-card class="resume-card" elevation="0">
     <v-row align="center" justify="space-between">
       <div class="d-flex align-center">
         <v-icon color="grey" class="mr-2">mdi-file</v-icon>

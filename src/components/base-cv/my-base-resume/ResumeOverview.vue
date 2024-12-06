@@ -11,7 +11,7 @@
         <!-- Cards Section -->
         <v-row class="mb-4 mt-2">
             <!-- New Order -->
-            <v-col cols="12" sm="12" md="4" lg="3">
+            <v-col cols="12" sm="12" md="4" >
                 <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
@@ -27,7 +27,7 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="12" md="4" lg="3">
+            <v-col cols="12" sm="12" md="4" >
                 <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
@@ -46,7 +46,7 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="12" md="4" lg="3">
+            <v-col cols="12" sm="12" md="4" >
                 <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 
@@ -63,7 +63,7 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="12" md="4" lg="3">
+            <v-col cols="12" sm="12" md="4" >
                 <v-card elevation="1" min-width="260" variant="elevated"
                         class=" overview-card d-flex flex-column align-start">
 

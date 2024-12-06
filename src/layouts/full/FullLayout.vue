@@ -49,13 +49,13 @@ const customizer = useCustomizerStore();
 
       <!--            <Customizer />-->
       <VerticalSidebarVue v-if="!customizer.setHorizontalLayout"/>
-<!--      <VerticalHeaderVue  v-if="!customizer.setHorizontalLayout"/>-->
+      <VerticalHeaderVue  v-if="!customizer.setHorizontalLayout && $vuetify.display.mobile"/>
       <!--            <HorizontalHeader v-if="customizer.setHorizontalLayout" />-->
       <!--            <HorizontalSidebar v-if="customizer.setHorizontalLayout" />-->
 
       <v-main>
 
-        <v-container fluid class="page-wrapper pb-sm-15 pb-10">
+        <v-container fluid class="page-wrapper pb-sm-15  pb-10">
           <div :class="customizer.boxed ? 'maxWidth' : ''">
             <RouterView/>
           </div>

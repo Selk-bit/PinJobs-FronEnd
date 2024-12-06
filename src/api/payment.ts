@@ -19,7 +19,7 @@ const createOrderWithPaypal = async (credits: number) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {
-        const response = await api().post(endpoints.API + '/top-up', {
+        const response = await api().post(endpoints.USERS + '/top-up', {
             credits
         },);
         return response.data;
@@ -32,7 +32,7 @@ const captureOrderWithPaypal = async (orderId: string) => {
     const authStore = useAuthStore();
     const token = authStore.token;
     try {
-        const response = await api().post(endpoints.API + '/top-up-confirm', {
+        const response = await api().post(endpoints.USERS + '/top-up-confirm', {
             orderId
         },{
             headers: {

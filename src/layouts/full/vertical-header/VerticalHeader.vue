@@ -93,8 +93,6 @@ const customizer = useCustomizerStore();
         <!-- ---------------------------------------------- -->
         <!-- Notification -->
         <!--    <CreditBalance/>-->
-        <ThemeMenu />
-        <v-btn @click="$router.push('/testing')">testing</v-btn>
         <!-- ---------------------------------------------- -->
         <!--    <NotificationDD/>-->
         <!-- ---------------------------------------------- -->

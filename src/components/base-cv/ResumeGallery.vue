@@ -48,7 +48,7 @@
             </v-slide-group-item>
         </v-slide-group>
     </div>
-    <AppLoader :loading="loading" />
+
 </template>
 
 <script setup lang="ts">
@@ -67,8 +67,7 @@ const router = useRouter();
 const loading = ref(false);
 
 function generateFromScratch() {
-    // app_loading.value = true;
-    loading.value = true;
+
     router.push('/cv-editor');
 }
 

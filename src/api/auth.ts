@@ -4,41 +4,10 @@ import type { RegistrationForm } from '@/types/auth';
 import type { ChangePasswordDto } from '@/types/change-password-dto';
 import { useAuthStore } from '@/stores/auth';
 
-
-const resetPasswordRequest = async (email: string) => {
-    try {
-        const response = await api().post(endpoints.AUTH + '/forgot-password', {
-            email,
-        });
-        return response.data;
-    } catch (error: any) {
-        return Promise.reject(error);
-    }
-};
-
-const changeUserPassword = async (dto: ChangePasswordDto) => {
-    const authStore = useAuthStore();
-    try {
-        const response = await api().post(
-            endpoints.API + '/change-password/', 
-            {
-                old_password: dto.old_password,
-                new_password: dto.password,
-                confirm_password: dto.password_confirmation
-            },
-
-        );
-        return response.data;
-    } catch (error: any) {
-        return Promise.reject(error);
-    }
-};
-
-
 const login = async (username: string, password: string) => {
     try {
         // Send login request as JSON
-        return await api().post(endpoints.API + '/login/', {
+        return await api().post(endpoints.AUTH + '/login/', {
             identifier: username,
             password: password,
         }, );
@@ -65,7 +34,7 @@ const register = async (form: RegistrationForm) => {
 
     try {
         // Post the JSON payload to the Django backend API
-        return await api().post(endpoints.API + '/signup/', payload,);
+        return await api().post(endpoints.AUTH + '/signup/', payload,);
     } catch (error: any) {
         return Promise.reject(error);
     }
@@ -76,7 +45,7 @@ const logout = async () => {
     const authStore = useAuthStore();
 
     try {
-        const response = await api().post(endpoints.API + '/logout/', {
+        const response = await api().post(endpoints.AUTH + '/logout/', {
             access: authStore.token
         });
         return response;
@@ -84,6 +53,26 @@ const logout = async () => {
         return Promise.reject(error);
     }
 };
+
+
+
+
+
+const resetPasswordRequest = async (email: string) => {
+    try {
+        const response = await api().post(endpoints.AUTH + '/forgot-password', {
+            email,
+        });
+        return response.data;
+    } catch (error: any) {
+        return Promise.reject(error);
+    }
+};
+
+
+
+
+
 
 
 const resetPassword = async (token: string, password: string, password_confirmation: string) => {
@@ -114,7 +103,6 @@ export {
     resetPassword,
     login,
     verifyAccount,
-    changeUserPassword,
     logout,
     register,
 };

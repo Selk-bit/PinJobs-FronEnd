@@ -1,10 +1,8 @@
 import {defineStore} from 'pinia';
 import type {Job} from "@/types/job";
 import {
-    getJobs,
-    delete_job,
-    update_job_status
-} from "@/api/job";
+    getJobs, unFavoriteJob
+} from '@/api/job';
 
 import type {Language} from "@/types/language";
 
@@ -32,19 +30,13 @@ export const useJobStore = defineStore({
                 return Promise.reject(error);
             }
         },
-        async DELETE_JOB(job_id: any) {
+        async UNFAVORITE_JOB(job_id: number) {
             try {
-                await delete_job(job_id);
+                await unFavoriteJob(job_id);
             } catch (error) {
                 return Promise.reject(error);
             }
         },
-        async UPDATE_JOB_STATUS(job_id: any, status: any) {
-            try {
-                await update_job_status(job_id, status);
-            } catch (error) {
-                return Promise.reject(error);
-            }
-        },
+
     },
 },);

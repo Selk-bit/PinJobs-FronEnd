@@ -1,25 +1,13 @@
 <script setup lang="ts">
 import {notifications} from '@/_mockApis/headerData';
-import {useNotificationsStore} from "@/stores/notifications";
 import {storeToRefs} from "pinia";
 import {toast} from "vue-sonner";
 import {useI18n} from "vue-i18n";
 
 
 const {t} = useI18n();
-const notificationStore = useNotificationsStore();
-const {notifications} = storeToRefs(notificationStore);
 
-function clearNotifications() {
-  if(notifications.value.length > 0) {
-  notificationStore.clear();
-  const val = t('notifications.toasts.clearSuccess')
-  toast.success(val)
 
-  } else  {
-    return ;
-  }
-}
 
 </script>
 <template>
@@ -70,7 +58,7 @@ function clearNotifications() {
         </div>
       </perfect-scrollbar>
       <div class="py-4 px-6 text-center">
-        <v-btn color="primary" @click="clearNotifications" variant="outlined" block>{{
+        <v-btn color="primary" variant="outlined" block>{{
             $t('notifications.clear')
           }}
         </v-btn>

@@ -1,53 +1,58 @@
-import api from "@/api/api";
-import endpoints from "@/api/endpoints";
-import axios from "axios";
-import type {Language} from "@/types/language";
-import {useAuthStore} from '@/stores/auth';
+import api from '@/api/api';
+import endpoints from '@/api/endpoints';
 
-
-const base = import.meta.env.VITE_API_URL
-
-let axs = axios.create({baseURL: base, timeout: 50000,})
-
-  // src/api/job.ts
+// src/api/job.ts
 const getJobs = async (filters = {}, page: any) => {
-    const authStore = useAuthStore();
-    const token = authStore.token;
     try {
-      const queryParams = new URLSearchParams({
-        ...filters,
-        page: String(page), // ensure page is part of the query
-      }).toString();
-  
-      const response = await api().get(`${endpoints.API}/candidate-jobs/?${queryParams}`,);
-      return response.data;  // includes next, previous, and results for pagination
-    } catch (error: any) {
-      return Promise.reject(error);
-    }
-  };
-  
+        const queryParams = new URLSearchParams({
+            ...filters,
+            page: String(page) // ensure page is part of the query
+        }).toString();
 
-  const delete_job = async (job_id: any) => {
-    const authStore = useAuthStore();
-    const token = authStore.token;
-    try {
-      await api().delete(`${endpoints.API}/jobsearches/${job_id}/delete/`, );
-    } catch (error) {
-      return Promise.reject(error);
+        const response = await api().get(endpoints.JOBS + `/all?${queryParams}`);
+        return response.data;  // includes next, previous, and results for pagination
+    } catch (error: any) {
+        return Promise.reject(error);
     }
-  };
-  
-  const update_job_status = async (job_id: any, status: any) => {
-    const authStore = useAuthStore();
-    const token = authStore.token;
+};
+
+
+const unFavoriteJob = async (jobId: number) => {
+
     try {
-      await api().post(
-        `${endpoints.API}/jobsearches/${job_id}/update-status/`,
-        { status },
-      );
+        await api().delete(`${endpoints.JOBS}/favorites/${jobId}`);
     } catch (error) {
-      return Promise.reject(error);
+        return Promise.reject(error);
     }
-  };
-  
-  export { getJobs, delete_job, update_job_status };
+};
+const getFavoriteJobs = async () => {
+
+    try {
+        await api().get(endpoints.JOBS + '/favorites/');
+    } catch (error) {
+        return Promise.reject(error);
+    }
+};
+const addJobToFavorites = async (job_id: number) => {
+
+    try {
+        await api().post(endpoints.JOBS + '/favorites/', {
+            job_id
+        });
+    } catch (error) {
+        return Promise.reject(error);
+    }
+};
+const getFavoriteJobSimilarityScores = async (job_id: any, status: any) => {
+
+    try {
+        await api().post(
+            endpoints.JOBS+
+            `/favorites/scores/`,
+        );
+    } catch (error) {
+        return Promise.reject(error);
+    }
+};
+
+export { getJobs, getFavoriteJobs, unFavoriteJob,addJobToFavorites, getFavoriteJobSimilarityScores };

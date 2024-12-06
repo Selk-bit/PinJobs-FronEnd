@@ -6,22 +6,18 @@ import ResumeDownloadCard from '@/components/base-cv/my-base-resume/ResumeDownlo
 
 <template>
     <div>
-        <v-row>
-            <!-- Header -->
-            <v-col cols="12" class=" d-flex justify-space-between align-center mb-4 ">
-                <h2 class="text-h5 font-weight-bold mt-2 ml-3">My base resume</h2>
-                <!--                <v-btn variant="text" size="small" class="text-body-1">-->
-                <!--                    Options-->
-                <!--                    <v-icon class="ml-2">mdi-arrow-right</v-icon>-->
-                <!--                </v-btn>-->
-            </v-col>
-        </v-row>
+<!--        <v-row>-->
+<!--            &lt;!&ndash; Header &ndash;&gt;-->
+<!--            <v-col cols="12" class=" d-flex justify-space-between align-center mb-4 ">-->
+<!--                <h2 class="text-h5 font-weight-bold mt-2 ml-3">My base resume</h2>-->
+<!--            </v-col>-->
+<!--        </v-row>-->
 
         <v-row >
-            <v-col cols="12" lg="8">
+            <v-col cols="12" lg="12">
                 <ProfileHeader />
             </v-col>
-            <v-col cols="12" lg="8">
+            <v-col cols="12" lg="12">
                 <ResumeDownloadCard />
             </v-col>
 

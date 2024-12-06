@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import type { User } from '@/types/user';
-import { deleteUserById, getUsers, updateUser } from '@/api/user';
-import { getClientUsers } from '@/api/client';
+import {  updateUser } from '@/api/user';
+
 
 
 export const useUserStore = defineStore({
@@ -14,22 +14,7 @@ export const useUserStore = defineStore({
         }),
 
     actions: {
-        async GET_ALL_USERS() {
-            try {
-                this.users = await getUsers();
-                return this.users;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
-        async GET_CLIENT_USERS(clientId: string | undefined) {
-            try {
-                this.client_users = await getClientUsers(clientId);
-                return this.client_users;
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
+
         async UPDATE_USER(user: User, id: string) {
             try {
                 const data = await updateUser(user);
@@ -38,13 +23,7 @@ export const useUserStore = defineStore({
                 return Promise.reject(error);
             }
         },
-        async DELETE_USER(userId: string) {
-            try {
-                return await deleteUserById(userId);
-            } catch (error: any) {
-                return Promise.reject(error);
-            }
-        },
+
 
     },
 },);

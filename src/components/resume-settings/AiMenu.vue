@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import chatBot from "@/assets/images/illustrations/chat-bot.svg";
-import {useCandidateStore} from "@/stores/candidate";
-import {useResumeStore} from "@/stores/resume";
 import {useAuthStore} from "@/stores/auth";
 import {useI18n} from "vue-i18n";
 import {computed, ref} from "vue";
@@ -19,47 +17,12 @@ import {validateEmail} from "@/utils/helpers/validate-email";
 const active = ref<boolean>(false);
 const generating = ref<boolean>(false);
 const scrollableContent = ref<HTMLDivElement | null>(null);
-const candidateStore = useCandidateStore()
-const resumeStore = useResumeStore()
-const {summaries} = storeToRefs(candidateStore)
 const {t} = useI18n()
 
-function deleteSummary(summary: string) {
-  summaries.value = summaries.value.filter((summ) => summ.summary !== summary)
-}
 
 
-function PickSummary(summary: string) {
-  active.value = false;
-  summaries.value = [] as Summary[];
-  resumeStore.resume.summary = summary;
-  toast.info(t('Resumes.editor.summary.toast.updateSuccess'));
-}
 
-const summaryList = computed(() => {
-  return candidateStore.summaries;
-})
-const generate = async () => {
-  if (resumeStore.resume.email == '' || resumeStore.resume.email == null || !validateEmail(resumeStore.resume.email)) {
-    toast.warning(t('Resumes.editor.toasts.invalidEmail'));
-  } else {
-    try {
-      generating.value = true
-      let lang = candidateStore.lang;
-      let data = resumeStore.resume;
-      await sleep(1000)
-      scrollToBottom()
-      const res = await candidateStore.GENERATE_SUMMARY(data, lang as Language);
-      generating.value = false
-      await useAuthStore().GET_CURRENT_USER();
-    } catch (error: any) {
-      console.log(error)
-      generating.value = false
-      toast.error(t('Resumes.editor.summary.toast.error'));
-      return Promise.reject(error);
-    }
-  }
-}
+
 const scrollToTop = () => {
   if (scrollableContent.value) {
     scrollableContent.value.scrollTo({
@@ -122,7 +85,7 @@ const scrollToBottom = () => {
         <div class="scrollable-content  overflow-y-auto " ref="scrollableContent"
              :style="{minHeight: 'auto',border:`2px solid ${getPrimary}`,borderRadius: '15px'}">
           <v-row no-gutters>
-            <v-col cols="12" lg="12" md="12" data-aos="fade-up" v-if="summaryList?.length <=0">
+            <v-col cols="12" lg="12" md="12" data-aos="fade-up" >
               <div class="text-h4 text-center my-7">
                 <v-icon color="primary">mdi-creation</v-icon>
                 <div class="text-body-1">
@@ -133,13 +96,13 @@ const scrollToBottom = () => {
             <v-col cols="12" lg="12" md="12">
 
 
-              <SummaryAnswerCard :key="index"
-                                 :index="index"
-                                 @delete-summary="deleteSummary"
-                                 @pick-summary="PickSummary"
-                                 v-for="(summary,index) in summaryList"
-                                 :summary="summary"
-                                 :opening="t('Resumes.editor.summary.opening')"/>
+<!--              <SummaryAnswerCard :key="index"-->
+<!--                                 :index="index"-->
+<!--                                 @delete-summary="deleteSummary"-->
+<!--                                 @pick-summary="PickSummary"-->
+<!--                                 v-for="(summary,index) in summaryList"-->
+<!--                                 :summary="summary"-->
+<!--                                 :opening="t('Resumes.editor.summary.opening')"/>-->
             </v-col>
             <v-col cols="12" v-if="generating">
               <CardSkeleton
@@ -151,7 +114,7 @@ const scrollToBottom = () => {
         <v-card-item>
           <v-row>
             <v-col cols="12" class="d-flex justify-center">
-              <v-btn variant="text" @click="generate" :loading="generating">
+              <v-btn variant="text"  :loading="generating">
                 <v-icon class="mr-1">mdi-creation</v-icon>
                 {{ t('Resumes.editor.summary.generate') }}
               </v-btn>

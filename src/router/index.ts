@@ -17,11 +17,7 @@ export const router = createRouter({
         },
         MainRoutes,
         AuthRoutes,
-        {
-            name: 'update-data-by-candidate',
-            path: '/update-candidate/:candidateId',
-            component: () => import('@/views/personalisation/update-candidate/UpdateCandidateDetailsView.vue')
-        },
+
         {
             name: 'account-confirmation',
             path: '/account-confirmation/:id',

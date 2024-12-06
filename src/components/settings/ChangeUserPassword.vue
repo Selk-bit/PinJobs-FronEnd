@@ -89,7 +89,7 @@ async function changePassword() {
 </script>
 
 <template>
-  <v-card class="pa-6 mt-2">
+  <v-card class="pa-6 mt-2" elevation="0">
     <v-row>
       <v-col>
         <h2 class="mb-4">{{ t('Settings.security.changePassword.title') }}</h2>

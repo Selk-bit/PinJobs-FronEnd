@@ -1,6 +1,5 @@
 <template>
   <Toaster richColors closeButton :position="settingsStore.toast_position" duration="1500"/>
-
   <RouterView></RouterView>
 </template>
 
@@ -60,26 +59,26 @@ watch(route, () => {
   backdrop-filter: blur(8px); /* Adds a slight blur to the background for a modern look */
 }
 
-* {
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #1ABC9C;
-    border-radius: 20px;
-    background-clip: content-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #80f1d9;
-  }
-}
+//* {
+//
+//  ::-webkit-scrollbar {
+//    width: 10px;
+//  }
+//
+//  ::-webkit-scrollbar-track {
+//    background-color: transparent;
+//  }
+//
+//  ::-webkit-scrollbar-thumb {
+//    background-color: #1ABC9C;
+//    border-radius: 20px;
+//    background-clip: content-box;
+//  }
+//
+//  ::-webkit-scrollbar-thumb:hover {
+//    background-color: #80f1d9;
+//  }
+//}
 
 .ghost {
   opacity: 0.5;

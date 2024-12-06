@@ -1,48 +1,62 @@
 html {
-    .bg-success {
-        color: white !important;
-    }
+  .bg-success {
+    color: white !important;
+  }
 
-    .bg-primary {
-        color: $white !important;
-    }
+  .bg-primary {
+    color: $white !important;
+  }
 
-    .bg-secondary {
-        color: $white !important;
-    }
+  .bg-secondary {
+    color: $white !important;
+  }
 
-    .bg-warning,.bg-error {
-        color: $white !important;
-    }
+  .bg-warning, .bg-error {
+    color: $white !important;
+  }
 }
 
 .border,
 .v-divider {
-    border-color: rgba(var(--v-border-color), 1) !important;
+  border-color: rgba(var(--v-border-color), 1) !important;
 }
+
 .avtar-border {
-    border: 2px solid rgb(var(--v-theme-surface)) !important;
+  border: 2px solid rgb(var(--v-theme-surface)) !important;
 }
-.subtext{
-    font-size: $font-size-root;
-    line-height: 1.75rem;
+
+.subtext {
+  font-size: $font-size-root;
+  line-height: 1.75rem;
 }
+
 .border-right {
-    border-right: 1px solid rgba(var(--v-border-color), 1) !important;
+  border-right: 1px solid rgba(var(--v-border-color), 1) !important;
 }
 
 .bd {
-    border: 1px dashed blue;
+  border: 1px dashed blue;
 }
 
+//original
 .resume-page-container {
   width: 21cm;
   min-width: 21cm;
-  height: auto;
+  padding: 20px;
+  background-color: white;
   color: black;
   min-height: 29.7cm;
+  transition: transform 0.3s ease, padding 0.3s ease; /* Smooth animation for scaling and padding */
 }
 
+
+@media screen and (max-width: 768px) {
+  .resume-page-container {
+     //zoom: 0.4
+    //transform: scale(0.4); /* Adjust scale as needed */
+    //transform-origin: 0 center; /* Ensure scaling starts from the top-left corner */
+  }
+}
 
 * {
   text-transform: none; /* Make all text lowercase */

@@ -1,8 +1,8 @@
 const endpoints = {
-        API: 'api',
         AUTH: 'auth',
-        LOGOUT: 'auth/logout',
+        CVS_BASE:'cvs/base',
         USERS: 'users',
+        JOBS:'jobs',
         ROLES: 'roles',
         CANDIDATES:'candidates',
         CLIENTS: 'clients',

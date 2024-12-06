@@ -7,9 +7,9 @@ import {
     getCVData,
     getCVModel,
     importLinkedInProfile,
-    jobSearch,
+
     uploadCV
-} from '@/api/home';
+} from '@/api/base-cv';
 import type { Resume } from '@/types/resume';
 import type { Template } from '@/types/model';
 
@@ -41,19 +41,13 @@ export const useBaseCvStore = defineStore({
             }
         },
 
-        async createFromJobDescription(jobDescription: string) {
-            try {
-                this.resumeData = await createFromJobDescription(jobDescription);
-            } catch (error) {
-                console.error('Error creating CV from job description:', error);
-            }
-        },
 
         async getCVData() {
             try {
                 this.resumeData = await getCVData();
                 return this.resumeData;
             } catch (error) {
+                this.resumeData = {} as Resume;
                 console.error('Error getting CV data:', error);
             }
         },
@@ -64,9 +58,10 @@ export const useBaseCvStore = defineStore({
                 console.error('Error getting CV model:', error);
             }
         },
-        async deleteCV(cvId: number) {
+        async deleteCV() {
             try {
-                await deleteCV(cvId);
+                await deleteCV();
+
             } catch (error) {
                 console.error('Error deleting CV:', error);
             }
@@ -78,13 +73,7 @@ export const useBaseCvStore = defineStore({
             } catch (error) {
                 console.error('Error editing CV:', error);
             }
-        },
-        async jobSearch(candidate_data: any) {
-            try {
-                await jobSearch(candidate_data);
-            } catch (error) {
-                console.error('Error deleting CV:', error);
-            }
         }
+
     }
 });

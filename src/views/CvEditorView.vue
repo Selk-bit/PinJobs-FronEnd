@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, onMounted, ref, watch } from 'vue';
+import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
 import { useModelStore } from '@/stores/model';
 import { useDisplay } from 'vuetify';
 import { useI18n } from 'vue-i18n';
@@ -18,7 +18,8 @@ import type { Template } from '@/types/model';
 import ResumeSettings from '@/components/resume-settings/ResumeSettings.vue';
 import BaseBreadcrumb from '@/components/shared/BaseBreadcrumb.vue';
 import { useBaseCvStore } from '@/stores/base-cv';
-
+import AppLoader from '@/components/shared/AppLoader.vue';
+import { useWindowSize } from '@vueuse/core';
 // const drawer = ref(true)
 const settings = useSettingStore();
 const transform = ref({ x: 260, y: 20, scale: 0.7 });
@@ -26,14 +27,13 @@ const modelStore = useModelStore();
 const resumeStore = useResumeStore();
 const baseStore = useBaseCvStore();
 const cvData = ref<Resume>();
+const loading = ref<boolean>(false);
 const { mobile, sm, md, xs } = useDisplay();
 const { t } = useI18n();
 const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
 const tab = ref(false);
+const { width, height } = useWindowSize();
 
-function reset() {
-    transform.value = { x: 207, y: 12, scale: 0.7 };
-}
 
 const notice_for_dummy_data = ref(false);
 
@@ -321,62 +321,50 @@ onBeforeMount(async () => {
     modelStore.showTemplateSection = true;
 
     try {
+        loading.value = true;
         // Fetch CV data
         await baseStore.getCVData();
         if (baseStore.resumeData) {
             const mappedCVData = mapToResumeFormat(baseStore.resumeData);
             resumeStore.setResume(mappedCVData);
         }
-        // else {
-        //     resumeStore.setResume({ ...dummy_resume_data.value });
-        // }
 
         // Fetch CV model data
-        await baseStore.getCVModel();
-        if (baseStore.modelData) {
+        const cv = await baseStore.getCVModel();
+        if (cv) {
             modelStore.SetModel(baseStore.modelData);
-            // modelStore.SetTemplate(baseStore.modelData.templateData.template);
-            modelStore.selected = baseStore.modelData.templateData.template;
+            // modelStore.SetTemplate(baseStore.modelData.templateData?.template);
+            modelStore.selected = baseStore.modelData?.templateData?.template;
         } else {
             modelStore.SetModel({ ...default_create_model_data.value });
         }
 
     } catch (error) {
         console.error('Error loading CV data or model:', error);
-        resumeStore.setResume({
-            ...dummy_resume_data.value
-        });
-        modelStore.SetModel({ ...default_create_model_data.value });
+
+        // modelStore.SetModel({ ...default_create_model_data.value });
+    } finally {
+        loading.value = false;
+
     }
 });
 
 onMounted(async () => {
     let user: User = await useAuthStore().GET_CURRENT_USER();
-    toast.info('Les fausses données sont utilisées pour mieux visualiser les modifications apportées au modèle.', {
-        duration: 3000
-    });
-
+    // toast.info('Les fausses données sont utilisées pour mieux visualiser les modifications apportées au modèle.', {
+    //     duration: 3000
+    // });
 });
-
 
 </script>
 
 
 <template>
-    <div>
-        <div class="overflow-auto" v-if="!isDragModeActive">
-            <div class="resume-page-container mx-auto">
-                <component :is="modelComponents[modelStore.selected]"></component>
-            </div>
+    <div class="overflow-auto bd  " v-if="!loading">
+        <div class=" resume-page-container mx-auto"
+        >
+            <component class="mx-auto my-2 bd  " :is="modelComponents[modelStore.selected]"></component>
         </div>
-        <drag-zoom-container v-else class="resume-container elevation-0" v-model="transform">
-            <div class="d-flex justify-center align-center resume-page-container">
-
-                <component class="draggable" :zoom-range="{ max: 0.8, min: 0.5, step: 0.05}"
-                           :is="modelComponents[modelStore.selected]"></component>
-            </div>
-        </drag-zoom-container>
-
     </div>
     <v-navigation-drawer
         app
@@ -435,16 +423,7 @@ onMounted(async () => {
             </v-window-item>
         </v-window>
     </v-navigation-drawer>
-    <div class="panel text-primary px-4" v-if="!!isDragModeActive">
-        <v-btn icon="mdi-magnify-plus-outline" variant="plain" size="20" class="px-4"
-               @click="transform.scale += 0.05"></v-btn>
-        <v-btn class="px-4" icon="mdi-magnify-minus-outline" variant="text" size="20"
-               @click="transform.scale -= 0.05"></v-btn>
-        <v-btn class="px-4" size="20" icon="mdi-restart" variant="text" @click="reset"></v-btn>
-        <v-btn class="px-4" size="20" icon="mdi-menu" variant="text"
-               @click="settings.modelDrawer = !settings.modelDrawer"></v-btn>
-
-    </div>
+    <AppLoader :loading="loading" />
     <v-dialog v-model="notice_for_dummy_data" max-width="900" class="backdrop">
         <v-card class=" d-flex justify-center align-center ma-3 pa-4  my-6 flex-column" rounded="sm">
             <v-icon size="90" color="success">mdi-check-decagram</v-icon>
@@ -466,36 +445,21 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 
-.panel {
-    z-index: 200;
-    position: fixed;
-    border: 1px solid #212121;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: 0px;
-    height: 25px;
-    background-color: white;
-    width: auto;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    border-radius: 50px;;
-}
 
 .parent {
     position: absolute;
 }
 
-.resume-container {
-    border-width: 1px;
-    border-style: solid;
-    border-color: v-bind(getPrimary);
-    height: calc(100vh - 140px);
-    border-radius: 13px;
-    padding-left-right: 30px;
-
-    //min-height: 900px;
-}
+//.resume-container {
+//    border-width: 1px;
+//    border-style: solid;
+//    border-color: v-bind(getPrimary);
+//    height: calc(100vh - 140px);
+//    border-radius: 13px;
+//    padding-left-right: 30px;
+//
+//    //min-height: 900px;
+//}
 
 .draggable {
     position: relative;

@@ -29,10 +29,10 @@ const closeDeleteCVDialog = () => {
 async function deleteCvData() {
     try {
         loading.value = true;
-        await baseStore.deleteCV(baseStore.resumeData?.cv_id as number);
+        await baseStore.deleteCV();
         toast.success('Data deleted successfully');
         delete_dialog.value = false;
-        await baseStore.getCVData()
+        await baseStore.getCVData();
     } catch (err: any) {
         console.log('Error occured ', err);
     } finally {
@@ -80,22 +80,22 @@ onMounted(async () => {
             </v-col>
             <v-divider thickness="2" class="mx-4" />
             <!-- LinkedIn Button -->
-            <v-col cols="12" class=" my-2 d-flex justify-space-between ">
+            <v-col cols="12" class="  ay-2 d-flex justify-space-between ">
 
                 <div>
                     <v-btn prepend-icon="mdi-pencil-outline" variant="tonal" color="primary"
-                           class="mx-1 linkedin-button">
+                           class=" ma-1 linkedin-button">
                         Edit
                     </v-btn>
                     <v-btn prepend-icon="mdi-delete" variant="tonal" @click="delete_dialog = true " color="error"
-                           class="mx-1 linkedin-button">
+                           class=" ma-1 linkedin-button">
                         Delete
                     </v-btn>
-                    <v-btn prepend-icon="mdi-eye" variant="tonal" color="success" class="mx-1 linkedin-button">
+                    <v-btn prepend-icon="mdi-eye" variant="tonal" color="success" class=" ma-1 linkedin-button">
                         View
                     </v-btn>
                     <v-btn variant="tonal" prepend-icon="mdi-cloud-download" color="accent"
-                           class="mx-1 linkedin-button">
+                           class=" ma-1 linkedin-button">
                         Download
                     </v-btn>
                 </div>
@@ -107,10 +107,7 @@ onMounted(async () => {
             v-model="tab"
             color="primary"
         >
-            <v-tab :value="1">
-                <v-icon class="mr-1">mdi-ballot-outline</v-icon>
-                Overview
-            </v-tab>
+
             <v-tab :value="2">
                 <v-icon class="mr-1">mdi-school-outline</v-icon>
                 Education
