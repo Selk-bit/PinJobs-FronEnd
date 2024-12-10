@@ -17,6 +17,7 @@ import LoadingFlash from '@/components/shared/LoadingFlash.vue';
 import ResumeGallery from '@/components/base-cv/ResumeGallery.vue';
 import ImportLinkedIn from '@/components/base-cv/ImportLinkedIn.vue';
 import ImportFromScratch from '@/components/base-cv/ImportFromScratch.vue';
+import DocumentsView from '@/views/documents-view/DocumentsView.vue';
 
 
 const { t } = useI18n();
@@ -59,6 +60,7 @@ const logo = computed(() => {
 
 
 const app_loading = ref<boolean>(false);
+const tab = ref(1);
 
 
 onMounted(async () => {
@@ -75,9 +77,11 @@ onMounted(async () => {
     }
 });
 
+const linked = ref(false);
+
 const resumeBaseExist = computed(() => {
-    return !!baseStore.resumeData?.cv_id
-})
+    return !!baseStore.resumeData?.cv_id;
+});
 
 </script>
 
@@ -85,25 +89,7 @@ const resumeBaseExist = computed(() => {
 <template>
 
 
-    <div class="mx-3 mx-auto">
-
-        <!--        header-->
-        <PageHeader title="Resume Data Hub"
-                    subtitle="Seamlessly manage, update, and showcase your resume data with ease.">
-
-            <template v-slot:actions v-if="!!baseStore.resumeData">
-                <v-btn
-                    class="ml-auto mr-1"
-                    color="primary"
-                    large
-
-                    :block="$vuetify.display.mobile"
-                    outlined
-                >
-                    update resume
-                </v-btn>
-            </template>
-        </PageHeader>
+    <div class="mx-auto">
 
 
         <!--        loading-->
@@ -113,16 +99,15 @@ const resumeBaseExist = computed(() => {
 
 
         <!--        main-->
-        <div class="" v-else-if="resumeBaseExist">
+        <div v-else-if="resumeBaseExist">
             <!--            resume gallery-->
-            <ResumeGallery />
-
-
+            <DocumentsView />
         </div>
 
-        <div v-else class="no-cv-found d-flex mt-14 pa-3 flex-column align-center">
+        <div v-else style="min-height: 600px"
+             class="no-cv-found d-flex mt-14 pa-3 flex-column justify-center align-center">
             <!--            icon-->
-            <img :src="noBaseCv" height="170" alt="no base resume">
+            <img :src="noBaseCv" draggable="false" height="170" alt="no base resume">
             <!--            <v-icon size="80" color="grey100">mdi-file-document-outline</v-icon>-->
             <div class="text-h1 font-weight-light mt-8 text-grey100">
                 No base resume found
@@ -132,8 +117,8 @@ const resumeBaseExist = computed(() => {
             </div>
             <!--            Call to action-->
             <div class=" d-flex  flex-wrap justify-center ">
-                <ImportFromScratch />
-                <ImportLinkedIn />
+                <ImportFromScratch show-btn />
+                <ImportLinkedIn show-btn />
                 <v-btn variant="outlined"
                        @click="generateFromScratch"
                        class="ma-2" color="primary"

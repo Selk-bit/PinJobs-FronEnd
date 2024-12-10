@@ -1,22 +1,21 @@
 <script setup lang="ts">
 
 
-import { reactive, ref } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import AppLoader from '@/components/shared/AppLoader.vue';
 import { toast } from 'vue-sonner';
 import { useBaseCvStore } from '@/stores/base-cv';
-import {useI18n} from 'vue-i18n';
+import { useI18n } from 'vue-i18n';
 
-const baseStore = useBaseCvStore()
-const {t} = useI18n()
+const baseStore = useBaseCvStore();
+const { t } = useI18n();
 const openImportCvDialog = () => {
-    import_cv_dialog.dialog = true;
+    dialogState.value = true;
 };
-const app_loading = ref(false)
+const app_loading = ref(false);
 // upload functions and props
 const import_cv_dialog = reactive({
-    dialog: false,
     loading: false,
     dialogTitle: 'Submit Your Resume',
     dialogSubTitle: 'Upload your document in PDF, DOCX format to proceed.',
@@ -25,6 +24,29 @@ const import_cv_dialog = reactive({
     importText: 'Generate',
     notEnoughCredits: 'Not enough credits',
     errors: ''
+});
+
+
+interface IProps {
+    dialog?: boolean;
+    showBtn?: boolean;
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+    dialog: false,
+    showBtn: false
+});
+
+const dialogState = ref(props.dialog);
+
+const emits = defineEmits(['update:dialog']);
+
+watch(() => props.dialog, (newVal) => {
+    dialogState.value = newVal;
+});
+
+watch(dialogState, (newVal) => {
+    emits('update:dialog', newVal);
 });
 // import cv file
 const fileInput = ref<HTMLInputElement | null>(null);
@@ -48,7 +70,6 @@ function removeFile() {
 }
 
 
-
 async function importFile() {
     const fileName = file?.value?.name;
     if (useAuthStore().user.credits == 0) {
@@ -60,7 +81,7 @@ async function importFile() {
         import_cv_dialog.errors = t('Models.consultation.toasts.correctFormat');
     } else {
         try {
-            import_cv_dialog.dialog = false;
+            dialogState.value = false;
             app_loading.value = true;
 
             // import_cv_dialog.loading = true;
@@ -79,15 +100,16 @@ async function importFile() {
 </script>
 
 <template>
-<v-btn variant="outlined"
-                       class="ma-2"
-                       color="success"
-                       @click="openImportCvDialog"
-                       prepend-icon="mdi-file-document">
-                    Upload Resume
-                </v-btn>
+    <v-btn variant="outlined"
+           class="ma-2"
+           color="success"
+       v-if="showBtn"
+           @click="openImportCvDialog"
+           prepend-icon="mdi-file-document">
+        Upload Resume
+    </v-btn>
     <!--import cv dialog -->
-    <v-dialog v-model="import_cv_dialog.dialog" class="backdrop" width="700px" persistent>
+    <v-dialog v-model="dialogState" class="backdrop" width="700px" persistent>
         <v-card class="pa-2" rounded="lg">
             <v-card-title class="d-flex pa-3 text-wrap text-center align-center flex-column justify-space-between">
                 <div class="text-h4">{{ import_cv_dialog.dialogTitle }}</div>
@@ -134,7 +156,7 @@ async function importFile() {
 
             <!-- Actions Section -->
             <v-card-actions>
-                <v-btn color="primary" prepend-icon="mdi-arrow-left" @click="import_cv_dialog.dialog = false">
+                <v-btn color="primary" prepend-icon="mdi-arrow-left" @click="dialogState = false">
 
                     {{ import_cv_dialog.cancelText }}
                 </v-btn>
@@ -150,7 +172,7 @@ async function importFile() {
             </div>
         </v-card>
     </v-dialog>
-    <AppLoader :loading="app_loading"  is-logo/>
+    <AppLoader :loading="app_loading" is-logo />
 </template>
 
 <style scoped lang="scss">
@@ -171,7 +193,7 @@ async function importFile() {
 }
 
 
-.upload list
+.upload list,
 .file-list ul {
 
     list-style-type: none;

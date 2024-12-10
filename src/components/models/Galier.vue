@@ -16,7 +16,7 @@
           <div class="home_container section bd-grid">
 
             <div class="home_data bd-grid">
-              <!--<img alt="Icon picture" class="home_img" id="base-cv-img">-->
+              <!--<img alt="Icon picture" class="home_img" id="resume-view-img">-->
               <h1 class="home_title">LEA <b>GALLIER</b></h1>
               <h3 class="home_profession">Analyst developer</h3>
               <div>

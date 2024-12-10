@@ -1,4 +1,5 @@
 {
+  "rights": "© Pinjobs. All rights reserved.",
   "terms": {
     "preamble": {
       "title": "Terms and Conditions",
@@ -844,7 +845,7 @@
       },
       "agree": "Agree",
       "disagree": "Disagree",
-      "checkboxText": "By creating your account, you agree to our Terms of Use.",
+    "checkboxText": "I agree to the Terms of Use.",
       "requiredCreds": "Email and password are required",
       "createAccount": "Let's create your account",
       "successMessage": "Your gateway to success!",

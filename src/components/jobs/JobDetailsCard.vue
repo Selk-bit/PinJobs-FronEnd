@@ -78,19 +78,19 @@ const openMarkAsAppliedDialog = () => {
                         Apply
                     </v-btn>
                     <div class="similarity-score-container">
-                        <div class="similarity-bar-detailed"
-                             :style="{ width: job.job_search.similarity_score + '%' }"></div>
-                        <p class="similarity-score-detailed-text">{{ job.job_search.similarity_score
-                            }}%</p>
-                        <v-tooltip bottom v-if="job.job_search.status === 'applied'">
-                            <template v-slot:activator="{ on, attrs }">
-                                <v-icon small color="green" class="applied-check-details" v-bind="attrs"
-                                        v-on="on">
-                                    mdi-check-circle
-                                </v-icon>
-                            </template>
-                            <span>Applied</span>
-                        </v-tooltip>
+<!--                        <div class="similarity-bar-detailed"-->
+<!--                             :style="{ width: job.job_search.similarity_score + '%' }"></div>-->
+<!--                        <p class="similarity-score-detailed-text">{{ job.job_search.similarity_score-->
+<!--                            }}%</p>-->
+<!--                        <v-tooltip bottom v-if="job.job_search.status === 'applied'">-->
+<!--                            <template v-slot:activator="{ on, attrs }">-->
+<!--                                <v-icon small color="green" class="applied-check-details" v-bind="attrs"-->
+<!--                                        v-on="on">-->
+<!--                                    mdi-check-circle-->
+<!--                                </v-icon>-->
+<!--                            </template>-->
+<!--                            <span>Applied</span>-->
+<!--                        </v-tooltip>-->
                     </div>
                 </v-col>
             </v-row>

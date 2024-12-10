@@ -62,15 +62,16 @@ const sidebarItem: menu[] = [
     //     ]
     // },
     {
-        title: 'Home',
+        title: 'Resumes',
         icon: HomeIcon,
-        to: '/base-cv',
+        to: '/resumes',
 
     },
     {
         title: 'Jobs',
         icon: StarIcon,
         to: '/jobs',
+
 
     },
     // {

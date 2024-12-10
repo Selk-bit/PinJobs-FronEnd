@@ -1,4 +1,5 @@
 {
+  "rights": "© Pintalent. Tous droits réservés.",
   "terms": {
     "preamble": {
       "title": "Conditions Générales",
@@ -844,7 +845,7 @@
       },
       "agree": "Accepter",
       "disagree": "Refuser",
-      "checkboxText": "En créant votre compte, vous acceptez nos Conditions Générales d'Utilisation.",
+      "checkboxText": "J'accepte les Conditions d'utilisation.",
       "requiredCreds": "L'adresse électronique et le mot de passe sont requis",
       "createAccount": "Créons votre compte",
       "successMessage": "Votre porte d'entrée vers le succès !",

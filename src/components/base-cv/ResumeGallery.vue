@@ -1,67 +1,55 @@
 <template>
     <div>
-        <v-row>
-            <!-- Header -->
-            <v-col cols="12" class=" d-flex justify-space-between align-center mb-4 ">
-                <h2 class="text-h5 font-weight-bold mt-2 ml-3">Sample Resume</h2>
-                <v-btn variant="text" size="small" class="text-body-1">
-                    See All
-                    <v-icon class="ml-2">mdi-arrow-right</v-icon>
-                </v-btn>
-            </v-col>
-        </v-row>
 
-        <!-- Horizontal Scrollable Carousel -->
-        <v-slide-group show-arrows class="">
-            <!-- Create Blank Resume -->
-            <v-slide-group-item>
-                <v-card
-                    color="lightWhite"
-                    @click="generateFromScratch"
-                    elevation="0"
-                    class="ma-3  d-flex flex-column align-center justify-center cursor-pointer create-resume-card "
+
+        <!-- Responsive Resume Cards -->
+
+        <v-card class="pa-5 mt-10" elevation="0">
+            <v-row style="max-width: 1300px;" class=" mx-auto ">
+                <!-- Create Blank Resume Card -->
+                <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                    lg="3"
+                    class="d-flex justify-center"
                 >
-                    <v-icon size="48" class="text-primary">mdi-plus</v-icon>
-                    <div class="mt-2 text-center font-weight-medium text-body-1">
-                        Create Blank Resume
-                    </div>
-                </v-card>
-            </v-slide-group-item>
+                    <OptionsCard />
+                </v-col>
 
-            <!-- Resume Cards -->
-            <v-slide-group-item
-
-                v-for="resume in sample_resumes"
-                :key="resume.id"
-
-            >
-                <GalleryCard
-
-                    :title="resume.title"
-                    :image="resume.image"
-                    :key="resume.title"
-                    :usage-count="resume.usage_count"
-                    @select-model="loadSelectedModel"
+                <!-- Resume Cards -->
+                <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                    lg="3"
+                    v-for="resume in sample_resumes"
+                    :key="resume.id"
                 >
+                    <GalleryCard
+                        :title="resume.title"
+                        :image="resume.image"
+                        is-resume
+                        :usage-count="resume.usage_count"
+                        @select-model="loadSelectedModel"
+                    />
+                </v-col>
+            </v-row>
+        </v-card>
 
-                </GalleryCard>
-            </v-slide-group-item>
-        </v-slide-group>
     </div>
-
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppLoader from '@/components/shared/AppLoader.vue';
 
 import { useRouter } from 'vue-router';
-import { getPrimary } from '@/utils/UpdateColors';
 import GalleryCard from '@/components/base-cv/resume-gallery/GalleryCard.vue';
 import sydney from '/public/assets/images/templates/sydney.jpg';
 import os from '/public/assets/images/templates/os.jpg';
 import onyx from '/public/assets/images/templates/onyx.jpg';
 import pikachu from '/public/assets/images/templates/pikachu.jpg';
+import OptionsCard from '@/components/base-cv/resume-gallery/OptionsCard.vue';
 
 const router = useRouter();
 const loading = ref(false);
@@ -105,13 +93,6 @@ const sample_resumes = ref([
 
 <style>
 
-.create-resume-card {
-    text-align: center;
-    border-style: dashed;
-    height: 400px;
-    width: 290px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
 
 
 </style>

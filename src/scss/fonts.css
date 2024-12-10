@@ -42,9 +42,7 @@
 @import '@fontsource/fira-sans';
 @import '@fontsource-variable/rubik';
 @import '@fontsource/dm-mono';
-
-
-
+@import '@fontsource-variable/hanken-grotesk';
 
 
 .anton {
@@ -109,26 +107,31 @@
 }
 
 .ubuntu {
-      font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 
 }
 
 .jetbrains {
-      font-family: 'JetBrains Mono Variable', monospace;
+    font-family: 'JetBrains Mono Variable', monospace;
 
 }
 
 .fira {
-      font-family: 'Fira Sans', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 
 }
 
 .rubik {
-      font-family: 'Rubik Variable', sans-serif;
+    font-family: 'Rubik Variable', sans-serif;
 
 }
 
 .dm-mono {
-      font-family: 'DM Mono', monospace;
+    font-family: 'DM Mono', monospace;
 
+}
+
+
+.hanken {
+    font-family: 'Hanken Grotesk Variable', sans-serif;
 }

@@ -5,7 +5,6 @@ import { useJobStore } from '@/stores/job';
 import { toast } from 'vue-sonner';
 import CustomConfirmationDialog from '@/components/shared/CustomConfirmationDialog.vue';
 import '@vuepic/vue-datepicker/dist/main.css';
-import JobSearchForm from '@/components/jobs/JobSearchForm.vue';
 import JobCard from '@/components/jobs/JobCard.vue';
 import JobDetailsCard from '@/components/jobs/JobDetailsCard.vue';
 

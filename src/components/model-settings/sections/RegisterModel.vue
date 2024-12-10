@@ -40,7 +40,7 @@ async function editCV() {
     homeStore.editCV(resume.value, model.value)
         .then(() => {
             toast.success('CV Modified successfully.');
-            router.push({ name: 'base-cv' });
+            router.push({ name: 'resume-view' });
         })
         .catch((error) => {
             toast.error('Failed to modify CV.');
@@ -64,7 +64,7 @@ async function editCV() {
                 </v-btn>
             </v-col>
             <v-col>
-                <v-btn variant="outlined" color="primary" @click="$router.push({name:'base-cv'})"
+                <v-btn variant="outlined" color="primary" @click="$router.push({name:'resume-view'})"
                        block>
                     <!--      {{ $t('Models.creation.register.createModel') }}-->
                     Return to home

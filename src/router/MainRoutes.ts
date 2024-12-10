@@ -3,18 +3,27 @@ const MainRoutes = {
     meta: {
         requiresAuth: true
     },
-    redirect: '/base-cv',
+    redirect: '/resumes',
     // redirect: '/',
     component: () => import('@/layouts/full/FullLayout.vue'),
     children: [
 
         {
-            name: 'base-cv',
-            path: '/base-cv',
+            name: 'resumes',
+            path: '/resumes',
             meta: {
-                title: 'page.base-cv'
+                title: 'page.resumes'
             },
-            component: () => import('@/views/base-cv/BaseCvView.vue')
+            component: () => import('@/views/resume-view/ResumeView.vue')
+        },
+
+        {
+            name: 'select-template',
+            path: '/select-template',
+            meta: {
+                title: 'page.resumes'
+            },
+            component: () => import('@/views/template-view/SelectTemplateView.vue')
         },
 
         {
@@ -23,7 +32,7 @@ const MainRoutes = {
             meta: {
                 title: 'page.jobs'
             },
-            component: () => import('@/views/JobsView.vue')
+            component: () => import('@/views/jobs-view/JobsView.vue')
         },
         {
             name: 'buy-credits',
@@ -37,13 +46,13 @@ const MainRoutes = {
             meta: {
                 title: 'page.settings'
             },
-            component: () => import('@/views/UserSettingsView.vue')
+            component: () => import('@/views/settings-view/UserSettingsView.vue')
         },
 
         {
             name: 'support',
             path: 'support',
-            component: () => import('@/views/ContactSupport.vue')
+            component: () => import('@/views/contact-view/ContactSupport.vue')
         },
 
         //     pinjobs
@@ -53,16 +62,14 @@ const MainRoutes = {
             meta: {
                 title: 'page.editor'
             },
-            component: async () => await import('@/views/CvEditorView.vue')
+            component: async () => await import('@/views/cv-editor-view/CvEditorView.vue')
         },
 
         {
             name: 'testing',
             path: 'testing',
             component: () => import('@/components/PageTest.vue')
-        },
-
-
+        }
 
 
     ]

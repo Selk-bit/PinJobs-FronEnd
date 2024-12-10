@@ -11,7 +11,6 @@ const baseStore = useBaseCvStore();
 const import_linkedin = reactive({
     link: '',
     loading: false,
-    dialog: false,
     dialogTitle: 'Connect your LinkedIn profile',
     dialogSubTitle: 'Effortlessly import your professional details and let your experience speak for itself.',
     cancelText: 'Cancel',
@@ -21,8 +20,31 @@ const import_linkedin = reactive({
     errors: ''
 });
 
+interface IProps {
+    dialog?: boolean;
+    showBtn?: boolean;
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+    dialog: false,
+    showBtn: false
+});
+
+const dialogState = ref(props.dialog);
+
+const emits = defineEmits(['update:dialog']);
+
+watch(() => props.dialog, (newVal) => {
+    dialogState.value = newVal;
+});
+
+watch(dialogState, (newVal) => {
+    emits('update:dialog', newVal);
+});
+
+
 const openImportLinkedInDialog = () => {
-    import_linkedin.dialog = true;
+    dialogState.value = true;
 };
 
 
@@ -41,8 +63,8 @@ async function generateFromLinkedIn() {
     } catch (error) {
         import_linkedin.errors = 'Unknown error occured';
     } finally {
-        import_linkedin.loading = false;
-        import_linkedin.dialog = false;
+        dialogState.value = false;
+        dialogState.value = false;
     }
 }
 
@@ -51,11 +73,12 @@ async function generateFromLinkedIn() {
 <template>
     <!--    linkedin dialog-->
     <v-btn variant="outlined"
+           v-if="showBtn"
            @click="openImportLinkedInDialog"
            class="ma-2" color="info" prepend-icon="mdi-linkedin">
         Connect LinkedIn
     </v-btn>
-    <v-dialog v-model="import_linkedin.dialog" class="backdrop" width="700px" persistent>
+    <v-dialog v-model="dialogState" class="backdrop" width="700px" persistent>
 
         <v-card class="pa-2 " rounded="lg">
             <v-card-title class="d-flex pa-3 text-wrap text-center align-center flex-column justify-space-between">
@@ -79,7 +102,7 @@ async function generateFromLinkedIn() {
 
             <!-- Actions Section -->
             <v-card-actions>
-                <v-btn prepend-icon="mdi-arrow-left" color="primary" @click="import_linkedin.dialog = false">
+                <v-btn prepend-icon="mdi-arrow-left" color="primary" @click="dialogState = false">
                     {{ import_linkedin.cancelText }}
                 </v-btn>
                 <v-spacer></v-spacer>

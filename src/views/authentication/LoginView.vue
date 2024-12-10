@@ -67,10 +67,9 @@ onUnmounted(() => {
 
 <template>
   <div class="login-wrapper">
-    <v-card class="login-card">
+    <div class="login-card">
       <v-card-title class="justify-center">{{ t('auth.authText') }}</v-card-title>
 
-      <v-card-text>
         <v-form>
           <v-text-field
             v-model.trim="username"
@@ -116,8 +115,7 @@ onUnmounted(() => {
             {{ t('auth.register.signup') }}
           </v-btn>
         </div>
-      </v-card-text>
-    </v-card>
+    </div>
   </div>
 </template>
 
@@ -137,7 +135,7 @@ a {
 
 .login-card {
   width: 100%;
-  max-width: none; /* Remove fixed width */
+  max-width: 600px; /* Remove fixed width */
   padding: 2rem;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
   border-radius: 12px;

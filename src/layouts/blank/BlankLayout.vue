@@ -2,23 +2,31 @@
   <v-app class="blank" :theme="customizer.actTheme">
     <div class="d-flex pa-3 justify-space-between">
       <Logo/>
-      <ThemeMenu/>
+      <!--      <ThemeMenu/>-->
+      <ThemeToggle/>
     </div>
     <v-container fluid>
 
-      <div style="width:auto"
+      <v-row v-if="$vuetify.display.smAndDown">
+        <v-col cols="12" md="12" class="right-section   d-flex flex-column align-center justify-center">
+          <router-view/>
+          <div class="text-body-1 text-primary">
+            {{ t('rights') }}
+          </div>
+        </v-col>
+      </v-row>
+      <div style="width:auto" v-else
            class=" justify-center   my-auto  d-flex align-center ">
         <v-row align="center" justify="center" class="fill-height my-6 ">
-          <v-col cols="12" md="10" lg="8" xl="8">
+          <div>
+          </div>
+          <v-col cols="12" lg="9" md="12">
             <v-card class="elevation-0 mx-auto  login-card" rounded="xl">
-              <v-row dense class="justify-center d-flex">
+              <v-row class="justify-center d-flex">
                 <!-- Left Section with Gradient Background and Welcome Message -->
-                <v-col v-ripple cols="12" md="6"
-                       class="left-section  d-none d-md-flex flex-column align-center justify-center">
+                <v-col v-ripple cols="12" md="5"
+                       class="left-section   d-none d-md-flex flex-column align-center justify-center">
                   <div class="welcome-content text-center">
-                    <h3>
-                      {{ t('auth.blankLayout.niceToMeetYou') }}
-                    </h3>
                     <h1 class="welcome-title text-uppercase">
                       {{ t('auth.blankLayout.welcomeBack') }}
                     </h1>
@@ -27,9 +35,12 @@
                     </p>
                   </div>
                 </v-col>
-                <!-- Right Section with Login Form -->
-                <v-col cols="12" md="6" class="right-section   d-flex flex-column align-center justify-center">
+                <v-col cols="12" md="7" class="right-section   d-flex flex-column align-center justify-center">
                   <router-view/>
+
+                  <div class="text-body-1 mb-3 text-primary">
+                    {{ t('rights') }}
+                  </div>
                 </v-col>
               </v-row>
             </v-card>
@@ -42,30 +53,38 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from 'vue';
+import {computed, onMounted, ref} from 'vue';
 import {useI18n} from "vue-i18n";
 import Logo from '@/layouts/full/logo/LogoDark.vue';
 import LanguageDD from "@/layouts/full/vertical-header/LanguageDD.vue";
 import ThemeMenu from "@/components/shared/ThemeMenu.vue";
 import {useCustomizerStore} from "@/stores/customizer";
 import {useSettingStore} from "@/stores/settings";
+import ThemeToggle from "@/components/shared/ThemeToggle.vue";
 
 
 const customizer = useCustomizerStore()
-const {t,locale} = useI18n()
+const {t, locale} = useI18n()
 const username = ref('');
 const password = ref('');
 const remember = ref(false);
 
-const onSubmit = () => {
-  console.log('Form submitted with:', {username: username.value, password: password.value, remember: remember.value});
-};
 
+const lang = computed(() => {
+  return navigator.language;
+})
 
-onMounted(()=> {
+onMounted(() => {
   // window.location.reload();
-  locale.value = useSettingStore().language;
-
+  if (navigator.language.startsWith("en")) {
+    // Do something if the language is English (e.g., "en", "en-GB", "en-US")
+    locale.value = useSettingStore().language = "en";
+  } else if (navigator.language.startsWith("fr")) {
+    locale.value = useSettingStore().language = "fr";
+    // Do something if the language is French (e.g., "fr", "fr-FR", "fr-CA")
+  } else {
+    locale.value = useSettingStore().language;
+  }
 })
 </script>
 

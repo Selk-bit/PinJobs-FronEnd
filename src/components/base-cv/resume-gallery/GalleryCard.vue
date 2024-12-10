@@ -1,63 +1,113 @@
 <script setup lang="ts">
 
-const emit = defineEmits(['select-model']);
+const emits = defineEmits(['select-model', 'rename', 'delete', 'edit', 'download']);
 
-const props = defineProps<{
+
+interface IProps {
     image: string;
     title: string;
+    isResume?: boolean;
+    isTemplate?: boolean;
     usageCount: string;
-}>();
+    isCount: boolean;
+
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+    isResume: false,
+    isTemplate: false,
+    isCount: false
+});
 </script>
 
 <template>
-    <v-card
-        density="compact"
-        color="lightWhite"
+    <div
         @click="$emit('select-model')"
-        outlined
-        class=" ma-3 pa-3 resume-card cursor-pointer "
-        elevation="0"
+        class="bg-surface   resume-card  cursor-pointer "
     >
         <!-- Image Section -->
-        <img :src="image"   class="resume-image" />
+        <img :src="image" class="resume-image" />
 
         <!-- Card Content -->
-        <div class="mt-3">
-            <h3 class="text-subtitle-1 font-weight-bold mb-1">
-                {{ title }}
-            </h3>
-            <div class="text-body-2 text-grey">
-                Chosen by {{ usageCount }} users
+        <div class="">
+            <div class="mt-3 ml-3  " v-if="isTemplate">
+                <h3 class="text-subtitle-1 font-weight-light mb-1">
+                    {{ title }}
+                </h3>
+                <div class="text-body-2 text-grey" v-if="isCount">
+                    Chosen by {{ usageCount }} users
+                </div>
+            </div>
+            <div class="mt-3 ml-3 d-flex justify-space-between    " v-if="isResume">
+                <h3 class="text-subtitle-1 font-weight-light mb-1">
+                    {{ title }}
+                </h3>
+                <div class="text-body-2 text-grey">
+                    <v-btn size="30" icon variant="plain">
+                        <v-avatar size="22">
+                            <v-icon class="text-primary">mdi-dots-horizontal</v-icon>
+                        </v-avatar>
+                        <v-menu activator="parent" eager>
+                            <v-list class="" rounded="lg" density="compact">
+                                <v-list-item rounded="md" value="action" @click="emits('rename')">
+                                    <v-list-item-title>
+                                        Rename
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-list-item rounded="md" value="action" @click="emits('download')">
+                                    <v-list-item-title>
+                                        Download
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-list-item rounded="md" value="action" @click="emits('edit')">
+                                    <v-list-item-title>
+                                        Edit
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-divider />
+                                <v-list-item rounded="md" value="action" @click="emits('delete')">
+                                    <v-list-item-title class="text-error">
+                                        Delete
+                                    </v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                    </v-btn>
+                </div>
             </div>
         </div>
-    </v-card>
+    </div>
 </template>
 
 <style scoped lang="scss">
 .resume-card {
-    height: 400px;
-    width: 300px;
+    //width: 90%; /* Or a fixed width like 300px */
+    max-width: 373px; /* Optional max width for larger screens */
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
+    margin: 5px;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s, box-shadow 0.3s;
+    //box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .resume-card:hover {
-    transform: translateY(-4px);
+    //transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .resume-image {
-    height: 310px;
-   //object-fit: cover;
-    border-bottom: 1px solid #e0e0e0;
-    margin: 1px;
-    border-radius: 23px;
+    aspect-ratio: 3/4.1;
+    max-height: 410px;
+    min-width: 120px;
+    border-radius: 10px;
 }
 
 .create-resume-card:hover {
-    transform: translateY(-4px);
+    //transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 

@@ -1,4 +1,4 @@
-// store/base-cv.ts
+// store/resume-view.ts
 import { defineStore } from 'pinia';
 import {
     createFromJobDescription,
@@ -14,7 +14,7 @@ import type { Resume } from '@/types/resume';
 import type { Template } from '@/types/model';
 
 export const useBaseCvStore = defineStore({
-    id: 'pinjobs-base-cv-store',
+    id: 'pinjobs-resume-view-store',
 
     state: () => ({
         resumeData: {} as Resume,
