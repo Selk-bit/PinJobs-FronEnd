@@ -1,12 +1,12 @@
 const endpoints = {
         AUTH: 'auth',
+        TEMPLATES: 'templates',
         CVS_BASE:'cvs/base',
+        CVS:'cvs',
         USERS: 'users',
         JOBS:'jobs',
         ROLES: 'roles',
-        CANDIDATES:'candidates',
         CLIENTS: 'clients',
-        TEMPLATES: 'templates',
         IMPORTED_TEMPLATES:'imported-templates',
         NOTIFICATIONS: '/notifications/extractions',
         CONTACT:'/contact'

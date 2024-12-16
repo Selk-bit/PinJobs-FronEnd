@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
+
 import {useResumeStore} from "@/stores/resume";
 import {computed,} from "vue";
 import {storeToRefs} from 'pinia';
 import type {Resume, Skill} from "@/types/resume";
 
-const modelStore = useModelStore();
+
 const resumeStore = useResumeStore();
 
-const model = modelStore.model;
-const {resume, candidateSelected} = storeToRefs(resumeStore);
+const model = resumeStore.model;
+const {resume } = storeToRefs(resumeStore);
 
 const fontSize = computed(() => {
-  return model.templateData.typography.size + 'px';
+  return model.templateData?.typography.size + 'px';
 })
 const lineHeight = computed(() => {
-  return model.templateData.typography.lineHeight;
+  return model.templateData?.typography.lineHeight;
 })
 
 const primaryColor = computed(() => {
-  return model.templateData.theme.primary;
+  return model.templateData?.theme.primary;
 })
 
 
 const textColor = computed(() => {
-  return model.templateData.theme.text;
+  return model.templateData?.theme.text;
 })
 const setFormat = computed(() => {
-  if (model.templateData.page.format == 'a4') {
+  if (model.templateData?.page.format == 'a4') {
     return {width: 8.5 + 'in', height: 11 + 'in'};
   } else {
     return {width: 8.27 + 'in', height: 11.69 + 'in'};
@@ -36,26 +36,26 @@ const setFormat = computed(() => {
 })
 
 const setUnderlineLinks = computed(() => {
-  return model.templateData.typography.underlineLinks ? 'underline' : 'none';
+  return model.templateData?.typography.underlineLinks ? 'underline' : 'none';
 })
 
 
 const isShowName = computed(() => {
-  return model.templateData.personnel.name;
+  return model.templateData?.personnel.name;
 })
 
 
 const isShowPhone = computed(() => {
-  return model.templateData.personnel.phone;
+  return model.templateData?.personnel.phone;
 })
 
 const isHeadline = computed(() => {
-  return model.templateData.page.headline;
+  return model.templateData?.page.headline;
 })
 
 
 const isShowEmail = computed(() => {
-  return model.templateData.personnel.email;
+  return model.templateData?.personnel.email;
 })
 
 const yearsOfExperienceText = computed(() => {
@@ -65,7 +65,7 @@ const technicalEnvironmentText = computed(() => {
   return model.language === 'en' ? "Technical Environment" : "Environnement Technique";
 });
 const identity = computed(() => {
-  return model.templateData.identity;
+  return model.templateData?.identity;
 })
 
 const setModelReference = computed(() => {
@@ -88,7 +88,7 @@ const groupedSkills = computed(() => {
 </script>
 
 <template>
-  <div class="page" data-size="A4" :class="model.templateData.typography.family">
+  <div class="page" data-size="A4" :class="model.templateData?.typography.family">
     <div class="container">
       <div class="resume" v-if="resume">
 
@@ -103,9 +103,6 @@ const groupedSkills = computed(() => {
           <div class="full-name">
             <div v-if="isShowName">{{ resume.name }}</div>
             <div v-else>
-              <div class="mt-2 first-name text-h3" v-if="identity === 'reference'">
-                {{ setModelReference }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}
-              </div>
               <div class="mt-2 first-name" v-if="identity === 'alias'">
                 {{ resume?.alias }}
               </div>

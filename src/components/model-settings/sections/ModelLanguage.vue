@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
+import {useResumeStore} from "@/stores/resume";
 import {useI18n} from "vue-i18n";
 import { onMounted, ref} from "vue";
 import {useTheme} from "vuetify";
@@ -8,7 +8,7 @@ import type {Language} from "@/types/language";
 import {storeToRefs} from "pinia";
 
 const theme = useTheme();
-const modelStore = useModelStore();
+const modelStore = useResumeStore();
 const {model} = storeToRefs(modelStore)
 // const language = ref<Language>('');
 const {t} =useI18n()

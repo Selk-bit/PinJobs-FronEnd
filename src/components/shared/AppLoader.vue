@@ -19,9 +19,7 @@ const props = defineProps({
 
 const emits = defineEmits(['update:loading']);
 
-const closeDialog = () => {
-    emits('update:loading', false);
-};
+
 </script>
 
 <template>

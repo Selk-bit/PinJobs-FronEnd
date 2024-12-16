@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
-import { useModelStore } from '@/stores/model';
+import { computed, onBeforeMount, onMounted, ref } from 'vue';
 import { useDisplay } from 'vuetify';
 import { useI18n } from 'vue-i18n';
 import { modelComponents } from '@/models-imports';
 import { useResumeStore } from '@/stores/resume';
 import ModelSettings from '@/components/model-settings/ModelSettings.vue';
-import { DragZoomContainer, DragZoomItem } from 'vue3-drag-zoom';
-import type { Resume } from '@/types/resume';
+
+import type { Resume, ResumeType } from '@/types/resume';
 import { toast } from 'vue-sonner';
 import { getPrimary } from '@/utils/UpdateColors';
 import { useAuthStore } from '@/stores/auth';
@@ -17,15 +16,13 @@ import { validateLink } from '@/utils/helpers/validate-link';
 import type { Template } from '@/types/model';
 import ResumeSettings from '@/components/resume-settings/ResumeSettings.vue';
 import BaseBreadcrumb from '@/components/shared/BaseBreadcrumb.vue';
-import { useBaseCvStore } from '@/stores/base-cv';
 import AppLoader from '@/components/shared/AppLoader.vue';
 import { useWindowSize } from '@vueuse/core';
-// const drawer = ref(true)
+import { useRoute } from 'vue-router';
+
 const settings = useSettingStore();
 const transform = ref({ x: 260, y: 20, scale: 0.7 });
-const modelStore = useModelStore();
 const resumeStore = useResumeStore();
-const baseStore = useBaseCvStore();
 const cvData = ref<Resume>();
 const loading = ref<boolean>(false);
 const { mobile, sm, md, xs } = useDisplay();
@@ -33,9 +30,8 @@ const { t } = useI18n();
 const backBlazeUrl = ref(import.meta.env.VITE_BACKBLAZE_ENDPOINT);
 const tab = ref(false);
 const { width, height } = useWindowSize();
-
-
-const notice_for_dummy_data = ref(false);
+const route = useRoute();
+const resumeId = Number.parseInt(Array.isArray(route.params.id) ? route.params.id[0] : route.params.id);
 
 const logo = computed(() => {
     if (!useAuthStore().user.clientProfile?.logo) {
@@ -200,95 +196,34 @@ const dummy_resume_data = ref({
     'headline': 'Ingénieur Prod/Devops ',
     'summary': 'Développeur full-stack avec une forte expérience en conception et déploiement d\'applications web robustes. Compétent en JavaScript, Vue.js, Python, et NestJS, avec un engagement à créer des solutions de haute qualité pour les entreprises.'
 });
+const loadBaseFromScratch = async () => {
+    try {
+        loading.value = true;
+        await resumeStore.GET_BASE_CV_DATA();
+        resumeStore.setResume({
+            ...resumeStore.base?.cv_data,
+            interests: resumeStore.base?.cv_data.interests ?? []
+        });
+        resumeStore.setDefaultTemplate();
+    } catch (error) {
+        console.error('Error loading CV data or model:', error);
+    } finally {
+        loading.value = false;
 
-const default_create_model_data = ref<Template>({
-    'name': '',
-    'reference': null,
-    'language': 'fr',
-    'templateData': {
-        'identity': 'alias',
-        'template': 'sydney',
-        'company_logo': {
-            'url': logo.value as string,
-            'border': false,
-            'hidden': false,
-            'grayscale': false,
-            'size': 90,
-            'aspectRatio': 1,
-            'borderRadius': 50
-        },
-        'page': {
-            'margin': 12,
-            'format': 'a4',
-            'headline': true,
-            'summary': true,
-            'breakLine': false,
-            'pageNumbers': false
-        },
-        'certifications': {
-            'name': t('Models.creation.sections.certifications', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'education': {
-            'name': t('Models.creation.sections.education', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'experience': {
-            'name': t('Models.creation.sections.experience', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'volunteering': {
-            'name': t('Models.creation.sections.volunteering', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'interests': {
-            'name': t('Models.creation.sections.interests', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'languages': {
-            'name': t('Models.creation.sections.languages', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'projects': {
-            'name': t('Models.creation.sections.projects', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'references': { 'name': t('Models.creation.sections.references'), 'visible': true },
-        'skills': {
-            'name': t('Models.creation.sections.skills', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'social': {
-            'name': t('Models.creation.sections.social', '', { locale: modelStore.model.language }),
-            'visible': true
-        },
-        'theme': {
-            'background': '#fff',
-            'text': '#2C3E50 ',
-            'primary': '#16A085 '
-        },
-        'personnel': {
-            'name': true,
-            'phone': true,
-            'city': true,
-            'age': true,
-            'email': true
-        },
-
-        'typography': {
-            'family': 'open-sans',
-            'size': 16,
-            'lineHeight': 2,
-            'hideIcons': false,
-            'underlineLinks': false
-        }
     }
-});
+};
 
+const updateBaseResume = async () => {
+    try {
+        loading.value = true;
+        await resumeStore.EDIT_BASE_CV(resumeStore.resume, resumeStore.model);
+    } catch (error) {
+        console.error('Error loading CV data or model:', error);
+    } finally {
+        loading.value = false;
 
-const isDragModeActive = computed(() => {
-    return !mobile.value && settings.dragModel;
-});
+    }
+};
 
 function mapToResumeFormat(data: any): Resume {
     return {
@@ -304,6 +239,7 @@ function mapToResumeFormat(data: any): Resume {
         language: data.language || { language: '', level: '' },
         summary: data.summary || '',
         work: data.work || [],
+        template: {} as Template,
         educations: data.educations || [],
         projects: data.projects || [],
         certifications: data.certifications || [],
@@ -317,55 +253,29 @@ function mapToResumeFormat(data: any): Resume {
 }
 
 onBeforeMount(async () => {
-    modelStore.showCreateBtn = true;
-    modelStore.showTemplateSection = true;
 
-    try {
-        loading.value = true;
-        // Fetch CV data
-        await baseStore.getCVData();
-        if (baseStore.resumeData) {
-            const mappedCVData = mapToResumeFormat(baseStore.resumeData);
-            resumeStore.setResume(mappedCVData);
-        }
+    //
+    // if (resumeStore.resumeType == 'base-from-scratch') {
+    //     await loadBaseFromScratch();
+    // }
 
-        // Fetch CV model data
-        const cv = await baseStore.getCVModel();
-        if (cv) {
-            modelStore.SetModel(baseStore.modelData);
-            // modelStore.SetTemplate(baseStore.modelData.templateData?.template);
-            modelStore.selected = baseStore.modelData?.templateData?.template;
-        } else {
-            modelStore.SetModel({ ...default_create_model_data.value });
-        }
-
-    } catch (error) {
-        console.error('Error loading CV data or model:', error);
-
-        // modelStore.SetModel({ ...default_create_model_data.value });
-    } finally {
-        loading.value = false;
-
-    }
 });
 
-onMounted(async () => {
-    let user: User = await useAuthStore().GET_CURRENT_USER();
-    // toast.info('Les fausses données sont utilisées pour mieux visualiser les modifications apportées au modèle.', {
-    //     duration: 3000
-    // });
-});
+
+
+
 
 </script>
 
 
 <template>
-    <div class="overflow-auto bd  " v-if="!loading">
-        <div class=" resume-page-container mx-auto"
-        >
-            <component class="mx-auto my-2 bd  " :is="modelComponents[modelStore.selected]"></component>
-        </div>
-    </div>
+    {{resumeId}}
+<!--    <div class="overflow-auto bd  " v-if="!loading">-->
+<!--        <div class=" resume-page-container mx-auto"-->
+<!--        >-->
+<!--            <component class="mx-auto my-2   " :is="modelComponents[resumeStore.selected]"></component>-->
+<!--        </div>-->
+<!--    </div>-->
     <v-navigation-drawer
         app
         :location="settings.drawerPosition"
@@ -379,7 +289,13 @@ onMounted(async () => {
             density="compact"
             class="sticky-card  "
         >
-            <BaseBreadcrumb title="Cv editor" />
+            <div class="d-flex justify-space-between">
+                <BaseBreadcrumb class="bd" title="Cv editor" />
+                <div class="ma-3">
+                    <v-btn @click="updateBaseResume" color="primary" variant="tonal">save</v-btn>
+                </div>
+            </div>
+
 
             <v-tabs
 
@@ -424,23 +340,7 @@ onMounted(async () => {
         </v-window>
     </v-navigation-drawer>
     <AppLoader :loading="loading" />
-    <v-dialog v-model="notice_for_dummy_data" max-width="900" class="backdrop">
-        <v-card class=" d-flex justify-center align-center ma-3 pa-4  my-6 flex-column" rounded="sm">
-            <v-icon size="90" color="success">mdi-check-decagram</v-icon>
-            <div class="text-success text-h2 mb-4 ">
-                Success!
-            </div>
-            <v-row>
-                <v-col>
-                    <v-btn class="mt-4 mr-3" @click="notice_for_dummy_data = false" color="secondary" variant="outlined"
-                           rouned="xl">
-                        Fermer
-                    </v-btn>
-                </v-col>
-            </v-row>
 
-        </v-card>
-    </v-dialog>
 </template>
 
 <style scoped lang="scss">

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
 import {useI18n} from "vue-i18n";
 import {onMounted, ref, watch} from "vue";
 import type {CompanyLogo, Model,} from "@/types/model";
 import {storeToRefs} from "pinia";
+import { useResumeStore } from '@/stores/resume';
 
-const modelStore = useModelStore();
+const resumeStore = useResumeStore();
 const {t} = useI18n();
-const {model} = storeToRefs(modelStore)
+const {model} = storeToRefs(resumeStore)
 const rules = ref(
     {
       required: (value: string) => !!value || 'Field is required',
@@ -16,7 +16,7 @@ const rules = ref(
 )
 
 const updateFieldsBasedOnLanguage = () => {
-  const lang = modelStore.model.language;
+  const lang = resumeStore.model.language;
   model.value.templateData.skills.name = lang === 'en' ? 'Skills' : 'Compétences techniques';
   model.value.templateData.certifications.name = lang === 'en' ? 'Certifications' : 'Certifications';
   model.value.templateData.education.name = lang === 'en' ? 'Education' : 'Éducation';
@@ -29,7 +29,7 @@ const updateFieldsBasedOnLanguage = () => {
   model.value.templateData.social.name = lang === 'en' ? 'Social' : 'Compétences personnelles';
 };
 
-watch(() => modelStore.model.language, (newLang) => {
+watch(() => resumeStore.model.language, (newLang) => {
   updateFieldsBasedOnLanguage();
 });
 onMounted(() => {

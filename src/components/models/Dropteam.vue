@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
 import {useResumeStore} from "@/stores/resume";
 import {computed, onMounted} from "vue";
 import {storeToRefs} from 'pinia';
 import noise from "@/assets/images/backgrounds/noise.jpg"
 import type {Skill} from "@/types/resume";
 
-const modelStore = useModelStore();
 const resumeStore = useResumeStore();
 
 
-const model = modelStore.model;
-const {resume, candidateSelected} = storeToRefs(resumeStore);
+const model = resumeStore.model;
+const {resume, } = storeToRefs(resumeStore);
 
 const fontSize = computed(() => {
   return model.templateData.typography.size + 'px';
@@ -110,9 +108,6 @@ const groupedSkills = computed(() => {
           <h2 v-if="isHeadline" class="headline">{{ resume.headline }}</h2>
           <h2 class="name" v-if="isShowName">{{ resume.name }}</h2>
           <div v-else class="">
-            <h2 class="mt-2 first-name text-h3" v-if="identity == 'reference'">
-              {{ setModelReference }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}
-            </h2>
             <h2 class="mt-2 first-name " v-if="identity == 'alias'">
               {{ resume?.alias }}
             </h2>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
+import {useResumeStore} from "@/stores/resume";
 import {useI18n} from "vue-i18n";
 import {onMounted, ref} from "vue";
 import {useTheme} from "vuetify";
@@ -9,7 +9,7 @@ import CustomAlert from "@/components/shared/CustomAlert.vue";
 
 const {t} = useI18n()
 const theme = useTheme();
-const modelStore = useModelStore();
+const resumeStore = useResumeStore();
 const model = ref<Model>({} as Model);
 
 const fonts = ref([
@@ -37,7 +37,7 @@ const fonts = ref([
 
 
 onMounted(() => {
-  model.value = modelStore.model.templateData;
+  model.value = resumeStore.model.templateData;
 })
 </script>
 
@@ -53,7 +53,7 @@ onMounted(() => {
     <v-col cols="12" md="6" v-for="item in fonts" :key="item">
       <v-card class="py-3 text-center elevation-0 text-capitalize"
               :class="[model.typography?.family == item ? 'selected' : '',item]"
-              variant="outlined" @click="modelStore.SetFontFamily(item)">{{ item }}
+              variant="outlined" @click="resumeStore.setFontFamily(item)">{{ item }}
       </v-card>
     </v-col>
     <v-col cols="12" md="12" class="py-0" v-if="model.typography">

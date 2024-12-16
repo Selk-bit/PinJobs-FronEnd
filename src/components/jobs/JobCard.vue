@@ -46,8 +46,8 @@ const limitDescription = (description: string) => {
 
             <!-- Similarity Score Bar -->
             <div class="similarity-bar-wrapper">
-                <div class="similarity-bar" :style="{ width: job.job_search?.similarity_score + '%' }"></div>
-                <p class="similarity-score-text">{{ job.job_search?.similarity_score }}%</p>
+<!--                <div class="similarity-bar" :style="{ width: job.job_search?.similarity_score + '%' }"></div>-->
+                <p class="similarity-score-text">{{ // job.job_search?.similarity_score }}%</p>
             </div>
 
             <!-- Applied Status Icon -->
@@ -56,14 +56,14 @@ const limitDescription = (description: string) => {
                     <p class="posted-date">{{ job.posted_date || '30d+' }}</p>
                 </v-col>
                 <v-col>
-                    <v-tooltip bottom v-if="job?.job_search?.status === 'applied'">
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-icon small color="green" class="applied-check" v-bind="attrs" v-on="on">
-                                mdi-check-circle
-                            </v-icon>
-                        </template>
-                        <span>Applied</span>
-                    </v-tooltip>
+<!--                    <v-tooltip bottom v-if="job?.job_search?.status === 'applied'">-->
+<!--                        <template v-slot:activator="{ on, attrs }">-->
+<!--                            <v-icon small color="green" class="applied-check" v-bind="attrs" v-on="on">-->
+<!--                                mdi-check-circle-->
+<!--                            </v-icon>-->
+<!--                        </template>-->
+<!--                        <span>Applied</span>-->
+<!--                    </v-tooltip>-->
                 </v-col>
             </v-row>
         </v-card>

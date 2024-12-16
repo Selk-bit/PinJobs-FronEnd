@@ -13,21 +13,13 @@
 
 
 <style scoped lang="scss">
-.resume-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .resume-card {
     max-width: 373px;
-
-    //max-height: 410px;
     aspect-ratio: 3/3.7;
     padding: 16px;
     margin: 4px;
-
-    border-radius: 12px;
+    border-radius: 24px!important;
     border-color: #ff6666; /* Highlight border color */
     border-style: dashed;
     border-width: 1px;

@@ -8,7 +8,7 @@ import Typography from "@/components/model-settings/sections/Typography.vue";
 import Theme from "@/components/model-settings/sections/Theme.vue";
 import Page from "@/components/model-settings/sections/Page.vue";
 import RegisterModel from "@/components/model-settings/sections/RegisterModel.vue";
-import {useModelStore} from "@/stores/model";
+import {useResumeStore} from "@/stores/resume";
 import Personnel from "@/components/model-settings/sections/Personnel.vue";
 import ModelLanguage from "@/components/model-settings/sections/ModelLanguage.vue";
 
@@ -17,10 +17,10 @@ import ModelLanguage from "@/components/model-settings/sections/ModelLanguage.vu
 
 <template>
   <div class=" bg-surface elevation-0  pa-3 mr-2 overflow-y-auto">
-    <div v-if="useModelStore().showTemplateSection">
-      <Template/>
-      <Seperator/>
-    </div>
+<!--    <div v-if="useResumeStore().showTemplateSection">-->
+<!--      <Template/>-->
+<!--      <Seperator/>-->
+<!--    </div>-->
     <Logo/>
     <Typography/>
     <Seperator/>
@@ -34,7 +34,7 @@ import ModelLanguage from "@/components/model-settings/sections/ModelLanguage.vu
     <Seperator/>
     <Page/>
     <Seperator/>
-    <RegisterModel/>
+
   </div>
 
 </template>

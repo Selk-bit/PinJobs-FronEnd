@@ -1,6 +1,6 @@
 import api from '@/api/api';
 import endpoints from '@/api/endpoints';
-
+import type { Resume } from '@/types/resume';
 
 
 // Document upload function
@@ -9,6 +9,7 @@ export async function uploadCV(file: File) {
         const formData = new FormData();
         formData.append('files', file);
         const response = await api().post(endpoints.CVS_BASE + `/upload/`, formData, {});
+        console.log(response.data, 'DATA FROM RESPONSE UPLOAD BASE FILE');
         return response.data;
 
     } catch (error: any) {
@@ -39,63 +40,38 @@ export async function createFromJobDescription(jobDescription: string) {
     return response.data;
 }
 
-export async function getCVData() {
+export async function getBaseCVData() {
 
     try {
-        const response = await api().get(endpoints.CVS_BASE + `/cvdata/`);
+        const response = await api().get(endpoints.CVS_BASE);
         return response.data;
     } catch (error: any) {
         return Promise.reject(error);
     }
 }
 
-export async function getCVModel() {
-    try {
-        const response = await api().get(endpoints.CVS_BASE+`/template/`);
-        return response.data;
-    } catch (error: any) {
-        return Promise.reject(error);
-    }
-}
 
 export async function deleteCV() {
 
     try {
-        const response = await api().delete(endpoints.CVS_BASE +`/cvdata/`);
+        const response = await api().delete(endpoints.CVS_BASE + `/cvdata/`);
         return response.data;
-    }  catch (error: any) {
+    } catch (error: any) {
         return Promise.reject(error);
     }
 }
 
-export async function editCV(updatedData: any, updatedModel: any) {
-
-    let cvResponse, templateResponse;
-
+export async function editCV(cv_data: any, template: any) {
     try {
         // Update CV data request
-        cvResponse = await api().patch(endpoints.CVS_BASE+`/cvdata/`, updatedData);
-    }  catch (error: any) {
+        let response = await api().put(endpoints.CVS_BASE + '/', {
+            cv_data,
+            template
+        });
+
+        return response.data;
+    } catch (error: any) {
         return Promise.reject(error);
-    }
-
-    try {
-        // Update template data request
-        templateResponse = await api().post(endpoints.CVS_BASE+ `/template/`, updatedModel);
-    } catch (error) {
-        console.error('Error updating CV template:', error);
-
-        // If the CV data update was successful but the template update failed
-        if (cvResponse) {
-            throw new Error('CV data updated, but template update failed.');
-        } else {
-            throw new Error('Both CV data and template update failed.');
-        }
-    }
-
-    // Return success if both requests succeeded
-    if (cvResponse && templateResponse) {
-        return { message: 'CV and template updated successfully.' };
     }
 }
 

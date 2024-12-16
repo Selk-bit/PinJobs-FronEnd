@@ -48,7 +48,7 @@ import GalleryCard from '@/components/base-cv/resume-gallery/GalleryCard.vue';
 import sydney from '/public/assets/images/templates/sydney.jpg';
 import os from '/public/assets/images/templates/os.jpg';
 import onyx from '/public/assets/images/templates/onyx.jpg';
-import pikachu from '/public/assets/images/templates/pikachu.jpg';
+import pikachu from '/src/assets/images/templates/pikachu.jpg';
 import OptionsCard from '@/components/base-cv/resume-gallery/OptionsCard.vue';
 
 const router = useRouter();

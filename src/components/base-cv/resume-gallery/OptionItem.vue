@@ -26,7 +26,7 @@ const props = defineProps<IProps>();
     height: 100%;
     gap: 20px;
     color: #ff6666;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: 500;
 }
 

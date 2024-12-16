@@ -1,9 +1,12 @@
-export const default_create_model_data = {
+import type { Language } from '@/types/language';
+import type { Identity } from '@/types/model';
+
+export const default_model_data = {
     'name': '',
     'reference': null,
-    'language': 'en',
+    'language': 'en' as Language,
     'templateData': {
-        'identity': 'reference',
+        'identity': 'reference' as Identity,
         'template': 'sydney',
         'company_logo': {
             'url': '',

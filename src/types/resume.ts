@@ -1,4 +1,23 @@
 import type { Language as Lang } from '@/types/language';
+import type { Template } from '@/types/model';
+import type { Job } from '@/types/job';
+
+export type ResumeType = 'base-from-scratch' | 'base-from-import-data' | 'tailored-resume'
+
+export interface Cv {
+    id: number;
+    name: string;
+    original_file: string;
+    cv_type:string;
+    generated_pdf: string | null;
+    thumbnail: string | null;
+    cv_data: Resume; // Replace `any` with the actual type if available
+    job: Job | null; // Replace `any` with the actual type if available
+    template: Template; // Replace `any` with the actual type if available
+    created_at: string; // ISO 8601 date string
+    updated_at: string; // ISO 8601 date string
+}
+
 
 export interface Resume {
     cv_id?: number;
@@ -13,6 +32,7 @@ export interface Resume {
     city: string;
     language?: Lang;
     summary: string;
+    template: Template | null;
     work: Work[];
     educations: Education[];
     projects: Project[];

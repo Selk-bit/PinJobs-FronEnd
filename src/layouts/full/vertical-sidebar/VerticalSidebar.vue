@@ -10,7 +10,7 @@ import Logo from '../logo/Logo.vue';
 import { useAuthStore } from '@/stores/auth';
 import { DEFAULT_MODEL } from '@/utils/Constants';
 import type { Template } from '@/types/model';
-import { useModelStore } from '@/stores/model';
+import { useResumeStore} from '@/stores/resume';
 import { toast } from 'vue-sonner';
 import { useI18n } from 'vue-i18n';
 
@@ -24,7 +24,7 @@ const { mobile } = useDisplay();
 
 async function logOut() {
     loading.value = true;
-    useModelStore().assignModel(DEFAULT_MODEL as Template);
+    useResumeStore().setModel(DEFAULT_MODEL as Template);
     toast.success(t('auth.leave'));
     toast.dismiss();
     await authStore.LOGOUT();
@@ -53,7 +53,7 @@ const toggleTheme = () => {
         <perfect-scrollbar class="scrollnavbar ">
             <v-list class="py-6 px-4">
                 <!---Menu Loop -->
-                <template v-for="(item, i) in sidebarMenu">
+                <template v-for="(item) in sidebarMenu">
                     <!---Item Sub Header -->
                     <NavGroup :item="item" v-if="item.header" :key="item.title" />
                     <!---If Has Child -->

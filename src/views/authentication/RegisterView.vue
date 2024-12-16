@@ -10,6 +10,7 @@ import google from '@/assets/images/svgs/google-icon.svg';
 
 const authStore = useAuthStore();
 const loading = ref(false);
+const checkbox = ref(false);
 const show_password = ref(false);
 const { t } = useI18n();
 

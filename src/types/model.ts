@@ -1,4 +1,3 @@
-import type {ClientProfile} from "@/types/client-profile";
 import type {Language} from "@/types/language";
 
 

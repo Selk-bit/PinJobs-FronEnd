@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
-
-const modelStore = useModelStore();
 
 </script>
 
@@ -13,7 +10,7 @@ const modelStore = useModelStore();
       <div class="multicolumn">
         <p>We can use layout tools like Flexbox or Grid...</p>
         <p>to help us achieve custom layouts, like multiple columns.</p>
-        {{modelStore.model}}
+
       </div>
     </div>
   </div>

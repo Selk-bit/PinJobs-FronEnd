@@ -7,18 +7,15 @@ import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useResumeStore } from '@/stores/resume';
-import { useBaseCvStore } from '@/stores/base-cv';
-import { useModelStore } from '@/stores/model';
 
 
-const modelStore = useModelStore();
 const authStore = useAuthStore();
-const { model } = storeToRefs(modelStore);
+const resumeStore = useResumeStore();
+const { model } = storeToRefs(resumeStore);
 const { t } = useI18n();
 const router = useRouter();
 const loading = ref(false);
-const resumeStore = useResumeStore();
-const homeStore = useBaseCvStore();
+
 
 
 const compReference = computed(() => {
@@ -35,14 +32,14 @@ const identity = computed(() => {
 
 
 
-async function editCV() {
+async function editBAseCV() {
     const { resume } = storeToRefs(resumeStore);
-    homeStore.editCV(resume.value, model.value)
+    resumeStore.EDIT_BASE_CV(resume.value, model.value)
         .then(() => {
             toast.success('CV Modified successfully.');
             router.push({ name: 'resume-view' });
         })
-        .catch((error) => {
+        .catch((error:any) => {
             toast.error('Failed to modify CV.');
         });
 }
@@ -51,22 +48,17 @@ async function editCV() {
 </script>
 
 <template>
-    <!--  <v-col cols="12" md="12" class="py-0">-->
-    <!--    <v-label class="mb-2 font-weight-medium">{{ t('Models.creation.register.modelName') }}</v-label>-->
-    <!--    <v-text-field variant="outlined" :placeholder="t('Models.creation.register.modelName')" v-model="model.name"-->
-    <!--                  color="primary"></v-text-field>-->
-    <!--  </v-col>-->
-    <v-col cols="12" md="12" class="py-0 " v-if="useModelStore().showCreateBtn">
+
+    <v-col cols="12" md="12" class="py-0 " >
         <v-row>
             <v-col>
-                <v-btn variant="elevated" color="primary" @click="editCV()" :loading="loading" block>
+                <v-btn variant="elevated" color="primary"  :loading="loading" block>
                     Save
                 </v-btn>
             </v-col>
             <v-col>
                 <v-btn variant="outlined" color="primary" @click="$router.push({name:'resume-view'})"
                        block>
-                    <!--      {{ $t('Models.creation.register.createModel') }}-->
                     Return to home
                 </v-btn>
             </v-col>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
 import {useI18n} from "vue-i18n";
 import { onMounted, ref} from "vue";
 import {useTheme} from "vuetify";
 import type { Page,} from "@/types/model";
+import { useResumeStore } from '@/stores/resume';
 
 const theme = useTheme();
-const modelStore = useModelStore();
+const resumeStore = useResumeStore();
 const page = ref<Page>({} as Page);
 const {t} =useI18n()
 const fonts = ref([
@@ -28,7 +28,7 @@ const format = [
 
 
 onMounted(() => {
-  page.value = modelStore.model.templateData.page;
+  page.value = resumeStore.model.templateData.page;
 })
 </script>
 

@@ -24,8 +24,8 @@ export const router = createRouter({
             component: () => import('@/views/authentication/AccountConfirmation.vue')
         },
         {
-            name: 'candidate-resume',
-            path: '/candidate-resume',
+            name: 'resume-preview',
+            path: '/resume-preview/:id',
             component: () => import('@/views/CandidateResumeView.vue'),
             meta: {requiresAuth: false},
         },

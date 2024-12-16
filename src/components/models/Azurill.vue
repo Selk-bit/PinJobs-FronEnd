@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
+import {useResumeStore} from "@/stores/resume";
 
-const modelStore = useModelStore();
+const resumeStore = useResumeStore();
 
 </script>
 

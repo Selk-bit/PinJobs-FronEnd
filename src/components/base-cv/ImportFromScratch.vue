@@ -5,10 +5,13 @@ import { reactive, ref, watch } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import AppLoader from '@/components/shared/AppLoader.vue';
 import { toast } from 'vue-sonner';
-import { useBaseCvStore } from '@/stores/base-cv';
+import { useResumeStore } from '@/stores/resume';
 import { useI18n } from 'vue-i18n';
+import { router } from '@/router';
+import { default_model_data } from '@/utils/helpers/constants';
+import type { Resume } from '@/types/resume';
 
-const baseStore = useBaseCvStore();
+const baseStore = useResumeStore();
 const { t } = useI18n();
 const openImportCvDialog = () => {
     dialogState.value = true;
@@ -83,10 +86,10 @@ async function importFile() {
         try {
             dialogState.value = false;
             app_loading.value = true;
-
             // import_cv_dialog.loading = true;
-            await baseStore.uploadCV(file.value); // Send the request with homeStore
+            await baseStore.UPLOAD_BASE_CV(file.value); // Send the request with homeStore
             toast.success(t('Models.consultation.toasts.templateUploadSuccess'));
+            await router.push({ name: 'select-template' });
         } catch (err: any) {
             const errData = err.response?.data;
             console.error('Error uploading CV:', err);
@@ -100,14 +103,7 @@ async function importFile() {
 </script>
 
 <template>
-    <v-btn variant="outlined"
-           class="ma-2"
-           color="success"
-       v-if="showBtn"
-           @click="openImportCvDialog"
-           prepend-icon="mdi-file-document">
-        Upload Resume
-    </v-btn>
+
     <!--import cv dialog -->
     <v-dialog v-model="dialogState" class="backdrop" width="700px" persistent>
         <v-card class="pa-2" rounded="lg">

@@ -18,13 +18,32 @@ const MainRoutes = {
         },
 
         {
-            name: 'select-template',
-            path: '/select-template',
+            name: 'edit-cv',
+            path: '/edit-cv/:id',
             meta: {
-                title: 'page.resumes'
+                title: 'page.select-template'
             },
-            component: () => import('@/views/template-view/SelectTemplateView.vue')
+            component: () => import('@/views/edit-cv-view/EditCvView.vue'),
+            children: [
+                {
+                    name: 'select-template',
+                    path: 'select-template', // Default child route
+                    meta: {
+                        title: 'page.select-template'
+                    },
+                    component: () => import('@/views/edit-cv-view/children/SelectTemplateView.vue')
+                },
+                {
+                    name: 'cv-editor',
+                    path: 'cv-editor', // Nested under `/edit-cv/:id`
+                    meta: {
+                        title: 'page.editor'
+                    },
+                    component: async () => await import('@/views/edit-cv-view/children/CvEditorView.vue')
+                }
+            ]
         },
+
 
         {
             name: 'jobs',
@@ -56,18 +75,11 @@ const MainRoutes = {
         },
 
         //     pinjobs
-        {
-            name: 'cv-editor',
-            path: '/cv-editor',
-            meta: {
-                title: 'page.editor'
-            },
-            component: async () => await import('@/views/cv-editor-view/CvEditorView.vue')
-        },
+
 
         {
             name: 'testing',
-            path: 'testing',
+            path: '/testing/:operation?',
             component: () => import('@/components/PageTest.vue')
         }
 

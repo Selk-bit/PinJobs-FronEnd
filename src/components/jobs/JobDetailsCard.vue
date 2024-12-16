@@ -54,10 +54,10 @@ const openMarkAsAppliedDialog = () => {
                             class="dropdown-menu"
                         >
                             <ul class="dropdown-list">
-                                <li v-if="job.job_search.status !== 'applied'" class="dropdown-item"
-                                    @click="openMarkAsAppliedDialog">
-                                    Mark as Applied
-                                </li>
+<!--                                <li v-if="job.job_search.status !== 'applied'" class="dropdown-item"-->
+<!--                                    @click="openMarkAsAppliedDialog">-->
+<!--                                    Mark as Applied-->
+<!--                                </li>-->
                                 <li class="dropdown-item" @click="openDeleteJobDialog">
                                     Delete
                                 </li>

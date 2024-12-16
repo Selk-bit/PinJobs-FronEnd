@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useModelStore } from '@/stores/model';
+import { useResumeStore } from '@/stores/resume';
 import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { CompanyLogo, Model } from '@/types/model';
@@ -7,8 +7,8 @@ import { useAuthStore } from '@/stores/auth';
 import { storeToRefs } from 'pinia';
 
 const { t } = useI18n();
-const modelStore = useModelStore();
-const {templates, model, selected} = storeToRefs(modelStore)
+const modelStore = useResumeStore();
+const {layouts, model, selected} = storeToRefs(modelStore)
 const tab = ref(1);
 
 const draft = ref();
@@ -29,22 +29,22 @@ onMounted(async () => {
                         <v-icon>mdi-view-compact-outline</v-icon>
                         <h1 class="text-h2 font-weight-bold">{{ t('Models.creation.template.templateTitle') }}</h1>
                     </v-col>
-                    <v-col cols="12" md="6" lg="4" v-for="item in templates" :key="item">
+                    <v-col cols="12" md="6" lg="4" v-for="layout in layouts" :key="layout">
                         <v-card @click="()=> {
-             modelStore.SetTemplate(item);
-          model.templateData.template = item;
+             modelStore.selectLayout(layout);
+          model.templateData.template = layout;
         }" class=" template-image" rounded="rounded"
-                                :class="[selected == item ? 'template-image-selected' : '']"
+                                :class="[selected == layout ? 'template-image-selected' : '']"
                         >
                             <v-img
                                 :aspect-ratio="1 / 1.4142"
                                 class="bg-white cursor-pointer"
-                                :src="`/assets/images/templates/${item}.jpg`"
+                                :src="`/assets/images/templates/${layout}.jpg`"
                                 width="320"
                                 cover
                                 style="  border-radius: 5px;object-fit: fill;"
                             ></v-img>
-                            <div class="title text-capitalize">{{ item }} ({{selected == item}})</div>
+                            <div class="title text-capitalize">{{ layout }} ({{selected == layout}})</div>
                         </v-card>
                     </v-col>
                 </v-row>

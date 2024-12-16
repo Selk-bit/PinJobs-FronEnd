@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import {useModelStore} from "@/stores/model";
 import {useResumeStore} from "@/stores/resume";
 import {computed} from "vue";
 import {storeToRefs} from 'pinia';
 
 
-const modelStore = useModelStore();
 const resumeStore = useResumeStore();
 
 
-const model = modelStore.model;
-const {resume, candidateSelected} = storeToRefs(resumeStore);
+const model = resumeStore.model;
+const {resume} = storeToRefs(resumeStore);
 
 const fontSize = computed(() => {
   return model.templateData.typography.size + 'px';
@@ -187,9 +185,6 @@ const setModelReference = computed(() => {
         />
         <div class="name">
           <h1 v-if="isShowName">{{ resume.name }}</h1>
-          <h1 v-else class="text-h4 font-weight-semibold">{{
-              setModelReference
-            }}{{ candidateSelected.reference ? '-' + candidateSelected.reference : '' }}</h1>
           <div class="smallText" v-if="isHeadline">
             <h3>
               {{ resume.headline }}

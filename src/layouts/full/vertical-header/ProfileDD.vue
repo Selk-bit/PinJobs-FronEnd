@@ -4,7 +4,7 @@ import {profileDD} from '@/_mockApis/headerData';
 
 import {useAuthStore} from '@/stores/auth';
 import {computed, onMounted, ref} from "vue";
-import {useModelStore} from "@/stores/model";
+import {useResumeStore} from "@/stores/resume";
 import {storeToRefs} from "pinia";
 import {useI18n} from "vue-i18n";
 import {DEFAULT_MODEL} from "@/utils/Constants";
@@ -12,14 +12,14 @@ import {toast} from "vue-sonner";
 import type {Model, Template} from "@/types/model";
 
 const authStore = useAuthStore();
-const modelStore = useModelStore();
+const resumeStore = useResumeStore();
 const {t} = useI18n()
 const {user} = storeToRefs(authStore)
 const loading = ref(false);
 
 async function logOut() {
   loading.value= true
-  modelStore.assignModel(DEFAULT_MODEL as Template);
+  resumeStore.setModel(DEFAULT_MODEL as Template);
   toast.success(t('auth.leave'))
   toast.dismiss()
   await authStore.LOGOUT();
